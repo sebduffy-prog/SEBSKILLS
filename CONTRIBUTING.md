@@ -38,7 +38,7 @@ The `description` field is the trigger surface. Good descriptions:
 - **Mention adjacent/fuzzy cases** — *"trigger even if the user just says 'make the hero pop'"*
 - **Explicitly state skip conditions** when they matter — *"SKIP: file imports `openai`"*
 
-See [`skills/building-agents/writing-skills`](skills/building-agents/writing-skills) for deep guidance.
+See [`skills/building-agents/skill-creator`](skills/building-agents/skill-creator) for deep guidance.
 
 ## Before opening a PR
 

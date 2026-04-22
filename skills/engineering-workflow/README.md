@@ -31,6 +31,7 @@ start ────►│                  ├──► writing-plans ──► e
 | Skill | Trigger |
 |---|---|
 | [`karpathy-guidelines`](karpathy-guidelines) | Always — the four principles (think, simplify, surgical, goal-driven) |
+| [`autonomy-policy`](autonomy-policy) | At the start of every task — decides ACT vs ASK, governs when Claude proceeds autonomously vs. converses with the user |
 | [`brainstorming`](brainstorming) | Before creative work — intent + requirements first |
 | [`writing-plans`](writing-plans) | Multi-step task — draft the plan before code |
 | [`executing-plans`](executing-plans) | Execute a written plan with review checkpoints |

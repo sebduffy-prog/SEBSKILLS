@@ -1,0 +1,18 @@
+{
+  "$schema": "https://claude.ai/code/schema/settings.json",
+  "_comment": "Copy this to .claude/settings.json in any project that uses SEBSKILLS as a sibling repo or submodule. The harness auto-discovers SKILL.md files under any connected repo on Claude Code Web; this file exists mainly to set sensible project defaults alongside those skills.",
+
+  "permissions": {
+    "allow": [
+      "Bash(npm test*)",
+      "Bash(npm run build*)",
+      "Bash(npm run lint*)",
+      "Bash(npm run typecheck*)",
+      "Bash(pytest*)",
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git branch*)"
+    ]
+  }
+}
