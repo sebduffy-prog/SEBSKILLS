@@ -40,7 +40,9 @@ skills/
 └── media/                  → GIFs and other assorted media tooling
 ```
 
-**38 skills** across 6 categories. Each is self-contained, has a `SKILL.md`, and carries its original license where applicable.
+**48 skills** across 6 categories. Each is self-contained, has a `SKILL.md`, and carries its original license where applicable.
+
+Raw source material (upstream zip bundles and the original single-file `.skill` packages that have already been expanded into `skills/ui-effects/`) lives in [`raw-files/`](raw-files) and is not loaded by Claude.
 
 ---
 
@@ -92,6 +94,16 @@ skills/
 | [`liquid-glass-button`](skills/ui-effects/liquid-glass-button) | Apple-style frosted-glass button (pure CSS) |
 | [`rubiks-image-cube`](skills/ui-effects/rubiks-image-cube) | Interactive 3D Rubik's cube displaying image segments |
 | [`spectra-noise`](skills/ui-effects/spectra-noise) | Animated WebGL shader background (hue shift, warp, scanlines) |
+| [`aurora-gradient`](skills/ui-effects/aurora-gradient) | Drifting blurred multi-color gradient background (Framer → Backgrounds) |
+| [`magnetic-button`](skills/ui-effects/magnetic-button) | Button attracts toward cursor with spring snap-back (Framer → Buttons) |
+| [`infinite-marquee`](skills/ui-effects/infinite-marquee) | Seamless looping logo / testimonial strip (Framer → Carousels) |
+| [`animated-counter`](skills/ui-effects/animated-counter) | Number counts up on viewport entry with easing (Framer → Data) |
+| [`floating-label-input`](skills/ui-effects/floating-label-input) | Material/Stripe-style input with floating label + focus ring (Framer → Forms) |
+| [`magnetic-cursor`](skills/ui-effects/magnetic-cursor) | Global blend-mode cursor dot that grows over interactive elements (Framer → Interactions) |
+| [`bento-grid`](skills/ui-effects/bento-grid) | Variable-span bento card grid with 3D hover tilt (Framer → Layout) |
+| [`scroll-reveal-section`](skills/ui-effects/scroll-reveal-section) | Staggered fade/slide-in for children on viewport entry (Framer → Sections) |
+| [`text-scramble`](skills/ui-effects/text-scramble) | Text scrambles random glyphs then "decrypts" to final string (Framer → Typography) |
+| [`theme-toggle`](skills/ui-effects/theme-toggle) | Sun↔moon morphing dark-mode toggle with persistence (Framer → Utilities) |
 
 ### Documents — .docx, .pdf, .pptx, .xlsx, comms
 | Skill | Use it for… |
