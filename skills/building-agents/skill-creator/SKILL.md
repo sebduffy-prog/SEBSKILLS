@@ -1,6 +1,6 @@
 ---
 name: skill-creator
-description: Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.
+description: Create, edit, verify, and optimize skills (SKILL.md files). Use whenever the user wants to author a new skill, modify/improve an existing skill, turn a repeated workflow into a reusable skill, test a skill with subagents, run evals, benchmark skill performance, or tune a skill's description for better triggering. This is the canonical skill-authoring entry point — use it even if the user says "writing skills", "skill authoring", "make this a skill", or "skill design".
 ---
 
 # Skill Creator

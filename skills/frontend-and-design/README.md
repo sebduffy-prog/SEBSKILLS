@@ -9,6 +9,7 @@ Everything Claude needs to produce a polished UI — from a Tailwind landing pag
 | Skill | Use when |
 |---|---|
 | [`frontend-design`](frontend-design) | Building web components, pages, landing pages, dashboards, React/HTML layouts. Focus: distinctive, production-grade, avoids generic "AI UI" aesthetic. |
+| [`design-approval-gate`](design-approval-gate) | Before shipping any visual / UI change — forces a preview (screenshot, URL, artifact) and explicit user approval before marking done. Pairs with every other skill in this folder and every `ui-effects/*`. |
 | [`web-artifacts-builder`](web-artifacts-builder) | Elaborate multi-component claude.ai artifacts with state/routing/shadcn — not for single-file HTML. |
 | [`canvas-design`](canvas-design) | Static visual art — posters, designs, pieces in .png / .pdf. |
 | [`algorithmic-art`](algorithmic-art) | Code-based generative art with p5.js (flow fields, particle systems, seeded randomness). |
@@ -40,4 +41,4 @@ Everything Claude needs to produce a polished UI — from a Tailwind landing pag
 
 ## Attribution
 
-All skills originate from [`anthropics/skills`](https://github.com/anthropics/skills).
+All Anthropic-origin skills come from [`anthropics/skills`](https://github.com/anthropics/skills). `design-approval-gate` is native to this framework.

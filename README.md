@@ -8,23 +8,34 @@ A curated, deduplicated, and categorized library of **Agent Skills** for [Claude
 
 ## TL;DR — three ways to use this repo
 
-### 1. Drop into an existing project
-```bash
-cd my-project
-git clone https://github.com/sebduffy-prog/sebskillsa .claude/skills-lib
-# Point Claude at it
-echo ".claude/skills-lib" >> .claude/skills.paths   # or symlink individual skills
-```
+All three use the bundled installer. It creates symlinks to this repo; nothing is copied, so pulling new skills is a `git pull` away.
 
-### 2. Install as a shared user-level library
+### 1. Shared user-level library (every Claude Code session)
 ```bash
-# Claude Code reads ~/.claude/skills/* by default
-git clone https://github.com/sebduffy-prog/sebskillsa ~/.claude/skills-lib
-ln -s ~/.claude/skills-lib/skills/*/* ~/.claude/skills/
+git clone https://github.com/sebduffy-prog/sebskills ~/.claude/skills-lib
+cd ~/.claude/skills-lib
+./install.sh user
 ```
+Every skill is now discoverable in every Claude Code session on this machine.
 
-### 3. Claude Code Web
-Open [claude.ai/code](https://claude.ai/code), connect this repo, and every skill in `skills/` becomes available automatically. The web harness auto-discovers any directory containing a `SKILL.md`.
+### 2. Project-local (only this project)
+```bash
+# from the root of your project
+git clone https://github.com/sebduffy-prog/sebskills ../sebskills   # or submodule
+../sebskills/install.sh project .
+```
+Skills are linked into `./.claude/skills/`; commit them if you want teammates to pick them up.
+
+### 3. Claude Code Web (connect this repo as a second repo)
+Add SEBSKILLS as a git submodule or connect it as a secondary repo in [claude.ai/code](https://claude.ai/code):
+```bash
+cd my-app
+git submodule add https://github.com/sebduffy-prog/sebskills .claude/skills-lib
+git commit -m "Add SEBSKILLS"
+```
+Push, then open the project on Claude Code Web. The web harness recursively discovers every directory containing a `SKILL.md` in any connected repo — no install step needed.
+
+> For Windows or restricted environments where symlinks don't work, run `./install.sh web` to get the copy-based alternative.
 
 ---
 
@@ -40,7 +51,7 @@ skills/
 └── media/                  → GIFs and other assorted media tooling
 ```
 
-**48 skills** across 6 categories. Each is self-contained, has a `SKILL.md`, and carries its original license where applicable.
+**49 skills** across 6 categories. Each is self-contained, has a `SKILL.md`, and carries its original license where applicable.
 
 Raw source material (upstream zip bundles and the original single-file `.skill` packages that have already been expanded into `skills/ui-effects/`) lives in [`raw-files/`](raw-files) and is not loaded by Claude.
 
@@ -52,6 +63,7 @@ Raw source material (upstream zip bundles and the original single-file `.skill` 
 | Skill | Use it when… |
 |---|---|
 | [`karpathy-guidelines`](skills/engineering-workflow/karpathy-guidelines) | You want Claude to avoid overcomplication, surface assumptions, stay surgical |
+| [`autonomy-policy`](skills/engineering-workflow/autonomy-policy) | At the start of every task — decides ACT (proceed) vs ASK (converse). The framework's ask-vs-act governor |
 | [`brainstorming`](skills/engineering-workflow/brainstorming) | Before ANY creative work — explores intent and requirements first |
 | [`writing-plans`](skills/engineering-workflow/writing-plans) | You have a spec and need a multi-step plan before touching code |
 | [`executing-plans`](skills/engineering-workflow/executing-plans) | You have a written plan and need it executed with review checkpoints |
@@ -71,13 +83,13 @@ Raw source material (upstream zip bundles and the original single-file `.skill` 
 |---|---|
 | [`claude-api`](skills/building-agents/claude-api) | Building/debugging/optimizing Anthropic SDK apps, prompt caching, model migrations |
 | [`mcp-builder`](skills/building-agents/mcp-builder) | Creating a high-quality MCP server (Python/FastMCP or TS SDK) |
-| [`skill-creator`](skills/building-agents/skill-creator) | Creating / modifying / evaluating / optimizing a Skill |
-| [`writing-skills`](skills/building-agents/writing-skills) | Authoring a new skill or verifying an existing one works |
+| [`skill-creator`](skills/building-agents/skill-creator) | Creating / modifying / testing / evaluating / optimizing a skill. Canonical skill-authoring entry point (absorbs what used to be `writing-skills`) |
 
 ### Frontend & Design — pages, components, theming, testing
 | Skill | Use it when… |
 |---|---|
 | [`frontend-design`](skills/frontend-and-design/frontend-design) | Building distinctive, production-grade web UIs that avoid AI aesthetic |
+| [`design-approval-gate`](skills/frontend-and-design/design-approval-gate) | Before shipping any visual/UI change — forces a preview + explicit user approval before marking done |
 | [`web-artifacts-builder`](skills/frontend-and-design/web-artifacts-builder) | Multi-component Claude.ai artifacts (React + Tailwind + shadcn/ui) |
 | [`canvas-design`](skills/frontend-and-design/canvas-design) | Posters, static art, design pieces in .png / .pdf |
 | [`algorithmic-art`](skills/frontend-and-design/algorithmic-art) | Generative / flow-field / particle art in p5.js |
@@ -124,52 +136,67 @@ Raw source material (upstream zip bundles and the original single-file `.skill` 
 
 ## Which skill for which task? (cheat sheet)
 
+Every chain starts with `autonomy-policy` deciding whether the task is ACT (just do it) or ASK (pause and converse). The flows below assume that decision has already been made.
+
 **"I'm about to start a feature…"**
-→ `brainstorming` → `writing-plans` → `using-git-worktrees` → `test-driven-development`
+→ `autonomy-policy` → `brainstorming` → `writing-plans` → `using-git-worktrees` → `test-driven-development`
 
 **"I hit a bug."**
-→ `systematic-debugging` → (fix) → `verification-before-completion`
+→ `autonomy-policy` → `systematic-debugging` → (fix) → `verification-before-completion`
 
 **"I'm done, about to ship."**
 → `verification-before-completion` → `requesting-code-review` → `finishing-a-development-branch`
 
 **"I want a striking hero image."**
-→ `frontend-design` + pick one of `ui-effects/*` (shatter / liquid-image / distortion)
+→ `frontend-design` + pick one of `ui-effects/*` (shatter / liquid-image / distortion) → `design-approval-gate`
 
 **"Build me a polished landing page."**
-→ `frontend-design` + `theme-factory` + (optional) `ui-effects/*`
+→ `frontend-design` + `theme-factory` + (optional) `ui-effects/*` → `design-approval-gate`
 
 **"Write me a pitch deck."**
-→ `pptx` + `theme-factory` + `canvas-design`
+→ `pptx` + `theme-factory` + `canvas-design` → `design-approval-gate`
 
 **"Build an MCP server for my API."**
 → `mcp-builder` (+ `claude-api` if you're also calling Anthropic from it)
 
 **"Turn this thing I keep repeating into a reusable tool."**
-→ `skill-creator` or `writing-skills`
+→ `skill-creator`
 
 ---
 
 ## How to add your own project + use these skills
 
-This repo is designed to sit **next to** or **inside** your project. Two patterns:
+This repo is designed to sit **next to** or **inside** your project. Three patterns:
 
 ### Pattern A — sibling library (recommended for teams)
 ```
 my-org/
 ├── my-app/                 # Your project
 │   └── .claude/
-│       └── settings.json   # Point at ../sebskillsa/skills
-└── sebskillsa/             # This repo, cloned once, shared
+│       └── skills/         # symlinks created by ../sebskills/install.sh project .
+└── sebskills/              # This repo, cloned once, shared
+```
+```bash
+cd my-app && ../sebskills/install.sh project .
 ```
 
-### Pattern B — submodule (recommended for solo dev)
+### Pattern B — submodule (recommended for solo dev + Claude Code Web)
 ```bash
 cd my-app
-git submodule add https://github.com/sebduffy-prog/sebskillsa .claude/skills-lib
+git submodule add https://github.com/sebduffy-prog/sebskills .claude/skills-lib
+git commit -m "Add SEBSKILLS"
+.claude/skills-lib/install.sh project .
 ```
+For Claude Code Web, the submodule alone is enough — the web harness recursively discovers every `SKILL.md` in any connected repo. The `install.sh` step is only needed for the CLI / desktop / IDE versions.
 
-In both patterns, Claude Code will discover `SKILL.md` files automatically at session start. If you only want a subset, symlink the ones you need into `.claude/skills/`.
+### Pattern C — user-global (recommended for solo dev, one machine)
+```bash
+git clone https://github.com/sebduffy-prog/sebskills ~/.claude/skills-lib
+~/.claude/skills-lib/install.sh user
+```
+Every project on this machine picks up every skill automatically. No per-project setup.
+
+In all patterns, Claude Code discovers `SKILL.md` files at session start. To ship a subset instead of all 49, run the installer and then `rm` the symlinks you don't want — the originals stay in `skills/`.
 
 ---
 
@@ -193,7 +220,7 @@ In both patterns, Claude Code will discover `SKILL.md` files automatically at se
 4. Add a row to the category's `README.md` index.
 5. Add a row to this README's quick index.
 
-Full guidance: [`skills/building-agents/writing-skills`](skills/building-agents/writing-skills) and [`skills/building-agents/skill-creator`](skills/building-agents/skill-creator).
+Full guidance: [`skills/building-agents/skill-creator`](skills/building-agents/skill-creator).
 
 ---
 
@@ -208,6 +235,7 @@ This framework is a curated remix. Original authors and licenses are preserved w
 | Karpathy Guidelines | [`forrestchang/andrej-karpathy-skills`](https://github.com/forrestchang/andrej-karpathy-skills) | `karpathy-guidelines`, root `CLAUDE.md` |
 | Framer UI Effects | Framer modules, re-implemented standalone | All `ui-effects/*` |
 | Awesome catalog (inspiration) | [`VoltAgent/awesome-agent-skills`](https://github.com/VoltAgent/awesome-agent-skills) | Directory-layout inspiration |
+| Native to this framework | — | `autonomy-policy`, `design-approval-gate` (MIT) |
 
 Each skill retains its original `SKILL.md` and license file where included.
 
