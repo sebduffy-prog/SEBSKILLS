@@ -18,6 +18,7 @@ Most require `"use client"` for Next.js app router.
 | [`liquid-glass-button`](liquid-glass-button) | Apple-style frosted glass button with shine/highlight | Pure CSS (no JS) | CSS variables |
 | [`rubiks-image-cube`](rubiks-image-cube) | 3D rotatable cube displaying image segments or colour tiles | CSS 3D + `framer-motion` | `images`, `shuffleOnMount` |
 | [`spectra-noise`](spectra-noise) | Animated shader background — hue shift, scanlines, warp, noise | WebGL shader | `speed`, `hueShift`, `warp` |
+| [`spectral-distortion`](spectral-distortion) | Red `spectra-noise` background whose motion also drives an `interactive-distortion` image on top; all foreground content stays visible | Composition of two shaders | `ambientStrength`, `ambientFrequency`, `imageBlendMode`, `spectraProps`, `distortionProps` |
 
 ### Framer-marketplace-inspired components (one per category)
 
@@ -43,6 +44,7 @@ Most require `"use client"` for Next.js app router.
 | A premium-feeling back/close button | `liquid-glass-button` |
 | Playful portfolio/photo showcase | `rubiks-image-cube` |
 | Full-screen animated background | `spectra-noise` or `aurora-gradient` |
+| Red shader background that also warps a hero image | `spectral-distortion` |
 | Hero CTA with physicality | `magnetic-button` (+ optional `magnetic-cursor`) |
 | Logo / press strip | `infinite-marquee` |
 | Stat section ("10,000+ users") | `animated-counter` inside `scroll-reveal-section` |
@@ -61,10 +63,12 @@ Most require `"use client"` for Next.js app router.
 - `bento-grid` (feature showcase) + `text-scramble` (card titles) = Apple-style feature section
 - `infinite-marquee` (press logos) below a hero = canonical SaaS landing
 - `interactive-distortion` + `liquid-glass-button` + `theme-factory` + `theme-toggle` = premium product landing
+- `spectral-distortion` (red shader warping a hero image) + `liquid-glass-button` (CTAs) + `text-scramble` (headline) = dramatic pitch-deck hero
 
 ## Performance notes
 
-- Shader-based skills (`interactive-distortion`, `liquid-image`, `spectra-noise`) respect `prefers-reduced-motion`
+- Shader-based skills (`interactive-distortion`, `liquid-image`, `spectra-noise`, `spectral-distortion`) respect `prefers-reduced-motion`
+- `spectral-distortion` runs two WebGL contexts (WebGL1 + WebGL2) — drop `spectraProps.resolutionScale` to 0.5 on low-end hardware
 - `image-shatter` caps at ~112 tiles (14×8) by default and downscales on mobile
 - `rubiks-image-cube` is CSS-3D, not WebGL — cheap
 - `liquid-glass-button` is pure CSS — cheapest
