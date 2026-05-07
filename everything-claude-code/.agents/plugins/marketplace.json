@@ -1,5 +1,6 @@
 {
   "name": "ecc",
+  "interface": {
     "displayName": "Everything Claude Code"
   },
   "plugins": [
