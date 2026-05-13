@@ -48,10 +48,12 @@ skills/
 ├── frontend-and-design/    → visual design, theming, web artifacts, testing
 ├── ui-effects/             → drop-in WebGL / CSS React components (Framer-grade)
 ├── documents/              → .docx / .pdf / .pptx / .xlsx / internal comms
-└── media/                  → GIFs and other assorted media tooling
+├── media/                  → GIFs and other assorted media tooling
+├── product/                → research, ideation, capability, launch
+└── strategy/               → advertising, media, analyst, deck flow, headline stats
 ```
 
-**49 skills** across 6 categories. Each is self-contained, has a `SKILL.md`, and carries its original license where applicable.
+**67 skills** across 8 categories. Each is self-contained, has a `SKILL.md`, and carries its original license where applicable.
 
 Raw source material (upstream zip bundles and the original single-file `.skill` packages that have already been expanded into `skills/ui-effects/`) lives in [`raw-files/`](raw-files) and is not loaded by Claude.
 
@@ -133,6 +135,45 @@ Raw source material (upstream zip bundles and the original single-file `.skill` 
 |---|---|
 | [`slack-gif-creator`](skills/media/slack-gif-creator) | Animated GIFs optimized for Slack |
 
+### Strategy — advertising, media, research, audit, analyst, deck flow
+**Research & data**
+| Skill | Use it for… |
+|---|---|
+| [`raw-data-research`](skills/strategy/raw-data-research) | Write & execute scripts to parse and clean raw data — PDFs, scrapes, multi-sheet XLSX, JSON, transcripts |
+| [`data-analyst`](skills/strategy/data-analyst) | Proper EDA, hypothesis tests, regression, time-series decomposition, A/B / lift / incrementality |
+| [`data-cut-headline-stats`](skills/strategy/data-cut-headline-stats) | Cut a dataset and pull out the 3–7 stats worth a client slide |
+| [`qualitative-research`](skills/strategy/qualitative-research) | Qual lifecycle — discussion guides, IDIs / groups / ethno, theme coding, synthesis |
+| [`developed-research`](skills/strategy/developed-research) | Long-form immersive briefs, category reviews, sector POVs, audience deep dives |
+
+**Audience & insight**
+| Skill | Use it for… |
+|---|---|
+| [`audience-insight`](skills/strategy/audience-insight) | Excavate the human insight with tension — recognition / tension / brand-fit tests |
+| [`audience-segmentation`](skills/strategy/audience-segmentation) | Build / name / profile / deploy segmentations (or interpret one a client owns) |
+| [`cultural-semiotics`](skills/strategy/cultural-semiotics) | Decode category codes (Residual / Dominant / Emergent), spot tensions, recommend code-shifts |
+| [`trend-foresight`](skills/strategy/trend-foresight) | Spot signals, weight them, separate fads from trends, write a foresight POV |
+
+**Strategy**
+| Skill | Use it for… |
+|---|---|
+| [`advertising-strategy`](skills/strategy/advertising-strategy) | Build a comms strategy from a brief — problem, audience, insight, role, SMP, RTB, measures |
+| [`advertising-strategy-copy`](skills/strategy/advertising-strategy-copy) | Write the prose: propositions, manifestos, audience portraits, tone of voice — ban-list-enforced |
+| [`media-strategy`](skills/strategy/media-strategy) | Channel role, brand/activation split, attention-adjusted reach, ESOV, flighting, test-and-learn |
+
+**Audit & competitive**
+| Skill | Use it for… |
+|---|---|
+| [`brand-audit`](skills/strategy/brand-audit) | Audit a brand's distinctive assets, mental availability, share metrics, coherence, drift |
+| [`competitive-comms-audit`](skills/strategy/competitive-comms-audit) | Map competitors across positioning, codes, share, platform stability, white-space |
+| [`share-of-search`](skills/strategy/share-of-search) | Compute / interpret share of search (Binet) as a leading indicator |
+
+**Read-out & effectiveness**
+| Skill | Use it for… |
+|---|---|
+| [`strategy-analyst`](skills/strategy/strategy-analyst) | Hybrid analyst-strategist read: hypothesis → triangulate → fact / inference / recommendation |
+| [`deck-flow-structure`](skills/strategy/deck-flow-structure) | Plan the order of a deck before any slide is built — SCQA, story spine, pyramid |
+| [`effectiveness-case`](skills/strategy/effectiveness-case) | IPA-standard effectiveness case — counterfactuals, triangulation, payback |
+
 ---
 
 ## Which skill for which task? (cheat sheet)
@@ -156,6 +197,30 @@ Every chain starts with `autonomy-policy` deciding whether the task is ACT (just
 
 **"Write me a pitch deck."**
 → `pptx` + `theme-factory` + `canvas-design` → `design-approval-gate`
+
+**"New client brief just landed."**
+→ `advertising-strategy` → `data-cut-headline-stats` → `advertising-strategy-copy` → `deck-flow-structure` → `vccp-media-design` → `pptx`
+
+**"Tracker / MMM / campaign data dropped — give me a POV."**
+→ `data-cut-headline-stats` → `strategy-analyst` → `advertising-strategy-copy` → `deck-flow-structure`
+
+**"Channel question — what should the media response look like?"**
+→ `advertising-strategy` (problem) → `media-strategy` (channels) → `deck-flow-structure` → `vccp-media-design`
+
+**"Pitch immersion — two weeks to know a category."**
+→ `developed-research` + `cultural-semiotics` + `competitive-comms-audit` + `brand-audit` + `share-of-search` → `audience-insight` → `advertising-strategy` + `media-strategy` → `deck-flow-structure`
+
+**"Folder of raw files — make this analysis-ready."**
+→ `raw-data-research` → `data-analyst` → `data-cut-headline-stats` (or → `strategy-analyst`)
+
+**"We need an effectiveness paper."**
+→ `brand-audit` (baseline) + `share-of-search` + `data-analyst` (MMM / lift) → `strategy-analyst` → `effectiveness-case`
+
+**"Qual study just wrapped — turn it into strategy."**
+→ `qualitative-research` → `audience-insight` → `audience-segmentation` → `advertising-strategy`
+
+**"Year-ahead trends piece."**
+→ `trend-foresight` + `cultural-semiotics` + `developed-research` → `advertising-strategy-copy` (write-up) → `vccp-media-design`
 
 **"Build an MCP server for my API."**
 → `mcp-builder` (+ `claude-api` if you're also calling Anthropic from it)
