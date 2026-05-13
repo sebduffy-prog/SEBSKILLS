@@ -15,6 +15,7 @@ Everything Claude needs to produce a polished UI — from a Tailwind landing pag
 | [`algorithmic-art`](algorithmic-art) | Code-based generative art with p5.js (flow fields, particle systems, seeded randomness). |
 | [`theme-factory`](theme-factory) | Apply a cohesive theme (10 presets or a custom one) to any artifact: slides, docs, HTML. |
 | [`brand-guidelines`](brand-guidelines) | Apply Anthropic's official brand colors/typography to an artifact. |
+| [`vccp-media-design`](vccp-media-design) | VCCP Media 2026 brand — mustard + teal halves, Inter Tight, highlighter parallelogram motif. Use for any VCCP web UI, slide deck, PDF report, poster, infographic, social tile, or chart. |
 | [`webapp-testing`](webapp-testing) | Playwright-based interactive testing of a local webapp — verify UI works, screenshot, read browser logs. |
 
 ## Recipes

@@ -95,6 +95,7 @@ Raw source material (upstream zip bundles and the original single-file `.skill` 
 | [`algorithmic-art`](skills/frontend-and-design/algorithmic-art) | Generative / flow-field / particle art in p5.js |
 | [`theme-factory`](skills/frontend-and-design/theme-factory) | Apply a pre-set or custom theme across any artifact |
 | [`brand-guidelines`](skills/frontend-and-design/brand-guidelines) | Applying Anthropic's official brand colors/type to an artifact |
+| [`vccp-media-design`](skills/frontend-and-design/vccp-media-design) | VCCP Media 2026 — mustard + teal halves, Inter Tight, highlighter motif. Web UI, slides, PDFs, posters, infographics, social tiles, charts. |
 | [`webapp-testing`](skills/frontend-and-design/webapp-testing) | Interactively testing a local webapp with Playwright |
 
 ### UI Effects — drop-in React / WebGL components
