@@ -37,6 +37,13 @@ Push, then open the project on Claude Code Web. The web harness recursively disc
 
 > For Windows or restricted environments where symlinks don't work, run `./install.sh web` to get the copy-based alternative.
 
+### 4. Claude.ai chat (upload skills to claude.ai/skills)
+Claude.ai chat accepts skills as individual `.zip` uploads at **Settings → Capabilities → Skills**. Build them with:
+```bash
+python3 scripts/package-for-claude-ai.py
+```
+This writes one `dist/<skill-name>.zip` per skill, plus `dist/seb-skills-all.zip` containing all of them. Upload each per-skill zip to claude.ai. Descriptions over claude.ai's 1024-character cap are automatically trimmed for the upload (overflow moved into the body) — the originals in this repo are untouched.
+
 ---
 
 ## Framework at a glance
