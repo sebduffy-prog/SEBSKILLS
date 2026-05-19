@@ -45,6 +45,7 @@ start ────►│                  ├──► writing-plans ──► e
 | [`dispatching-parallel-agents`](dispatching-parallel-agents) | 2+ independent tasks, no shared state |
 | [`subagent-driven-development`](subagent-driven-development) | Plan with independent tasks, in-session |
 | [`using-superpowers`](using-superpowers) | Meta — how to find and use any skill |
+| [`flow-reader`](flow-reader) | Read, interpret, and act on any flow-shaped diagram — sitemaps, user journeys, state machines, agent graphs, workflow diagrams, architecture, Mermaid, Flowsheet exports, or plain bulleted page lists with arrows. Critique, build, document, or extend. |
 
 ## Pair them
 

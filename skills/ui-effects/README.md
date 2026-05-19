@@ -35,6 +35,12 @@ Most require `"use client"` for Next.js app router.
 | [`text-scramble`](text-scramble) | Typography | Headline/label scrambles random glyphs then decrypts to final string | setTimeout loop |
 | [`theme-toggle`](theme-toggle) | Utilities | Sun↔moon morphing dark-mode toggle, persists to localStorage | Pure SVG + CSS |
 
+### Composition skills
+
+| Skill | What it covers |
+|---|---|
+| [`framer-level-interactions`](framer-level-interactions) | The seven battle-tested motion patterns of a 2026 Framer-grade page: 3D-tilt + cursor spotlight (cards), magnetic CTA, aurora drift hero, eased number counters, sparkline draw-in, infinite-feed IO sentinel, sticky-scroll storytelling. Pulls together pieces that live as individual skills above. |
+
 ## When to use each
 
 | Goal | Pick |

@@ -284,6 +284,99 @@ always (so "07", not "7"). Reads as editorial pagination.
 
 ---
 
+## Brand lockups — the four official logos
+
+The bear and the girl. Both as silhouettes, in four lockups. The four
+PNGs live in [`assets/logos/`](assets/logos/) next to this file —
+**always reference them from there**, never re-trace, redraw, or use
+emoji substitutes.
+
+| File | Dimensions | Aspect | Where to use |
+|---|---|---|---|
+| [`Logo.png`](assets/logos/Logo.png) | 1620 × 1620 | 1:1 | **Primary mark.** Bear + girl + "VCCP / Media" wordmark stacked. App icons, profile avatars, slide-deck covers + back covers, business cards, the favicon source. |
+| [`Bear_Lockup.png`](assets/logos/Bear_Lockup.png) | 1920 × 1080 | 16:9 | Bear-only silhouette on transparent. Hero banners, sub-brand cards, large-format posters where the wordmark would be redundant. |
+| [`Girl_Lockup.png`](assets/logos/Girl_Lockup.png) | 1080 × 1080 | 1:1 | Girl-only silhouette on transparent. Editorial spacers, end-credits, social tiles where the bear is too heavy. Pairs with `Bear_Lockup` across opposing pages. |
+| [`Girl_and_Bear.png`](assets/logos/Girl_and_Bear.png) | 2880 × 1620 | 16:9 | Both silhouettes facing each other on transparent. The scale-comparison artwork — open-event banners, conference splash, hero artwork where the whole story matters. **Not** the primary mark; use `Logo.png` for branding. |
+
+### Sizing rules (use these, don't improvise)
+
+| Surface | Logo / mark height | Notes |
+|---|---|---|
+| Web nav left | **32 – 40px** | Use `Logo.png` cropped to square favicon-style, or just the bear inset from `Bear_Lockup.png` |
+| Web hero | **96 – 160px** | Centred on cover slides only; never on body sections |
+| Slide cover (1920 × 1080) | **220 – 280px tall** | `place_logo_centered(slide, height=Inches(2.6))` |
+| Slide footer | **never** | Body slides use page number + `© VCCP Media YYYY` only |
+| Poster (A1 / A0) | **15-22% of short edge** | Bottom-right or bottom-centre |
+| Social tile (1080²) | **96 – 128px** | One corner, never centred unless it's the *only* element |
+| Favicon | **32 / 64 / 180** | Crop `Logo.png` to the bear+girl horizontal baseline portion (top ~55%); discard wordmark |
+| Email signature | **80px tall max** | `Logo.png` only |
+
+### Clear-space + safety
+
+- **Clear space = 1× the cap-height of "V" in the wordmark** all
+  sides. Roughly 15% of the lockup's longest edge. Never crowd.
+- **Minimum size:** 24px height on screen, 8mm in print. Below that,
+  the bear's fur breaks up.
+- **Never stretch or skew.** Always proportional. Use `object-fit:
+  contain` in HTML, `Inches(h * ratio)` in python-pptx, no negative
+  scale in InDesign.
+
+### What never to do
+
+1. **Don't redraw or vectorise from scratch.** Use the supplied PNGs.
+2. **Don't recolour for VCCP-branded surfaces.** Black silhouette is
+   the rule. (For *client-branded* surfaces, use the separate
+   [[vccp-logo-use]] skill — same files, controlled recolour.)
+3. **Don't combine with other logos at the same hierarchy level.** If
+   it's a co-branded surface, put a vertical hairline divider and let
+   each mark breathe.
+4. **Don't animate the silhouette.** A gentle fade or scroll-in is
+   fine; rotation, distortion, or "shake" is not.
+5. **Don't crop the bear off the baseline in `Logo.png`** — the
+   baseline is part of the lockup.
+6. **Don't place on mustard.** The black silhouette competes with the
+   mustard surface and visually crowds the highlighter motif. Logos
+   go on paper or ink only.
+
+### Web implementation
+
+```html
+<img
+  src="/brand/Logo.png"
+  alt="VCCP Media"
+  width="160"
+  height="160"
+  style="display: block; object-fit: contain;"
+/>
+```
+
+For dark surfaces, drop in `Logo.png` and add a subtle paper-coloured
+"plate" behind it rather than recolouring the PNG. Recolouring on
+VCCP surfaces is not a permitted variant.
+
+### PPTX implementation
+
+```python
+# mmm_tool/export/vccp_brand.py
+from pptx.util import Inches
+from PIL import Image
+
+LOGO_PATH = Path(__file__).parent / 'assets' / 'logos' / 'Logo.png'
+
+def place_logo_centered(slide, height=Inches(2.6)):
+    img = Image.open(LOGO_PATH)
+    ratio = img.width / img.height
+    width = height * ratio
+    left = (SLIDE_W - width) / 2
+    top = Inches(0.6)
+    slide.shapes.add_picture(str(LOGO_PATH), left, top, width=width, height=height)
+```
+
+Pin to cover + back-cover only; body slides keep the footer + page
+number identity instead.
+
+---
+
 ## Per-medium recipes
 
 ### Web UI / dashboard / web app

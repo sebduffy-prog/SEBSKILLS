@@ -53,7 +53,7 @@ skills/
 └── strategy/               → advertising, media, analyst, deck flow, headline stats
 ```
 
-**67 skills** across 8 categories. Each is self-contained, has a `SKILL.md`, and carries its original license where applicable.
+**72 skills** across 8 categories. Each is self-contained, has a `SKILL.md`, and carries its original license where applicable.
 
 Raw source material (upstream zip bundles and the original single-file `.skill` packages that have already been expanded into `skills/ui-effects/`) lives in [`raw-files/`](raw-files) and is not loaded by Claude.
 
@@ -79,6 +79,7 @@ Raw source material (upstream zip bundles and the original single-file `.skill` 
 | [`dispatching-parallel-agents`](skills/engineering-workflow/dispatching-parallel-agents) | 2+ independent tasks with no shared state |
 | [`subagent-driven-development`](skills/engineering-workflow/subagent-driven-development) | Executing a plan with independent tasks in-session |
 | [`using-superpowers`](skills/engineering-workflow/using-superpowers) | Meta-skill — how Claude should find and use every other skill |
+| [`flow-reader`](skills/engineering-workflow/flow-reader) | Read, interpret, and build from flow-shaped diagrams — sitemaps, user journeys, state machines, agent graphs, Mermaid, Flowsheet exports |
 
 ### Building Agents — Claude API, MCP, and skill authoring
 | Skill | Use it when… |
@@ -86,6 +87,7 @@ Raw source material (upstream zip bundles and the original single-file `.skill` 
 | [`claude-api`](skills/building-agents/claude-api) | Building/debugging/optimizing Anthropic SDK apps, prompt caching, model migrations |
 | [`mcp-builder`](skills/building-agents/mcp-builder) | Creating a high-quality MCP server (Python/FastMCP or TS SDK) |
 | [`skill-creator`](skills/building-agents/skill-creator) | Creating / modifying / testing / evaluating / optimizing a skill. Canonical skill-authoring entry point (absorbs what used to be `writing-skills`) |
+| [`autosuggestive-schema-builder`](skills/building-agents/autosuggestive-schema-builder) | Building Lovable.dev / v0-style no-code editors where Claude proposes accept/reject changes against a content schema with a live preview pane — registry, editable schemas, `/suggest` endpoint with 5 ops, applySuggestion mutators, LivePreview |
 
 ### Frontend & Design — pages, components, theming, testing
 | Skill | Use it when… |
@@ -97,7 +99,9 @@ Raw source material (upstream zip bundles and the original single-file `.skill` 
 | [`algorithmic-art`](skills/frontend-and-design/algorithmic-art) | Generative / flow-field / particle art in p5.js |
 | [`theme-factory`](skills/frontend-and-design/theme-factory) | Apply a pre-set or custom theme across any artifact |
 | [`brand-guidelines`](skills/frontend-and-design/brand-guidelines) | Applying Anthropic's official brand colors/type to an artifact |
-| [`vccp-media-design`](skills/frontend-and-design/vccp-media-design) | VCCP Media 2026 — mustard + teal halves, Inter Tight, highlighter motif. Web UI, slides, PDFs, posters, infographics, social tiles, charts. |
+| [`vccp-media-design`](skills/frontend-and-design/vccp-media-design) | VCCP Media 2026 — mustard + teal halves, Inter Tight, highlighter motif. The four official brand lockups live in `assets/logos/`. Web UI, slides, PDFs, posters, infographics, social tiles, charts. |
+| [`vccp-logo-use`](skills/frontend-and-design/vccp-logo-use) | Recolour the four VCCP bear-and-girl lockups for client-branded surfaces. CSS masks / ImageMagick / Pillow + python-pptx recipes. |
+| [`professional-page-templates`](skills/frontend-and-design/professional-page-templates) | Section taxonomy (20+ block types) + 11 starter shapes for genuinely different page layouts — SaaS, agency, product launch, startup metrics, indie creator, portfolio, event, newsroom, dashboard, infinite-feed, experiential |
 | [`webapp-testing`](skills/frontend-and-design/webapp-testing) | Interactively testing a local webapp with Playwright |
 
 ### UI Effects — drop-in React / WebGL components
@@ -119,6 +123,7 @@ Raw source material (upstream zip bundles and the original single-file `.skill` 
 | [`scroll-reveal-section`](skills/ui-effects/scroll-reveal-section) | Staggered fade/slide-in for children on viewport entry (Framer → Sections) |
 | [`text-scramble`](skills/ui-effects/text-scramble) | Text scrambles random glyphs then "decrypts" to final string (Framer → Typography) |
 | [`theme-toggle`](skills/ui-effects/theme-toggle) | Sun↔moon morphing dark-mode toggle with persistence (Framer → Utilities) |
+| [`framer-level-interactions`](skills/ui-effects/framer-level-interactions) | The seven motion patterns of a 2026 Framer-grade page: 3D-tilt + cursor spotlight, magnetic CTA, aurora drift, eased counters, sparkline draw-in, infinite-feed IO sentinel, sticky-scroll storytelling |
 
 ### Documents — .docx, .pdf, .pptx, .xlsx, comms
 | Skill | Use it for… |

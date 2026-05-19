@@ -11,6 +11,7 @@ These skills are for when you are *building the things that Claude uses* — eit
 | [`claude-api`](claude-api) | Writing or tuning Anthropic SDK code. Covers prompt caching, extended thinking, tool use, batch API, files, citations, memory, model migrations (4.5 → 4.6 → 4.7). **Triggers automatically** when a file imports `anthropic` / `@anthropic-ai/sdk`. |
 | [`mcp-builder`](mcp-builder) | Building a Model Context Protocol server — Python (FastMCP) or Node/TypeScript (MCP SDK). Covers tool design, auth, schema, error handling. |
 | [`skill-creator`](skill-creator) | Creating a new skill from scratch, editing existing skills, testing with subagents, running evals, optimizing descriptions for trigger accuracy. Canonical skill-authoring entry point. |
+| [`autosuggestive-schema-builder`](autosuggestive-schema-builder) | Building Lovable.dev / v0-style no-code editors where Claude proposes accept/reject changes against a declarative content schema with a live preview pane. Covers the full loop: section registry, editable-schema config, `/suggest` endpoint returning 5 kinds of structured operations (patch/add/remove/move/replace), Accept/Reject UI, applySuggestion mutators, sticky CSS-variable-scoped LivePreview. |
 
 ## Workflows
 

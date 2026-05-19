@@ -15,7 +15,9 @@ Everything Claude needs to produce a polished UI — from a Tailwind landing pag
 | [`algorithmic-art`](algorithmic-art) | Code-based generative art with p5.js (flow fields, particle systems, seeded randomness). |
 | [`theme-factory`](theme-factory) | Apply a cohesive theme (10 presets or a custom one) to any artifact: slides, docs, HTML. |
 | [`brand-guidelines`](brand-guidelines) | Apply Anthropic's official brand colors/typography to an artifact. |
-| [`vccp-media-design`](vccp-media-design) | VCCP Media 2026 brand — mustard + teal halves, Inter Tight, highlighter parallelogram motif. Use for any VCCP web UI, slide deck, PDF report, poster, infographic, social tile, or chart. |
+| [`vccp-media-design`](vccp-media-design) | VCCP Media 2026 brand — mustard + teal halves, Inter Tight, highlighter parallelogram motif. The four official brand lockups live in `assets/logos/`. Use for any VCCP web UI, slide deck, PDF report, poster, infographic, social tile, or chart. |
+| [`vccp-logo-use`](vccp-logo-use) | Recolour the four VCCP bear-and-girl lockups for client-branded surfaces — CSS masks, ImageMagick, Pillow + python-pptx recipes. Use only on co-branded / sponsor / white-label work; VCCP-owned surfaces stay black. |
+| [`professional-page-templates`](professional-page-templates) | Section taxonomy (20+ block types) + 11 starter shapes for genuinely different page layouts: SaaS landing, agency portfolio, product launch, startup metrics, indie creator, creator portfolio, community event, newsroom, dashboard-product, portfolio feed, experiential art. Use whenever the user wants Lovable-level template variety. |
 | [`webapp-testing`](webapp-testing) | Playwright-based interactive testing of a local webapp — verify UI works, screenshot, read browser logs. |
 
 ## Recipes
