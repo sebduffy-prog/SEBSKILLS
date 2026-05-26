@@ -1,6 +1,34 @@
 ---
 name: liquid-image
+category: ui-effects
 description: Build a WebGL liquid-water hover effect for images in React/Next.js — ripples follow the cursor, and a grayscale-to-colour reveal mask follows the hover. Use this skill whenever the user asks for a "liquid image", "water ripple image", "water effect on image", "hover ripple", "grayscale to colour reveal on hover", or references the Framer LiquidImage component. Also use when the user describes the effect as "image that ripples like water when you hover", "image that reveals colour when you touch it", "image with waves that follow the mouse", or wants an interactive photo with a magical / dreamy / tactile feel. Trigger even without exact naming — e.g. "make this photo feel alive when you hover", "add that rippling water thing to the hero image".
+when_to_use:
+  - User wants a hover-responsive photograph for portfolio, hero, or gallery
+  - User mentions "liquid image", "water effect", "ripple hover", "colour reveal on hover"
+  - User wants grayscale-to-colour reveal that follows the cursor
+  - User is building atmospheric / editorial / pitch-deck UI with image focus
+when_not_to_use:
+  - User wants pixel-grid distortion instead of fluid ripples → use interactive-distortion
+  - User wants the image to break into tiles on hover → use image-shatter
+  - User wants an animated background, not an image effect → use spectra-noise or aurora-gradient
+  - User wants a static colour-on-hover with no fluid motion → use plain CSS, not this
+similar_to:
+  - interactive-distortion
+  - image-shatter
+  - spectral-distortion
+keywords:
+  - liquid
+  - water
+  - ripple
+  - hover
+  - webgl
+  - grayscale
+  - colour-reveal
+  - LiquidImage
+inputs_needed:
+  - Image URL or path (must be CORS-accessible)
+  - Container dimensions (width × height)
+produces: A single self-contained LiquidImage.tsx React component
 ---
 
 # Liquid Image Component
