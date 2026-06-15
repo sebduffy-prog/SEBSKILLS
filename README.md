@@ -163,6 +163,7 @@ Raw source material (upstream zip bundles and the original single-file `.skill` 
 |---|---|
 | [`advertising-strategy`](skills/strategy/advertising-strategy) | Build a comms strategy from a brief — problem, audience, insight, role, SMP, RTB, measures |
 | [`advertising-strategy-copy`](skills/strategy/advertising-strategy-copy) | Write the prose: propositions, manifestos, audience portraits, tone of voice — ban-list-enforced |
+| [`WLV`](skills/strategy/WLV) | Write Like Vallance — any format in Charles Vallance's voice (columns, op-eds, LinkedIn, speeches, forewords, memos); researches real sources first, then writes |
 | [`media-strategy`](skills/strategy/media-strategy) | Channel role, brand/activation split, attention-adjusted reach, ESOV, flighting, test-and-learn |
 
 **Audit & competitive**

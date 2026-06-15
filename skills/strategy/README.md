@@ -38,6 +38,7 @@ hands off cleanly to the design system in
 |---|---|
 | [`advertising-strategy`](advertising-strategy) | Build a comms / advertising strategy from a brief: problem → audience → insight → role → SMP → RTB → measures. |
 | [`advertising-strategy-copy`](advertising-strategy-copy) | The *prose* — propositions, manifestos, audience portraits, tone of voice, ban-list-enforced. |
+| [`WLV`](WLV) | Write Like Vallance — any format, in Charles Vallance's voice (columns, op-eds, LinkedIn, speeches, forewords, memos). Researches real sources first, then writes. |
 | [`media-strategy`](media-strategy) | Channel role, brand/activation split, attention-adjusted reach, ESOV, share of search, flighting, test-and-learn. |
 
 ### Audit & competitive — *reading the field*
@@ -100,6 +101,10 @@ brand-audit ──► competitive-comms-audit ──► share-of-search ──�
 - **Foresight / "trends 2027" piece →** `trend-foresight` +
   `cultural-semiotics` + `developed-research` →
   `advertising-strategy-copy` (write-up)
+
+- **Thought-leadership in Vallance's voice (column, op-ed, speech,
+  LinkedIn, foreword) →** `deep-research` / `market-research` /
+  `data-cut-headline-stats` (real sources first) → `WLV` (write it)
 
 ## Related skills outside this category
 
