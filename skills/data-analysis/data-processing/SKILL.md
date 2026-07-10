@@ -40,6 +40,9 @@ inputs_needed:
   - How to handle missing values (drop row, drop column, fill with what)
   - Expected output format (new file, in-place, returned object)
 produces: A reproducible Python script and a verified output dataset, with row/column counts logged at each stage
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Data Processing

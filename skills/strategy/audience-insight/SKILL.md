@@ -1,6 +1,7 @@
 ---
 name: audience-insight
-description: |
+category: strategy
+description: >
   Excavate a usable human insight about an audience — the
   "unsaid truth" that a brand can credibly act on. Turns raw
   qual / quant / desk research / cultural observation into a
@@ -18,10 +19,56 @@ description: |
   "audience POV", "what they tell themselves vs what's really
   going on". Trigger even when the user pastes interview /
   social-listening / qual notes and asks "anything in here?".
-  Pairs with [[advertising-strategy]] (places the insight in the
-  doc), [[audience-segmentation]] (different audiences = different
-  insights), [[qualitative-research]] (the source of most
-  insights), and [[advertising-strategy-copy]] (the prose).
+  Pairs with advertising-strategy (places the insight in the
+  doc), audience-segmentation (different audiences = different
+  insights), qualitative-research (the source of most
+  insights), and advertising-strategy-copy (the prose).
+when_to_use:
+  - A creative team needs an insight slide that earns its place
+  - The strategy doc's "insight" is a market observation dressed up as one and needs sharpening (re-brief)
+  - You have 60 pages of qual research and one slide to put the read-out on
+  - A pitch needs an insight nobody else in the room will have
+  - A research debrief is at risk of becoming a list of findings
+  - The user pastes interview / social-listening / qual notes and asks "anything in here?"
+when_not_to_use:
+  - Writing the wider strategy doc — the insight is one ingredient, not the whole dish; use advertising-strategy
+  - Splitting one audience into several — use audience-segmentation first, then run this per segment
+  - Designing or moderating the research itself — use qualitative-research
+  - Polishing the prose of a finished write-up — use advertising-strategy-copy
+keywords:
+  - insight
+  - tension
+  - human truth
+  - audience truth
+  - unsaid truth
+  - observation vs insight
+  - insight excavation
+  - qual research
+  - verbatims
+  - social listening
+  - ethnography
+  - triangulation
+  - recognition test
+  - brand fit
+  - research debrief
+  - four-line insight
+  - projective questions
+  - wish vs reality
+similar_to:
+  - advertising-strategy
+  - audience-segmentation
+  - qualitative-research
+  - advertising-strategy-copy
+  - strategy-analyst
+inputs_needed:
+  - Raw research inputs — qual transcripts, ethno/diary notes, social listening, call transcripts, tracker open-ends, quant attitudinal data, or the strategist's own observation
+  - The audience and the brief the insight must serve
+  - The brand and category (needed for the brand-fit test)
+  - Source details for sign-off — studies, dates, samples
+produces: A one-page insight write-up — the four-line insight (behaviour / but / because / which means) plus verbatim evidence, triangulation, and a confidence rating
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Audience insight

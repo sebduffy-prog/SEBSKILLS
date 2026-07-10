@@ -1,6 +1,40 @@
 ---
 name: shipping-and-launch
+category: product
 description: Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy.
+when_to_use:
+  - Deploying a feature to production for the first time
+  - Releasing a significant change to users
+  - Migrating data or infrastructure
+  - Opening a beta or early access program
+  - You need a pre-launch checklist, monitoring setup, staged rollout, or rollback plan
+when_not_to_use:
+  - You are still validating whether to build the feature — use product-lens
+  - You need to record the launch decision or rationale, not run the launch — use documentation-and-adrs
+  - The task is pure code review with no deploy — use a code review workflow instead
+keywords:
+  - shipping
+  - launch
+  - production deploy
+  - pre-launch checklist
+  - monitoring
+  - observability
+  - staged rollout
+  - canary
+  - rollback
+  - release
+  - go-live
+  - core web vitals
+  - security headers
+  - npm audit
+  - beta launch
+similar_to:
+  - documentation-and-adrs
+inputs_needed: What is being deployed, the target environment, risk level, monitoring/rollback capabilities available, and success criteria.
+produces: A pre-launch checklist plus monitoring, staged-rollout, and rollback plan for a safe production launch.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Shipping and Launch

@@ -1,7 +1,42 @@
 ---
 name: accessibility
-description: Design, implement, and audit inclusive digital products using WCAG 2.2 Level AA
-  standards. Use this skill to generate semantic ARIA for Web and accessibility traits for Web and Native platforms (iOS/Android).
+category: frontend-and-design
+description: Design, implement, and audit inclusive digital products using WCAG 2.2 Level AA standards. Use this skill to generate semantic ARIA for Web and accessibility traits for Web and Native platforms (iOS/Android).
+when_to_use:
+  - Defining UI component specifications for Web, iOS, or Android
+  - Auditing existing code for accessibility barriers or WCAG 2.2 compliance gaps
+  - Implementing new WCAG 2.2 criteria like Target Size (Minimum) and Focus Appearance
+  - Mapping design requirements to ARIA roles, native traits, and hints
+  - Fixing keyboard navigation, focus management, or modal focus-trap issues
+when_not_to_use:
+  - Automated contrast-ratio checking only — use accessible-contrast-checker
+  - General production UI building where a11y is one concern — use frontend-ui-engineering
+  - Live browser a11y-tree auditing — use browser-testing-with-devtools or browser-qa
+keywords:
+  - accessibility
+  - wcag 2.2
+  - aria
+  - a11y
+  - screen reader
+  - keyboard navigation
+  - focus management
+  - semantic html
+  - target size
+  - accessibility tree
+  - pour principles
+  - swiftui accessibility
+  - android compose semantics
+  - focus indicator
+  - contrast
+similar_to:
+  - accessible-contrast-checker
+  - frontend-ui-engineering
+  - browser-testing-with-devtools
+inputs_needed: Target platform (Web/iOS/Android), the component or codebase to audit or spec, and which WCAG criteria or interaction patterns are in scope.
+produces: Accessible component specs and code (ARIA/traits/labels) plus a WCAG 2.2 audit checklist with fixes.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 origin: ECC
 ---
 

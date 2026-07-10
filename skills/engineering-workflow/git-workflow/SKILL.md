@@ -1,7 +1,45 @@
 ---
 name: git-workflow
+category: engineering-workflow
 description: Git workflow patterns including branching strategies, commit conventions, merge vs rebase, conflict resolution, and collaborative development best practices for teams of all sizes.
+when_to_use:
+  - Setting up a git workflow or branching strategy for a project (GitHub Flow, trunk-based, GitFlow)
+  - Writing commit messages (Conventional Commits) and PR descriptions
+  - Deciding between merge and rebase, and resolving merge conflicts
+  - Managing releases, semantic versioning, tags, and changelog generation from commits
+  - Naming, cleaning up, and stashing branches, or undoing mistakes safely
+  - Onboarding team members to git conventions and pre-commit/pre-push hooks
+when_not_to_use:
+  - You are completing a specific feature branch (merge/PR/discard decision) — use finishing-a-development-branch
+  - You need isolated worktrees for parallel branches — use using-git-worktrees
+  - You want fully automated release/versioning from commits — use changelog-release-automation
+  - You are reviewing code quality rather than git process — use requesting-code-review or coding-standards
+keywords:
+  - git
+  - branching-strategy
+  - github-flow
+  - trunk-based
+  - gitflow
+  - conventional-commits
+  - merge-vs-rebase
+  - conflict-resolution
+  - pull-request
+  - semantic-versioning
+  - tags
+  - stash
+  - git-hooks
+  - gitignore
+  - branch-naming
+similar_to:
+  - finishing-a-development-branch
+  - using-git-worktrees
+  - changelog-release-automation
+inputs_needed: The repo, team size/release cadence (to pick a strategy), and the specific git task (commit, branch, merge, conflict, release).
+produces: Git process guidance and commands — a chosen branching strategy, well-formed commit messages/PRs, resolved conflicts, and tagged releases.
 origin: ECC
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Git Workflow Patterns

@@ -1,26 +1,68 @@
 ---
 name: effectiveness-case
-description: |
-  Write an effectiveness case — an IPA Effectiveness Awards-
-  style write-up that argues, with evidence, that a piece of
-  advertising made a measurable commercial difference. Covers
-  the canonical IPA structure (situation → task → strategy →
-  creative → results → payback), the proof hierarchy (model,
-  experiment, tracker), the counterfactual logic, payback / ROMI
-  calculations, and the editorial discipline that separates a
-  winning case from a year-end self-congratulation. Use when
-  writing an awards entry, a client effectiveness review, a
-  year-in-review POV, or a board paper that demonstrates the
-  value of the work. Trigger on phrases like "effectiveness
-  case", "effectiveness paper", "IPA paper", "IPA Effectiveness
-  Awards", "case for effectiveness", "ROI write-up", "ROMI
-  case", "prove the campaign worked", "what did the work
-  achieve", "year-end review", "demonstrate the value of the
-  work", "effectiveness pitch", "Cannes effectiveness", "build
-  the proof case", "campaign results write-up". Pairs with
-  [[strategy-analyst]] (the data interpretation),
-  [[advertising-strategy-copy]] (the prose), [[deck-flow-structure]]
-  (the narrative order), and [[data-analyst]] (the modelling).
+category: strategy
+description: >
+  Write an effectiveness case — an IPA Effectiveness Awards-style
+  write-up that argues, with evidence, that a piece of advertising
+  made a measurable commercial difference. Covers the canonical IPA
+  structure (situation → task → strategy → creative → results →
+  payback), the proof hierarchy (model, experiment, tracker), the
+  counterfactual logic, payback / ROMI calculations, and the
+  editorial discipline that separates a winning case from a year-end
+  self-congratulation. Use when writing an awards entry, a client
+  effectiveness review, a year-in-review POV, or a board paper that
+  demonstrates the value of the work. Trigger on phrases like
+  "effectiveness case", "effectiveness paper", "IPA paper", "IPA
+  Effectiveness Awards", "case for effectiveness", "ROI write-up",
+  "ROMI case", "prove the campaign worked", "what did the work
+  achieve", "year-end review", "demonstrate the value of the work",
+  "effectiveness pitch", "Cannes effectiveness", "build the proof
+  case", "campaign results write-up". Pairs with strategy-analyst
+  (the data interpretation), advertising-strategy-copy (the prose),
+  deck-flow-structure (the narrative order), and data-analyst (the
+  modelling).
+when_to_use:
+  - Writing an IPA Effectiveness Awards, WARC, or Cannes Creative Effectiveness entry
+  - Producing an annual client effectiveness review for the CMO or board
+  - Building a pitch case study that needs proof, not just storytelling
+  - Writing a year-in-review for the agency's own thought-leadership
+  - Mounting a re-pitch defence proving the existing work has paid back
+  - Computing and sanity-checking payback (net ROMI, payback period, long-term value) against category norms
+when_not_to_use:
+  - Campaign post-mortems with no business impact data — those are reviews, not cases
+  - "Why the creative was great" pieces — that is a creative case, not an effectiveness case
+  - Setting the strategy itself — use advertising-strategy before the campaign runs
+  - Pure data interpretation without a written case — use strategy-analyst
+keywords:
+  - effectiveness case
+  - ipa paper
+  - ipa effectiveness awards
+  - romi
+  - roi
+  - payback
+  - counterfactual
+  - mmm
+  - econometrics
+  - attribution triangulation
+  - holdout
+  - warc
+  - cannes effectiveness
+  - binet and field
+  - prove the campaign worked
+  - results write-up
+  - year-end review
+  - executive summary
+similar_to:
+  - strategy-analyst
+  - advertising-strategy-copy
+  - advertising-strategy
+  - deck-flow-structure
+  - media-strategy
+inputs_needed: Brand/campaign/time window; business results data (sales, share, revenue); counterfactual evidence (holdouts, MMM, synthetic control); brand tracker and behavioural data; media spend and constraints; category benchmarks (IPA databank norms); the strategy and creative work as run
+produces: A full effectiveness case document (executive summary, six IPA chapters, payback, methodology appendix, confidence register)
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Effectiveness case

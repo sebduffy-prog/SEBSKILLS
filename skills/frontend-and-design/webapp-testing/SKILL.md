@@ -1,6 +1,49 @@
 ---
 name: webapp-testing
-description: Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
+category: frontend-and-design
+description: >
+  Toolkit for interacting with and testing local web applications using
+  Playwright. Supports verifying frontend functionality, debugging UI
+  behavior, capturing browser screenshots, and viewing browser logs.
+when_to_use:
+  - Verifying frontend functionality of a local web application end-to-end
+  - Debugging UI behavior in a running dev server or static HTML page
+  - Capturing browser screenshots of rendered pages for inspection
+  - Viewing or capturing browser console logs during automation
+  - Starting one or more dev servers (backend + frontend) around a Playwright script via with_server.py
+  - Discovering selectors from a rendered DOM (reconnaissance-then-action) before scripting interactions
+when_not_to_use:
+  - Building or styling new UI — use frontend-design instead
+  - Gating a visual change on user sign-off — use design-approval-gate
+  - Automating the user's own Chrome session — use claude-in-chrome tools
+  - Load, performance, or unit testing — this is browser-level functional testing only
+keywords:
+  - playwright
+  - webapp testing
+  - e2e
+  - browser automation
+  - screenshot
+  - console logs
+  - selectors
+  - networkidle
+  - headless chromium
+  - dev server
+  - with_server.py
+  - dom inspection
+  - frontend verification
+  - ui debugging
+  - static html
+similar_to:
+  - frontend-design
+  - design-approval-gate
+inputs_needed:
+  - Whether the target is static HTML or a dynamic webapp
+  - Server start command(s) and port(s) if a dev server is not already running
+  - The URL/page and the functionality or UI behavior to verify
+produces: A Python Playwright automation script plus its outputs (screenshots, console logs, pass/fail verification)
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 license: Complete terms in LICENSE.txt
 ---
 

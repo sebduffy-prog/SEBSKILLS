@@ -1,6 +1,58 @@
 ---
 name: animated-counter
-description: Number that counts up (or down) to a target value when it scrolls into view. Eased, locale-formatted, supports decimals, prefix ("$"), suffix ("%"/"+"). Use when the user asks for an "animated counter", "counting number", "stat number", "count-up", "metric card animation", "KPI ticker", "funded-amount style counter", or wants stats blocks that animate on scroll. Framer category — Data.
+category: ui-effects
+description: >
+  Number that counts up (or down) to a target value when it scrolls into view.
+  Eased, locale-formatted, supports decimals, prefix ("$"), suffix ("%"/"+").
+  Use when the user asks for an "animated counter", "counting number", "stat
+  number", "count-up", "metric card animation", "KPI ticker", "funded-amount
+  style counter", or wants stats blocks that animate on scroll. Framer
+  category — Data.
+when_to_use:
+  - Stats sections ("10,000+ customers", "$2.3M funded", "99.9% uptime")
+  - KPI dashboards where metric numbers should animate on scroll
+  - Metric cards or stat blocks that count up when they enter the viewport
+  - Currency or percentage figures needing prefix/suffix and decimals ("$", "%", "+")
+  - Locale-formatted numbers with thousands separators via Intl.NumberFormat
+  - Dramatic "big important number" reveals with a longer duration
+when_not_to_use:
+  - Whole cards/sections sliding in on scroll — use scroll-reveal-section (pair them for card + counter)
+  - Continuously scrolling logo/text strips — use infinite-marquee
+  - Scrambling/decoding text characters rather than counting a number — use text-scramble
+  - Static numbers with no animation — just print the formatted value
+keywords:
+  - animated counter
+  - count-up
+  - counting number
+  - stat number
+  - kpi ticker
+  - metric card animation
+  - stats block
+  - number animation
+  - intersection observer
+  - requestanimationframe
+  - intl.numberformat
+  - locale formatting
+  - prefix suffix
+  - decimals
+  - easing
+  - ease-out-expo
+  - scroll into view
+  - react
+similar_to:
+  - scroll-reveal-section
+  - text-scramble
+  - infinite-marquee
+inputs_needed:
+  - Target value `to` (and optional starting value `from`)
+  - Prefix/suffix and decimal places (e.g. "$", "%", "+", decimals)
+  - Locale for number formatting (defaults to browser)
+  - Duration and easing preference (default 1800ms ease-out-expo)
+  - Whether it should animate once or replay on every viewport re-entry
+produces: assets/AnimatedCounter.tsx — a dependency-free React <span> component that counts to a target value on viewport entry
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Animated Counter

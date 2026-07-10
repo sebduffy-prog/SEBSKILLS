@@ -1,6 +1,41 @@
 ---
 name: product-capability
+category: product
 description: Translate PRD intent, roadmap asks, or product discussions into an implementation-ready capability plan that exposes constraints, invariants, interfaces, and unresolved decisions before multi-service work starts. Use when the user needs an ECC-native PRD-to-SRS lane instead of vague planning prose.
+when_to_use:
+  - A PRD, roadmap item, discussion, or founder note exists but implementation constraints are still implicit
+  - A feature crosses multiple services, repos, or teams and needs a capability contract before coding
+  - Product intent is clear but architecture, data, lifecycle, or policy implications are fuzzy
+  - Senior engineers keep restating the same hidden assumptions during review
+  - You need a reusable artifact that survives across harnesses and sessions
+when_not_to_use:
+  - You still need to validate whether to build it at all — use product-lens
+  - You are refining a raw idea into a concept — use idea-refine
+  - You are recording a single decision after the fact — use documentation-and-adrs
+keywords:
+  - product capability
+  - prd to srs
+  - capability contract
+  - implementation plan
+  - constraints
+  - invariants
+  - interfaces
+  - unresolved decisions
+  - product.md
+  - roadmap
+  - multi-service
+  - engineering constraints
+  - capability manifest
+  - policy vs architecture
+similar_to:
+  - product-lens
+  - idea-refine
+  - documentation-and-adrs
+inputs_needed: Product intent (PRD, issue, roadmap note), relevant current architecture and contracts, existing capability context (PRODUCT.md, RFCs), and delivery constraints (auth, billing, compliance, rollout).
+produces: An implementation-ready capability manifest exposing constraints, invariants, interfaces, and open decisions.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 origin: ECC
 ---
 

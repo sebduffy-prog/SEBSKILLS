@@ -1,6 +1,40 @@
 ---
 name: browser-testing-with-devtools
 description: Tests in real browsers. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data via Chrome DevTools MCP.
+category: frontend-and-design
+when_to_use:
+  - Building or debugging anything that runs in a browser
+  - Inspecting the DOM or capturing console errors
+  - Analyzing network requests or profiling performance
+  - Verifying visual output with real runtime data
+  - Writing test plans for complex UI bugs
+when_not_to_use:
+  - Simple screenshot/click visual loop — use agent-browser
+  - Scripted Playwright tests for a local app — use webapp-testing
+  - A post-deploy pass/fail QA report — use browser-qa
+keywords:
+  - chrome devtools
+  - mcp
+  - dom inspection
+  - console errors
+  - network requests
+  - performance profiling
+  - core web vitals
+  - screenshot
+  - runtime data
+  - debugging
+  - accessibility tree
+  - test plan
+similar_to:
+  - agent-browser
+  - webapp-testing
+  - browser-qa
+  - performance-optimization
+inputs_needed: The URL/app to inspect and the bug or metric under investigation.
+produces: DevTools-driven diagnostics (console/network/performance/DOM findings) and verified fixes.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Browser Testing with DevTools

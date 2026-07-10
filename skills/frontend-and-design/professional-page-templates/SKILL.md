@@ -1,6 +1,7 @@
 ---
 name: professional-page-templates
-description: |
+category: frontend-and-design
+description: >
   Build professionally-designed marketing pages, product sites,
   portfolios, dashboards, conference pages, newsrooms, and experiential
   scrollytelling sites — across genuinely different layout shapes, not
@@ -19,6 +20,28 @@ description: |
   if they only name one shape — they typically want the system, not
   one starter. SKIP only if the user explicitly wants a single
   hand-coded one-off page with no reuse intent.
+when_to_use:
+  - User asks for a "professional-looking website" or a marketing site, product page, portfolio, dashboard, conference page, newsroom, or experiential/scrollytelling page
+  - User says the current templates "all feel the same" or "are basically tabs" and wants Lovable-level template variety
+  - User names one page shape (dashboard / portfolio / experiential / infinite-scroll) — they typically want the whole starter system, not one page
+  - Composing a 5-9 section page from the section taxonomy with no two adjacent sections from the same category
+  - Adding a new section type to the registry (component + sectionRegistry + editableSchemas + defaults) or a new 30-line starter
+  - Swapping or building theme packs so a single pack change repaints every section via CSS variables
+when_not_to_use:
+  - User explicitly wants a single hand-coded one-off page with no reuse intent — use frontend-design instead
+  - The work is only motion/interaction polish on existing sections — that is the framer-level-interactions layer
+  - You only need a new colour/typography pack, not page structure — use theme-factory
+  - Fixed-brand typography and colour decisions alone — see brand-guidelines
+keywords: [page templates, marketing site, landing page, section taxonomy, starter shapes, saas landing, agency portfolio, product launch, newsroom, dashboard product, portfolio feed, experiential art, scrollytelling, theme pack, css variables, theme tokens, hero, pricing, faq, section registry]
+similar_to: [frontend-design, theme-factory, bento-grid, scroll-reveal-section]
+inputs_needed:
+  - What kind of page/site the user wants (SaaS landing, agency, launch, metrics, creator, event, newsroom, dashboard, feed, experiential) to pick a starter
+  - Brand vibe or preferred theme pack (dark-tech, editorial-mono, pastel-soft, corporate-blue, vibrant-pop, premium-dark, neon-club) or tokens for a custom pack
+  - Whether an existing starter fits or a new starter/section type must be built
+produces: A composed 5-9 section page (starter sequence + registered sections + theme pack) rendered from the section registry with CSS-variable theming
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Professional page templates

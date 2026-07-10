@@ -2,6 +2,39 @@
 name: algorithmic-art
 description: Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.
 license: Complete terms in LICENSE.txt
+category: frontend-and-design
+when_to_use:
+  - Creating art using code, generative art, or algorithmic art
+  - Building flow fields, particle systems, or other procedural systems
+  - Producing an interactive artifact with tunable parameters
+  - Exploring variations via seeded randomness
+  - Deriving a conceptual/philosophical seed into a p5.js sketch
+when_not_to_use:
+  - Static poster/PNG/PDF art driven by a design philosophy — use canvas-design
+  - SVG vector illustration or animation — use svg-illustration-animation
+  - Data charts or dashboards — use quick-chart
+keywords:
+  - p5.js
+  - generative art
+  - algorithmic art
+  - creative coding
+  - flow fields
+  - particle systems
+  - seeded randomness
+  - interactive artifact
+  - parameter exploration
+  - canvas
+  - noise
+  - procedural
+  - sketch
+similar_to:
+  - canvas-design
+  - svg-illustration-animation
+inputs_needed: The concept, theme, or mood; whether it should be static or an interactive artifact; and any colour or parameter preferences.
+produces: A p5.js sketch (often an interactive artifact) generating original algorithmic art with tunable parameters.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 Algorithmic philosophies are computational aesthetic movements that are then expressed through code. Output .md files (philosophy), .html files (interactive viewer), and .js files (generative algorithms).

@@ -1,7 +1,40 @@
 ---
 name: karpathy-guidelines
+category: engineering-workflow
 description: Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria.
+when_to_use:
+  - Writing, reviewing, or refactoring code and wanting to avoid common LLM coding pitfalls
+  - You are about to make assumptions or pick silently between interpretations — surface them instead
+  - Guarding against overcomplication and speculative abstractions (simplicity first)
+  - Making surgical, scoped edits that touch only what the request requires
+  - Turning a vague task into verifiable success criteria you can loop against
+when_not_to_use:
+  - You need the ACT-vs-ASK decision itself for a task — use autonomy-policy
+  - You need full house coding conventions (naming, immutability, smells) — use coding-standards
+  - You want test-first discipline as a workflow — use test-driven-development
+  - You are enforcing evidence before completion claims — use verification-before-completion
+keywords:
+  - karpathy
+  - llm-coding-mistakes
+  - simplicity-first
+  - surgical-changes
+  - surface-assumptions
+  - success-criteria
+  - overcomplication
+  - scope-discipline
+  - goal-driven
+  - think-before-coding
+  - behavioral-guidelines
+similar_to:
+  - coding-standards
+  - autonomy-policy
+  - incremental-implementation
+inputs_needed: The coding task or code under review, and any ambiguity or assumptions that should be surfaced before implementing.
+produces: Code and behavior that stays minimal, surgical, and scoped, with assumptions surfaced and verifiable success criteria defined up front.
 license: MIT
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Karpathy Guidelines

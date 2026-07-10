@@ -1,6 +1,39 @@
 ---
 name: source-driven-development
+category: engineering-workflow
 description: Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.
+when_to_use:
+  - You want framework-specific code that follows current best practices for the installed version
+  - Writing boilerplate or patterns (forms, routing, data fetching, auth) that get copied across a project
+  - The user explicitly asks for documented, verified, or "correct" implementation
+  - Reviewing or improving code that uses framework-specific patterns
+  - Any time you are about to write framework-specific code from memory
+when_not_to_use:
+  - Correctness does not depend on a version (renaming, typos, moving files, pure logic)
+  - You want general house style conventions, not doc-cited patterns — use coding-standards
+  - The user explicitly wants speed over verification ("just do it quickly")
+  - You are packing a repo or searching code, not fetching docs — use repo-context-packer or semantic-code-search
+keywords:
+  - source-driven
+  - official-documentation
+  - version-detection
+  - cite-sources
+  - deprecation
+  - fetch-docs
+  - authoritative
+  - package-json
+  - api-signatures
+  - migration-guide
+  - unverified-flag
+  - framework-patterns
+similar_to:
+  - coding-standards
+  - spec-driven-development
+inputs_needed: The project's dependency file (to detect exact versions) and the specific framework feature being implemented, plus web access to fetch official docs.
+produces: Framework-specific code that matches the current version's documented patterns, with full-URL source citations and any unverifiable decisions flagged.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Source-Driven Development

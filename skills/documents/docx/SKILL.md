@@ -1,7 +1,28 @@
 ---
 name: docx
+category: documents
 description: "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation."
+when_to_use:
+  - Creating a new .docx report, memo, letter, or template with headings, TOC, page numbers, or a letterhead
+  - Reading or extracting text/tables from an existing Word document (including tracked changes)
+  - Editing an existing .docx by unpacking, changing the XML, and repacking
+  - Inserting or replacing images, or performing find-and-replace, in a Word file
+  - Working with tracked changes or comments, or accepting all changes to produce a clean copy
+  - Converting a legacy .doc to .docx before editing
+when_not_to_use:
+  - The deliverable is a PDF — use pdf
+  - The deliverable is a spreadsheet — use xlsx
+  - The deliverable is a slide deck — use pptx
+  - You want a guided collaborative writing workflow rather than file mechanics — use doc-coauthoring
+  - Legal clause review and redlining of a contract — use contract-review (which itself produces a tracked-changes docx)
+keywords: [docx, word document, word doc, microsoft word, pandoc, docx-js, tracked changes, table of contents, headings, letterhead, page numbers, find and replace, unpack xml, repack, footnotes, report, memo, letter, template]
+similar_to: [pdf, pptx, doc-coauthoring, contract-review]
+inputs_needed: The content to include (or the existing .docx path), the paper size/orientation, plus any template, letterhead, images, or find-replace pairs.
+produces: A validated .docx Word document — created from scratch (docx-js) or edited via XML unpack/repack — with the requested formatting.
 license: Proprietary. LICENSE.txt has complete terms
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # DOCX creation, editing, and analysis

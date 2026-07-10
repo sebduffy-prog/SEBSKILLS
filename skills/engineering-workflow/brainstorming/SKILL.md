@@ -1,6 +1,42 @@
 ---
 name: brainstorming
-description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+category: engineering-workflow
+description: You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
+when_to_use:
+  - Before building any new feature, component, or functionality, to turn an idea into an agreed design
+  - Requirements are vague, only a rough idea exists, or purpose/constraints/success criteria are unclear
+  - A request spans multiple independent subsystems and needs decomposing into sub-projects first
+  - You want 2-3 approaches with trade-offs and a recommendation before committing to one
+  - Any project, however "simple", that has not yet had a design presented and approved
+when_not_to_use:
+  - The design is already approved and you need to write the implementation plan — use writing-plans
+  - You are only deciding whether to act autonomously or ask on a defined task — use autonomy-policy
+  - You want a formal written specification document rather than a collaborative design dialogue — use spec-driven-development
+  - Executing an existing plan — use executing-plans or subagent-driven-development
+keywords:
+  - brainstorming
+  - design
+  - requirements
+  - clarifying-questions
+  - user-intent
+  - approaches
+  - trade-offs
+  - design-doc
+  - scope-decomposition
+  - visual-companion
+  - yagni
+  - approval-gate
+  - pre-implementation
+  - spec
+similar_to:
+  - spec-driven-development
+  - writing-plans
+  - autonomy-policy
+inputs_needed: The rough idea or feature request, the project context (files, docs, recent commits), and the user's answers to one-at-a-time clarifying questions.
+produces: An approved design, saved as a spec doc (docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md) and committed, then a handoff to writing-plans.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Brainstorming Ideas Into Designs

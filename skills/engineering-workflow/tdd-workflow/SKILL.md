@@ -1,6 +1,53 @@
 ---
 name: tdd-workflow
-description: Use this skill when writing new features, fixing bugs, or refactoring code. Enforces test-driven development with 80%+ coverage including unit, integration, and E2E tests.
+category: engineering-workflow
+description: >
+  Use this skill when writing new features, fixing bugs, or refactoring code.
+  Enforces test-driven development with 80%+ coverage including unit,
+  integration, and E2E tests.
+when_to_use:
+  - Writing new features or functionality
+  - Fixing bugs or issues (write a failing reproducer first)
+  - Refactoring existing code while keeping tests green
+  - Adding API endpoints that need integration tests
+  - Creating new components that need unit tests
+  - Verifying coverage meets the 80% threshold before completion
+when_not_to_use:
+  - Reviewing already-written code — use requesting-code-review instead
+  - Diagnosing a bug's root cause before any fix — use systematic-debugging first
+  - Docs-only or config-only changes with no runtime behaviour to test
+  - Pure exploration or research spikes where no production code is changed
+keywords:
+  - tdd
+  - test-driven development
+  - red green refactor
+  - unit tests
+  - integration tests
+  - e2e tests
+  - playwright
+  - jest
+  - vitest
+  - coverage
+  - 80% coverage
+  - mocking
+  - test isolation
+  - user journeys
+  - checkpoint commits
+  - arrange-act-assert
+similar_to:
+  - test-driven-development
+  - verification-before-completion
+  - verification-loop
+  - mutation-testing
+inputs_needed:
+  - The feature, bug, or refactor target (user journey or reproduction steps)
+  - The test runner and commands (e.g. npm test, npm run test:coverage)
+  - Whether the repository is under Git (for checkpoint commits)
+  - External services to mock (e.g. Supabase, Redis, OpenAI)
+produces: Tested production code with failing-then-passing tests, checkpoint commits per TDD stage, and an 80%+ coverage report
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 origin: ECC
 ---
 

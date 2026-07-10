@@ -1,6 +1,56 @@
 ---
 name: bento-grid
-description: Responsive bento-box grid layout for React — variable column/row spans per card, with 3D hover tilt + lift that tracks the cursor. Use when the user asks for a "bento grid", "bento box layout", "Apple-style feature grid", "dashboard card grid", "variable-span grid", "product features grid", or wants the Apple.com / Vercel-style mosaic of differently-sized tiles. Framer category — Layout.
+category: ui-effects
+description: >
+  Responsive bento-box grid layout for React — variable column/row spans per
+  card, with 3D hover tilt + lift that tracks the cursor. Use when the user
+  asks for a "bento grid", "bento box layout", "Apple-style feature grid",
+  "dashboard card grid", "variable-span grid", "product features grid", or
+  wants the Apple.com / Vercel-style mosaic of differently-sized tiles.
+  Framer category — Layout.
+when_to_use:
+  - Feature showcases ("what's in the box") on a landing page
+  - Dashboards with mixed widget sizes
+  - Portfolio work-grids of differently-sized tiles
+  - Apple/Vercel/Linear-style landing-page feature mosaics
+  - Product features grid where cards need variable column/row spans
+  - Cards that should tilt in 3D toward the cursor and lift on hover
+when_not_to_use:
+  - Uniform equal-sized card grids — plain CSS grid needs no skill
+  - Scroll-triggered section entrances — use scroll-reveal-section
+  - Hover effects on a single image rather than a card grid — use image-shatter or interactive-distortion
+  - Mobile-first layouts needing automatic column collapse — the grid does not collapse by default; media queries must be added
+keywords:
+  - bento grid
+  - bento box layout
+  - apple-style feature grid
+  - dashboard card grid
+  - variable-span grid
+  - product features grid
+  - mosaic tiles
+  - colspan
+  - rowspan
+  - css grid
+  - 3d hover tilt
+  - hover lift
+  - preserve-3d
+  - perspective
+  - glassmorphism card
+  - react
+  - framer layout
+similar_to:
+  - scroll-reveal-section
+  - image-shatter
+  - magnetic-button
+inputs_needed:
+  - Number of columns (default 4) and row height (default 180px)
+  - Card layout plan — which cards span multiple columns/rows (colSpan 1-4, rowSpan 1-3)
+  - Tilt/lift preferences (max tilt angle, lift px, or disabled)
+  - Whether responsive collapse is needed (media-query column counts for mobile)
+produces: assets/BentoGrid.tsx — BentoGrid container + BentoCard components with span props and 3D cursor tilt
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Bento Grid

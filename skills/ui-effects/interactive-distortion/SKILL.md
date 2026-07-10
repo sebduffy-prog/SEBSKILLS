@@ -1,6 +1,61 @@
 ---
 name: interactive-distortion
-description: Build a WebGL2 interactive mouse-driven pixel distortion effect for images and videos in React/Next.js. Use this skill whenever the user asks for "interactive distortion", "pixel warp", "cursor-follow distortion", "Akella DistortedPixels", "liquid hover on image", "melting image effect", or any hover/mouse-velocity-driven displacement effect over an image or video. Also use when the user references the Framer InteractiveDistortion component, Fugu 4D, or describes the effect as "image that ripples when you move the mouse over it", "pixel grid that warps with cursor", or similar. Trigger this even if the user just describes wanting to make a hero image feel interactive without naming the technique.
+category: ui-effects
+description: >
+  Build a WebGL2 interactive mouse-driven pixel distortion effect for images and videos in
+  React/Next.js. Use this skill whenever the user asks for "interactive distortion", "pixel warp",
+  "cursor-follow distortion", "Akella DistortedPixels", "liquid hover on image", "melting image
+  effect", or any hover/mouse-velocity-driven displacement effect over an image or video. Also use
+  when the user references the Framer InteractiveDistortion component, Fugu 4D, or describes the
+  effect as "image that ripples when you move the mouse over it", "pixel grid that warps with
+  cursor", or similar. Trigger this even if the user just describes wanting to make a hero image
+  feel interactive without naming the technique.
+when_to_use:
+  - User wants a hover-responsive hero image or video that "feels alive"
+  - User references "distortion", "pixel warp", "liquid effect", "Akella", "DistortedPixels", or "Fugu 4D"
+  - User describes an image that ripples/smears when the cursor moves over it, or a cursor that leaves a trail
+  - User is building a portfolio, landing page, or pitch deck and wants an interactive image effect
+  - User wants a pixel-grid warp over a video with presets (smoothDistortion, highDetail, pixelated)
+when_not_to_use:
+  - Image shatters into tiles that fly apart on hover — use image-shatter
+  - Liquid/ripple effect without the pixel-grid warp mechanic — see liquid-image
+  - Chromatic/spectral shader distortions — see spectral-distortion
+  - Ambient noise backgrounds rather than media distortion — see spectra-noise
+  - Dozens of instances on one page (browser WebGL context limit, typically 16)
+keywords:
+  - interactive distortion
+  - pixel warp
+  - cursor-follow distortion
+  - webgl2
+  - shader
+  - data texture
+  - mouse velocity
+  - hover effect
+  - hero image
+  - video distortion
+  - liquid hover
+  - melting image
+  - akella
+  - distortedpixels
+  - fugu 4d
+  - framer
+  - react
+  - nextjs
+  - presets
+similar_to:
+  - image-shatter
+  - liquid-image
+  - spectral-distortion
+  - spectra-noise
+inputs_needed:
+  - Media type (image or video) and the raw asset URL (self-hosted or CORS-enabled)
+  - Preset choice (smoothDistortion, highDetail, pixelated) or custom tuning values (grid, mouseInfluence, strength, relaxation, distortionStrength)
+  - Container dimensions (parent must have explicit size) and objectFit behavior
+  - Whether the deployment is commercial (Fugu 4D port is personal/experimental use only)
+produces: A single self-contained InteractiveDistortion.tsx React component (WebGL2 renderer + shader + wrapper, no dependencies beyond React)
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Interactive Distortion Component

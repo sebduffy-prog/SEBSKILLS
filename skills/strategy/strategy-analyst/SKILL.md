@@ -1,6 +1,7 @@
 ---
 name: strategy-analyst
-description: |
+category: strategy
+description: >
   Acts as a strategic analyst across media and advertising — the
   hybrid role that takes numbers (brand tracker, MMM, search,
   social listening, sales, panel, attribution) and turns them
@@ -20,10 +21,56 @@ description: |
   "what's the so what", "give me a hypothesis", "test this
   hypothesis", "what do we believe now". Trigger even when a
   user pastes a chart and asks "what's interesting?". Pairs with
-  [[data-cut-headline-stats]] (the descriptive cut),
-  [[advertising-strategy]] / [[media-strategy]] (the strategic
-  use), [[advertising-strategy-copy]] (the prose), and
-  [[deck-flow-structure]] (the read-out spine).
+  data-cut-headline-stats (the descriptive cut),
+  advertising-strategy / media-strategy (the strategic
+  use), advertising-strategy-copy (the prose), and
+  deck-flow-structure (the read-out spine).
+when_to_use:
+  - A quarterly brand tracker wave has dropped and the planner needs a point of view, not a themes list
+  - An MMM has been delivered and someone needs to translate it for a CMO
+  - A campaign is mid-flight, KPIs are wobbling, and the call is re-plan or hold
+  - A new-business pitch needs an evidence case with a take, not a category review
+  - The CMO wants the story of the year — a year-in-review POV or annual effectiveness paper
+  - A research debrief needs strategic implications, not just findings
+when_not_to_use:
+  - Pure data cleaning or pulling/cutting the data — use a notebook workflow or data-cut-headline-stats
+  - Descriptive stats only, no point of view required — use data-cut-headline-stats
+  - Writing the recommendation document itself once the analytic ground is laid — use advertising-strategy-copy
+  - Choosing the narrative order of a deck read-out — use deck-flow-structure
+keywords:
+  - strategy analyst
+  - brand tracker
+  - mmm read-out
+  - effectiveness review
+  - triangulation
+  - hypothesis testing
+  - fact vs inference
+  - significance vs materiality
+  - share of search
+  - social listening
+  - attribution
+  - year in review
+  - re-plan trigger
+  - strategic read-out
+  - confidence register
+  - counterfactual
+  - response curves
+  - post-hoc storytelling
+similar_to:
+  - data-cut-headline-stats
+  - data-analyst
+  - effectiveness-case
+  - advertising-strategy
+  - media-strategy
+inputs_needed:
+  - The specific question the read-out exists to answer (one sentence)
+  - The data sources available (tracker, search, social, sales/panel, MMM, qual) — at least two source families for triangulation
+  - A pre-registered hypothesis — what we expect to find and what would falsify it
+  - The audience for the read-out (planner, CMO, pitch) and the decision it feeds
+produces: A strategic read-out — headline, we know / we think / we're watching, implication, recommendation, and re-plan trigger
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Strategy analyst

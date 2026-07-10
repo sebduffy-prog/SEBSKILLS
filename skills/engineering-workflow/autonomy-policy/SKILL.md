@@ -1,6 +1,39 @@
 ---
 name: autonomy-policy
+category: engineering-workflow
 description: Use at the start of EVERY task to decide whether to proceed autonomously or pause and converse with the user. Governs the ask-vs-act tradeoff across coding, debugging, design, refactors, and destructive operations. Invoke this before any implementation, fix, or change so the decision is explicit rather than reactive.
+when_to_use:
+  - At the start of any non-trivial request, to classify it as ACT or ASK before doing anything
+  - Deciding whether a refactor, new feature, or UI change needs a design conversation first
+  - Facing a destructive git operation (force push, reset --hard, branch -D) or file/table deletion
+  - A task has two or more plausible interpretations and you must decide whether to ask
+  - Modifying CI/CD, secrets, infra, permissions, or posting to external services
+  - The user says "just do it" or "you pick" and you need to flip to ACT while keeping destructive gates
+when_not_to_use:
+  - You have already chosen ACT/ASK and need the design conversation itself — use brainstorming
+  - Executing an already-approved written plan — use executing-plans or subagent-driven-development
+  - Deciding root-cause vs symptom on a bug you are already cleared to investigate — use systematic-debugging
+keywords:
+  - autonomy
+  - ask-vs-act
+  - act-or-ask
+  - decision-table
+  - destructive-operations
+  - permission-gate
+  - ambiguity
+  - scope
+  - proceed-autonomously
+  - pause-and-ask
+  - blast-radius
+  - clarifying-question
+similar_to:
+  - brainstorming
+  - karpathy-guidelines
+inputs_needed: The current task and its shape (read-only vs mutating, reversible vs destructive, specified vs ambiguous), plus any prior user pre-authorization in CLAUDE.md or the session.
+produces: An explicit ACT-or-ASK decision for the task, plus either a single focused question/design proposal (ASK) or a one-line statement of intent before proceeding (ACT).
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Autonomy Policy

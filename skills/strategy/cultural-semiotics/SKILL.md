@@ -1,6 +1,7 @@
 ---
 name: cultural-semiotics
-description: |
+category: strategy
+description: >
   Decode cultural codes in a category — Residual (the codes
   fading), Dominant (the codes the category currently runs on),
   Emergent (the codes coming) — using Williams' RDE framework
@@ -18,9 +19,29 @@ description: |
   the category", "what the category looks like / sounds like",
   "tone-of-category". Trigger when the user describes wanting to
   *break* a category or *lead* it rather than fit in. Pairs with
-  [[developed-research]] (the context), [[trend-foresight]] (where
-  emergent codes go), [[brand-audit]] (the brand's current code
-  position), and [[advertising-strategy]] (deployment).
+  developed-research (the context), trend-foresight (where
+  emergent codes go), brand-audit (the brand's current code
+  position), and advertising-strategy (deployment).
+when_to_use:
+  - A brief is in a heavily coded category (banking, beauty, FMCG, alcohol, automotive, charity, fashion) and the work must signal correctly or against on purpose
+  - A brand wants to lead or break the category rather than blend in
+  - A re-positioning needs to know which codes to drop and which to inherit
+  - An audience deep-dive needs its cultural-codes section
+  - A pitch needs a piece of "category lens" thinking — what the category looks, sounds, and behaves like and where it is heading
+when_not_to_use:
+  - Pure trend-spotting — use trend-foresight instead
+  - As a substitute for an insight — use audience-insight; codes are how a brand speaks, not what it says
+keywords: [semiotics, cultural codes, category codes, rde, residual dominant emergent, cultural tension, code-shift, decode the category, visual language, brand codes, iconography, vernacular, category convention, break the category, cultural strategy, code map, raymond williams, tone-of-category]
+similar_to: [trend-foresight, brand-audit, developed-research, audience-insight, advertising-strategy]
+inputs_needed:
+  - Category and audience definition
+  - The cultural moment / context (codes shift fast — date the read)
+  - The strategic question the decode must answer
+  - An audit corpus of 30-60 category artefacts (ads, packaging, sites, sonic logos, retail, sponsorships) — or access to gather one
+produces: A cultural code map (RDE-tagged by register) with named category tensions and a KEEP/DROP/ADD code-shift recommendation with anchor examples
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Cultural semiotics

@@ -69,6 +69,14 @@ case "$mode" in
     fi
     link_skills "$proj/.claude/skills"
     ;;
+  one)
+    # Install ONLY the /sebduffy router — the single file that reaches the whole library.
+    target="$HOME/.claude/skills/sebduffy"
+    mkdir -p "$target"
+    ln -sf "$SKILLS_SRC/meta/sebduffy/SKILL.md" "$target/SKILL.md"
+    echo "Linked /sebduffy → $target/SKILL.md"
+    echo "Type '/sebduffy <intent>' in any Claude Code session to reach the whole library."
+    ;;
   web)
     cat <<EOF
 Claude Code Web auto-discovers any directory containing SKILL.md in a

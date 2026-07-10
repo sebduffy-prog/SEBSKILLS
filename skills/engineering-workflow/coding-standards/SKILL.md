@@ -1,7 +1,45 @@
 ---
 name: coding-standards
+category: engineering-workflow
 description: Baseline cross-project coding conventions for naming, readability, immutability, and code-quality review. Use detailed frontend or backend skills for framework-specific patterns.
+when_to_use:
+  - Starting a new project or module and wanting a shared quality floor
+  - Reviewing code for readability, naming, immutability, and code smells
+  - Refactoring existing code to follow KISS/DRY/YAGNI conventions
+  - Setting up linting, formatting, or type-checking baseline rules
+  - Enforcing descriptive naming, error handling, and structural consistency across a team
+  - Onboarding new contributors to the codebase's conventions
+when_not_to_use:
+  - You need language/version-authoritative patterns from official docs — use source-driven-development
+  - You are enforcing correctness via tests rather than style — use test-driven-development or tdd-workflow
+  - The review is specifically about security vulnerabilities — use security-review
+  - You want a full code-review workflow with a reviewer subagent — use requesting-code-review
+keywords:
+  - coding-standards
+  - naming-conventions
+  - immutability
+  - kiss
+  - dry
+  - yagni
+  - readability
+  - code-smells
+  - error-handling
+  - typescript
+  - react
+  - input-validation
+  - aaa-pattern
+  - magic-numbers
+  - deep-nesting
+similar_to:
+  - source-driven-development
+  - security-review
+  - git-workflow
+inputs_needed: The code or module under review (or a new project to scaffold) and the language/stack in use.
+produces: Code and review feedback aligned to baseline conventions — descriptive naming, immutable patterns, comprehensive error handling, and smell-free structure.
 origin: ECC
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Coding Standards & Best Practices

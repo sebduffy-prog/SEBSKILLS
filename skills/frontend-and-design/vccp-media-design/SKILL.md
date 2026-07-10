@@ -1,6 +1,7 @@
 ---
 name: vccp-media-design
-description: |
+category: frontend-and-design
+description: >
   Apply the VCCP Media 2026 brand system to any client-facing artifact —
   web pages, web apps, dashboards, slide decks (PPTX / Keynote / Google
   Slides), PDF reports, posters, infographics, social tiles, banners,
@@ -16,6 +17,28 @@ description: |
   of mustard + teal + Inter Tight + highlighter motif together. SKIP
   when the user explicitly requests a different agency, a different
   brand, or Anthropic styling (use `brand-guidelines` instead).
+when_to_use:
+  - Styling a web page, web app, or dashboard in the VCCP Media 2026 look (two-pane shell, rail/frame cards, mustard nav pill)
+  - Building a VCCP Media slide deck — always on the official Media Template 2026 [Q2].pptx master, never from scratch
+  - Producing a VCCP-branded PDF report, poster, infographic, or editorial/report cover (ReportLab / WeasyPrint / InDesign recipes)
+  - Making matplotlib charts in the VCCP palette with Inter Tight and the vccp_charts rcParams config
+  - Creating social tiles, banners, email signatures, or business-card collateral with the highlighter parallelogram motif
+  - Placing the official VCCP Media logo lockups (Logo, Bear, Girl, Girl_and_Bear PNGs) with correct sizing and clear space
+when_not_to_use:
+  - The user asks for a different agency's or client's brand, or Anthropic styling — use brand-guidelines instead
+  - Recolouring the VCCP logo for client-branded surfaces — that is the separate vccp-logo-use skill
+  - Generic non-branded UI work with no VCCP requirement — use frontend-design or theme-factory
+keywords: [vccp, vccp media, mustard, teal, inter tight, highlighter, parallelogram, brand system, slide deck, pptx, pdf report, poster, infographic, social tile, matplotlib, dashboard, editorial, logo lockup, sentence case, tabular numbers]
+similar_to: [brand-guidelines, theme-factory, frontend-design]
+inputs_needed:
+  - Which artifact type (web/dashboard, PPTX deck, PDF report, poster, infographic, social tile, chart, collateral)
+  - Which half is primary — mustard (operator-facing/hero, the default) or teal (research/methodology/appendix)
+  - Headline copy as a sentence, plus which single word gets the highlighter accent
+  - Output dimensions/format where relevant (A4/A3, poster size, tile size, 16:9 deck)
+produces: A VCCP Media 2026-branded artifact (web UI, PPTX deck on the official template, PDF, poster, infographic, chart, or social tile)
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # VCCP Media 2026 — design system
@@ -419,14 +442,52 @@ real label floats up on `:placeholder-shown` transition.
 
 ### Slide decks (PPTX / Keynote / Google Slides)
 
-Widescreen 16:9 at **11.811" × 6.646"** (matches the Media Template
-2026 master used in PowerPoint UK).
+**The official template lives in this skill:**
+[`assets/template/Media Template 2026 [Q2].pptx`](assets/template/Media%20Template%202026%20%5BQ2%5D.pptx)
+— the complete Media Template 2026 master (Google Slides export:
+1 master, 85 layouts, 71 sample slides showing every approved layout
+in use). **Always build VCCP Media decks ON this file**, never from
+`Presentation()` scratch: opening it preserves the master, all 85
+layouts and the theme, so anyone who adds slides afterwards in
+PowerPoint or Google Slides gets the real template layouts.
+
+Canvas is widescreen 16:9 at **10800000 × 6076800 EMU**
+(= 11.8110" × 6.6457"; `Inches(11.811) × Inches(6.646)` is within
+rounding — compare with a tolerance, never exact-equality).
+
+The template theme IS the brand palette (verified in `theme1.xml`):
+`dk1` ink `000000` · `lt1` paper `FFFFFF` · `dk2` mustard `FFC931` ·
+`lt2` teal `80E8E3` · `accent1` mustard-dark `FF8812` · `accent2`
+mustard-light `FFEDBB` · `accent3` teal-deep `00BCA5` · `accent4`
+teal-light `BDF9F6` · `accent5` mustard-pale `FFF9E2` · `accent6`
+teal-pale `DEFCFA`. The theme's latin face reads "Arial" (Slides
+export artifact) — set **Inter Tight** explicitly on every run.
+
+Programmatic build recipe:
 
 ```python
-from pptx.util import Inches
-SLIDE_W = Inches(11.811)
-SLIDE_H = Inches(6.646)
+from pptx import Presentation
+
+TEMPLATE = 'assets/template/Media Template 2026 [Q2].pptx'
+prs = Presentation(TEMPLATE)
+
+# strip the 71 sample slides, keep master/layouts/theme
+for sldId in list(prs.slides._sldIdLst):
+    prs.part.drop_rel(sldId.rId)
+    prs.slides._sldIdLst.remove(sldId)
+
+# layout 0 "Title & Bullets_2" is the placeholder-free blank canvas —
+# draw brand shapes/text on it with the helpers below
+BLANK = prs.slide_masters[0].slide_layouts[0]
+slide = prs.slides.add_slide(BLANK)
 ```
+
+Layouts worth knowing (by index on master 0): `0` blank
+(no placeholders — the programmatic canvas), `1` title + page number,
+`2–9` title/subtitle/body editorial variants, `15/17/18–29` multi-body
+grids, `30–37` picture + caption pairs, `55–58` six-subtitle grids.
+When hand-editing in Slides/PowerPoint, pick a real layout; when
+generating, use `0` and draw.
 
 **Every slide carries:**
 
@@ -698,6 +759,10 @@ the PPTX reference, and mirror what's there.
   showing nav, cover, two-pane shell, rail + frame cards,
   highlighter (mustard + teal variants), stage chips, form fields,
   buttons, stat callouts, table with up/down deltas, footer
+- [`assets/template/Media Template 2026 [Q2].pptx`](assets/template/Media%20Template%202026%20%5BQ2%5D.pptx)
+  — the complete official PPTX template (master + 85 layouts +
+  theme + 71 sample slides). The mandatory starting point for every
+  VCCP Media deck; see "Slide decks" above for the build recipe.
 
 ## Production reference (external repo)
 

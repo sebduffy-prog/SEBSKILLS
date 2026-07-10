@@ -2,6 +2,39 @@
 name: design-system
 description: Use this skill to generate or audit design systems, check visual consistency, and review PRs that touch styling.
 origin: ECC
+category: frontend-and-design
+when_to_use:
+  - Generating a new design system with tokens, spacing, and type scales
+  - Auditing visual consistency across a product or screens
+  - Reviewing PRs that touch styling
+  - Detecting AI-slop or generic aesthetics
+when_not_to_use:
+  - Applying an existing brand (VCCP/Anthropic) — use vccp-media-design or brand-guidelines
+  - A quick theme swap on an artifact — use theme-factory
+  - Building the components themselves — use frontend-ui-engineering
+keywords:
+  - design system
+  - design tokens
+  - visual consistency
+  - audit
+  - ai slop
+  - style review
+  - spacing scale
+  - type scale
+  - component library
+  - tokens
+  - pr review
+  - generate
+similar_to:
+  - frontend-ui-engineering
+  - theme-factory
+  - brand-color-token-system
+  - vccp-media-design
+inputs_needed: Either the brand/product to generate a system for, or the codebase/PR/screens to audit.
+produces: A generated design-system spec or a visual-consistency/AI-slop audit report.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Design System — Generate & Audit Visual Systems

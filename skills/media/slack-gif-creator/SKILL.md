@@ -1,6 +1,36 @@
 ---
 name: slack-gif-creator
-description: Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like "make me a GIF of X doing Y for Slack."
+category: media
+description: >
+  Knowledge and utilities for creating animated GIFs optimized for Slack.
+  Provides Slack's size/dimension constraints, a GIFBuilder frame assembler,
+  validation tools, easing functions, and animation concepts (shake, pulse,
+  bounce, spin, fade, slide, zoom, particle burst) built on PIL/Pillow. Use
+  when users request animated GIFs for Slack like "make me a GIF of X doing Y
+  for Slack", a custom Slack emoji GIF, or a looping message GIF.
+when_to_use:
+  - "Create an animated GIF sized and optimized for Slack (128x128 emoji or 480x480 message)"
+  - "Build a custom animated Slack emoji from scratch with PIL primitives"
+  - "Animate or split a user-uploaded image into GIF frames"
+  - "Apply eased motion (bounce, elastic, back) or effects like shake/pulse/spin/fade/particle burst"
+  - "Validate that a GIF meets Slack's dimension, fps, color, and duration limits"
+  - "Shrink an existing GIF's file size (fewer frames/colors, smaller dims, dedupe frames)"
+when_not_to_use:
+  - "Generating a still AI image, not an animation → use flux-image-gen or nano-banana-image"
+  - "Extracting frames from an existing video file → use video-frame-extraction"
+  - "Interpolating or retiming real video footage → use frame-interpolation-retiming"
+  - "Producing an mp4/webm clip rather than a GIF → use ffmpeg-cookbook or batch-transcode-encode"
+keywords: [slack gif, animated gif, slack emoji, gif builder, pillow, PIL, imagedraw, easing, ease_out, bounce, elastic, particle burst, gif optimization, num_colors, 128x128, 480x480, fps, emoji animation, imageio, validate gif]
+similar_to: [flux-image-gen, nano-banana-image, video-frame-extraction]
+inputs_needed:
+  - "What the GIF should depict and the desired motion/effect"
+  - "Target: Slack emoji (128x128) vs message GIF (480x480)"
+  - "Any user-uploaded image, and whether to use it directly or as inspiration"
+  - "Constraints if any: max file size, fps, duration, color count"
+produces: An optimized, Slack-ready animated .gif (emoji or message sized) with validation info.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 license: Complete terms in LICENSE.txt
 ---
 

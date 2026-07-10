@@ -1,6 +1,51 @@
 ---
 name: theme-factory
-description: Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.
+category: frontend-and-design
+description: >
+  Toolkit for styling artifacts with a theme. These artifacts can be slides,
+  docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with
+  colors/fonts that you can apply to any artifact that has been creating, or
+  can generate a new theme on-the-fly.
+when_to_use:
+  - Applying consistent, professional styling (colors + fonts) to a slide deck or presentation
+  - Styling docs, reports, or HTML landing pages with a cohesive theme
+  - Choosing from 10 pre-set themes (Ocean Depths, Sunset Boulevard, Tech Innovation, etc.) via the theme-showcase.pdf
+  - Generating a new custom theme on-the-fly when none of the pre-set themes fit
+  - Ensuring proper contrast, readability, and a consistent visual identity across all slides of an artifact
+when_not_to_use:
+  - Building a full frontend interface or web app from scratch — use frontend-design instead
+  - Adding a light/dark mode switcher — use theme-toggle
+  - Creating charts or dashboards where chart-specific palettes matter — use dataviz
+  - Shipping a visual change without user preview/approval — pair with design-approval-gate
+keywords:
+  - theme
+  - styling
+  - color palette
+  - hex codes
+  - font pairing
+  - typography
+  - slide deck
+  - presentation
+  - landing page
+  - branding
+  - visual identity
+  - theme showcase
+  - custom theme
+  - contrast
+  - readability
+similar_to:
+  - frontend-design
+  - theme-toggle
+  - brand-guidelines
+  - design-approval-gate
+inputs_needed:
+  - The artifact to style (slides, doc, report, or HTML page)
+  - The user's theme choice after viewing theme-showcase.pdf (explicit confirmation required)
+  - For a custom theme, a basic description of the desired look/feel to pick colors and fonts
+produces: An artifact (deck, doc, or page) styled with a chosen theme's colors and font pairings applied consistently throughout
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 license: Complete terms in LICENSE.txt
 ---
 

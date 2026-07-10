@@ -1,6 +1,38 @@
 ---
 name: receiving-code-review
+category: engineering-workflow
 description: Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation
+when_to_use:
+  - You have received code review feedback and are about to act on it
+  - Feedback seems unclear, technically questionable, or possibly wrong for this codebase
+  - You need to verify a suggestion against codebase reality before implementing
+  - Deciding whether to push back with technical reasoning or acknowledge and fix
+  - Handling multi-item feedback where some items are unclear (clarify all before starting)
+  - Replying to inline GitHub review comment threads
+when_not_to_use:
+  - You are the one requesting a review of your work — use requesting-code-review
+  - You are performing the review of someone else's diff — use security-review or coding-standards
+  - You just need to verify your fix actually passes — use verification-before-completion
+keywords:
+  - code-review-feedback
+  - receiving-review
+  - verify-before-implement
+  - push-back
+  - technical-rigor
+  - no-performative-agreement
+  - yagni-check
+  - clarify-unclear
+  - external-reviewers
+  - github-thread-reply
+  - implementation-order
+similar_to:
+  - requesting-code-review
+  - verification-before-completion
+inputs_needed: The review feedback (item list), access to the codebase to verify claims, and clarity on which items are ambiguous.
+produces: A verified, technically-reasoned response to each item — clarifications, reasoned pushback where wrong, or fixes implemented and tested one at a time.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Code Review Reception

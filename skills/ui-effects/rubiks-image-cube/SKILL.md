@@ -1,6 +1,59 @@
 ---
 name: rubiks-image-cube
-description: Build an interactive 3D Rubik's cube component in React/Next.js using CSS 3D transforms and framer-motion. Each face can display either colour tiles or a 3x3 grid of image segments. Use this skill whenever the user asks for a "Rubik's cube", "3D image cube", "rotating image cube", "interactive cube", "draggable 3D cube", or wants to display images on the faces of a 3D cube. Also use when the user references the Framer Rubix Image Cube component, or describes wanting to show photos / images / a portfolio on a rotatable 3D cube with shuffle and reset controls. Trigger this even if the user just describes wanting a playful 3D photo display or a cube hero element.
+category: ui-effects
+description: >
+  Build an interactive 3D Rubik's cube component in React/Next.js using CSS 3D
+  transforms and framer-motion. Each face can display either colour tiles or a
+  3x3 grid of image segments. Use this skill whenever the user asks for a
+  "Rubik's cube", "3D image cube", "rotating image cube", "interactive cube",
+  "draggable 3D cube", or wants to display images on the faces of a 3D cube.
+  Also use when the user references the Framer Rubix Image Cube component, or
+  describes wanting to show photos / images / a portfolio on a rotatable 3D
+  cube with shuffle and reset controls. Trigger this even if the user just
+  describes wanting a playful 3D photo display or a cube hero element.
+when_to_use:
+  - User wants a 3D cube with images on each face
+  - User references "Rubik's cube", "rubix cube", "3D photo cube", or "image cube"
+  - User is building a portfolio, gallery, or interactive hero and wants a draggable 3D element
+  - User describes showing 6 images (or 54 images) on a rotatable cube with shuffle/reset controls
+  - User references the Framer Rubix Image Cube component
+  - User just describes a playful 3D photo display or cube hero element
+when_not_to_use:
+  - User needs a true Rubik's solver or real face-turn mechanics — the shuffle here is cosmetic; point at cubejs/cube-solver
+  - Scenes needing real lighting/shadows or WebGL — this is pure CSS 3D, use Three.js instead
+  - A single image with a dramatic hover break-apart effect — use sibling skill image-shatter
+  - Flat image distortion/hover effects rather than a 3D object — see interactive-distortion or liquid-image
+keywords:
+  - rubiks cube
+  - rubix cube
+  - 3d cube
+  - image cube
+  - photo cube
+  - rotating cube
+  - draggable cube
+  - interactive cube
+  - css 3d transforms
+  - framer-motion
+  - react
+  - nextjs
+  - portfolio
+  - gallery
+  - hero element
+  - shuffle
+  - image slicing
+  - preserve-3d
+similar_to:
+  - image-shatter
+  - interactive-distortion
+  - liquid-image
+inputs_needed:
+  - Colour tiles or image faces (useImages) — and if images, one image sliced 3x3 per face or 9 distinct images per face (paths for up to 6 faces)
+  - Cube sizing (cubeSize, gap) and behaviour (autoRotate, rotationSpeed, showControls)
+  - Whether it is a Next.js project (needs "use client" and /public image paths)
+produces: A single RubiksCube.tsx React component (framer-motion as the only extra dependency) rendering a drag-rotatable 3D cube with shuffle/reset controls.
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Rubik's Image Cube Component

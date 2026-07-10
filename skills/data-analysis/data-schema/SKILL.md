@@ -33,6 +33,9 @@ inputs_needed:
   - (For validation) the expected schema — column names, types, constraints
   - (For design) the use case — what queries will run, what writes will happen, what the entity is
 produces: A structured schema report (Markdown table) listing column name, dtype, null %, unique count, sample values, and inferred constraints. For design tasks, a CREATE TABLE statement or Pydantic model.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Data Schema

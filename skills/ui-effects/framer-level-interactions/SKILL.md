@@ -1,6 +1,7 @@
 ---
 name: framer-level-interactions
-description: |
+category: ui-effects
+description: >
   Build Framer-grade interactive section components for marketing pages,
   product sites, portfolios, and dashboards. The skill covers seven
   battle-tested interaction recipes — 3D-tilt cards with cursor
@@ -18,6 +19,53 @@ description: |
   pattern — the others belong together. SKIP only if the user
   explicitly asks for a pure-CSS or pure-server-rendered page with no
   client interactivity.
+when_to_use:
+  - User asks for "Framer-level", "Linear-level", "Stripe-level", or "Vercel-level" interactions on a page
+  - A marketing page, portfolio, product preview, or dashboard feels "flat", "static", or "needs life / polish"
+  - User asks for a specific move — 3D tilt, cursor spotlight, magnetic button, animated counter, scrollytelling, sticky scroll, drawn-on chart, or lazy/infinite feed
+  - Building a hero section that needs an aurora-drift background plus a magnetic CTA
+  - A stats strip needs IntersectionObserver-eased counters or sparkline draw-in charts
+  - A long feed or grid needs sentinel-based infinite loading with staggered reveal
+  - Composing several interaction patterns together on one section page (they layer, 3+ per page)
+when_not_to_use:
+  - User explicitly wants a pure-CSS or pure-server-rendered page with no client interactivity
+  - Only one isolated effect is needed — use the sibling skill directly (magnetic-button, aurora-gradient, animated-counter, scroll-reveal-section)
+  - Heavy WebGL/physics image effects — use image-shatter or interactive-distortion instead
+  - Touch-only experiences — tilt and magnetic patterns are pointer:fine hover effects
+keywords:
+  - framer-level interactions
+  - 3d tilt card
+  - cursor spotlight
+  - magnetic button
+  - aurora gradient
+  - animated counter
+  - sparkline draw-in
+  - infinite feed
+  - sticky scroll
+  - scrollytelling
+  - intersectionobserver
+  - hover effects
+  - micro-interactions
+  - hero background
+  - stagger reveal
+  - prefers-reduced-motion
+  - css variables
+  - react
+  - polish
+similar_to:
+  - magnetic-button
+  - aurora-gradient
+  - animated-counter
+  - scroll-reveal-section
+  - bento-grid
+inputs_needed:
+  - Which page/sections need the interactions and which of the seven patterns to combine (max two per section)
+  - Theme token values or confirmation the CSS vars exist (--rs-accent, --rs-background, --rs-card-color, --rs-text-color, --rs-font, --rs-heading-font)
+  - Real data for counters, sparkline points, feed items, and sticky-scroll steps
+produces: Plain React components (no heavy deps) implementing the chosen interaction recipes, themed via CSS custom properties and honouring prefers-reduced-motion
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Framer-level interactions

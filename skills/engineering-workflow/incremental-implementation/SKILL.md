@@ -1,6 +1,40 @@
 ---
 name: incremental-implementation
+category: engineering-workflow
 description: Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you're about to write a large amount of code at once, or when a task feels too big to land in one step.
+when_to_use:
+  - Implementing any multi-file change or a feature from a task breakdown
+  - You are about to write more than ~100 lines before testing
+  - A task feels too big to land in one step and needs thin vertical slices
+  - Refactoring existing code while keeping the system working between slices
+  - You need discipline on scope, simplicity, feature flags, and rollback-friendly commits
+when_not_to_use:
+  - Single-file, single-function changes where the scope is already minimal
+  - You still need a written plan of tasks first — use writing-plans
+  - You are enforcing test-first discipline specifically — use test-driven-development
+  - You are dispatching tasks to subagents with review — use subagent-driven-development
+keywords:
+  - incremental
+  - vertical-slices
+  - thin-slices
+  - implement-test-verify-commit
+  - scope-discipline
+  - simplicity-first
+  - feature-flags
+  - rollback-friendly
+  - small-commits
+  - contract-first
+  - risk-first
+  - keep-compilable
+similar_to:
+  - test-driven-development
+  - writing-plans
+  - subagent-driven-development
+inputs_needed: The feature or change to implement (ideally a task breakdown), the project's test/build/lint commands, and a slicing strategy (vertical, contract-first, or risk-first).
+produces: A series of small, independently-tested and committed increments that each leave the system in a working, verifiable state.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Incremental Implementation

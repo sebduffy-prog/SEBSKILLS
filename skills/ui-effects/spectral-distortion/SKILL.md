@@ -1,6 +1,59 @@
 ---
 name: spectral-distortion
-description: Compose a red-themed spectra-noise WebGL shader background with an interactive-distortion image overlay so that the spectra's animated field continuously distorts the image while mouse input still adds its own warp. Use this skill whenever the user asks for a "spectral distortion", "red spectra background that distorts the image", "shader-driven image warp", "ambient generative distortion", or any composition that layers spectra-noise behind an interactive-distortion image and feeds the shader motion into the distortion field. Trigger this even when the user describes the effect loosely ("red shader background melting the photo", "the noise should also warp the picture").
+category: ui-effects
+description: >
+  Compose a red-themed spectra-noise WebGL shader background with an
+  interactive-distortion image overlay so that the spectra's animated field
+  continuously distorts the image while mouse input still adds its own warp.
+  Use this skill whenever the user asks for a "spectral distortion", "red
+  spectra background that distorts the image", "shader-driven image warp",
+  "ambient generative distortion", or any composition that layers
+  spectra-noise behind an interactive-distortion image and feeds the shader
+  motion into the distortion field. Trigger this even when the user describes
+  the effect loosely ("red shader background melting the photo", "the noise
+  should also warp the picture").
+when_to_use:
+  - User wants "a red spectral component on the background" that also distorts a foreground image
+  - Dressing up a hero section, pitch-deck slide, or dashboard panel with an atmospheric red shader backdrop whose motion is picked up by a foreground image
+  - User asks to combine spectra-noise and interactive-distortion without writing the layering + driving logic themselves
+  - User wants the image to keep breathing/warping with the shader even when the cursor is idle, with mouse movement stacking on top
+  - User describes the effect loosely ("red shader background melting the photo", "the noise should also warp the picture")
+when_not_to_use:
+  - User just wants a shader background — use the spectra-noise sibling skill directly
+  - User just wants mouse-driven image distortion — use the interactive-distortion sibling skill directly
+  - User wants a different colour family as the primary ask — re-skin via spectraProps, but the skill defaults to red
+  - Performance-critical low-end targets where two WebGL contexts are unacceptable
+keywords:
+  - spectral distortion
+  - spectra-noise
+  - interactive-distortion
+  - webgl
+  - shader background
+  - image warp
+  - ambient distortion
+  - red shader
+  - generative background
+  - mix-blend-mode
+  - hero section
+  - mouse velocity
+  - react component
+  - layered composition
+  - distortion preset
+similar_to:
+  - spectra-noise
+  - interactive-distortion
+  - liquid-image
+  - image-shatter
+inputs_needed:
+  - imageUrl (or videoUrl + mediaType) for the distorted media layer
+  - Confirmation that SpectraNoise.tsx and InteractiveDistortion.tsx are already installed in components/
+  - Desired colour palette if not the default red (via spectraProps)
+  - Ambient intensity preferences (ambientStrength, ambientFrequency) and distortionPreset
+  - Foreground children/content that must remain visible on top
+produces: A single SpectralDistortion.tsx React composition component layering a red SpectraNoise canvas under an InteractiveDistortion image whose warp is driven by the shader motion
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Spectral Distortion Component

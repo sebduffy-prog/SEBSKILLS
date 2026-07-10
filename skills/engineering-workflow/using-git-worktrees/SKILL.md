@@ -1,6 +1,50 @@
 ---
 name: using-git-worktrees
-description: Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification
+category: engineering-workflow
+description: >
+  Use when starting feature work that needs isolation from current workspace
+  or before executing implementation plans - creates isolated git worktrees
+  with smart directory selection and safety verification
+when_to_use:
+  - Starting feature work that needs isolation from the current workspace
+  - Before executing implementation plans (executing-plans or subagent-driven-development)
+  - After a design is approved in brainstorming and implementation follows
+  - Working on multiple branches simultaneously without switching
+  - Any skill or task needing an isolated workspace with a verified clean test baseline
+when_not_to_use:
+  - Work is complete and you need to merge/PR/clean up - use finishing-a-development-branch
+  - Quick single-file edits or trivial fixes that don't need workspace isolation
+  - The repository is not a git repo, or you only need to switch branches in place
+keywords:
+  - git
+  - worktree
+  - worktrees
+  - isolated workspace
+  - branch isolation
+  - directory selection
+  - gitignore
+  - check-ignore
+  - clean baseline
+  - baseline tests
+  - project setup
+  - npm install
+  - feature branch
+  - parallel branches
+  - workspace
+  - implementation plan
+similar_to:
+  - finishing-a-development-branch
+  - executing-plans
+  - subagent-driven-development
+  - brainstorming
+inputs_needed:
+  - Branch/feature name for the new worktree
+  - Worktree directory location if none exists and CLAUDE.md has no preference (.worktrees/ vs global)
+  - Whether to proceed or investigate if baseline tests fail
+produces: An isolated git worktree on a new branch with dependencies installed and a verified passing test baseline
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Using Git Worktrees

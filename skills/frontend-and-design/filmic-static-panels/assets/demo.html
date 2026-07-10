@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Filmic static panels — demo</title>
+<link rel="stylesheet" href="static-panels.css"/>
+<style>
+  body{ margin:0; font-family:-apple-system,Inter,system-ui,sans-serif; padding:56px; }
+  h1{ font-weight:700; letter-spacing:-0.02em; margin:0 0 6px; }
+  .sub{ color:var(--muted); font-size:13px; margin-bottom:36px; }
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .panel h3{ margin:0 0 10px; font-size:16px; }
+  .panel p{ margin:0; color:var(--muted); font-size:13px; line-height:1.6; }
+  .bars{ display:flex; align-items:flex-end; gap:14px; height:180px; margin-top:18px; }
+  .bars .bar{ flex:1; }
+</style>
+</head>
+<body>
+  <h1>Filmic static panels</h1>
+  <div class="sub">Dark gradient surfaces under an animated film-grain overlay + vignette.</div>
+
+  <div class="grid">
+    <div class="panel"><h3>Audience fingerprint</h3><p>Gradient surface, hairline border, soft radius. The grain overlay gives it that living, slightly noisy texture.</p></div>
+    <div class="panel"><h3>Chart container</h3><p>Hover to see the lift + depth shadow. One overlay textures every panel for free.</p></div>
+    <div class="panel">
+      <h3>Mekko bars</h3>
+      <div class="bars">
+        <div class="bar" style="--bar:var(--f0); height:88%"></div>
+        <div class="bar" style="--bar:var(--f2); height:64%"></div>
+        <div class="bar" style="--bar:var(--f7); height:52%"></div>
+        <div class="bar" style="--bar:var(--f9); height:40%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- overlays last, above content -->
+  <canvas id="grain"></canvas>
+  <div id="vignette"></div>
+  <script src="grain.js"></script>
+</body>
+</html>

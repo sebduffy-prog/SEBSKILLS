@@ -1,6 +1,49 @@
 ---
 name: verification-before-completion
+category: engineering-workflow
 description: Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
+when_to_use:
+  - About to claim work is complete, fixed, or passing
+  - Before committing, pushing, or creating a PR
+  - Before expressing satisfaction or any positive statement about work state
+  - Before moving to the next task or marking a phase complete
+  - After an agent/subagent reports success and you need to verify independently
+  - When claiming a bug is fixed or a regression test works (red-green cycle)
+when_not_to_use:
+  - Mid-implementation while iterating — the gate applies at the claim, not every keystroke
+  - Choosing how to integrate finished work — use finishing-a-development-branch
+  - Diagnosing why verification failed — use systematic-debugging
+  - Writing the tests themselves — use test-driven-development
+keywords:
+  - verification
+  - completion claims
+  - evidence
+  - tests pass
+  - build succeeds
+  - exit code
+  - linter clean
+  - bug fixed
+  - regression test
+  - red-green
+  - commit
+  - pull request
+  - agent delegation
+  - false success
+  - requirements checklist
+  - fresh verification
+similar_to:
+  - test-driven-development
+  - finishing-a-development-branch
+  - systematic-debugging
+  - executing-plans
+inputs_needed:
+  - The specific claim about to be made (tests pass, build succeeds, bug fixed, requirements met)
+  - The verification command that proves that claim
+  - The plan/requirements list when claiming a phase or feature complete
+produces: A completion claim backed by fresh verification command output (exit codes, test counts, diffs) — or an honest statement of actual status
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Verification Before Completion

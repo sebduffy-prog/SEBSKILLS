@@ -2,6 +2,39 @@
 name: browser-qa
 description: Use this skill to automate visual testing and UI interaction verification using browser automation after deploying features.
 origin: ECC
+category: frontend-and-design
+when_to_use:
+  - Automating visual testing after deploying a feature
+  - Running a smoke test against a deployed URL
+  - Verifying UI interactions and checking for visual regression
+  - A quick accessibility pass with a ship/fix verdict
+  - Producing a structured QA report before sign-off
+when_not_to_use:
+  - Interactive build-time screenshot/click loop — use agent-browser
+  - Deep DevTools DOM/network/performance inspection — use browser-testing-with-devtools
+  - Scripting Playwright tests for a local app — use webapp-testing
+keywords:
+  - browser qa
+  - visual testing
+  - smoke test
+  - interaction test
+  - visual regression
+  - accessibility
+  - automated testing
+  - qa report
+  - post-deploy
+  - ui verification
+  - verdict
+similar_to:
+  - agent-browser
+  - browser-testing-with-devtools
+  - webapp-testing
+  - design-approval-gate
+inputs_needed: The deployed URL to test and the key flows or interactions to verify.
+produces: A structured QA report (smoke, interactions, visual, accessibility) with a ship/fix verdict.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Browser QA — Automated Visual Testing & Interaction

@@ -1,6 +1,59 @@
 ---
 name: frontend-ui-engineering
-description: Builds production-quality UIs. Use when building or modifying user-facing interfaces. Use when creating components, implementing layouts, managing state, or when the output needs to look and feel production-quality rather than AI-generated.
+category: frontend-and-design
+description: >
+  Builds production-quality UIs. Use when building or modifying user-facing
+  interfaces. Use when creating components, implementing layouts, managing
+  state, or when the output needs to look and feel production-quality rather
+  than AI-generated.
+when_to_use:
+  - Building new UI components or pages
+  - Modifying existing user-facing interfaces
+  - Implementing responsive layouts (mobile-first, tested at standard breakpoints)
+  - Adding interactivity or state management to a UI
+  - Fixing visual or UX issues
+  - Output must meet accessibility (WCAG 2.1 AA) and design-system standards
+  - Avoiding the generic "AI aesthetic" (purple gradients, oversized cards, stock layouts)
+when_not_to_use:
+  - Net-new creative/visual direction for a page or brand — use frontend-design for distinctive design work
+  - Applying a colour/font theme to an existing artifact — use theme-factory
+  - Charts, graphs, or dashboards where the data visualization is the core — use dataviz
+  - Static posters or print-style art — use canvas-design
+  - Single packaged effects (marquee, magnetic button, etc.) — use the matching ui-effects skill
+keywords:
+  - frontend
+  - ui
+  - components
+  - react
+  - layout
+  - responsive
+  - accessibility
+  - wcag
+  - aria
+  - state management
+  - design system
+  - tailwind
+  - typography
+  - spacing
+  - loading states
+  - empty states
+  - skeleton
+  - optimistic updates
+  - keyboard navigation
+  - production-quality
+similar_to:
+  - frontend-design
+  - theme-factory
+  - design-approval-gate
+inputs_needed:
+  - The project's design system (spacing scale, colour tokens, border-radius, typography hierarchy)
+  - Framework and styling stack in use (e.g. React, Tailwind, React Query)
+  - Which components/pages to build or modify, and existing component structure
+  - Target breakpoints/devices if they differ from 320/768/1024/1440px
+produces: Production-quality, accessible (WCAG 2.1 AA) UI component/page code with loading, error, and empty states handled
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Frontend UI Engineering

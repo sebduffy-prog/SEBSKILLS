@@ -1,6 +1,53 @@
 ---
 name: magnetic-button
-description: React button that attracts toward the cursor when it's within a radius, with spring-damped follow and elastic snap-back on exit. Use when the user asks for a "magnetic button", "sticky button", "cursor-follow button", "button that pulls toward cursor", "Awwwards-style button", references Framer magnetic CTAs, or wants hero/CTA buttons with tactile physicality. Framer category — Buttons.
+category: ui-effects
+description: >
+  React button that attracts toward the cursor when it's within a radius, with
+  spring-damped follow and elastic snap-back on exit. Use when the user asks for
+  a "magnetic button", "sticky button", "cursor-follow button", "button that
+  pulls toward cursor", "Awwwards-style button", references Framer magnetic
+  CTAs, or wants hero/CTA buttons with tactile physicality. Framer category —
+  Buttons.
+when_to_use:
+  - User asks for a "magnetic button", "sticky button", or "cursor-follow button"
+  - Hero CTAs on high-polish marketing sites
+  - Primary "Book a call" / "Get started" actions needing tactile physicality
+  - User references Framer magnetic CTAs or Awwwards-style buttons
+  - Anywhere a playful but not distracting button interaction is wanted
+when_not_to_use:
+  - Whole-cursor magnetism across many elements — use magnetic-cursor instead
+  - Glassmorphic/refraction button styling — use liquid-glass-button instead
+  - Dense UI or forms where motion would distract from the task
+  - Non-React codebases (component is React-only)
+keywords:
+  - magnetic button
+  - sticky button
+  - cursor-follow
+  - spring physics
+  - stiffness
+  - damping
+  - snap-back
+  - hover effect
+  - hero cta
+  - framer
+  - awwwards
+  - react
+  - requestanimationframe
+  - translate3d
+  - mousemove
+similar_to:
+  - magnetic-cursor
+  - liquid-glass-button
+inputs_needed:
+  - Button label/content and onClick behavior
+  - Desired pull strength and radius (defaults strength 0.4, radius 120px)
+  - Spring feel — stiffness/damping (snappy vs bouncy)
+  - Render tag if not a button (as="a", "div", etc.)
+  - Whether prefers-reduced-motion handling should be added
+produces: assets/MagneticButton.tsx — a single-file React magnetic button component with rAF spring physics.
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Magnetic Button

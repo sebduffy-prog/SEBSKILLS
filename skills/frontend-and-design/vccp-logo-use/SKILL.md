@@ -1,6 +1,7 @@
 ---
 name: vccp-logo-use
-description: |
+category: frontend-and-design
+description: >
   Apply the four official VCCP bear-and-girl logo lockups —
   `Logo.png`, `Bear_Lockup.png`, `Girl_Lockup.png`, `Girl_and_Bear.png`
   — to client-branded surfaces with controlled recolouring. The
@@ -14,10 +15,55 @@ description: |
   VCCP mark in [colour]", "client-branded VCCP lockup", "co-branded
   deck", "white-label the VCCP logo", "make the bear navy / red /
   white / gold", or any request to use the four VCCP lockups in a
-  colour other than black. Use this alongside [[vccp-media-design]]
+  colour other than black. Use this alongside vccp-media-design
   for the rest of the brand system — this skill is logo-only. SKIP
-  if the surface is a pure VCCP-owned artifact (use [[vccp-media-design]]
+  if the surface is a pure VCCP-owned artifact (use vccp-media-design
   and keep black silhouettes).
+when_to_use:
+  - Placing a VCCP lockup on a client-branded or co-branded surface (pitch deck, sponsor placement, white-labelled tool)
+  - Recolouring the bear/girl silhouettes to a client's primary brand colour ("make the bear navy / red / white / gold")
+  - Recolouring the mark on the web via CSS mask, CSS filter chain, or inline SVG mask
+  - Producing flat single-colour PNG exports for print/PDF via ImageMagick
+  - Inserting a recoloured lockup into a PowerPoint deck via Pillow + python-pptx
+  - Choosing which of the four lockups fits a surface (primary mark, 16:9 hero, square tile, partnership artwork)
+when_not_to_use:
+  - Pure VCCP-owned surfaces — keep the silhouettes black and use vccp-media-design instead
+  - The wider VCCP brand system (typography, highlighter motif, slide grids) — that's vccp-media-design; this skill is logo-only
+  - General brand work for non-VCCP clients — use brand-guidelines
+  - Gradient fills, two-tone recolours, or any treatment beyond a single flat colour — explicitly forbidden by the mark
+keywords:
+  - vccp logo
+  - bear lockup
+  - girl lockup
+  - recolour
+  - co-branded
+  - white-label
+  - client brand colour
+  - silhouette
+  - css mask
+  - css filter
+  - svg mask
+  - imagemagick
+  - pillow
+  - python-pptx
+  - lockup
+  - sponsor placement
+  - pitch deck
+  - flat colour
+similar_to:
+  - vccp-media-design
+  - brand-guidelines
+  - professional-page-templates
+inputs_needed:
+  - Which lockup the surface needs (Logo.png primary, Bear_Lockup.png 16:9 hero, Girl_Lockup.png square, Girl_and_Bear.png partnership artwork)
+  - The client's exact primary brand hex (or confirmation none is supplied, to fall back to the standard palette)
+  - Surface tone (light or dark) to check contrast and decide on a white-silhouette fallback
+  - Target medium (web, static export/print, or PowerPoint) to pick the recolouring recipe
+  - Display size, to export at 2x (4x for posters)
+produces: A recoloured VCCP lockup in the client's single flat brand colour — as CSS/SVG markup, an exported PNG, or a placed slide image
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # VCCP logo use — client-branded recolouring

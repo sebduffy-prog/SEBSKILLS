@@ -1,6 +1,57 @@
 ---
 name: text-scramble
-description: Text that scrambles random glyphs and then "decrypts" into its final string when triggered (viewport/hover/mount). Use when the user asks for a "text scramble", "glitch text", "decrypt text", "matrix text reveal", "scramble animation", "hacker text effect", "encoded text reveal", or wants headlines/numbers/labels that animate in with a glitch-to-readable flourish. Framer category — Typography.
+category: ui-effects
+description: >
+  Text that scrambles random glyphs and then "decrypts" into its final string
+  when triggered (viewport/hover/mount). Use when the user asks for a "text
+  scramble", "glitch text", "decrypt text", "matrix text reveal", "scramble
+  animation", "hacker text effect", "encoded text reveal", or wants
+  headlines/numbers/labels that animate in with a glitch-to-readable flourish.
+  Framer category — Typography.
+when_to_use:
+  - Hero headlines on tech/agency sites that need a glitch-to-readable reveal
+  - Stat numbers that should decrypt for emphasis when scrolled into view
+  - Hover "decrypt" interactions on links (trigger="hover")
+  - Section titles that need more punch than a fade-in
+  - Matrix/terminal/hacker-style text reveals (custom chars pool, e.g. katakana or "01")
+  - Labels or loading text that fires immediately on mount (trigger="mount")
+when_not_to_use:
+  - Long body copy — long strings decrypt too uniformly; scramble suits short headlines/labels
+  - Whole sections fading/sliding in on scroll — use scroll-reveal-section instead
+  - Numeric stats that should count up to a value — use animated-counter instead
+  - Image-based glitch/distortion effects — use interactive-distortion or spectral-distortion
+keywords:
+  - text scramble
+  - glitch text
+  - decrypt text
+  - matrix text reveal
+  - scramble animation
+  - hacker text effect
+  - encoded text reveal
+  - typography
+  - headline reveal
+  - viewport trigger
+  - hover decrypt
+  - intersection observer
+  - random glyphs
+  - katakana
+  - terminal text
+  - react component
+similar_to:
+  - animated-counter
+  - scroll-reveal-section
+  - interactive-distortion
+  - spectral-distortion
+inputs_needed:
+  - Target text string(s) and the tag to render as (h1, p, a, span)
+  - Trigger mode — viewport (default), hover, or mount
+  - Desired vibe for the glyph pool (default symbols/digits, katakana for Matrix, "01" for terminal)
+  - Whether the font is monospaced (else plan tabular-nums to avoid layout width jumps)
+  - Speed/revealDelay preferences if the default cadence feels wrong
+produces: assets/TextScramble.tsx — a React <TextScramble> component that scramble-reveals its text.
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Text Scramble

@@ -1,6 +1,50 @@
 ---
 name: writing-plans
-description: Use when you have a spec or requirements for a multi-step task, before touching code
+category: engineering-workflow
+description: >
+  Use when you have a spec or requirements for a multi-step task, before
+  touching code
+when_to_use:
+  - You have a spec or requirements for a multi-step task and need an implementation plan before touching code
+  - A brainstormed design is agreed and needs turning into bite-sized, checkbox-tracked tasks for an engineer with zero codebase context
+  - You need to map out which files will be created or modified and lock in decomposition decisions before task breakdown
+  - You want every task written as TDD steps (failing test, run, minimal implementation, pass, commit) with exact paths, code, and commands
+  - You are preparing a plan document for handoff to subagent-driven-development or executing-plans
+when_not_to_use:
+  - Requirements are still vague or undesigned — use brainstorming first to agree the spec
+  - You already have a written plan to run — use executing-plans or subagent-driven-development instead
+  - Single-step or trivial changes that do not need a multi-task plan document
+keywords:
+  - implementation plan
+  - plan document
+  - spec
+  - requirements
+  - task breakdown
+  - bite-sized tasks
+  - tdd
+  - failing test
+  - file structure
+  - decomposition
+  - no placeholders
+  - self-review
+  - execution handoff
+  - checkbox tasks
+  - worktree
+  - frequent commits
+  - dry
+  - yagni
+similar_to:
+  - brainstorming
+  - executing-plans
+  - subagent-driven-development
+inputs_needed:
+  - The spec or requirements for the feature (ideally from brainstorming)
+  - A dedicated worktree to work in (created by the brainstorming skill)
+  - Preferred plan save location if different from docs/superpowers/plans/
+produces: A saved implementation plan markdown file (docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md) with header, file map, and checkbox TDD tasks
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Writing Plans

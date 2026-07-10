@@ -1,6 +1,52 @@
 ---
 name: scroll-reveal-section
-description: React wrapper that fades and slides its children into view with stagger as the section enters the viewport. IntersectionObserver + CSS transitions, respects prefers-reduced-motion. Use when the user asks for a "scroll reveal", "fade in on scroll", "slide in on scroll", "scroll animation", "stagger reveal", "AOS-style animation", "sections that animate on scroll", or wants each section to appear as the user scrolls down. Framer category — Sections.
+category: ui-effects
+description: >
+  React wrapper that fades and slides its children into view with stagger as the section
+  enters the viewport. IntersectionObserver + CSS transitions, respects
+  prefers-reduced-motion. Use when the user asks for a "scroll reveal", "fade in on
+  scroll", "slide in on scroll", "scroll animation", "stagger reveal", "AOS-style
+  animation", "sections that animate on scroll", or wants each section to appear as the
+  user scrolls down. Framer category — Sections.
+when_to_use:
+  - Landing-page sections that should feel alive as the user scrolls down
+  - Stat blocks, feature rows, or testimonial columns that animate into view
+  - Staggered reveal of a section header followed by a grid of cards
+  - Anywhere you'd reach for AOS or ScrollTrigger but want a 1-file dependency-free solution
+  - User asks for "fade in on scroll", "slide in on scroll", or "sections that animate on scroll"
+when_not_to_use:
+  - Animating numbers/stats counting up — use animated-counter instead
+  - Continuous scrolling content like logo strips — use infinite-marquee instead
+  - Inline children (spans, links) inside tables or flex-critical layouts where the per-child wrapper divs would break layout
+  - Hover-triggered effects rather than viewport-entry animation — see magnetic-button or image-shatter
+keywords:
+  - scroll reveal
+  - fade in on scroll
+  - slide in on scroll
+  - scroll animation
+  - stagger reveal
+  - aos
+  - scrolltrigger
+  - intersectionobserver
+  - css transitions
+  - prefers-reduced-motion
+  - viewport
+  - landing page sections
+  - react
+  - framer
+similar_to:
+  - animated-counter
+  - infinite-marquee
+  - bento-grid
+inputs_needed:
+  - Direction children should translate from (up/down/left/right/none; default up)
+  - Stagger and duration timing (defaults 80ms stagger, 700ms duration)
+  - Whether reveal should run once or re-animate on every re-entry (default once)
+  - Whether any children are inline elements needing inline-block wrappers
+produces: assets/ScrollReveal.tsx — a dependency-free React <ScrollReveal> wrapper component
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Scroll Reveal Section

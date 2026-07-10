@@ -1,6 +1,7 @@
 ---
 name: advertising-strategy
-description: |
+category: strategy
+description: >
   Build an advertising / communications strategy from a client
   brief. Walks through brief interrogation, problem definition,
   audience framing, insight excavation, role for advertising,
@@ -17,10 +18,57 @@ description: |
   platform", "role for advertising", "comms challenge", "frame the
   brief", "interrogate the brief", "what's the insight",
   "tissue session", "POV on this brief". Also trigger when a user
-  pastes a brief and asks for direction. Pairs with [[advertising-strategy-copy]]
-  for writing the document, [[strategy-analyst]] for the
-  evidence backbone, [[media-strategy]] for the channel response,
-  and [[deck-flow-structure]] for presenting it.
+  pastes a brief and asks for direction. Pairs with
+  advertising-strategy-copy for writing the document,
+  strategy-analyst for the evidence backbone, media-strategy for
+  the channel response, and deck-flow-structure for presenting it.
+when_to_use:
+  - A client brief has landed and a written strategy is needed
+  - Going into a tissue / chemistry / pitch session and a POV is needed
+  - A creative team needs a tighter single-minded proposition than the brief offers
+  - Re-briefing an existing campaign for a new wave
+  - Stress-testing an already-drafted strategy to see if it holds up
+  - A user pastes a brief and asks for strategic direction
+when_not_to_use:
+  - Pure media planning or channel response — use media-strategy
+  - Pure brand identity / positioning work — that is brand strategy, a different discipline
+  - Writing the ads themselves or any creative copy
+  - Writing up the finished strategy document — hand to advertising-strategy-copy
+keywords:
+  - advertising strategy
+  - comms strategy
+  - communications strategy
+  - campaign strategy
+  - single-minded proposition
+  - smp
+  - creative platform
+  - strategic territory
+  - role for advertising
+  - insight
+  - tension
+  - reason to believe
+  - rtb
+  - rebrief
+  - interrogate the brief
+  - tissue session
+  - creative brief
+  - business problem
+  - human problem
+  - success measures
+similar_to:
+  - media-strategy
+  - strategy-analyst
+  - deck-flow-structure
+inputs_needed:
+  - The client brief (or as much of it as exists)
+  - The business problem / what hurts the P&L
+  - Audience definition and any research or data available
+  - Budget, timeframe, and success measures the client expects
+  - Unspoken constraints (CEO preference, legal, CMO history, pending deals)
+produces: A structured strategy doc or strategy section of a deck (10-point template or 6-slide tissue compression)
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Advertising strategy

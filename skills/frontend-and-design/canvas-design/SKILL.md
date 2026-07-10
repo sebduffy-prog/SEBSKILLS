@@ -2,6 +2,39 @@
 name: canvas-design
 description: Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.
 license: Complete terms in LICENSE.txt
+category: frontend-and-design
+when_to_use:
+  - Creating a poster, static art piece, or design as .png or .pdf
+  - Producing a visual document driven by a stated design philosophy
+  - Single-page or multi-page static designs
+  - Deducing a subtle reference and turning it into an original composition
+when_not_to_use:
+  - Code-driven generative or interactive art — use algorithmic-art
+  - Web pages or components — use frontend-design
+  - VCCP-branded collateral — use vccp-media-design
+  - Charts or data visualization — use quick-chart
+keywords:
+  - poster
+  - visual art
+  - png
+  - pdf
+  - graphic design
+  - design philosophy
+  - static design
+  - layout
+  - typography
+  - composition
+  - print
+  - multi-page
+similar_to:
+  - algorithmic-art
+  - print-editorial-layout
+  - vccp-media-design
+inputs_needed: The subject/brief, output format (PNG or PDF), and any size, palette, or reference style.
+produces: A finished static .png or .pdf visual design (single or multi-page).
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.

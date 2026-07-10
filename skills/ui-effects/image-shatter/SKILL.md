@@ -1,6 +1,63 @@
 ---
 name: image-shatter
-description: Build a React/Next.js component that shatters an image into a grid of tiles on hover, with each tile flying outward/rotating with spring physics and a magnetic cursor attraction. Use this skill whenever the user asks for an "image shatter", "shatter effect", "broken glass image", "tiled image hover", "image explosion", or "tiles that fly apart on hover". Also use when the user references the Framer Image Shatter component, or describes the effect as "image breaks into pieces when you hover", "photo splits into a grid that scatters", "puzzle pieces that fall apart with the cursor". Trigger even without exact naming — e.g. "I want the hero image to explode on hover", "photo that feels like it's breaking when you touch it".
+category: ui-effects
+description: >
+  Build a React/Next.js component that shatters an image into a grid of tiles on hover,
+  with each tile flying outward/rotating with spring physics and a magnetic cursor
+  attraction. Use this skill whenever the user asks for an "image shatter", "shatter
+  effect", "broken glass image", "tiled image hover", "image explosion", or "tiles that
+  fly apart on hover". Also use when the user references the Framer Image Shatter
+  component, or describes the effect as "image breaks into pieces when you hover",
+  "photo splits into a grid that scatters", "puzzle pieces that fall apart with the
+  cursor". Trigger even without exact naming — e.g. "I want the hero image to explode
+  on hover", "photo that feels like it's breaking when you touch it".
+when_to_use:
+  - User wants a dramatic hover effect on a hero image or portfolio piece
+  - User references "shatter", "explode", "break apart", or "mosaic hover" on an image
+  - User is building a site where the image is a focal point and needs "wow"
+  - User mentions the Framer Image Shatter component or describes the effect without naming it
+  - User wants tiles that respond to cursor proximity with a magnetic pull before flying apart
+  - User asks for click-triggered shatter, gravity-fall tiles, or ordered reassembly variants
+when_not_to_use:
+  - Shattering video content — the background-image approach doesn't work with video; out of scope
+  - Cursor-velocity liquid/warp distortion over an image — use interactive-distortion instead
+  - A rotating 3D tile-grid image — use rubiks-image-cube instead
+  - Liquid/gooey image hover effects — use liquid-image instead
+  - Non-React stacks — the component depends on framer-motion springs and React hooks
+keywords:
+  - image shatter
+  - shatter effect
+  - broken glass
+  - image explosion
+  - tiled image hover
+  - tiles fly apart
+  - mosaic hover
+  - hero image hover
+  - framer-motion
+  - spring physics
+  - magnetic cursor
+  - magnet effect
+  - background-position grid
+  - react
+  - next.js
+  - hover effect
+  - prefers-reduced-motion
+  - seeded random
+similar_to:
+  - interactive-distortion
+  - rubiks-image-cube
+  - liquid-image
+  - magnetic-cursor
+inputs_needed:
+  - Image source (src path/URL, alt text) and desired object-fit behaviour
+  - Container dimensions the component will sit in
+  - Tile grid size (tilesX/tilesY, default 14x8) and shatter intensity (maxOffset, maxRotate)
+  - Whether the magnetic cursor pull is wanted (magnetStrength/magnetRadius)
+  - Trigger preference — hover (default) or click toggle
+produces: A single ImageShatter.tsx React component (one dependency, framer-motion) that shatters an image into spring-physics tiles on hover
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Image Shatter Component
