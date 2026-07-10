@@ -1,6 +1,6 @@
 # SEBSKILLS — Setup Guide (`/sebduffy` for every LLM)
 
-**The whole idea in one line:** install **one file**, type **`/sebduffy`**, and get all **333 skills** — fetched live from this public repo. No server to deploy, no per-skill install, and new skills appear automatically.
+**The whole idea in one line:** install **one file**, type **`/sebduffy`**, and get all **415 skills** — fetched live from this public repo. No server to deploy, no per-skill install, and new skills appear automatically.
 
 This works because every skill is just a Markdown file (`SKILL.md`) at a **public URL**. GitHub's raw CDN is the "skills network"; the `/sebduffy` router is a single file that carries the catalogue and fetches any skill on demand.
 
@@ -32,7 +32,7 @@ Then in any Claude Code session:
 
 ```bash
 git clone https://github.com/sebduffy-prog/SEBSKILLS ~/.claude/skills-lib
-~/.claude/skills-lib/install.sh user      # every session, all 333 skills discoverable
+~/.claude/skills-lib/install.sh user      # every session, all 415 skills discoverable
 # or:  install.sh one    → just the /sebduffy router
 # or:  install.sh project .   → only the current project
 ```

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T11:19:31Z",
+  "generatedAt": "2026-07-10T14:42:38Z",
   "skillCount": 415,
   "categories": [
     "3d",
@@ -13712,17 +13712,17 @@
       "name": "sebduffy",
       "category": "meta",
       "path": "skills/meta/sebduffy/SKILL.md",
-      "description": "The one-upload door to the entire SEBSKILLS library. Invoked as /sebduffy, it routes any request to the best skill(s) from an embedded catalogue of 300+ skills and loads that skill on demand — whether or not the skill is installed locally — so the whole library is reachable from this single file on any Claude surface (Code CLI, Desktop, Web, API). Use this whenever the user types \"/sebduffy\", says \"find me a skill\", \"use my skills\", \"sebskills\", \"which skill for…\", or asks for something a specialised skill would do better. Always reach for it to pick and load the right skill instead of improvising.",
+      "description": "The one-upload door to the entire SEBSKILLS library. Invoked as /sebduffy, it silently routes any request to the single best-matching skill from an embedded catalogue of 400+ skills, loads that skill (locally if present, else fetched from GitHub), and DOES the task — it acts, it doesn't narrate. Use whenever the user types \"/sebduffy\", says \"find me a skill\", \"use my skills\", \"sebskills\", \"which skill for…\", or asks for something a specialist skill would do better. Always reach for it to pick and run the right skill instead of improvising.",
       "trigger": "The one-upload door to the entire SEBSKILLS library",
       "when_to_use": [
-        "The user types /sebduffy (optionally followed by an intent, a category, or a skill name)",
+        "The user types /sebduffy (optionally + an intent, a category, or an exact skill name)",
         "The user asks which skill fits a task, or to use their skill library",
-        "A request clearly maps to a specialist capability (video, data, agents, design, decks…) and you want the right skill loaded",
+        "A request maps to a specialist capability (video, data, agents, design, decks, strategy…)",
         "You need to browse or list what skills exist"
       ],
       "when_not_to_use": [
-        "You already know the exact skill and it's installed → invoke that skill directly",
-        "Authoring a new skill → use skill-creator; adding one to the library → use skill-adder",
+        "You already know the exact skill and it's installed → invoke it directly",
+        "Authoring a new skill → skill-creator; adding one to the library → skill-adder",
         "A purely conversational reply with no task → just answer"
       ],
       "keywords": [
@@ -13737,7 +13737,8 @@
         "router",
         "load skill",
         "skill picker",
-        "meta"
+        "meta",
+        "do the task"
       ],
       "similar_to": [
         "automatic-skill-decision",
@@ -13746,9 +13747,9 @@
         "skill-chaining-composer",
         "skill-adder"
       ],
-      "produces": "The best-matching skill loaded and executed for the user's request (or a short list when ambiguous)",
+      "produces": "The right skill loaded and the user's task done (or a short list when they ask to browse)",
       "status": "stable",
-      "keywordCount": 12,
+      "keywordCount": 13,
       "enriched": true
     },
     {

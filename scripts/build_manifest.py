@@ -135,11 +135,18 @@ def build(skills):
     with open(os.path.join(ROOT, "manifest.json"), "w", encoding="utf-8") as fh:
         json.dump(manifest, fh, indent=2, ensure_ascii=False)
 
-    # compact index block for the router SKILL.md
-    rows = ["| skill | category | trigger |", "|---|---|---|"]
-    for r in sorted(records, key=lambda r: (r["category"], r["name"])):
-        rows.append(f"| {r['name']} | {r['category']} | {r['trigger']} |")
-    block = "\n".join(rows)
+    # compact, grouped index for the router SKILL.md (short triggers, no table markup)
+    from collections import defaultdict as _dd
+    by = _dd(list)
+    for r in records:
+        by[r["category"]].append(r)
+    lines = []
+    for cat in sorted(by):
+        lines.append(f"\n**{cat}** ({len(by[cat])})")
+        for r in sorted(by[cat], key=lambda x: x["name"]):
+            t = (r["trigger"] or "")[:76].rstrip(" .,;:")
+            lines.append(f"- `{r['name']}` — {t}")
+    block = "\n".join(lines).strip()
     splice_router(block, len(records))
 
     write_report(records, cats)

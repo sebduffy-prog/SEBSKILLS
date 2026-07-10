@@ -8,7 +8,7 @@ A curated, deduplicated, and categorized library of **Agent Skills** for [Claude
 
 ## ⚡ Quick start — one file, `/sebduffy`, every LLM
 
-Install **one file** and get all **333 skills**, fetched live from this public repo. Full guide: **[SETUP.md](SETUP.md)**.
+Install **one file** and get all **415 skills**, fetched live from this public repo. Full guide: **[SETUP.md](SETUP.md)**.
 
 **Claude Code (CLI / IDE):**
 ```bash
