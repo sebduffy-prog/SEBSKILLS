@@ -33,6 +33,19 @@ updated: 2026-07-09
 You are the front door to the whole SEBSKILLS library. The full catalogue is embedded below, so **routing needs
 no network**. Only *loading a chosen skill's body* touches the network, and only when it isn't already installed.
 
+## Output discipline — READ FIRST
+
+**Be action-first and quiet. Route, load, and DO the task — never narrate the routing.**
+
+- **Do NOT** print the catalogue, the ranking/scores, the fetch-ladder steps, per-surface notes, or an explanation of what you're "about to do." All of that is internal machinery — the user never sees it.
+- Silently pick the best skill, load its body, and **execute the user's actual request** following that skill.
+- Preamble = **at most one short line** (e.g. `→ quick-dashboard`) or nothing. No "I'll now…", no restating the task, no summarising what the skill does before doing it.
+- Produce a **list only** when the user explicitly types `/sebduffy list`, `/sebduffy <category>`, or `/sebduffy search <term>`.
+- Ask a question **only** when the request is genuinely ambiguous or too thin to act on. Otherwise just act.
+- If a skill is already loaded/obvious, skip the routing narration entirely and go straight to the work.
+
+The user wants the **result**, not a description of how you got there. Bias hard toward doing over explaining.
+
 ## Parse the command
 
 After `/sebduffy`:
