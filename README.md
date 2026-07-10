@@ -70,7 +70,7 @@ skills/
 └── strategy/               → advertising, media, analyst, deck flow, headline stats
 ```
 
-**72 skills** across 8 categories. Each is self-contained, has a `SKILL.md`, and carries its original license where applicable.
+**415 skills** across 31 categories. Each is self-contained, has a `SKILL.md`, and carries its original license where applicable.
 
 Raw source material (upstream zip bundles and the original single-file `.skill` packages that have already been expanded into `skills/ui-effects/`) lives in [`raw-files/`](raw-files) and is not loaded by Claude.
 

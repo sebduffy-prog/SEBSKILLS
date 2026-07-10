@@ -101,7 +101,7 @@ Run the **`skill-marketplace-packager`** skill to emit native plugin bundles for
 
 ```
 /sebduffy <intent>
-   │  rank the embedded 333-row catalogue (no network needed to ROUTE)
+   │  rank the embedded 415-skill catalogue (no network needed to ROUTE)
    ▼
 pick best skill  ── ambiguous? ask ── too vague? ask 2-3 questions (requirement-elicitation)
    │
