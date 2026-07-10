@@ -1,6 +1,56 @@
 ---
 name: systematic-debugging
-description: Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+category: engineering-workflow
+description: >
+  Use when encountering any bug, test failure, or unexpected behavior, before
+  proposing fixes
+when_to_use:
+  - A test fails, a build breaks, or production shows a bug or unexpected behavior
+  - You are about to propose a fix without having traced the root cause first
+  - Under time pressure or an emergency where guessing at quick fixes is tempting
+  - Previous fix attempts didn't work, or you've already tried multiple fixes
+  - Debugging a multi-component system (CI -> build -> signing, API -> service -> database) and you need to find which layer fails
+  - An error appears deep in a call stack and the bad value's origin is unknown
+  - Facing performance problems or integration issues you don't fully understand
+when_not_to_use:
+  - Writing the failing test case itself — use the test-driven-development sibling skill for Phase 4 step 1
+  - Confirming a completed fix actually worked — use the verification-before-completion sibling skill
+  - No bug exists yet; for planning new work use writing-plans or brainstorming instead
+  - Pure code cleanup with nothing broken — debugging process adds no value there
+keywords:
+  - debugging
+  - root cause
+  - bug
+  - test failure
+  - unexpected behavior
+  - reproduce
+  - hypothesis
+  - stack trace
+  - instrumentation
+  - diagnostic logging
+  - data flow tracing
+  - pattern analysis
+  - failing test
+  - symptom fix
+  - build failure
+  - performance problem
+  - integration issue
+  - architecture smell
+  - defense in depth
+  - condition-based waiting
+similar_to:
+  - test-driven-development
+  - verification-before-completion
+  - receiving-code-review
+inputs_needed:
+  - The exact error message, stack trace, or failing test output
+  - Steps to reproduce (or confirmation it isn't reliably reproducible)
+  - Recent changes — git diff, new dependencies, config or environment differences
+  - Count of fix attempts already tried (3+ triggers the architecture question)
+produces: A root-cause diagnosis with a failing test case and a single verified fix
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Systematic Debugging

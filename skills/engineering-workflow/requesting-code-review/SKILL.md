@@ -1,6 +1,38 @@
 ---
 name: requesting-code-review
+category: engineering-workflow
 description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+when_to_use:
+  - After completing a task in subagent-driven development, before moving to the next
+  - After completing a major feature, or before merging to main
+  - You want a fresh-context code-reviewer subagent to catch issues before they cascade
+  - You are stuck and want an independent perspective, or want a baseline check before refactoring
+  - You need a curated review prompt (base/head SHAs, what was built, requirements)
+when_not_to_use:
+  - You are on the receiving end of review feedback — use receiving-code-review
+  - The concern is specifically security-sensitive code — use security-review
+  - You just need to run verification commands yourself — use verification-before-completion
+  - You want to complete/merge the branch after review passes — use finishing-a-development-branch
+keywords:
+  - request-review
+  - code-reviewer
+  - subagent-review
+  - pre-merge
+  - review-early
+  - critical-important-minor
+  - base-sha
+  - head-sha
+  - review-template
+  - quality-gate
+similar_to:
+  - receiving-code-review
+  - security-review
+  - subagent-driven-development
+inputs_needed: The completed work, base and head git SHAs, a brief description of what was implemented, and the plan/requirements it should satisfy.
+produces: A dispatched code-reviewer subagent review (strengths + Critical/Important/Minor issues + assessment) to act on before proceeding.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Requesting Code Review

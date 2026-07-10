@@ -1,6 +1,40 @@
 ---
 name: code-review-and-quality
 description: Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch.
+category: frontend-and-design
+when_to_use:
+  - Before merging any change into the main branch
+  - Reviewing code written by yourself, another agent, or a human
+  - Assessing quality across correctness, readability, architecture, security, and performance
+  - Sizing a change and categorizing findings by severity
+  - Verifying the tests before the implementation
+when_not_to_use:
+  - Tracing UI state-change bugs specifically — use click-path-audit
+  - Runtime performance tuning — use performance-optimization
+  - Browser visual QA — use browser-qa
+keywords:
+  - code review
+  - quality
+  - correctness
+  - readability
+  - architecture
+  - security
+  - performance
+  - pull request
+  - findings
+  - review checklist
+  - dead code
+  - multi-axis
+  - pre-merge
+similar_to:
+  - click-path-audit
+  - performance-optimization
+  - frontend-ui-engineering
+inputs_needed: The diff/PR or code to review and its context (tests, intent, scope).
+produces: A categorized multi-axis review with findings, severities, and a merge verdict.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Code Review and Quality

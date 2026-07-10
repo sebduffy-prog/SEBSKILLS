@@ -1,6 +1,7 @@
 ---
 name: qualitative-research
-description: |
+category: strategy
+description: >
   Run the qualitative research lifecycle — design, fieldwork
   prep, analysis, synthesis. Covers in-depth interviews (IDIs),
   focus groups, ethnographic fieldwork, diary studies, paired
@@ -18,10 +19,57 @@ description: |
   "fieldwork", "moderation", "co-creation", "online community
   insight", "go deep on this audience", "talk to actual people".
   Trigger when the user pastes transcript content and asks for
-  themes. Pairs with [[audience-insight]] (the output),
-  [[raw-data-research]] (transcript parsing), [[data-analyst]]
+  themes. Pairs with audience-insight (the output),
+  raw-data-research (transcript parsing), data-analyst
   (where qual triangulates with quant), and
-  [[advertising-strategy]] (the use).
+  advertising-strategy (the use).
+when_to_use:
+  - The brief asks "why" not "how many" and needs depth rather than scale
+  - Designing a qual study — picking the method (IDIs, groups, ethno, diary, online community), writing the screener, and building the discussion guide
+  - An insight territory is forming and needs ground truth or verbatims from real people for a creative team or segmentation
+  - Fieldwork prep — moderator brief, stimulus order, recording/transcription setup, observer rules
+  - A transcript dump exists and needs coding into themes, quotes, and verbatim cards (including Claude-assisted coding for >20 transcripts)
+  - Synthesising fieldwork into a read-out — headline, tensions worth briefing, the insight, and what was dismissed
+when_not_to_use:
+  - Pure quant tracker work — use data-analyst or data-cut-headline-stats instead
+  - One-off audience portraits where qual hasn't actually been done — use advertising-strategy direct
+  - Parsing raw transcript files into structured dataframes — that layer is raw-data-research
+keywords:
+  - qualitative research
+  - discussion guide
+  - screener
+  - focus groups
+  - idis
+  - in-depth interviews
+  - ethnography
+  - shop-along
+  - diary study
+  - online community
+  - co-creation
+  - projective techniques
+  - transcript coding
+  - coding framework
+  - theme map
+  - verbatims
+  - saturation
+  - moderation
+  - qual synthesis
+  - fieldwork
+similar_to:
+  - audience-insight
+  - raw-data-research
+  - data-analyst
+  - advertising-strategy
+  - audience-segmentation
+inputs_needed:
+  - The strategic question(s) — the "why" the brief is asking, and the one thing that makes the fieldwork a win
+  - Audience / segments to recruit (behaviour-first quotas), or transcripts if coding/synthesis is the job
+  - Category and brand context, including any stimulus or creative direction to test
+  - Budget/scope signals — number of sessions, method preference, timeline to saturation
+produces: Discussion guides, screeners, coding frameworks, theme maps, and a synthesis read-out with attributed verbatims
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Qualitative research

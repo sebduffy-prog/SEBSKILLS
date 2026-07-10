@@ -1,6 +1,40 @@
 ---
 name: product-lens
+category: product
 description: Use this skill to validate the "why" before building, run product diagnostics, and pressure-test product direction before the request becomes an implementation contract.
+when_to_use:
+  - Before starting any feature — validate the "why" and who it's for
+  - Weekly product review — are we building the right thing?
+  - When stuck choosing between features
+  - Before a launch — sanity check the user journey
+  - When converting a vague idea into a product brief before engineering planning
+when_not_to_use:
+  - The "why" is settled and you need an implementation-ready capability contract — use product-capability
+  - You are still generating and refining the raw idea — use idea-refine
+  - You are preparing the actual production deploy — use shipping-and-launch
+keywords:
+  - product lens
+  - product diagnostic
+  - validate the why
+  - yc office hours
+  - founder review
+  - product-market fit
+  - user journey audit
+  - mvp
+  - anti-goal
+  - go no-go
+  - product brief
+  - pressure-test
+  - 10-star version
+  - who is this for
+similar_to:
+  - idea-refine
+  - product-capability
+inputs_needed: The feature, idea, or project to diagnose, its intended user, and (for founder review) access to README, CLAUDE.md, package.json, and recent commits.
+produces: A PRODUCT-BRIEF.md with diagnostic answers, risks, and a go/no-go recommendation.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 origin: ECC
 ---
 

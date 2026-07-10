@@ -1,6 +1,40 @@
 ---
 name: idea-refine
+category: product
 description: Refines ideas iteratively. Refine ideas through structured divergent and convergent thinking. Use "idea-refine" or "ideate" to trigger.
+when_to_use:
+  - User says "help me refine this idea", "ideate on [concept]", or "stress-test my plan"
+  - A raw idea needs sharpening into an actionable concept worth building
+  - You want structured divergent (expand/vary) then convergent (cluster/stress-test) thinking
+  - Surfacing hidden assumptions and defining MVP scope plus a Not Doing list
+  - Turning a fuzzy concept into a concrete one-pager before planning
+when_not_to_use:
+  - You need to validate the product "why" or run a founder diagnostic — use product-lens
+  - You need an implementation-ready capability contract — use product-capability
+  - You need external evidence gathered from the web — use deep-research or market-research
+keywords:
+  - idea refine
+  - ideate
+  - ideation
+  - brainstorm
+  - divergent thinking
+  - convergent thinking
+  - stress-test
+  - how might we
+  - mvp scope
+  - hidden assumptions
+  - one-pager
+  - not doing list
+  - sharpen idea
+  - concept
+similar_to:
+  - product-lens
+  - product-capability
+inputs_needed: The raw idea or concept to refine, plus willingness to answer sharpening questions in an interactive dialogue.
+produces: A markdown one-pager (docs/ideas/[idea-name].md) with problem statement, recommended direction, key assumptions, MVP scope, and a Not Doing list.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Idea Refine

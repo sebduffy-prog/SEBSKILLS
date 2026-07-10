@@ -1,7 +1,30 @@
 ---
 name: xlsx
+category: documents
 description: "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \"the xlsx in my downloads\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved."
+when_to_use:
+  - Opening, reading, or analyzing an existing .xlsx/.xlsm/.csv/.tsv (pandas / openpyxl)
+  - Creating a new spreadsheet from scratch or from other data sources
+  - Adding columns, formulas, formatting, or charts to a workbook
+  - Cleaning or restructuring messy tabular data (malformed rows, junk headers) into a proper sheet
+  - Converting between tabular file formats, or fixing formula errors and recalculating (recalc.py)
+  - Building a formula-driven financial model with industry-standard colour coding and number formats
+when_not_to_use:
+  - Building a specific model type — use three-statement-financial-model or dcf-lbo-valuation-model
+  - Spilling FILTER/SORT/UNIQUE array formulas — use excel-dynamic-array-formulas
+  - Named LET/LAMBDA custom functions — use excel-lambda-functions
+  - Scenario switches, Data Tables, tornado sensitivity — use excel-scenario-sensitivity
+  - A live KPI dashboard with in-cell bars and conditional formatting — use excel-kpi-dashboard-formulas
+  - Auditing an existing model for hardcodes/#REF errors — use excel-model-audit
+  - The deliverable is a Word doc, PDF, or slide deck — use docx / pdf / pptx
+keywords: [xlsx, xlsm, csv, tsv, spreadsheet, excel, openpyxl, pandas, formula, recalc, formatting, chart, data cleaning, workbook, cell reference, number format, color coding, financial model, tabular data, sheet]
+similar_to: [three-statement-financial-model, dcf-lbo-valuation-model, excel-model-audit, excel-dynamic-array-formulas, data-driven-deck-generator]
+inputs_needed: The spreadsheet file path (or the source data to build from), the operation wanted (read/create/edit/clean/convert), and any formatting, formula, or template conventions to follow.
+produces: A .xlsx (or .csv/.tsv) spreadsheet — created, edited, cleaned, or converted — with formulas recalculated and validated to zero errors.
 license: Proprietary. LICENSE.txt has complete terms
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Requirements for Outputs

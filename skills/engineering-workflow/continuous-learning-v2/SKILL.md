@@ -1,8 +1,42 @@
 ---
 name: continuous-learning-v2
+category: engineering-workflow
 description: Instinct-based learning system that observes sessions via hooks, creates atomic instincts with confidence scoring, and evolves them into skills/commands/agents. v2.1 adds project-scoped instincts to prevent cross-project contamination.
+when_to_use:
+  - Setting up automatic learning from Claude Code sessions via PreToolUse/PostToolUse hooks
+  - Configuring instinct-based behavior extraction and confidence thresholds
+  - Reviewing, exporting, or importing an instinct library
+  - Evolving clustered instincts into full skills, commands, or agents
+  - Managing project-scoped vs global instincts and promoting them between scopes
+  - Preventing React/Python conventions leaking across unrelated projects
+when_not_to_use:
+  - You want to author a single skill by hand rather than evolve one from observations — use skill-creator
+  - Configuring general harness settings/hooks unrelated to learning — use update-config
+  - You need behavioral coding guardrails, not a learning pipeline — use karpathy-guidelines
+keywords:
+  - continuous-learning
+  - instincts
+  - confidence-scoring
+  - hooks
+  - observe
+  - project-scoped
+  - homunculus
+  - evolve
+  - promote
+  - atomic-behavior
+  - observations
+  - background-observer
+  - instinct-cli
+  - pattern-detection
+similar_to:
+  - karpathy-guidelines
+inputs_needed: A git repo (for project detection), permission to register PreToolUse/PostToolUse hooks in settings.json, and enabling the background observer in config.json.
+produces: A learning pipeline that writes scored instinct YAML files (project-scoped and global) under ~/.claude/homunculus, plus evolved skills/commands/agents.
 origin: ECC
 version: 2.1.0
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Continuous Learning v2.1 - Instinct

@@ -1,6 +1,43 @@
 ---
 name: flow-reader
+category: engineering-workflow
 description: Read, interpret, and act on any flow-shaped diagram — UI/UX site maps, user journeys, state machines, agent graphs, workflow diagrams, system architecture — whether shared as a Flowsheet export, a Mermaid diagram, a screenshot of a flowchart, a JSON/YAML node-edge structure, or a plain bulleted list of pages and connections. Use this skill whenever the user pastes or attaches anything describing nodes connected by arrows or lines, mentions a "flow", "site map", "user journey", "state machine", "agent graph", "workflow", or "architecture diagram", shares text with arrow notation (single-headed, double-headed, or dashes), shares JSON with nodes/edges keys, shares a "Pages / Flow / Adjacency" Markdown structure, or asks Claude to build, critique, document, or route a sketched flow. Trigger generously — under-triggering wastes the user's careful work. When the input is shaped like a graph and the task involves understanding it, use this skill.
+when_to_use:
+  - The user pastes or attaches a Flowsheet export, Mermaid diagram, flowchart screenshot, or node/edge JSON
+  - You need to critique a flow for gaps, dead ends, orphan nodes, missing back-routes, or weak IA
+  - You need to build code from a flow (Next.js routes, XState config, LangGraph agent graph)
+  - You need to document a flow as a spec, route map, or user-journey doc
+  - You need to extend a flow with missing nodes or thin sections
+  - Input is shaped like a graph (nodes connected by arrows/lines) and the task is to understand it
+when_not_to_use:
+  - The input is prose or requirements with no graph structure — use brainstorming or spec-driven-development
+  - You are wiring up an actual API contract, not a diagram — use api-contract-design
+  - You want to author a fresh design from scratch with no source flow — use brainstorming
+keywords:
+  - flow
+  - site-map
+  - user-journey
+  - state-machine
+  - agent-graph
+  - workflow-diagram
+  - architecture-diagram
+  - flowsheet
+  - mermaid
+  - nodes-edges
+  - flowchart
+  - adjacency
+  - xstate
+  - langgraph
+  - edge-style
+  - orphan-nodes
+similar_to:
+  - brainstorming
+  - spec-driven-development
+inputs_needed: The flow itself (Flowsheet Markdown/JSON, Mermaid, screenshot, node/edge JSON, or bulleted pages+connections) and which of critique/build/document/extend is wanted (default build).
+produces: A read of the flow plus the requested deliverable — a critique finding-list, code (routes/state config/agent graph), a documentation doc, or a list of extension suggestions.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Flow Reader

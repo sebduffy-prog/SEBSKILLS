@@ -1,6 +1,54 @@
 ---
 name: aurora-gradient
-description: Animated multi-color gradient blob background (React, pure CSS) — soft blurred "aurora" blobs drift across a container. Use when the user asks for an "aurora background", "gradient background", "animated gradient", "blob background", "mesh gradient", "glow background", references Stripe/Linear/Vercel-style ambient color fields, or wants an ambient hero backdrop with drifting color washes. Framer category — Backgrounds.
+category: ui-effects
+description: >
+  Animated multi-color gradient blob background (React, pure CSS) — soft blurred
+  "aurora" blobs drift across a container. Use when the user asks for an "aurora
+  background", "gradient background", "animated gradient", "blob background",
+  "mesh gradient", "glow background", references Stripe/Linear/Vercel-style
+  ambient color fields, or wants an ambient hero backdrop with drifting color
+  washes. Framer category — Backgrounds.
+when_to_use:
+  - Hero section background for a SaaS, portfolio, or product launch page
+  - Behind glass cards (pairs well with liquid-glass-button)
+  - Ambient section dividers between page blocks
+  - Anywhere a static gradient would go but motion is wanted
+  - User references Stripe/Linear/Vercel-style ambient color fields
+when_not_to_use:
+  - Mouse/cursor-driven image warping — use interactive-distortion instead
+  - Grainy animated noise fields — use spectra-noise instead
+  - Foreground image effects rather than a backdrop — use liquid-image or image-shatter
+  - Canvas/WebGL-based backgrounds — this is pure CSS keyframes only
+keywords:
+  - aurora background
+  - gradient background
+  - animated gradient
+  - blob background
+  - mesh gradient
+  - glow background
+  - ambient hero backdrop
+  - drifting color washes
+  - blurred blobs
+  - mix-blend-mode
+  - css keyframes
+  - react component
+  - stripe
+  - linear
+  - vercel
+  - framer backgrounds
+similar_to:
+  - spectra-noise
+  - liquid-glass-button
+  - liquid-image
+inputs_needed:
+  - Container size/placement (e.g. full-viewport hero vs section)
+  - Color palette (3-6 CSS colors; defaults to 4 vivid hues)
+  - Light or dark background (blendMode "screen" for dark, "overlay" for light)
+  - Optional tuning - speed, blur radius, blob opacity
+produces: assets/AuroraGradient.tsx — single-file, zero-dependency React component that wraps overlay content
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Aurora Gradient

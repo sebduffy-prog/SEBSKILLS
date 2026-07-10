@@ -1,6 +1,53 @@
 ---
 name: web-artifacts-builder
-description: Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.
+category: frontend-and-design
+description: >
+  Suite of tools for creating elaborate, multi-component claude.ai HTML
+  artifacts using modern frontend web technologies (React, Tailwind CSS,
+  shadcn/ui). Use for complex artifacts requiring state management, routing,
+  or shadcn/ui components - not for simple single-file HTML/JSX artifacts.
+when_to_use:
+  - Building an elaborate, multi-component claude.ai HTML artifact
+  - The artifact needs React state management or routing
+  - The artifact should use shadcn/ui components (40+ pre-installed) with Radix UI
+  - You need to scaffold a React + TypeScript + Vite + Tailwind project via scripts/init-artifact.sh
+  - You need to bundle a multi-file React app into a single self-contained HTML file via scripts/bundle-artifact.sh
+when_not_to_use:
+  - Simple single-file HTML/JSX artifacts that need no build step
+  - General UI/aesthetic direction without the artifact pipeline - use frontend-design
+  - Applying a colour/font theme to an existing artifact - use theme-factory
+  - Testing a running web app in a browser - use webapp-testing
+keywords:
+  - artifact
+  - claude.ai
+  - react
+  - typescript
+  - vite
+  - parcel
+  - tailwind
+  - shadcn/ui
+  - radix
+  - bundle
+  - single html file
+  - state management
+  - routing
+  - init-artifact
+  - bundle-artifact
+  - frontend
+similar_to:
+  - frontend-design
+  - frontend-ui-engineering
+  - theme-factory
+  - webapp-testing
+inputs_needed:
+  - What the artifact should do (components, state, routing needs)
+  - A project name for scripts/init-artifact.sh
+  - Whether shadcn/ui components are wanted
+  - Design/style direction (avoid centered layouts, purple gradients, uniform rounded corners, Inter font)
+produces: A single self-contained bundle.html artifact with all JavaScript, CSS, and dependencies inlined, shareable in claude.ai conversations
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 license: Complete terms in LICENSE.txt
 ---
 

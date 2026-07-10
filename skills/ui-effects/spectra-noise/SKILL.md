@@ -1,6 +1,38 @@
 ---
 name: spectra-noise
-description: Build a WebGL shader-based animated noise background component for React/Next.js. Use this skill whenever the user asks for a "spectra noise", "animated shader background", "CPPN neural network visual", "generative noise backdrop", or any full-screen animated WebGL background with hue-shift, scanlines, warp, and noise controls. Also use when the user references the Framer SpectraNoise component, wants to recreate a Framer shader module in a standalone React project, or asks for a psychedelic / cyberpunk / fluid animated background. Trigger this even if the user just describes the effect ("trippy shifting blobs of colour", "shader gradient that moves") rather than naming it.
+category: ui-effects
+description: >
+  Build a WebGL shader-based animated noise background component for React/Next.js.
+  Use this skill whenever the user asks for a "spectra noise", "animated shader background",
+  "CPPN neural network visual", "generative noise backdrop", or any full-screen animated
+  WebGL background with hue-shift, scanlines, warp, and noise controls. Also use when the
+  user references the Framer SpectraNoise component, wants to recreate a Framer shader
+  module in a standalone React project, or asks for a psychedelic / cyberpunk / fluid
+  animated background. Trigger this even if the user just describes the effect ("trippy
+  shifting blobs of colour", "shader gradient that moves") rather than naming it.
+when_to_use:
+  - User wants an animated shader background for a hero section, landing page, or dashboard panel
+  - User references "Spectra Noise" or wants a Framer shader module recreated as a standalone React component
+  - User describes the effect in their own words — trippy shifting colour blobs, generative shader gradient that moves
+  - User asks for a psychedelic / cyberpunk / fluid animated backdrop with hue-shift, scanlines, warp, or noise controls
+  - User needs a themed (cyberpunk, neon, fire, ocean, forest, sunset, monochrome) or custom-colour atmospheric background
+  - Project needs an atmospheric visual backdrop (e.g. the Madonna dashboard or a pitch-deck webpage)
+when_not_to_use:
+  - Simple drifting colour-wash backgrounds without shaders — use aurora-gradient instead
+  - Distortion applied to a specific image rather than a full-screen backdrop — use liquid-image or spectral-distortion
+  - Static gradients or CSS-only effects where WebGL is overkill
+  - Non-React projects or environments where a canvas/WebGL context is unavailable
+keywords: [webgl, shader, cppn, noise, animated background, generative, fragment shader, hue-shift, scanlines, warp, react, nextjs, framer, cyberpunk, psychedelic, hero background, fullscreen, resolution scale, themes, custom colors]
+similar_to: [aurora-gradient, spectral-distortion, liquid-image, interactive-distortion]
+inputs_needed:
+  - Whether the project is React or Next.js (App Router needs "use client"), and TypeScript or plain JS
+  - Desired theme (default/cyberpunk/neon/fire/ocean/forest/sunset/monochrome) or custom primary/secondary/accent colours
+  - Where it sits (hero, panel) and whether the parent has explicit dimensions
+  - Performance constraints — mobile targets may need a lower resolutionScale
+produces: A single self-contained SpectraNoise.tsx (or .jsx) React component rendering a full-screen animated WebGL CPPN shader background, no dependencies beyond React
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Spectra Noise Component

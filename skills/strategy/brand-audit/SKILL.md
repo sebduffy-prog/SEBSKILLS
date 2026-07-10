@@ -1,6 +1,7 @@
 ---
 name: brand-audit
-description: |
+category: strategy
+description: >
   Audit an existing brand's current comms, positioning and
   equity: distinctive brand assets, share of voice, share of
   search, share-of-category communications, mental availability
@@ -20,11 +21,59 @@ description: |
   consistency", "creative consistency", "share of voice", "share
   of search", "share of category comms", "what's the equity",
   "brand equity audit", "we want a POV on our own brand". Pairs
-  with [[competitive-comms-audit]] (mirror, but outward),
-  [[cultural-semiotics]] (what the brand's codes signal),
-  [[share-of-search]] (the search-velocity layer),
-  [[strategy-analyst]] (the read), and [[advertising-strategy]]
+  with competitive-comms-audit (mirror, but outward),
+  cultural-semiotics (what the brand's codes signal),
+  share-of-search (the search-velocity layer),
+  strategy-analyst (the read), and advertising-strategy
   (the work that follows).
+when_to_use:
+  - A new agency relationship begins and a current-state baseline is needed
+  - A CMO suspects the work has drifted and wants a defensible view
+  - A re-positioning is being considered — audit before re-launch
+  - An effectiveness review needs the current-state snapshot
+  - A pitch needs a credible read on the prospect's own brand before showing creative
+  - Periodic (annual) health check for any large brand the agency works with
+when_not_to_use:
+  - Auditing competitor comms rather than the brand itself — use competitive-comms-audit
+  - Pure positioning re-work or proposition development — use advertising-strategy
+  - Category foresight or trend scanning — use trend-foresight
+  - Only the search-velocity layer is needed — use share-of-search directly
+keywords:
+  - brand audit
+  - brand health check
+  - distinctive brand assets
+  - dba audit
+  - mental availability
+  - category entry points
+  - attribute ownership
+  - share of voice
+  - share of search
+  - share of category comms
+  - esov
+  - brand equity
+  - comms diagnostic
+  - consistency audit
+  - creative wear-out
+  - brand behaviour
+  - ehrenberg-bass
+  - binet & field
+  - drift
+similar_to:
+  - competitive-comms-audit
+  - share-of-search
+  - cultural-semiotics
+  - strategy-analyst
+  - advertising-strategy
+inputs_needed:
+  - Brand, markets in scope, and time window (usually 24–60 months)
+  - Channels in scope and 3–5 named comparator competitors
+  - Brief sponsor — who is asking and what decision the audit informs
+  - Asset corpus — paid assets, owned channels, customer-service scripts
+  - Data — tracker waves, MMM/attribution, search, social listening, earned coverage
+produces: One brand-audit document with an executive verdict, seven diagnostic sections (DBAs, mental availability, attributes, share metrics, coherence, behaviour, drift) and a confidence register
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Brand audit

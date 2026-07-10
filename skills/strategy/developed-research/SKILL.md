@@ -1,6 +1,7 @@
 ---
 name: developed-research
-description: |
+category: strategy
+description: >
   Build long-form developed research — immersive briefs, category
   POVs, sector reviews, audience deep dives, "state of X"
   reports, foresight papers, new-business immersives, brand
@@ -18,11 +19,59 @@ description: |
   "category landscape", "category map", "the read-in document",
   "pitch immersion", "category fluency", "we need to get smart
   fast". Trigger when the user wants to *understand a domain*
-  before strategy is written. Pairs with [[advertising-strategy]]
-  (next step), [[cultural-semiotics]] (category codes),
-  [[trend-foresight]] (where it's heading), [[brand-audit]],
-  [[competitive-comms-audit]], and the `product/market-research`
+  before strategy is written. Pairs with advertising-strategy
+  (next step), cultural-semiotics (category codes),
+  trend-foresight (where it's heading), brand-audit,
+  competitive-comms-audit, and the `product/market-research`
   / `product/deep-research` skills.
+when_to_use:
+  - A new client or new category the team needs fluency in fast
+  - A pitch immersion — a week to know a sector well enough to win
+  - A re-positioning or major rebrief where the wider context needs reconstructing
+  - A "state of [audience / category]" annual POV for agency thought leadership
+  - An effectiveness-paper appendix providing context for the case
+  - The "what's going on in the world" backbone of a pitch deck
+  - Brand archaeology — reconstructing what a brand was, became, and can recover
+when_not_to_use:
+  - Headline stats or a quick data cut — use data-cut-headline-stats
+  - Strategic recommendations or the strategy itself — use advertising-strategy
+  - Fast desk research with no written deliverable — use the product/market-research skill
+  - Pre-processing large source dumps into a searchable corpus — use raw-data-research first
+keywords:
+  - developed research
+  - immersive brief
+  - pitch immersion
+  - category review
+  - sector pov
+  - state of x
+  - audience deep dive
+  - brand archaeology
+  - white paper
+  - context paper
+  - horizon scan
+  - read-in document
+  - category fluency
+  - category landscape
+  - knowledge base
+  - source matrix
+  - executive summary
+  - bibliography
+similar_to:
+  - advertising-strategy
+  - cultural-semiotics
+  - trend-foresight
+  - brand-audit
+  - competitive-comms-audit
+inputs_needed:
+  - Topic / domain and which archetype fits (category fluency, audience deep dive, sector state-of-X, brand archaeology)
+  - Who the document is for (team / pitch room) and the 3-5 propositions they should leave believing
+  - Deliberate scope cuts — what the paper will not cover
+  - Available sources, especially first-party data (client CRM / sales / tracker)
+  - Target length and format (pitch immersion vs annual POV; VCCP branding or not)
+produces: A source-cited, opinionated 8-25 page read-in research document (PDF/Word) with executive summary, POV propositions, and ranked bibliography
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Developed research

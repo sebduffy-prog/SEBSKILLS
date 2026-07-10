@@ -1,6 +1,40 @@
 ---
 name: finishing-a-development-branch
+category: engineering-workflow
 description: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
+when_to_use:
+  - Implementation is complete and you need to decide how to integrate the work
+  - Verifying tests pass before offering merge/PR options
+  - Choosing between merge locally, push and open a PR, keep the branch, or discard
+  - Cleaning up a git worktree created earlier in the workflow
+  - Requiring typed confirmation before discarding work permanently
+when_not_to_use:
+  - Tests are still failing — fix them first (debugging-and-error-recovery or systematic-debugging)
+  - You are still executing plan tasks — use executing-plans or subagent-driven-development
+  - You need general branching/commit/rebase guidance, not branch completion — use git-workflow
+  - You want to verify completion claims with evidence — use verification-before-completion
+keywords:
+  - finishing-branch
+  - merge
+  - pull-request
+  - pr
+  - branch-cleanup
+  - worktree-removal
+  - integrate
+  - discard
+  - base-branch
+  - gh-pr-create
+  - test-verification
+  - development-branch
+similar_to:
+  - using-git-worktrees
+  - git-workflow
+  - executing-plans
+inputs_needed: A completed feature branch with passing tests, the base branch it split from, and the user's choice among the four integration options.
+produces: The chosen integration outcome — local merge, pushed branch + PR, kept branch, or discard — plus worktree cleanup where appropriate.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Finishing a Development Branch

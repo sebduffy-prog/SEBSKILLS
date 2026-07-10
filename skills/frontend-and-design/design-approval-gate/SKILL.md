@@ -1,6 +1,38 @@
 ---
 name: design-approval-gate
 description: Use BEFORE shipping any visual or UI change — new components, new pages, landing pages, hero sections, theme changes, ui-effects integrations, layout overhauls, or CSS rewrites affecting appearance. Forces a preview (screenshot, deployed URL, or code sandbox link) and explicit user approval before the work is marked done. Pairs with frontend-design, theme-factory, and every ui-effects/* skill.
+category: frontend-and-design
+when_to_use:
+  - Before shipping any new component, page, landing page, or hero section
+  - Before a theme change, layout overhaul, or CSS rewrite affecting appearance
+  - After a ui-effects integration, before marking design work done
+  - Forcing a preview (screenshot, deployed URL, or sandbox link) and explicit approval
+when_not_to_use:
+  - Purely non-visual logic changes with no appearance impact
+  - Generating the design itself — use frontend-design or professional-page-templates
+  - Running the browser preview capture — use agent-browser
+keywords:
+  - approval gate
+  - design review
+  - preview
+  - screenshot
+  - sign-off
+  - ship gate
+  - visual change
+  - ui change
+  - user approval
+  - before shipping
+  - checkpoint
+similar_to:
+  - frontend-design
+  - theme-factory
+  - agent-browser
+  - browser-qa
+inputs_needed: The visual/UI change plus a preview artifact (screenshot, deployed URL, or sandbox link).
+produces: A preview presented to the user and an explicit approve/revise decision before completion.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Design Approval Gate

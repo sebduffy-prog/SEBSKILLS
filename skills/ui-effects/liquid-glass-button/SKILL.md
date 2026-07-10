@@ -1,6 +1,61 @@
 ---
 name: liquid-glass-button
-description: Build an Apple-style liquid glass back button (or generic glass button) in React/Next.js using pure CSS — no WebGL, no canvas. Use this skill whenever the user asks for a "glass button", "liquid glass button", "Apple-style button", "frosted glass button", "back button", "glassmorphism button", "iOS 18 glass button", or describes wanting a blurred semi-transparent button with shine/highlight effects. Also use when the user references the Framer GlassBackButton component, or says things like "button that looks like it's made of glass", "translucent button with a glow", "button with backdrop blur and light reflection". Trigger even if the user just wants "a nice button for my hero" and the project aesthetic suggests Apple / premium / glassy.
+category: ui-effects
+description: >
+  Build an Apple-style liquid glass back button (or generic glass button) in React/Next.js
+  using pure CSS — no WebGL, no canvas. Use this skill whenever the user asks for a "glass
+  button", "liquid glass button", "Apple-style button", "frosted glass button", "back button",
+  "glassmorphism button", "iOS 18 glass button", or describes wanting a blurred
+  semi-transparent button with shine/highlight effects. Also use when the user references the
+  Framer GlassBackButton component, or says things like "button that looks like it's made of
+  glass", "translucent button with a glow", "button with backdrop blur and light reflection".
+  Trigger even if the user just wants "a nice button for my hero" and the project aesthetic
+  suggests Apple / premium / glassy.
+when_to_use:
+  - User wants a premium Apple-style button for a hero CTA, navigation, or toolbar
+  - User references "glassmorphism", "liquid glass", "iOS 18", or "frosted glass"
+  - User is building an app, dashboard, or site with a dark/photo background where a glass button would shine
+  - User specifically asks for a back button (chevron + "Back" label)
+  - User references the Framer GlassBackButton component or describes a blurred translucent button with shine/highlight
+when_not_to_use:
+  - Flat solid-colour backgrounds — the backdrop blur has nothing to blur and looks like a faint bubble
+  - Cursor-attracted buttons — use magnetic-button instead
+  - Full glass-distortion over images/media — use liquid-image or interactive-distortion instead
+  - Non-React projects or where backdrop-filter support (Safari 15+, Chrome 76+, Firefox 103+) can't be assumed
+keywords:
+  - glass button
+  - liquid glass
+  - glassmorphism
+  - apple-style
+  - frosted glass
+  - ios 18
+  - back button
+  - backdrop-filter
+  - backdrop blur
+  - translucent
+  - glow
+  - highlight
+  - gradient border
+  - mask-composite
+  - react
+  - next.js
+  - pure css
+  - framer glassbackbutton
+similar_to:
+  - magnetic-button
+  - liquid-image
+  - aurora-gradient
+  - interactive-distortion
+inputs_needed:
+  - Label text and icon (chevron-left/right, x, check, or icon-only) — defaults to a "Back" button
+  - Background the button sits on (busy/photo backgrounds work best; flat walls don't)
+  - Light direction (0-360°) and glass tuning (blurAmount, glassOpacity, highlightIntensity, borderRadius, padding)
+  - Colour props as rgba() strings — hex breaks the runtime alpha swapping
+  - Whether a dark variant (light-on-dark pill for light backgrounds) is wanted
+produces: A single zero-dependency LiquidGlassButton.tsx React component (pure CSS glass effect from assets/LiquidGlassButton.tsx)
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Liquid Glass Back Button

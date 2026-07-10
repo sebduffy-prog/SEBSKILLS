@@ -37,6 +37,9 @@ inputs_needed:
   - Optional grouping column for within-group statistics
   - Whether the user wants plots in addition to numerical output (default: numbers only)
 produces: A structured EDA report — shape, dtypes, per-column summary stats (count, mean, std, min, quartiles, max, skew), correlation matrix, outlier counts. All numbers computed in-session.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Exploratory Data Analysis

@@ -1,6 +1,50 @@
 ---
 name: using-superpowers
+category: engineering-workflow
 description: Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
+when_to_use:
+  - Starting any conversation, before ANY response or action (including clarifying questions)
+  - A user message arrives and there is even a 1% chance a skill might apply
+  - About to EnterPlanMode and brainstorming has not yet happened
+  - Multiple skills could apply and you need the priority order (process skills before implementation skills)
+  - Deciding how skill instructions rank against CLAUDE.md/AGENTS.md and the default system prompt
+  - Working on a non-Claude-Code platform (Copilot CLI, Gemini CLI, Codex) and needing tool-name mappings
+when_not_to_use:
+  - Dispatched as a subagent to execute a specific task - skip this skill entirely
+  - Already mid-skill-workflow in the same conversation; follow the active skill instead
+  - Choosing HOW to execute a specific plan - see executing-plans or subagent-driven-development in engineering-workflow
+  - Verifying finished work - see verification-before-completion in engineering-workflow
+keywords:
+  - skills
+  - superpowers
+  - skill tool
+  - skill invocation
+  - conversation start
+  - meta
+  - workflow discipline
+  - instruction priority
+  - red flags
+  - rationalizing
+  - skill priority
+  - process skills
+  - brainstorming first
+  - checklist
+  - todowrite
+  - platform adaptation
+  - copilot cli
+  - gemini cli
+similar_to:
+  - brainstorming
+  - executing-plans
+  - verification-before-completion
+inputs_needed:
+  - The incoming user message or task, to check which skills might apply
+  - Whether you are a dispatched subagent (if so, skip)
+  - Any CLAUDE.md/GEMINI.md/AGENTS.md user instructions that take precedence over skills
+produces: A disciplined skill-invocation decision - the right skill invoked and announced before any response, with checklist items turned into TodoWrite todos
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 <SUBAGENT-STOP>

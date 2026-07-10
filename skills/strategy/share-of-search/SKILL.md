@@ -1,6 +1,7 @@
 ---
 name: share-of-search
-description: |
+category: strategy
+description: >
   Compute, interpret, and present share of search (SoS) as a
   leading indicator of brand health and a competitive lens —
   the Les Binet / James Hankins technique. Covers picking the
@@ -15,8 +16,53 @@ description: |
   search", "James Hankins method", "search vs market share",
   "search velocity", "brand search trend", "leading indicator",
   "search-share leading indicator", "do a SoS pull". Pairs with
-  [[brand-audit]], [[competitive-comms-audit]], [[strategy-analyst]],
-  and [[raw-data-research]] (the pull pipeline).
+  brand-audit, competitive-comms-audit, strategy-analyst,
+  and raw-data-research (the pull pipeline).
+when_to_use:
+  - A brand-health view is needed between tracker waves
+  - A competitive review needs a quantitative momentum read
+  - A strategy doc needs evidence of where the brand sits in audience consideration
+  - A campaign needs an in-flight indicator (search lifts often appear within weeks)
+  - A new-business pitch needs a fast, defensible read on the prospect's brand momentum vs competitors
+when_not_to_use:
+  - Causal-effect claims ("the campaign caused this lift") — needs a holdout / MMM / lift test; see data-analyst
+  - Absolute search-volume claims — Google Trends is relative, not absolute
+  - Cross-category comparisons without re-normalising the set
+  - A full brand-health workup beyond the search slice — use brand-audit instead
+keywords:
+  - share of search
+  - sos
+  - google trends
+  - pytrends
+  - binet
+  - james hankins
+  - leading indicator
+  - brand health
+  - share of market
+  - share of voice
+  - sov
+  - som
+  - lead lag
+  - cross-correlation
+  - search velocity
+  - brand search trend
+  - competitive set
+  - rebasing
+similar_to:
+  - brand-audit
+  - competitive-comms-audit
+  - strategy-analyst
+  - raw-data-research
+inputs_needed:
+  - Competitive set (3-8 brands, same category and audience, stable across the window)
+  - Geography / market (single country or region)
+  - Time window (3+ years for trend reads, 5 years for lead-lag analysis)
+  - Disambiguators for ambiguous brand names (Topic entity or stable phrase)
+  - SoM and SOV series if triangulation is wanted (sales/panel data, ad intel)
+produces: A share-of-search analysis — smoothed SoS chart, SoS vs SOV vs SoM triangulation, lead/lag cross-correlation, and a headline strategic read with recommendation
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Share of search

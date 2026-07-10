@@ -1,6 +1,25 @@
 ---
 name: doc-coauthoring
+category: documents
 description: Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.
+when_to_use:
+  - User wants to write a substantial doc — PRD, design doc, decision doc, RFC, proposal, or technical spec
+  - User needs help transferring context from their head into a doc that others (and other Claudes) can read cold
+  - User wants to build a document section by section through brainstorming, curation, and iterative refinement
+  - User wants to reader-test a draft with a fresh, context-free Claude to catch blind spots before others read it
+  - User is editing an existing shared doc and wants structured guidance plus alt-text for images
+when_not_to_use:
+  - The deliverable is a formatted Word .docx file (TOC, letterhead, page numbers) — use docx
+  - Producing internal-comms formats (3P updates, newsletters, FAQs, status reports) — use internal-comms
+  - Turning a meeting recording/transcript into minutes and actions — use meeting-intelligence
+  - Reviewing a contract's clauses and obligations — use contract-review
+keywords: [documentation, doc writing, proposal, technical spec, PRD, design doc, decision doc, RFC, co-authoring, drafting, reader testing, context gathering, section-by-section, iterative refinement, structured writing]
+similar_to: [docx, internal-comms, meeting-intelligence]
+inputs_needed: The document type, primary audience, and desired impact; any template or existing doc to follow; and a context dump (background, discussions, constraints, stakeholder concerns).
+produces: A finished structured document built collaboratively stage-by-stage, reader-tested against a fresh Claude for blind spots.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Doc Co-Authoring Workflow

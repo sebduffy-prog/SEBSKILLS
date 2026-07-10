@@ -1,11 +1,12 @@
 ---
 name: data-analyst
-description: |
+category: strategy
+description: >
   Proper data analyst workflow — exploratory data analysis (EDA),
   hypothesis testing, segmentation, cohort analysis, time-series
   decomposition, regression, lift / incrementality testing,
   bootstrap intervals, A/B testing, confidence calibration. Deeper
-  than [[data-cut-headline-stats]] (which is editorial output);
+  than data-cut-headline-stats (which is editorial output);
   this is the analytic substrate that headline stats and
   strategic reads sit on top of. Use when the user needs the
   data understood properly — not just summarised. Trigger on
@@ -19,10 +20,56 @@ description: |
   "panel data", "longitudinal", "fixed effects", "stat test
   please", "is this real", "noise or signal". Trigger when a user
   hands over a CSV/XLSX and asks "do the actual analysis, not
-  just the cut". Pairs with [[raw-data-research]] (pipeline
-  before), [[data-cut-headline-stats]] (editorial output after),
-  [[strategy-analyst]] (interpretation), and [[vccp-media-design]]
+  just the cut". Pairs with raw-data-research (pipeline
+  before), data-cut-headline-stats (editorial output after),
+  strategy-analyst (interpretation), and vccp-media-design
   (charts).
+when_to_use:
+  - A claim needs defensible statistical backing ("are these groups really different?")
+  - A campaign needs an effect size, not just a vibe ("did awareness move because of us?")
+  - Sales / panel / tracker data needs decomposition (trend + seasonality + residual)
+  - A test was run and someone needs the read with proper uncertainty
+  - A segmentation / cohort / regression is needed as part of a strategy or effectiveness case
+  - The user explicitly asks for "stats", "the maths", "the proper analysis"
+when_not_to_use:
+  - Pure descriptive cuts or headline stats for a deck — use data-cut-headline-stats
+  - Large-file parsing / pipeline work — use raw-data-research
+  - Full MMM builds — a separate modelling discipline (strategy-analyst can read MMM output)
+  - Strategic interpretation or narrative read-outs — use strategy-analyst
+keywords:
+  - eda
+  - hypothesis testing
+  - significance
+  - p-value
+  - confidence interval
+  - bootstrap
+  - a/b test
+  - lift test
+  - incrementality
+  - regression
+  - logistic regression
+  - cohort analysis
+  - time series
+  - stl decomposition
+  - seasonality
+  - difference-in-differences
+  - geo-lift
+  - segmentation
+  - statsmodels
+  - duckdb
+similar_to:
+  - data-cut-headline-stats
+  - raw-data-research
+  - strategy-analyst
+  - deck-flow-structure
+inputs_needed:
+  - The specific question (one sentence) and the decision that depends on it
+  - The dataset (CSV/XLSX/parquet) with source, granularity, and time window
+  - The minimum effect size that would matter to the decision
+produces: A statistical read-out — effect + uncertainty (CI, test stat, p) + caveats + one chart, in the ANALYSIS output format
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Data analyst

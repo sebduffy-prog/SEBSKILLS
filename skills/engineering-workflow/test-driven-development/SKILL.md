@@ -1,6 +1,49 @@
 ---
 name: test-driven-development
-description: Use when implementing any feature or bugfix, before writing implementation code
+category: engineering-workflow
+description: >
+  Use when implementing any feature or bugfix, before writing implementation
+  code
+when_to_use:
+  - Implementing a new feature, before writing any production code
+  - Fixing a bug — write a failing test that reproduces it first
+  - Refactoring or changing behavior of existing code
+  - Adding tests to existing untested code you are improving
+  - Tempted to keep pre-written code "as reference" while adding tests after
+  - Deciding whether a mock or test utility is appropriate (testing anti-patterns)
+when_not_to_use:
+  - Throwaway prototypes, generated code, or configuration files (ask your human partner first)
+  - Diagnosing why something is broken before any fix exists — use systematic-debugging first, then return here for the fix
+  - Executing an already-written multi-task plan — use executing-plans or subagent-driven-development, which invoke TDD per task
+keywords:
+  - tdd
+  - test-driven development
+  - red-green-refactor
+  - failing test
+  - write tests first
+  - minimal code
+  - bug fix
+  - regression test
+  - refactoring
+  - test coverage
+  - mocks
+  - testing anti-patterns
+  - verification checklist
+  - rationalizations
+  - watch it fail
+similar_to:
+  - systematic-debugging
+  - verification-before-completion
+  - executing-plans
+  - subagent-driven-development
+inputs_needed:
+  - The feature or bug being implemented (desired behavior to encode as a failing test)
+  - The test command/runner for the project (e.g. npm test path/to/test)
+  - Whether any exception applies (throwaway prototype, generated code, config) — requires human partner sign-off
+produces: Production code with tests written first — each test seen failing, then passing, all green with pristine output
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Test-Driven Development (TDD)

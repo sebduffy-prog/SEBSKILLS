@@ -1,6 +1,7 @@
 ---
 name: raw-data-research
-description: |
+category: strategy
+description: >
   Write and execute scripts to parse, clean, normalise and
   triangulate large volumes of raw data — messy CSVs, multi-tab
   XLSX exports, JSON dumps, NDJSON streams, PDF reports, scraped
@@ -9,8 +10,8 @@ description: |
   spend pulls, sales data, log files. The output is a *clean,
   documented, analysis-ready artefact* (parquet, CSV, JSON,
   SQLite) plus a one-page provenance note. This is the pipeline
-  layer that sits *before* [[data-analyst]] and
-  [[data-cut-headline-stats]]. Trigger on phrases like "parse
+  layer that sits *before* data-analyst and
+  data-cut-headline-stats. Trigger on phrases like "parse
   this data", "clean this file", "the raw data is messy",
   "normalise this", "join these files", "extract from PDFs",
   "scrape this", "stitch these exports together", "pull this
@@ -21,9 +22,58 @@ description: |
   "transcripts to dataframe", "I have 200 files", "explode this
   dump", "long-form to wide-form", "wide-to-long", "pivot this".
   Trigger even when the user just says "do something useful with
-  this folder of files". Pairs with [[data-analyst]] (next step),
-  [[data-cut-headline-stats]] (for editorial cut), and the
+  this folder of files". Pairs with data-analyst (next step),
+  data-cut-headline-stats (for editorial cut), and the
   `xlsx` / `pdf` skills (for format-specific I/O).
+when_to_use:
+  - A folder of mixed files (CSVs, XLSX, JSON, PDFs, HTML) needs consolidating into one clean dataset
+  - A tracker / panel / ad-spend export is in the wrong shape and needs reshaping (long-to-wide, wide-to-long, pivot)
+  - Tables need extracting from PDF reports into a spreadsheet or dataframe
+  - Transcripts need parsing into a speaker / theme dataframe
+  - Brand mentions need pulling from a social listening JSON or NDJSON export
+  - Sales / panel data across regions, months, or SKUs needs stitching with consistent keys
+  - Web pages, RSS feeds, or APIs need scraping into a structured table
+when_not_to_use:
+  - Statistical analysis of an already-clean dataset — use data-analyst
+  - Editorial headline-stat cuts — use data-cut-headline-stats
+  - Strategic interpretation of findings — use strategy-analyst
+  - Building dashboards — a separate engineering job
+  - Format-specific single-file I/O — the xlsx or pdf skills alone may suffice
+keywords:
+  - parse
+  - clean
+  - normalise
+  - wrangle
+  - pipeline
+  - csv
+  - xlsx
+  - json
+  - ndjson
+  - pdf tables
+  - scraping
+  - ocr
+  - pandas
+  - duckdb
+  - camelot
+  - provenance
+  - reshape
+  - pivot
+  - transcripts
+  - social listening
+similar_to:
+  - data-analyst
+  - data-cut-headline-stats
+  - developed-research
+  - qualitative-research
+inputs_needed:
+  - The raw input files or folder (untouched copies go to data/raw/)
+  - The natural entity key and time key expected to join files
+  - The desired output granularity (one row = what?)
+  - Any known quirks (encodings, header rows, junk subtotal rows)
+produces: A clean, documented, analysis-ready dataset (parquet + CSV mirror) with provenance.md, README, and a runnable scripts/ pipeline
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Raw data research

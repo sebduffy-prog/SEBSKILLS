@@ -2,6 +2,37 @@
 name: brand-guidelines
 description: Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.
 license: Complete terms in LICENSE.txt
+category: frontend-and-design
+when_to_use:
+  - Applying Anthropic's official brand colours and typography to an artifact
+  - Giving a doc, slide, or page the Anthropic look-and-feel
+  - Enforcing company design standards or visual formatting
+  - Smart font application and text/shape/accent-colour styling
+when_not_to_use:
+  - Applying the VCCP brand system — use vccp-media-design
+  - Generic on-the-fly themes for any artifact — use theme-factory
+  - Building a reusable colour token system — use brand-color-token-system
+keywords:
+  - anthropic
+  - brand
+  - brand colors
+  - typography
+  - styleguide
+  - look and feel
+  - fonts
+  - brand styling
+  - visual identity
+  - design standards
+  - accent colors
+similar_to:
+  - vccp-media-design
+  - theme-factory
+  - brand-color-token-system
+inputs_needed: The artifact to style and which elements (colours, fonts, accents) need Anthropic branding.
+produces: The artifact restyled with Anthropic's official colours and typography.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Anthropic Brand Styling

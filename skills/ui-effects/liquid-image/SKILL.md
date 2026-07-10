@@ -24,11 +24,21 @@ keywords:
   - webgl
   - grayscale
   - colour-reveal
-  - LiquidImage
+  - liquidimage
+  - water ripple image
+  - hover ripple
+  - wake trail
+  - hotspots
+  - shader
+  - react
+  - framer
 inputs_needed:
   - Image URL or path (must be CORS-accessible)
   - Container dimensions (width × height)
 produces: A single self-contained LiquidImage.tsx React component
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Liquid Image Component

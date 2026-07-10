@@ -1,6 +1,52 @@
 ---
 name: performance-optimization
-description: Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing.
+category: frontend-and-design
+description: >
+  Optimizes application performance. Use when performance requirements exist,
+  when you suspect performance regressions, or when Core Web Vitals or load
+  times need improvement. Use when profiling reveals bottlenecks that need
+  fixing.
+when_to_use:
+  - Performance requirements exist in the spec (load time budgets, response time SLAs)
+  - Users or monitoring report slow behavior
+  - Core Web Vitals scores (LCP, INP, CLS) are below thresholds
+  - You suspect a change introduced a performance regression
+  - Building features that handle large datasets or high traffic
+  - Profiling reveals bottlenecks (N+1 queries, large bundles, re-renders) that need fixing
+when_not_to_use:
+  - No evidence of a problem yet — premature optimization adds complexity that costs more than it gains
+  - Building or styling new UI from scratch — use frontend-design instead
+  - Verifying visual/UX quality rather than speed — use design-approval-gate or webapp-testing
+keywords:
+  - performance
+  - core web vitals
+  - lcp
+  - inp
+  - cls
+  - lighthouse
+  - profiling
+  - bottleneck
+  - n+1 queries
+  - bundle size
+  - code splitting
+  - lazy loading
+  - caching
+  - image optimization
+  - re-renders
+  - performance budget
+  - regression
+  - ttfb
+similar_to:
+  - frontend-design
+  - webapp-testing
+inputs_needed:
+  - What is slow (first load, interaction, navigation, or backend/API) and the symptom
+  - Baseline measurements or access to profiling data (Lighthouse, DevTools trace, query logs, RUM)
+  - Any performance requirements or budgets from the spec (load time, SLA, bundle size)
+produces: Measured, verified performance fixes with before/after numbers plus regression guards (budgets, monitoring, CI checks)
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Performance Optimization

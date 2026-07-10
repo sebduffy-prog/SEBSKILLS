@@ -1,6 +1,44 @@
 ---
 name: debugging-and-error-recovery
+category: engineering-workflow
 description: Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need a systematic approach to finding and fixing the root cause rather than guessing.
+when_to_use:
+  - Tests fail after a code change, or the build breaks
+  - Runtime behavior does not match expectations, or a bug report arrives
+  - An error appears in logs or console, or something that worked before stopped working
+  - You need a structured triage (reproduce, localize, reduce, fix, guard, verify) instead of guessing
+  - A bug is non-reproducible and you need timing/environment/state-dependent triage strategies
+  - You need to bisect a regression or add a regression test after a fix
+when_not_to_use:
+  - You want the stricter four-phase iron-law debugging discipline — use systematic-debugging
+  - You are confirming a fix passes before claiming completion — use verification-before-completion
+  - Multiple independent failures could each be investigated in parallel — use dispatching-parallel-agents
+  - You want to reproduce the bug with a failing test first, TDD-style — use test-driven-development
+keywords:
+  - debugging
+  - root-cause
+  - triage
+  - reproduce
+  - localize
+  - bisect
+  - regression-test
+  - stack-trace
+  - build-failure
+  - test-failure
+  - runtime-error
+  - non-reproducible
+  - instrumentation
+  - stop-the-line
+  - symptom-vs-cause
+similar_to:
+  - systematic-debugging
+  - verification-before-completion
+  - dispatching-parallel-agents
+inputs_needed: The failing command/output, error messages or stack traces, repro steps, and recent changes (git diff) around the break.
+produces: An identified and documented root cause, a root-cause fix, a regression test that fails without the fix, and end-to-end verification.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Debugging and Error Recovery

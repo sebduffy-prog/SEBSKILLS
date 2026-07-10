@@ -1,7 +1,27 @@
 ---
 name: pptx
+category: documents
 description: "Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \"deck,\" \"slides,\" \"presentation,\" or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill."
+when_to_use:
+  - Creating a slide deck, pitch deck, or presentation from scratch (pptxgenjs)
+  - Editing or updating an existing .pptx, or building from a template (unpack/pack XML)
+  - Reading, parsing, or extracting text from a .pptx (markitdown) for reuse elsewhere
+  - Combining or splitting slide files, or working with layouts, speaker notes, comments
+  - Applying a designed colour palette, font pairing, and layout polish to slides
+  - Rendering slides to images for visual QA of overlap, overflow, and contrast
+when_not_to_use:
+  - Every chart/headline must be bound to a live data source or re-run on refresh — use data-driven-deck-generator
+  - Choosing chart form, colour ramps, or accessibility rules — read dataviz first
+  - The deliverable is a Word document, PDF, or spreadsheet — use docx / pdf / xlsx
+  - A purely visual poster/graphic with no slides — use canvas-design
+keywords: [pptx, powerpoint, slides, deck, pitch deck, presentation, python-pptx, pptxgenjs, markitdown, template, speaker notes, layout, thumbnail, color palette, font pairing, slide qa, unpack xml, keynote, google slides]
+similar_to: [data-driven-deck-generator, docx, pdf]
+inputs_needed: The slide content or the existing .pptx path, whether to create-from-scratch or edit-a-template, plus any brand palette, fonts, or template file to match.
+produces: A .pptx presentation — created or edited — visually QA'd via rendered slide images, or extracted slide text.
 license: Proprietary. LICENSE.txt has complete terms
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # PPTX Skill

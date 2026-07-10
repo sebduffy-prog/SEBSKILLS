@@ -1,6 +1,41 @@
 ---
 name: deep-research
+category: product
 description: Multi-source deep research using firecrawl and exa MCPs. Searches the web, synthesizes findings, and delivers cited reports with source attribution. Use when the user wants thorough research on any topic with evidence and citations.
+when_to_use:
+  - User asks to research a topic in depth or says "research", "deep dive", "investigate", "what's the current state of"
+  - Competitive analysis, technology evaluation, or market sizing needing synthesis from multiple sources
+  - Due diligence on companies, investors, or technologies
+  - Any question that requires cited evidence pulled from many web sources
+  - You want the topic broken into sub-questions and searched systematically
+when_not_to_use:
+  - The research is specifically market/competitor/investor/TAM oriented with a decision output — use market-research
+  - You need to refine or stress-test a raw idea rather than gather external evidence — use idea-refine
+  - No firecrawl or exa MCP is configured (this skill depends on them)
+keywords:
+  - deep research
+  - firecrawl
+  - exa
+  - web search
+  - cited report
+  - source attribution
+  - competitive analysis
+  - due diligence
+  - market sizing
+  - synthesis
+  - investigate
+  - deep dive
+  - multi-source
+  - research report
+  - citations
+similar_to:
+  - market-research
+  - idea-refine
+inputs_needed: Topic to research, the goal (learning, decision, or writing), any specific angle or depth, and a configured firecrawl and/or exa MCP.
+produces: A cited multi-source research report synthesizing findings with source attribution.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 origin: ECC
 ---
 

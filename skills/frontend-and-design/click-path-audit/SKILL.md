@@ -2,6 +2,38 @@
 name: click-path-audit
 description: "Trace every user-facing button/touchpoint through its full state change sequence to find bugs where functions individually work but cancel each other out, produce wrong final state, or leave the UI in an inconsistent state. Use when: systematic debugging found no bugs but users report broken buttons, or after any major refactor touching shared state stores."
 origin: community
+category: frontend-and-design
+when_to_use:
+  - Systematic debugging found no bug but users report broken buttons
+  - After a major refactor touching shared state stores
+  - Auditing every touchpoint's full state-change sequence
+  - Finding functions that individually work but cancel each other out
+  - Catching wrong-final-state or inconsistent-UI-state bugs
+when_not_to_use:
+  - A single reproducible bug with a clear repro — use systematic-debugging
+  - General pre-merge quality review — use code-review-and-quality
+  - Live browser interaction testing — use browser-qa
+keywords:
+  - click path
+  - state audit
+  - behavioural flow
+  - shared state
+  - state stores
+  - button bugs
+  - ui state
+  - touchpoint
+  - regression
+  - refactor
+  - inconsistent state
+  - event handlers
+similar_to:
+  - code-review-and-quality
+  - browser-qa
+inputs_needed: The app/codebase, its state stores, and the buttons or touchpoints reported as broken.
+produces: A per-touchpoint state-change trace report flagging conflicting or wrong-final-state bugs.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # /click-path-audit — Behavioural Flow Audit

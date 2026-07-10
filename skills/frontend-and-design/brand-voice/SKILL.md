@@ -2,6 +2,35 @@
 name: brand-voice
 description: Build a source-derived writing style profile from real posts, essays, launch notes, docs, or site copy, then reuse that profile across content, outreach, and social workflows. Use when the user wants voice consistency without generic AI writing tropes.
 origin: ECC
+category: frontend-and-design
+when_to_use:
+  - Building a writing-voice profile from real posts, essays, launch notes, docs, or site copy
+  - Reusing a voice consistently across content, outreach, and social workflows
+  - Enforcing voice consistency and avoiding generic AI writing tropes
+  - Extracting tone, cadence, and vocabulary from source samples
+when_not_to_use:
+  - Applying a visual brand identity — use brand-guidelines or vccp-media-design
+  - Colour/font theming of an artifact — use theme-factory
+keywords:
+  - brand voice
+  - writing style
+  - tone of voice
+  - style profile
+  - copywriting
+  - voice consistency
+  - content
+  - outreach
+  - social
+  - source-derived
+  - ai writing tropes
+  - editorial voice
+similar_to:
+  - brand-guidelines
+inputs_needed: Real source samples (posts, essays, launch notes, docs, or site copy) and the downstream content type to write.
+produces: A reusable source-derived voice/style profile plus copy written in that voice.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Brand Voice

@@ -1,6 +1,7 @@
 ---
 name: competitive-comms-audit
-description: |
+category: strategy
+description: >
   Audit competitor advertising and communications across paid,
   owned, earned and shared — to map who is saying what, in what
   codes, at what weight, against which audience, and where the
@@ -16,11 +17,58 @@ description: |
   [competitor] doing", "white space", "category positioning
   grid", "comms positioning map", "what are people in this
   category saying", "category messaging audit", "review their
-  ads", "category landscape". Pairs with [[brand-audit]] (mirror,
-  inward), [[cultural-semiotics]] (the codes), [[share-of-search]]
-  (the search slice), [[advertising-strategy]] (the gap to lean
-  into), and `product/market-research` (the broader market
+  ads", "category landscape". Pairs with brand-audit (mirror,
+  inward), cultural-semiotics (the codes), share-of-search
+  (the search slice), advertising-strategy (the gap to lean
+  into), and product/market-research (the broader market
   context).
+when_to_use:
+  - A pitch needs a creative category review of what competitors are saying and how
+  - A re-positioning needs evidence about where competitors have already planted flags (and where they haven't)
+  - A briefing needs a defensible "we should own X because nobody else does" line
+  - An effectiveness-case context section needs a competitor baseline (SOV / SoS / ESOV)
+  - A category newcomer needs to understand the existing comms ecology before launching
+  - The brief asks "what is [competitor] doing", "where's the white space", or for a category positioning grid
+when_not_to_use:
+  - Pure product / market research — use product/market-research instead
+  - Pure financial / share analysis — that's a finance team's job, not a comms audit
+  - Pure semiotic decoding of category codes — use cultural-semiotics
+  - Diagnosing your own brand rather than the category — use brand-audit (the inward mirror)
+keywords:
+  - competitive audit
+  - competitor comms audit
+  - category creative audit
+  - category review
+  - creative ecology
+  - white space
+  - positioning grid
+  - comms positioning map
+  - category messaging audit
+  - share of voice
+  - share of search
+  - esov
+  - creative platform stability
+  - category cliché
+  - competitor vulnerabilities
+  - ad intel
+  - meta ad library
+  - pathmatics
+similar_to:
+  - brand-audit
+  - cultural-semiotics
+  - share-of-search
+  - advertising-strategy
+  - media-strategy
+inputs_needed:
+  - Category, market and time window (12–24 months recommended)
+  - The competitive set — direct (3–5), adjacent/substitutes (2–3), reference/aspirational (1–2)
+  - Access to ad intel / spend data (Nielsen Ad Intel, AdView, Pathmatics or equivalent) and public ad libraries
+  - The brand's own positioning / intended territory, to judge credible white space
+  - Any existing share metrics (SOV, SoS, share-of-market trend) if available
+produces: A competitive comms audit document — one-page competitor profiles, two positioning grids with white space mapped, shared-territory and RDE code maps, platform-stability chart, share-metrics comparison, and 2–3 ranked credible gaps.
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Competitive comms audit

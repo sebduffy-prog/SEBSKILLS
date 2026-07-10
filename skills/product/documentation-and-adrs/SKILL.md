@@ -1,6 +1,39 @@
 ---
 name: documentation-and-adrs
+category: product
 description: Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.
+when_to_use:
+  - Making a significant architectural decision or choosing between competing approaches
+  - Choosing a framework, library, database, auth strategy, or major dependency
+  - Adding or changing a public API, or shipping a feature that changes user-facing behavior
+  - Onboarding new team members or agents to a project
+  - You find yourself explaining the same context repeatedly and want it durable
+when_not_to_use:
+  - You need an implementation-ready capability contract from a PRD — use product-capability
+  - You are validating whether to build something at all — use product-lens
+  - The code is an obvious throwaway prototype, or the doc would just restate the code
+keywords:
+  - documentation
+  - adr
+  - architecture decision record
+  - decision log
+  - docs/decisions
+  - rationale
+  - trade-offs
+  - alternatives considered
+  - public api
+  - onboarding
+  - context capture
+  - why not what
+  - superseded
+  - decision template
+similar_to:
+  - product-capability
+inputs_needed: The decision or change being documented, its context and constraints, the alternatives considered, and where docs live in the repo (e.g. docs/decisions/).
+produces: An Architecture Decision Record (or supporting doc) capturing the why, context, decision, and alternatives.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Documentation and ADRs

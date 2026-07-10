@@ -1,6 +1,7 @@
 ---
 name: advertising-strategy-copy
-description: |
+category: strategy
+description: >
   Write the *prose* of an advertising / communications strategy:
   written strategy paragraphs, single-minded propositions,
   manifestos, strategic territories, role-for-advertising
@@ -10,7 +11,7 @@ description: |
   document a CMO will read. The output is editorial, confident,
   evidence-led, sentence-case, and free of agency clichés. Use
   this skill when the *thinking* is done (or being done in
-  parallel via [[advertising-strategy]]) and the user needs the
+  parallel via advertising-strategy) and the user needs the
   written craft. Trigger on phrases like "write the strategy",
   "polish this strategy", "draft the SMP", "write a proposition",
   "write a manifesto", "write the audience section", "tighten
@@ -20,8 +21,52 @@ description: |
   "draft the strategic platform copy", "write the insight",
   "strategy prose", "strategy doc copy". Trigger even when the
   user says "make the strategy bit sound better". Pairs with
-  [[advertising-strategy]] (the thinking), [[deck-flow-structure]]
-  (the narrative ordering), and [[vccp-media-design]] (the visual).
+  advertising-strategy (the thinking), deck-flow-structure
+  (the narrative ordering), and vccp-media-design (the visual).
+when_to_use:
+  - The strategic thinking is done but the document reads like bullets glued to bullets and needs prose
+  - Drafting a single-minded proposition (SMP), role-for-advertising statement, or insight write-up
+  - Writing a manifesto, strategic platform/territory write-up, or audience portrait
+  - Writing comms principles or a we are / we aren't / we sometimes are tone-of-voice statement
+  - A client asked to "tighten this" or "make it sound less agency" on a strategy doc
+  - Producing a full ~600-word strategy doc in the 10-section output format
+when_not_to_use:
+  - Generating the strategic thinking itself — use advertising-strategy first or in parallel
+  - Ordering the narrative across a deck — use deck-flow-structure
+  - Visual treatment of the document (highlighter accents, type) — use vccp-media-design
+  - Sourcing the evidence — use data-cut-headline-stats or strategy-analyst
+keywords:
+  - strategy prose
+  - single-minded proposition
+  - smp
+  - manifesto
+  - role for advertising
+  - audience portrait
+  - insight write-up
+  - strategic territory
+  - strategic platform
+  - comms principles
+  - tone of voice
+  - proposition
+  - strategy doc copy
+  - house voice
+  - banned words
+  - agency cliché
+  - sentence case
+  - copywriting
+similar_to:
+  - advertising-strategy
+  - deck-flow-structure
+  - vccp-media-design
+inputs_needed:
+  - The strategic thinking or bullet-point draft to be written up (brief, territory, insight, proposition as it stands)
+  - Client / project name and which artefact is needed (SMP, manifesto, portrait, full doc, etc.)
+  - Audience detail and evidence/RTBs available
+  - Whether the brand has its own voice or the house voice should apply
+produces: Editorial strategy prose — SMPs, manifestos, portraits, insights, principles, or a full ~600-word strategy doc
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Advertising strategy — copy

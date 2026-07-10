@@ -1,6 +1,56 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.
+category: frontend-and-design
+description: >
+  Create distinctive, production-grade frontend interfaces with high design quality. Use this
+  skill when the user asks to build web components, pages, artifacts, posters, or applications
+  (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or
+  when styling/beautifying any web UI). Generates creative, polished code and UI design that
+  avoids generic AI aesthetics.
+when_to_use:
+  - Building a web component, page, application, or interface (websites, landing pages, dashboards)
+  - Writing React components or HTML/CSS/JS layouts that need a strong aesthetic point of view
+  - Styling or beautifying any existing web UI
+  - Committing to a bold aesthetic direction (typography, color, motion, spatial composition) before coding
+  - Avoiding generic "AI slop" aesthetics (Inter/Roboto, purple gradients, cookie-cutter layouts)
+when_not_to_use:
+  - Fixed-canvas visual designs like posters, flyers, or slide decks — use canvas-design or theme-factory
+  - Shipping a visual change without user sign-off — run design-approval-gate first
+  - A single named effect or component (e.g. magnetic-button, aurora-gradient, bento-grid) — use that sibling skill directly
+  - Non-visual frontend work such as pure logic, data fetching, or API integration
+keywords:
+  - frontend
+  - ui design
+  - web components
+  - landing pages
+  - dashboards
+  - react
+  - html
+  - css
+  - typography
+  - color theme
+  - motion
+  - animations
+  - micro-interactions
+  - spatial composition
+  - backgrounds
+  - aesthetics
+  - styling
+  - beautify
+similar_to:
+  - canvas-design
+  - theme-factory
+  - web-artifacts-builder
+  - design-approval-gate
+inputs_needed:
+  - Frontend requirements — the component, page, application, or interface to build
+  - Purpose and audience — what problem the interface solves and who uses it
+  - Technical constraints — framework, performance, accessibility requirements
+  - Desired tone or aesthetic direction, if the user has one
+produces: Production-grade, visually distinctive frontend code (HTML/CSS/JS, React, Vue, etc.)
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 license: Complete terms in LICENSE.txt
 ---
 

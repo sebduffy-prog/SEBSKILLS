@@ -1,7 +1,43 @@
 ---
 name: security-review
+category: engineering-workflow
 description: Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns.
+when_to_use:
+  - Implementing authentication or authorization, or handling user input / file uploads
+  - Creating new API endpoints or integrating third-party APIs
+  - Working with secrets, credentials, or storing/transmitting sensitive data
+  - Implementing payment features or blockchain/wallet transactions
+  - Running a pre-deployment security checklist (SQL injection, XSS, CSRF, rate limiting, secrets)
+when_not_to_use:
+  - The review is about general code quality/style, not security — use coding-standards or requesting-code-review
+  - You need a full reviewer subagent workflow with SHAs — use requesting-code-review
+  - You are fixing email/DNS deliverability rather than app security — use email-deliverability
+  - You are handling feedback you received — use receiving-code-review
+keywords:
+  - security
+  - owasp
+  - authentication
+  - authorization
+  - secrets-management
+  - input-validation
+  - sql-injection
+  - xss
+  - csrf
+  - rate-limiting
+  - jwt
+  - httponly-cookies
+  - row-level-security
+  - dependency-audit
+  - sensitive-data
+similar_to:
+  - requesting-code-review
+  - coding-standards
+inputs_needed: The security-sensitive code or feature (auth, input handling, endpoints, payments), the stack in use, and where secrets/credentials live.
+produces: A security review against a comprehensive checklist, flagged vulnerabilities with secure-pattern fixes, and a pre-deployment sign-off list.
 origin: ECC
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Security Review Skill

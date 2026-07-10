@@ -1,6 +1,7 @@
 ---
 name: media-strategy
-description: |
+category: strategy
+description: >
   Build a media / communications-channel strategy: audience-first
   channel selection, role of each channel against the funnel,
   reach vs frequency vs attention vs effectiveness trade-offs,
@@ -17,10 +18,61 @@ description: |
   "audience activation strategy", "media KPIs", "test and learn",
   "incrementality", "MMM brief", "measurement framework". Trigger
   even when a user just says "I'm thinking about the channel
-  question". Pairs with [[advertising-strategy]] (the comms
-  problem), [[strategy-analyst]] (the data side),
-  [[data-cut-headline-stats]] (audience evidence), and
-  [[vccp-media-design]] (output design).
+  question". Pairs with advertising-strategy (the comms
+  problem), strategy-analyst (the data side),
+  data-cut-headline-stats (audience evidence), and
+  vccp-media-design (output design).
+when_to_use:
+  - The comms strategy is in flight and the question becomes "how" — channel selection, roles, and rhythm
+  - A client is asking for a channel POV before a media auction
+  - Rebriefing an existing media plan and needing to defend its shape
+  - Pitching and needing to demonstrate channel thinking, not just creative thinking
+  - A new product launch needs an end-to-end paid/owned/earned orchestration logic
+  - Setting the brand/activation split, flighting, ESOV target, or measurement framework for a plan
+when_not_to_use:
+  - Programmatic line-item plans or buy specs (handled by the buyers)
+  - Retail/trade marketing calendars (a different discipline)
+  - Pure SEO/CRM tactics (subset disciplines)
+  - The upstream comms problem itself — use advertising-strategy
+  - Deep data interpretation (MMM readouts, share-of-search analysis) — use strategy-analyst
+keywords:
+  - media strategy
+  - channel strategy
+  - channel mix
+  - channel role
+  - media plan
+  - reach planning
+  - frequency planning
+  - attention planning
+  - attention-adjusted reach
+  - esov
+  - share of voice
+  - share of search
+  - 60/40 split
+  - brand vs activation
+  - flighting
+  - burst vs always-on
+  - paid owned earned
+  - peso
+  - funnel logic
+  - test and learn
+  - incrementality
+  - mmm brief
+  - measurement framework
+similar_to:
+  - advertising-strategy
+  - strategy-analyst
+  - data-cut-headline-stats
+inputs_needed:
+  - The comms strategy / strategic audience the plan serves (from advertising-strategy)
+  - Buyable audience spec (age, sex, income, geography, behaviour, custom seg)
+  - Audience size, reachability, and channel concentration data (TGI / Touchpoints / GWI / first-party)
+  - Category and brand context (penetration, SOV vs SOM, seasonality, named moments)
+  - Budget order of magnitude and any fixed commitments
+produces: A media strategy document (or 3-5 pitch slides) — audience, prize, principles, brand/activation split, channel roles, funnel logic, flighting, measurement framework, test-and-learn slot, re-plan triggers
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Media strategy

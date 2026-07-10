@@ -1,6 +1,40 @@
 ---
 name: market-research
+category: product
 description: Conduct market research, competitive analysis, investor due diligence, and industry intelligence with source attribution and decision-oriented summaries. Use when the user wants market sizing, competitor comparisons, fund research, technology scans, or research that informs business decisions.
+when_to_use:
+  - Researching a market, category, company, investor, or technology trend
+  - Building TAM/SAM/SOM estimates (top-down and bottom-up)
+  - Comparing competitors or adjacent products
+  - Preparing investor or fund diligence dossiers before outreach
+  - Pressure-testing a thesis before building, funding, or entering a market
+when_not_to_use:
+  - The research is general/topical rather than business-decision oriented — use deep-research
+  - You are refining or stress-testing a raw idea, not gathering market evidence — use idea-refine
+  - You need to validate the product "why" internally — use product-lens
+keywords:
+  - market research
+  - competitive analysis
+  - investor due diligence
+  - fund diligence
+  - tam sam som
+  - market sizing
+  - competitor comparison
+  - technology scan
+  - vendor research
+  - industry intelligence
+  - source attribution
+  - thesis testing
+  - positioning gaps
+  - decision-oriented
+similar_to:
+  - deep-research
+  - product-lens
+inputs_needed: The market, competitor, investor, or technology to research, the decision it informs, and any specific claims or thesis to pressure-test.
+produces: A decision-oriented research brief with sourced claims separating fact, inference, and recommendation.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 origin: ECC
 ---
 

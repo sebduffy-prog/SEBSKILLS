@@ -1,6 +1,52 @@
 ---
 name: ui-demo
-description: Record polished UI demo videos using Playwright. Use when the user asks to create a demo, walkthrough, screen recording, or tutorial video of a web application. Produces WebM videos with visible cursor, natural pacing, and professional feel.
+category: frontend-and-design
+description: >
+  Record polished UI demo videos using Playwright. Use when the user asks to
+  create a demo, walkthrough, screen recording, or tutorial video of a web
+  application. Produces WebM videos with visible cursor, natural pacing, and
+  professional feel.
+when_to_use:
+  - User asks for a "demo video", "screen recording", "walkthrough", or "tutorial" of a web app
+  - User wants to showcase a feature or workflow visually
+  - User needs a video for documentation, onboarding, or stakeholder presentation
+  - A recorded flow keeps breaking due to bad selectors and needs the Discover -> Rehearse -> Record process
+  - A raw Playwright recording feels robotic and needs cursor overlay, subtitles, and natural pacing
+when_not_to_use:
+  - Testing or debugging a web app's functionality without producing a video — use webapp-testing
+  - Building or styling the UI itself — use frontend-design
+  - Static screenshots or single-frame captures rather than a recorded flow
+  - Recording native desktop or mobile apps that Playwright cannot drive
+keywords:
+  - demo video
+  - screen recording
+  - walkthrough
+  - tutorial
+  - playwright
+  - webm
+  - cursor overlay
+  - subtitles
+  - rehearsal
+  - selectors
+  - pacing
+  - typing delay
+  - smooth scroll
+  - dashboard panning
+  - moveandclick
+  - typeslowly
+  - onboarding video
+  - stakeholder presentation
+similar_to:
+  - webapp-testing
+inputs_needed:
+  - URL of the target web application (QA_BASE_URL or localhost)
+  - The flow/story to demo, including any user-specified step order
+  - Login credentials if the flow starts behind auth
+  - Desired output filename for the WebM video
+produces: A polished WebM demo video (1280x720) with injected cursor, subtitles, and natural pacing, plus the reusable Playwright demo script
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 origin: ECC
 ---
 

@@ -1,6 +1,57 @@
 ---
 name: magnetic-cursor
-description: Custom cursor dot that follows the mouse with spring lag, scales up over interactive elements, shrinks on mousedown, and uses mix-blend-mode:difference so it inverts against any background. Use when the user asks for a "custom cursor", "cursor follower", "blend mode cursor", "Awwwards cursor", "cursor dot", "interactive cursor", "cursor that grows on links", or wants to replace the native cursor sitewide. Framer category — Interactions.
+category: ui-effects
+description: >
+  Custom cursor dot that follows the mouse with spring lag, scales up over
+  interactive elements, shrinks on mousedown, and uses
+  mix-blend-mode:difference so it inverts against any background. Use when the
+  user asks for a "custom cursor", "cursor follower", "blend mode cursor",
+  "Awwwards cursor", "cursor dot", "interactive cursor", "cursor that grows on
+  links", or wants to replace the native cursor sitewide. Framer category —
+  Interactions.
+when_to_use:
+  - User asks for a "custom cursor", "cursor follower", "cursor dot", or "Awwwards cursor"
+  - User wants to replace the native cursor sitewide with a soft dot
+  - Portfolio, agency, or editorial sites where premium mouse feel matters
+  - Hero sections where the normal cursor feels cheap
+  - Cursor should grow over links/buttons and shrink on mousedown
+  - A blend-mode cursor that auto-inverts against dark and light sections
+when_not_to_use:
+  - Touch-first or mobile-only experiences — the component bails out on coarse pointers
+  - Form-heavy pages where the native text cursor over inputs matters
+  - Magnetic pull on a specific element rather than a global cursor — use magnetic-button
+  - Cursor-driven image distortion or shatter — use interactive-distortion or image-shatter
+keywords:
+  - custom cursor
+  - cursor follower
+  - cursor dot
+  - magnetic cursor
+  - blend mode
+  - mix-blend-mode difference
+  - awwwards
+  - spring lag
+  - hover scale
+  - interactive cursor
+  - cursor grows on links
+  - pointer
+  - lerp
+  - react
+  - framer interactions
+  - cursor none
+similar_to:
+  - magnetic-button
+  - liquid-glass-button
+  - interactive-distortion
+inputs_needed:
+  - Where to mount it (root layout, e.g. app/layout.tsx)
+  - Desired size, color, and blend mode (difference vs normal)
+  - Hover selector and hoverScale (which elements grow the dot; add data-cursor targets)
+  - Whether to hide the native cursor sitewide (hideNativeCursor)
+  - Spring feel (stiffness/damping) and z-index if modals sit above 9999
+produces: assets/MagneticCursor.tsx — a globally-mounted React custom-cursor component
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Magnetic Cursor

@@ -1,6 +1,59 @@
 ---
 name: skill-creator
-description: Create, edit, verify, and optimize skills (SKILL.md files). Use whenever the user wants to author a new skill, modify/improve an existing skill, turn a repeated workflow into a reusable skill, test a skill with subagents, run evals, benchmark skill performance, or tune a skill's description for better triggering. This is the canonical skill-authoring entry point — use it even if the user says "writing skills", "skill authoring", "make this a skill", or "skill design".
+category: building-agents
+description: >
+  Create, edit, verify, and optimize skills (SKILL.md files). Use whenever the
+  user wants to author a new skill, modify/improve an existing skill, turn a
+  repeated workflow into a reusable skill, test a skill with subagents, run
+  evals, benchmark skill performance, or tune a skill's description for better
+  triggering. This is the canonical skill-authoring entry point — use it even
+  if the user says "writing skills", "skill authoring", "make this a skill",
+  or "skill design".
+when_to_use:
+  - User wants to author a brand-new skill (SKILL.md) from an idea or a workflow in the current conversation
+  - User asks to modify, improve, or iterate on an existing skill based on feedback
+  - User wants to turn a repeated workflow into a reusable skill ("make this a skill")
+  - User wants to test a skill with subagents, run evals, or benchmark skill vs baseline performance
+  - User wants to tune or optimize a skill's description for better triggering accuracy
+  - User wants to package a finished skill into a .skill file for installation
+when_not_to_use:
+  - Building an MCP server or tool integration rather than a SKILL.md — use mcp-builder
+  - Writing Claude API / Anthropic SDK application code — use claude-api
+  - Adversarially stress-testing or red-teaming an already-finished skill — use adversarial-skill-forge
+  - General coding or documentation tasks that don't involve authoring or evaluating a skill
+keywords:
+  - skill
+  - skill.md
+  - skill-creator
+  - skill authoring
+  - writing skills
+  - make this a skill
+  - skill design
+  - frontmatter
+  - description optimization
+  - triggering
+  - evals
+  - eval viewer
+  - benchmark
+  - assertions
+  - subagents
+  - baseline comparison
+  - iteration loop
+  - progressive disclosure
+  - package skill
+similar_to:
+  - adversarial-skill-forge
+  - mcp-builder
+inputs_needed:
+  - What the skill should enable Claude to do, and roughly how
+  - When the skill should trigger (user phrases and contexts)
+  - Expected output format
+  - Whether to set up test cases (objectively verifiable outputs benefit; subjective ones often don't)
+  - Edge cases, input/output formats, example files, success criteria, and dependencies
+produces: A tested SKILL.md (with optional bundled scripts/references/assets), eval results and benchmarks, an optimized description, and optionally a packaged .skill file
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Skill Creator

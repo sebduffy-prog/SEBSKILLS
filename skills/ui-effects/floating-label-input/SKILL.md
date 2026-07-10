@@ -1,6 +1,56 @@
 ---
 name: floating-label-input
-description: Material/Stripe-style floating label input for React — label sits inside the field at rest, floats up and shrinks when focused or filled, with animated focus ring and error state. Use when the user asks for a "floating label input", "material input", "Stripe-style input", "animated form field", "label that floats", "notched input", or any polished form field beyond a plain `<input>`. Framer category — Forms.
+category: ui-effects
+description: >
+  Material/Stripe-style floating label input for React — label sits inside the
+  field at rest, floats up and shrinks when focused or filled, with animated
+  focus ring and error state. Use when the user asks for a "floating label
+  input", "material input", "Stripe-style input", "animated form field",
+  "label that floats", "notched input", or any polished form field beyond a
+  plain `<input>`. Framer category — Forms.
+when_to_use:
+  - User asks for a "floating label input", "material input", or "Stripe-style input"
+  - User wants an "animated form field", "label that floats", or "notched input"
+  - Building a production form (login, signup, checkout, contact) with polished fields
+  - Anywhere a plain HTML label feels too utilitarian
+  - Pairing form fields with Stripe-ish or Linear-ish aesthetics
+  - User needs built-in error state and helper text on an input
+when_not_to_use:
+  - A plain unstyled `<input>` is fine and no floating/animated label is wanted
+  - Non-React projects — this produces a React/TSX component
+  - Button interactions rather than form fields — see liquid-glass-button or magnetic-button
+  - Whole-page or hero visual effects — see other ui-effects siblings like aurora-gradient
+keywords:
+  - floating label
+  - input
+  - form field
+  - material input
+  - stripe-style
+  - animated label
+  - notched input
+  - focus ring
+  - error state
+  - helper text
+  - controlled input
+  - uncontrolled input
+  - react
+  - accent color
+  - login form
+  - signup form
+  - checkout
+similar_to:
+  - liquid-glass-button
+  - magnetic-button
+inputs_needed:
+  - Label text and input type (text, email, password, etc.)
+  - Controlled or uncontrolled usage (value/onChange vs defaultValue)
+  - Accent color if not the default indigo (#6366f1)
+  - Error/helper text requirements
+  - Container background color (label pill defaults to white; dark mode needs a tweak)
+produces: assets/FloatingLabelInput.tsx — a zero-dependency React floating-label input component
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Floating Label Input

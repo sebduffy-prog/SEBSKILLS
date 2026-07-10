@@ -41,6 +41,9 @@ inputs_needed:
   - Whether one-tailed or two-tailed (default two-tailed; confirm if user has prior direction)
   - Whether tests are pre-registered or exploratory (drives multiple-comparison correction)
 produces: A test report — chosen test + reason, assumption-check results, test statistic, p-value, effect size (Cohen's d / odds ratio / r² / etc.), confidence interval, and a plain-English interpretation that does NOT overclaim
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Statistical Testing

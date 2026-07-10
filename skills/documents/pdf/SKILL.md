@@ -1,7 +1,28 @@
 ---
 name: pdf
+category: documents
 description: Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.
+when_to_use:
+  - Reading or extracting text and tables from a PDF (pdfplumber / pypdf)
+  - Merging, splitting, or rotating PDF pages (pypdf / qpdf / pdftk)
+  - Creating a new PDF from scratch (reportlab canvas or Platypus)
+  - Filling a PDF form (see FORMS.md) or extracting images from a PDF
+  - Encrypting / decrypting / password-protecting a PDF
+  - OCR on a scanned PDF to make it searchable (pytesseract + pdf2image)
+  - Adding a watermark across every page
+when_not_to_use:
+  - The deliverable is an editable Word document — use docx
+  - The deliverable is a spreadsheet — use xlsx
+  - The deliverable is a slide deck — use pptx
+  - Legal clause review / redlining of a contract PDF — use contract-review
+keywords: [pdf, pypdf, pdfplumber, reportlab, qpdf, pdftk, pdftotext, poppler, extract text, extract tables, merge pdf, split pdf, rotate pages, watermark, fill pdf form, ocr, pytesseract, encrypt pdf, extract images, pdf-lib]
+similar_to: [docx, pptx, xlsx, contract-review]
+inputs_needed: The PDF file path(s) (or the content to render into a new PDF), the operation wanted (extract/merge/split/rotate/fill/OCR/encrypt), and any passwords, watermark art, or form field values.
+produces: A processed PDF file, or extracted text/tables/images, per the requested operation.
 license: Proprietary. LICENSE.txt has complete terms
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # PDF Processing Guide

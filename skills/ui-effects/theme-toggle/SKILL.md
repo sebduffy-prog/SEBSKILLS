@@ -1,6 +1,34 @@
 ---
 name: theme-toggle
-description: Animated sun/moon theme toggle button for React — smoothly morphs between a sunburst and a crescent moon, persists the choice to localStorage, and sets a data-attribute on <html> so CSS can read the theme. Use when the user asks for a "theme toggle", "dark mode toggle", "light/dark switch", "sun moon button", "theme switcher", or wants a classic top-right light/dark control that respects prefers-color-scheme on first load. Framer category — Utilities.
+category: ui-effects
+description: >
+  Animated sun/moon theme toggle button for React — smoothly morphs between a sunburst
+  and a crescent moon, persists the choice to localStorage, and sets a data-attribute
+  on <html> so CSS can read the theme. Use when the user asks for a "theme toggle",
+  "dark mode toggle", "light/dark switch", "sun moon button", "theme switcher", or
+  wants a classic top-right light/dark control that respects prefers-color-scheme on
+  first load. Framer category — Utilities.
+when_to_use:
+  - User asks for a "theme toggle", "dark mode toggle", "light/dark switch", "sun moon button", or "theme switcher"
+  - Any app where users expect a dark-mode control, especially a top-right light/dark button
+  - Portfolios where the toggle itself should feel polished (SVG sun-to-crescent morph)
+  - Theming systems that read a data-theme attribute — next-themes patterns, CSS custom properties, or Tailwind darkMode ['class', '[data-theme="dark"]']
+  - Next.js/SSR apps needing an SSR-safe toggle that respects prefers-color-scheme on first load
+when_not_to_use:
+  - Building the theme/token system itself (palettes, CSS variables) — use theme-factory; this skill only supplies the switch control
+  - Generic animated buttons that don't switch themes — see magnetic-button or liquid-glass-button in ui-effects
+  - Non-React sites where a plain checkbox + CSS suffices
+keywords: [theme toggle, dark mode, light mode, dark mode toggle, theme switcher, sun moon button, light/dark switch, prefers-color-scheme, data-theme, localstorage, svg morph, crescent moon, react, next.js, tailwind darkmode, hydration, ssr-safe, css custom properties]
+similar_to: [magnetic-button, liquid-glass-button]
+inputs_needed:
+  - Target element and attribute for the theme (html vs body; data-theme vs class — e.g. Tailwind wants class="dark")
+  - Light/dark attribute values and localStorage key if non-default
+  - Button size and the background colour behind the button (for the --theme-toggle-bg mask var)
+  - Whether a blocking head script is wanted to prevent flash of wrong theme
+produces: assets/ThemeToggle.tsx — a React SVG sun/moon toggle component with localStorage persistence
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Theme Toggle

@@ -1,6 +1,40 @@
 ---
 name: spec-driven-development
+category: engineering-workflow
 description: Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.
+when_to_use:
+  - Starting a new project or feature where no written specification exists yet
+  - Requirements are ambiguous, incomplete, or only exist as a vague idea
+  - The change touches multiple files/modules or involves an architectural decision
+  - The task would take more than 30 minutes and needs success criteria before code
+  - You want a gated Specify -> Plan -> Tasks -> Implement workflow with human review at each phase
+when_not_to_use:
+  - Single-line fixes or typos where requirements are unambiguous and self-contained
+  - You want a collaborative one-question-at-a-time design dialogue instead of a written spec — use brainstorming
+  - The spec/design is done and you need the bite-sized implementation plan — use writing-plans
+  - You just need to decide whether to act or ask on a defined task — use autonomy-policy
+keywords:
+  - spec-driven
+  - specification
+  - success-criteria
+  - gated-workflow
+  - specify-plan-tasks-implement
+  - assumptions
+  - boundaries
+  - acceptance-criteria
+  - living-document
+  - requirements
+  - objective
+  - project-structure
+similar_to:
+  - brainstorming
+  - writing-plans
+  - source-driven-development
+inputs_needed: The high-level vision or vague requirement, the tech stack, and the human's answers to clarifying questions plus approval at each phase gate.
+produces: A committed, reviewable spec document (objective, commands, structure, code style, testing strategy, boundaries, success criteria) that gates into planning and implementation.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Spec-Driven Development

@@ -1,6 +1,7 @@
 ---
 name: audience-segmentation
-description: |
+category: strategy
+description: >
   Build, name, profile, and *use* audience segmentations —
   behavioural, attitudinal, need-state, value-based, and
   occasion-based. Covers both creating segmentations from
@@ -18,10 +19,55 @@ description: |
   segmentation", "occasions / category-entry points", "CEPs",
   "Persona". Trigger when the user has a segmentation deck
   they can't make sense of, or wants to *use* an existing
-  segmentation in a brief. Pairs with [[audience-insight]] (one
-  insight per useful segment), [[data-analyst]] (the modelling),
-  [[raw-data-research]] (data prep), and [[advertising-strategy]]
+  segmentation in a brief. Pairs with audience-insight (one
+  insight per useful segment), data-analyst (the modelling),
+  raw-data-research (data prep), and advertising-strategy
   (deploying the chosen segment).
+when_to_use:
+  - A client wants their audience cut into useful sub-groups for strategy, planning or media activation
+  - Building or rebuilding a segmentation from survey / panel / first-party data (k-means, latent class, hierarchical, RFM, decision trees)
+  - An existing segmentation has landed and the planner needs to audit it, pick a target, or find the bullseye
+  - Segments need naming, profiling, or sizing — and a primary / secondary / "not for" audience recommending
+  - The user has a segmentation deck they can't make sense of, or wants to deploy an existing segmentation in a brief
+  - A creative team needs a recognisable person (with verbatim), not five percentages
+when_not_to_use:
+  - Pure persona writing with no data behind it — that's storytelling, not segmentation
+  - One-off audience portraits where a single audience will do — use advertising-strategy direct
+  - The insight inside a chosen segment — use audience-insight
+  - Media planning around the addressable spec — use media-strategy
+keywords:
+  - segmentation
+  - audience segmentation
+  - k-means
+  - latent class
+  - cluster analysis
+  - rfm
+  - needs-based segmentation
+  - attitudinal segmentation
+  - behavioural segmentation
+  - category-entry points
+  - ceps
+  - jobs-to-be-done
+  - persona
+  - bullseye
+  - priority audience
+  - segment naming
+  - segment profiling
+  - segment sizing
+similar_to:
+  - audience-insight
+  - advertising-strategy
+  - media-strategy
+inputs_needed:
+  - The decision the segmentation must change (one-sentence purpose statement)
+  - Whether this is a build/rebuild job or interpreting a segmentation the client already owns
+  - The data available (survey / panel / first-party — study, n, fieldwork dates, method)
+  - For existing segmentations - provenance, decision history, and recent first-party data for validation
+  - The brief / brand context for picking the primary segment (size x growth potential x strategic fit)
+produces: A segmentation output - named/sized segment cards (WHO/DOES/FEELS/CONTEXT/WHERE/VERBATIM) plus recommended primary, secondary and "not for" audiences
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Audience segmentation

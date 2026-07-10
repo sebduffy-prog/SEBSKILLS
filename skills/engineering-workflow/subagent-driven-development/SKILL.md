@@ -1,6 +1,39 @@
 ---
 name: subagent-driven-development
+category: engineering-workflow
 description: Use when executing implementation plans with independent tasks in the current session
+when_to_use:
+  - You have an implementation plan with mostly independent tasks to execute in this session
+  - You want a fresh subagent per task so context never pollutes across tasks
+  - You want two-stage review after each task (spec compliance, then code quality) with fix loops
+  - You want fast iteration without a human-in-the-loop handoff between tasks
+  - You want to pick the cheapest capable model per task role (implementer vs reviewer)
+when_not_to_use:
+  - Subagents are unavailable or you want a parallel-session handoff — use executing-plans
+  - Tasks are tightly coupled rather than independent — plan/brainstorm the coupling first
+  - You have no plan yet — create one with writing-plans (after brainstorming)
+  - You have many unrelated failures to fix concurrently, not plan tasks — use dispatching-parallel-agents
+keywords:
+  - subagent-driven
+  - fresh-subagent-per-task
+  - two-stage-review
+  - spec-compliance
+  - code-quality-review
+  - implementer-prompt
+  - review-loop
+  - model-selection
+  - isolated-context
+  - todowrite
+  - plan-execution
+similar_to:
+  - executing-plans
+  - dispatching-parallel-agents
+  - requesting-code-review
+inputs_needed: A written implementation plan with extractable task text, an isolated worktree/branch, and the prompt templates for implementer + spec/code-quality reviewers.
+produces: Each plan task implemented by a fresh subagent, passed through spec-compliance and code-quality review loops, committed, then a final full review and branch completion.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Subagent-Driven Development

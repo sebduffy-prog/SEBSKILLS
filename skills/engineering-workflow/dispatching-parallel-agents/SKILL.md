@@ -1,6 +1,39 @@
 ---
 name: dispatching-parallel-agents
+category: engineering-workflow
 description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+when_to_use:
+  - 3+ test files failing with different root causes that can be investigated independently
+  - Multiple subsystems broken independently, with no shared state between investigations
+  - Each problem can be understood without context from the others
+  - You want to solve several unrelated problems concurrently to save time
+  - You want to delegate focused, self-contained tasks to fresh subagents with isolated context
+when_not_to_use:
+  - Failures are related and fixing one might fix others — investigate together with systematic-debugging
+  - Agents would edit the same files or share resources (they would interfere)
+  - You are executing tasks from a plan one-by-one with review — use subagent-driven-development
+  - You do not yet know what is broken (exploratory) — debug first with debugging-and-error-recovery
+keywords:
+  - parallel-agents
+  - subagents
+  - concurrent
+  - task-dispatch
+  - independent-tasks
+  - isolated-context
+  - fan-out
+  - delegation
+  - problem-domains
+  - multiple-failures
+  - agent-prompts
+  - orchestration
+similar_to:
+  - subagent-driven-development
+  - systematic-debugging
+inputs_needed: A set of 2+ independent problem domains (e.g. distinct failing test files), the scope and error context for each, and constraints on what each agent may touch.
+produces: Concurrent subagent dispatches, each returning a summary of root cause and changes, integrated after a conflict check and a full test run.
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Dispatching Parallel Agents

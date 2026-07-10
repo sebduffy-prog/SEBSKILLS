@@ -1,6 +1,52 @@
 ---
 name: claude-api
+category: building-agents
 description: "Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should include prompt caching. Also handles migrating existing Claude API code between Claude model versions (4.5 → 4.6, 4.6 → 4.7, retired-model replacements). TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`; user asks for the Claude API, Anthropic SDK, or Managed Agents; user adds/modifies/tunes a Claude feature (caching, thinking, compaction, tool use, batch, files, citations, memory) or model (Opus/Sonnet/Haiku) in a file; questions about prompt caching / cache hit rate in an Anthropic SDK project. SKIP: file imports `openai`/other-provider SDK, filename like `*-openai.py`/`*-generic.py`, provider-neutral code, general programming/ML."
+when_to_use:
+  - Building a new app or feature that calls Claude through the Anthropic SDK (Python, TypeScript, Java, Go, Ruby, C#, PHP) or raw HTTP
+  - Code imports `anthropic` / `@anthropic-ai/sdk` and needs a Claude feature added, modified, or tuned (caching, thinking, compaction, tool use, batch, files, citations, memory)
+  - Migrating existing Claude API code between model versions (4.5 → 4.6, 4.6 → 4.7) or replacing retired models
+  - Debugging prompt caching — cache hit rate is low or `usage.cache_read_input_tokens` is zero
+  - Setting up Managed Agents (server-managed stateful agents with a hosted workspace), including the onboarding interview
+  - Choosing the right surface — single API call vs workflow vs agent (Claude API + tool use vs Managed Agents)
+  - Adding streaming, structured outputs, batch processing, or the Files API to an Anthropic SDK project
+when_not_to_use:
+  - File imports `openai` or another provider's SDK, or is explicitly provider-neutral (filenames like `*-openai.py` / `*-generic.py`)
+  - General programming or ML questions with no Claude API surface involved
+  - Building an MCP server to expose tools to LLMs — use the mcp-builder sibling skill
+  - Authoring agent skills themselves rather than API code — use the skill-creator sibling skill
+keywords:
+  - claude api
+  - anthropic sdk
+  - prompt caching
+  - cache hit rate
+  - tool use
+  - managed agents
+  - adaptive thinking
+  - effort parameter
+  - model migration
+  - opus 4.7
+  - streaming
+  - structured outputs
+  - compaction
+  - batch processing
+  - files api
+  - agentic loop
+  - tool runner
+  - messages api
+similar_to:
+  - mcp-builder
+  - skill-creator
+  - permanent-agent
+inputs_needed:
+  - Project language (Python, TypeScript, Java, Go, Ruby, C#, PHP, or cURL/raw HTTP) — inferred from project files, asked if ambiguous
+  - Target file(s) or scope, especially for model migrations (never edit without a confirmed scope)
+  - Which surface fits — single call, workflow, custom agent, or Managed Agents
+  - Confirmation the code is Anthropic-targeted, not provider-neutral or OpenAI-based
+produces: Claude/Anthropic SDK application code (with prompt caching) — new features, migrations, or debugged/optimized API integrations
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 license: Complete terms in LICENSE.txt
 ---
 

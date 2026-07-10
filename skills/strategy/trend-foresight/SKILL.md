@@ -1,6 +1,7 @@
 ---
 name: trend-foresight
-description: |
+category: strategy
+description: >
   Identify, weight, and act on trends — separating fads, micro-
   shifts, macro-shifts, and structural changes — and write a
   foresight POV with confidence levels. Covers spotting signals,
@@ -18,9 +19,56 @@ description: |
   "scenario planning", "foresight POV", "year-ahead piece",
   "annual trends report", "predictions". Trigger when the user
   wants a defensible, not-vibe-only future view. Pairs with
-  [[cultural-semiotics]] (emergent codes feed future trends),
-  [[developed-research]] (the wider context), and
-  [[advertising-strategy]] (the implication).
+  cultural-semiotics (emergent codes feed future trends),
+  developed-research (the wider context), and
+  advertising-strategy (the implication).
+when_to_use:
+  - A client wants an annual "[year]+1 trends" piece or year-ahead report
+  - A pitch needs a foresight section that differentiates
+  - A brand is making a 3- or 5-year bet and needs the macro picture
+  - A category review needs "where it's going" beyond the category code map
+  - A new-product brief needs to know which way the wind is blowing
+  - A POV against an emerging technology, behaviour, or cohort
+  - 5-year+ horizon work needing a scenario set rather than a single prediction
+when_not_to_use:
+  - A cultural code decode — use cultural-semiotics instead
+  - A short-term tactical view — the right tool is a strategy-analyst read
+  - Broad background research without a future/horizon question — use developed-research
+keywords:
+  - trends
+  - foresight
+  - trend spotting
+  - horizon scan
+  - weak signals
+  - signals of change
+  - fads vs trends
+  - macro forces
+  - pestle
+  - scenario planning
+  - scenarios
+  - delphi
+  - foresight pov
+  - annual trends report
+  - year-ahead
+  - predictions
+  - future of category
+  - structural shift
+  - counter-trend
+  - three horizons
+similar_to:
+  - cultural-semiotics
+  - developed-research
+  - advertising-strategy
+  - media-strategy
+inputs_needed:
+  - Audience (who) and category (what)
+  - Time horizon — 6 / 24 / 60 months (or 5-year+ for scenario planning)
+  - The brand decision this trend POV informs
+  - Confidence bar — how high before we'd actually act on it
+produces: A foresight POV report — weighted, time-horizoned themes with signals, counter-signals, brand implications, and confidence tags (We know / We think / We're watching)
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Trend & foresight

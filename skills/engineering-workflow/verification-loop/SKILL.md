@@ -1,6 +1,51 @@
 ---
 name: verification-loop
-description: "A comprehensive verification system for Claude Code sessions."
+category: engineering-workflow
+description: >
+  A comprehensive verification system for Claude Code sessions.
+when_to_use:
+  - After completing a feature or significant code change
+  - Before creating a PR, to confirm all quality gates pass
+  - After refactoring, to verify nothing broke
+  - During long sessions, as a continuous-mode checkpoint every 15 minutes or after major changes
+  - When you want a structured verification report (build, types, lint, tests, security, diff)
+when_not_to_use:
+  - For a final done-check on task completion, use verification-before-completion instead
+  - For diagnosing a specific failure rather than sweeping quality gates, use systematic-debugging
+  - When only writing tests up front — that is test-driven-development / tdd-workflow territory
+  - Immediate per-edit checks are better handled by PostToolUse hooks; this skill is the deeper review
+keywords:
+  - verification
+  - quality gates
+  - build check
+  - type check
+  - tsc
+  - pyright
+  - lint
+  - ruff
+  - test suite
+  - coverage
+  - security scan
+  - secrets
+  - console.log
+  - diff review
+  - verification report
+  - pre-pr
+  - continuous mode
+  - hooks
+similar_to:
+  - verification-before-completion
+  - systematic-debugging
+  - requesting-code-review
+  - tdd-workflow
+inputs_needed:
+  - Project build/test/lint commands (npm, pnpm, or Python equivalents)
+  - Language/toolchain (TypeScript vs Python) to pick type-check and lint tools
+  - The diff scope to review (e.g. git diff HEAD~1) and target coverage threshold (default 80%)
+produces: A verification report (build/types/lint/tests/security/diff PASS-FAIL summary) with a READY/NOT READY verdict and issues to fix
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 origin: ECC
 ---
 

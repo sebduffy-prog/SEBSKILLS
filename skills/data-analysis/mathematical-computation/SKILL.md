@@ -43,6 +43,9 @@ inputs_needed:
   - Domain constraints (real / complex, positive / non-zero, integer)
   - For ODEs / probability — initial conditions, parameter values, support of variables
 produces: A step-by-step solution showing setup, symbolic computation, numerical cross-check, and the final answer in the requested form (LaTeX / decimal / interval)
+status: stable
+owner: seb.duffy
+updated: 2026-07-09
 ---
 
 # Mathematical Computation

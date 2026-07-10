@@ -1,6 +1,53 @@
 ---
 name: mcp-builder
-description: Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).
+category: building-agents
+description: >
+  Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs
+  to interact with external services through well-designed tools. Use when building MCP
+  servers to integrate external APIs or services, whether in Python (FastMCP) or
+  Node/TypeScript (MCP SDK).
+when_to_use:
+  - Building a new MCP server to integrate an external API or service
+  - Choosing between Python (FastMCP) and Node/TypeScript (MCP SDK) implementations
+  - Designing tool names, input/output schemas (Zod/Pydantic), and annotations for an MCP server
+  - Deciding transport (streamable HTTP for remote, stdio for local) and project structure
+  - Reviewing and testing an MCP server (build checks, MCP Inspector)
+  - Creating evaluation question sets (10 QA pairs in XML) to test an MCP server's effectiveness
+when_not_to_use:
+  - Calling the Claude API directly or tuning Anthropic SDK features — use claude-api
+  - Authoring a new Claude skill rather than an MCP server — use skill-creator
+  - General API client code that is not exposed to an LLM via MCP tools
+keywords:
+  - mcp
+  - model context protocol
+  - mcp server
+  - fastmcp
+  - typescript sdk
+  - python sdk
+  - zod
+  - pydantic
+  - streamable http
+  - stdio
+  - tool design
+  - tool naming
+  - api integration
+  - pagination
+  - error messages
+  - annotations
+  - mcp inspector
+  - evaluations
+similar_to:
+  - claude-api
+  - skill-creator
+inputs_needed:
+  - Target service/API and its documentation (endpoints, auth, data models)
+  - Preferred language (TypeScript recommended, or Python/FastMCP)
+  - Transport context (remote server via streamable HTTP vs local via stdio)
+  - Which endpoints/operations to cover first
+produces: A working MCP server (TypeScript or Python) with well-designed tools plus a 10-question XML evaluation file
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 license: Complete terms in LICENSE.txt
 ---
 

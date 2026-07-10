@@ -1,6 +1,7 @@
 ---
 name: WLV
-description: |
+category: strategy
+description: >
   Write Like Vallance — produce writing in the voice of Charles
   Vallance (chairman and founding partner of VCCP): erudite, witty,
   metaphor-led, optimistic brand-strategy thought leadership. Works
@@ -18,11 +19,34 @@ description: |
   media, culture or AI topic. Trigger even on loose phrasings like
   "make this sound like one of Charles's columns" or "draft me a
   Vallance-style think piece on X". Pairs with the research skills
-  [[deep-research]], [[market-research]], [[developed-research]],
-  [[data-cut-headline-stats]], [[raw-data-research]],
-  [[cultural-semiotics]] and [[trend-foresight]] for evidence, with
-  [[brand-voice]] for voice-profiling method, and with
-  [[advertising-strategy-copy]] for the wider VCCP house voice.
+  deep-research, market-research, developed-research,
+  data-cut-headline-stats, raw-data-research,
+  cultural-semiotics and trend-foresight for evidence, with
+  brand-voice for voice-profiling method, and with
+  advertising-strategy-copy for the wider VCCP house voice.
+when_to_use:
+  - User wants writing "in Vallance's voice" / "like Charles writes"
+  - A Campaign-style column, op-ed, byline, or think piece on brand, advertising, media, culture, technology or AI
+  - A LinkedIn post, newsletter, blog, or tweet thread in that voice
+  - A keynote, conference talk, panel intro, or after-dinner speech
+  - A foreword, report intro, award entry, manifesto, or all-staff memo
+  - Re-voicing existing dry copy into the Vallance register
+when_not_to_use:
+  - Generating the underlying strategy itself — use advertising-strategy (WLV only voices it)
+  - Writing in a brand's own voice — use brand-voice or advertising-strategy-copy
+  - Pieces with unsourced numbers, invented quotes, or fabricated studies — the skill refuses these
+keywords: [vallance, charles vallance, vccp, thought leadership, column, op-ed, byline, linkedin post, keynote, speech, foreword, award entry, manifesto, memo, newsletter, tweet thread, voice, metaphor, sourced evidence, campaign magazine]
+similar_to: [brand-voice, advertising-strategy-copy, advertising-strategy]
+inputs_needed:
+  - Format (column, LinkedIn post, speech, foreword, memo, thread, etc.)
+  - Length (defaults to ~650-word Campaign-column shape if unstated)
+  - Topic / argument
+  - Audience and venue
+  - Any must-include points or examples
+produces: A fully voiced Vallance-style piece in the requested format, plus a Sources list of every attributed factual claim
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # WLV — Write Like Vallance

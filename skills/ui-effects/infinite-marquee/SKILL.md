@@ -1,6 +1,53 @@
 ---
 name: infinite-marquee
-description: Seamless infinite horizontal marquee / logo ticker in React using pure CSS animation — duplicates children, scrolls forever, pauses on hover, supports gradient edge fade. Use when the user asks for a "logo strip", "infinite marquee", "logo ticker", "marquee", "brand strip", "endless carousel", "scrolling logos", "ticker tape", or wants to loop press/partner logos across a hero. Framer category — Carousels.
+category: ui-effects
+description: >
+  Seamless infinite horizontal marquee / logo ticker in React using pure CSS
+  animation — duplicates children, scrolls forever, pauses on hover, supports
+  gradient edge fade. Use when the user asks for a "logo strip", "infinite
+  marquee", "logo ticker", "marquee", "brand strip", "endless carousel",
+  "scrolling logos", "ticker tape", or wants to loop press/partner logos
+  across a hero. Framer category — Carousels.
+when_to_use:
+  - '"As seen in" / press-logo strips'
+  - Partner / customer logo walls
+  - Testimonial auto-scroll strips
+  - Looping press/partner logos across a hero section
+  - Anywhere ambient horizontal motion is wanted (ticker tape, brand strip)
+when_not_to_use:
+  - Vertical or scroll-position-driven reveals — use scroll-reveal-section
+  - Children without intrinsic width (flex: 1 items) break the width: max-content layout
+  - Interactive/swipeable carousels where users control position — this is ambient, non-interactive motion
+  - Fewer than ~4 items — the loop feels stepped; provide 4-6+ children
+keywords:
+  - marquee
+  - infinite marquee
+  - logo ticker
+  - logo strip
+  - brand strip
+  - ticker tape
+  - scrolling logos
+  - endless carousel
+  - press logos
+  - partner logos
+  - logo wall
+  - pause on hover
+  - gradient edge fade
+  - pure css animation
+  - react
+  - carousels
+similar_to:
+  - scroll-reveal-section
+  - animated-counter
+inputs_needed:
+  - Children to loop (logos/images/testimonials) — at least 4-6 items with intrinsic width
+  - Page background colour for fadeColor (invisible edge fade)
+  - Speed (seconds per loop), direction (left/right), gap, pauseOnHover preference
+  - Whether prefers-reduced-motion support is in scope (not wired by default)
+produces: assets/InfiniteMarquee.tsx — single-file React component with pure CSS infinite-loop animation
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Infinite Marquee

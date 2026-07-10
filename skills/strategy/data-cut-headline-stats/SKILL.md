@@ -1,6 +1,7 @@
 ---
 name: data-cut-headline-stats
-description: |
+category: strategy
+description: >
   Cut and interrogate raw data (CSV, XLSX, brand tracker exports,
   media plan returns, campaign performance, sales data, social
   listening, search trends, panel data, segmentation surveys) and
@@ -17,9 +18,55 @@ description: |
   "data audit", "first cut", "stat-bank", "killer stats". Also
   trigger when the user drops a spreadsheet or CSV and asks any
   variant of "what do you see" or "anything interesting". Pairs
-  with [[strategy-analyst]] for interpretation, [[advertising-strategy]]
-  /[[media-strategy]] for downstream use, and [[vccp-media-design]]
+  with strategy-analyst for interpretation, advertising-strategy
+  and media-strategy for downstream use, and vccp-media-design
   for presentation styling.
+when_to_use:
+  - A client drops a brand tracker, panel export, campaign return, or sales file and the planner needs ammunition
+  - New-business pitch with one afternoon to find the punchy numbers
+  - Writing the "context" section of a strategy doc or annotating a chart for a deck
+  - Pre-reading for a workshop — flagging what is worth knowing up-front
+  - User drops a spreadsheet/CSV and asks "what do you see" or "anything interesting"
+  - Any moment where "give me the stats" means "the interesting stats"
+when_not_to_use:
+  - Full statistical analysis (regression, MMM, causal inference) — headline stats are descriptive and editorial; use a statistical workflow instead
+  - Deep interpretation or strategic recommendation from the numbers — hand off to strategy-analyst
+  - Sourcing new research rather than cutting existing data — use raw-data-research or developed-research
+  - Presentation styling of the resulting charts — hand off to vccp-media-design
+keywords:
+  - headline stats
+  - data cut
+  - brand tracker
+  - csv
+  - xlsx
+  - benchmark
+  - index
+  - segment outperformance
+  - killer stats
+  - stat-bank
+  - first cut
+  - data audit
+  - pandas
+  - duckdb
+  - kantar
+  - yougov
+  - sample size caveat
+  - comparator
+  - client-ready
+similar_to:
+  - data-analyst
+  - raw-data-research
+  - strategy-analyst
+  - audience-insight
+inputs_needed:
+  - The data file(s) — CSV, XLSX, tracker export, panel data, campaign returns
+  - The strategic question on the table (what is the client trying to know)
+  - What a useful answer would look like vs an unsurprising one
+  - Which 2-4 cut axes matter (audience, geography, time, brand, funnel, channel, SKU, creative)
+produces: 3-7 one-line headline stats with comparator, source/caveat line, and a one-paragraph summary read
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Data cut → headline stats

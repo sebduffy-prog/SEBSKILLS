@@ -1,6 +1,7 @@
 ---
 name: deck-flow-structure
-description: |
+category: strategy
+description: >
   Plan the *flow* of a deck — the narrative architecture and the
   order of information — before any slide gets designed or filled
   with content. Covers strategy decks, pitch decks, tissue
@@ -18,10 +19,54 @@ description: |
   "tissue order", "frame the conversation", "structure this
   presentation", "deck architecture". Trigger even when a user
   says "help me think about the order I should make this case
-  in". Pairs with [[advertising-strategy]] (the thinking that
-  fills the deck), [[advertising-strategy-copy]] (the prose on
-  the slides), [[strategy-analyst]] (the evidence layer), and
-  [[vccp-media-design]] (the visual treatment).
+  in". Pairs with advertising-strategy (the thinking that
+  fills the deck), advertising-strategy-copy (the prose on
+  the slides), strategy-analyst (the evidence layer), and
+  vccp-media-design (the visual treatment).
+when_to_use:
+  - A deck is starting from scratch and slide titles are about to be written
+  - An existing deck is rambling and needs surgical reordering
+  - A pitch is close and the spine needs testing before the room
+  - A tissue session needs a deliberate 5-7 slide flow
+  - A research debrief risks becoming an inventory of findings instead of a story
+  - Choosing between SCQA, story spine, and Minto pyramid for a presentation
+when_not_to_use:
+  - Actually writing slide prose or titles — use advertising-strategy-copy
+  - Visual treatment, layout, or slide design — use vccp-media-design
+  - The strategic thinking that fills the deck — use advertising-strategy
+  - Producing the final PPTX file — use the pptx skill
+keywords:
+  - deck structure
+  - deck flow
+  - slide order
+  - deck outline
+  - narrative architecture
+  - scqa
+  - story spine
+  - minto
+  - pyramid principle
+  - mece
+  - pitch deck
+  - tissue session
+  - board paper
+  - read-out
+  - running order
+  - rest beats
+  - the ask
+  - slide-by-slide
+similar_to:
+  - advertising-strategy
+  - advertising-strategy-copy
+  - strategy-analyst
+inputs_needed:
+  - Deck type (strategy POV, pitch, tissue, tracker read-out, workshop pre-read, board paper)
+  - The audience and the decision the deck is asking for
+  - The one-sentence answer / core message (or the raw material to find it)
+  - Rough length and time available to present
+produces: A slide-by-slide flow outline — archetype, slide titles, one-sentence purpose per slide, rest beats, and the closing ask
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Deck flow & structure

@@ -1,6 +1,7 @@
 ---
 name: autosuggestive-schema-builder
-description: |
+category: building-agents
+description: >
   Build Lovable.dev / v0-style no-code builders where Claude proposes
   accept/reject changes against a declarative content schema with a
   live preview pane updating in real time. Covers the full loop: a
@@ -19,6 +20,50 @@ description: |
   any domain where output is a list of typed blocks: marketing pages,
   email templates, dashboards, slide decks, forms, courses. SKIP only
   if the user wants free-text AI editing without structured operations.
+when_to_use:
+  - Building a Lovable.dev / v0-style no-code page builder where Claude proposes accept/reject edits
+  - The output is a list of typed blocks (sections, slides, widgets, email blocks, form steps) rendered from a component registry
+  - The user wants schema-level structured AI edits (patch/add/remove/move/replace) with a per-suggestion reason, not free-form prose edits
+  - You need a live preview pane that renders the schema through the same registry the published page uses
+  - Wiring a /suggest endpoint that returns validated structured operations from a single Claude call, with a mock-mode fallback
+  - Adding reversible, auditable AI editing — every suggestion is one op the user can undo or batch
+when_not_to_use:
+  - Free-text AI editing without structured operations — a chat editor is the right shape, not this
+  - Output is a single long blob rather than a list of typed blocks
+  - You need the raw Anthropic API plumbing (caching, models, tool use) — see claude-api
+  - Exposing the builder's actions as tools for other LLMs — see mcp-builder
+  - Authoring a new skill rather than a builder app — see skill-creator
+keywords:
+  - page builder
+  - no-code editor
+  - schema-driven builder
+  - accept/reject suggestions
+  - live preview
+  - structured operations
+  - patch add remove move replace
+  - section registry
+  - editable schemas
+  - suggest endpoint
+  - applySuggestion
+  - lovable
+  - v0
+  - render control
+  - suggestion cards
+  - list of typed blocks
+  - next.js
+  - anthropic api
+similar_to:
+  - claude-api
+  - mcp-builder
+inputs_needed:
+  - The content domain and its typed block types (sections, slides, email blocks, etc.)
+  - Which props per block are inline editable fields vs. repeating arrays
+  - Whether an ANTHROPIC_API_KEY is available or mock-mode fixtures are needed
+  - Theme/CSS-variable pack the LivePreview should scope to
+produces: A Next.js builder app — section registry, editable-schema config, /suggest endpoint, accept/reject suggestion UI, and a live preview pane
+status: stable
+owner: seb.duffy
+updated: 2026-07-10
 ---
 
 # Autosuggestive schema builder
