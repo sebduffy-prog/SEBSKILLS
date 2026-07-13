@@ -360,3 +360,17 @@ without reading every word.
 - **Multi-domain** — the same shape works for slide decks (each slide
   is a section), email templates (each block is a section), etc.
   Swap the registry, keep the rest.
+
+## Verify
+
+The deliverable is the running, verified app — not pasted snippets.
+
+- `npm run dev` (or `npm run build`) — the Next.js app compiles and
+  serves without errors.
+- With `ANTHROPIC_API_KEY` unset, POST to `/suggest` — the mock-mode
+  fixture returns `{ ok: true, suggestions: [...] }` with valid kinds.
+- Open the builder: the LivePreview renders the seeded sections
+  through the registry (no `<Missing>` placeholders).
+- Accept one suggestion of each kind and confirm the preview updates;
+  Reject one and confirm the schema is untouched. The full
+  accept/reject flow must round-trip before the session is done.

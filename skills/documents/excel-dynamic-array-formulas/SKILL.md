@@ -155,6 +155,19 @@ Share-of-row percentages instead of raw sums:
 `relative_to` = `0` grand total, `1` row totals, `2` column totals — controls the base of
 `PERCENTOF`.
 
+## Deliverable
+
+Ship a real workbook, not chat-pasted formulas. Write the source Table and the anchor
+formulas into an `.xlsx` with openpyxl — set `ws["E2"] = "=GROUPBY(...)"` etc. so the
+formula strings land live in the file (Excel spills them on open). Default output:
+`~/Desktop/<report-name>_dynamic.xlsx`. If the source data isn't supplied, still ship the
+scaffold: build the sheet with header row, a named Table placeholder, and the anchor
+formulas parked over a small dummy range, and drop a note cell marked `AWAITING DATA` —
+never end with formulas only quoted in prose.
+
+Final check: confirm the file exists on disk, reopen it, and spot-check that the anchor
+cells hold the intended `=…` formula strings (openpyxl round-trips them as text).
+
 ## Verify
 
 1. Type the formula in the **top-left anchor only** — never drag. Confirm a blue spill

@@ -358,11 +358,6 @@ npx bundlesize --config bundlesize.config.json
 npx lhci autorun
 ```
 
-## See Also
-
-For detailed performance checklists, optimization commands, and anti-pattern reference, see `references/performance-checklist.md`.
-
-
 ## Common Rationalizations
 
 | Rationalization | Reality |
@@ -382,6 +377,18 @@ For detailed performance checklists, optimization commands, and anti-pattern ref
 - Bundle size growing without review
 - No performance monitoring in production
 - `React.memo` and `useMemo` everywhere (overusing is as bad as underusing)
+
+## Deliverable
+
+Every performance session must produce a **written performance report as a file** — not just chat narration. Default to a Markdown file at `docs/perf/<area>-YYYY-MM-DD.md` (e.g. `docs/perf/checkout-2026-07-13.md`), containing:
+
+- A before/after table with **specific numbers** (LCP/INP/CLS, TTFB, bundle KB, query ms — whatever was measured)
+- The identified bottleneck and the exact fix applied (file/function references)
+- The regression guard put in place (budget, CI check, or monitoring), with the config snippet or command
+
+**Verify the artifact:** confirm the file exists on disk, opens, and the before/after numbers are real (not placeholders).
+
+If baseline measurements are missing, still ship the report file with the tables scaffolded and an explicit `> Awaiting baseline data` note in each empty cell — never end with chat-only prose.
 
 ## Verification
 

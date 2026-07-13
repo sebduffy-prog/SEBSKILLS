@@ -65,9 +65,11 @@ use `synthetic-focus-group`; if you only need the personas, use
 
 ## Prerequisites
 
+TinyTroupe needs Python **3.10+**. macOS system `python3` is 3.9 — use a newer
+one (`brew`-free option: `python3.11` if present, or pyenv). Then:
+
 ```bash
-# Python 3.9+ on this Mac (no brew needed)
-python3 -m venv .venv && source .venv/bin/activate
+python3.11 -m venv .venv && source .venv/bin/activate
 pip install git+https://github.com/microsoft/TinyTroupe.git@main
 export OPENAI_API_KEY=sk-...        # required for LIVE runs only
 ```

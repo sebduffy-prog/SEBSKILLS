@@ -70,6 +70,14 @@ To apply styling to a slide deck or other artifact:
 3. **Wait for selection**: Get explicit confirmation about the chosen theme
 4. **Apply the theme**: Once a theme has been chosen, apply the selected theme's colors and fonts to the deck/artifact
 
+### No local bundle? (remote use)
+
+If `theme-showcase.pdf` and the `themes/` directory are not present locally (e.g. running from the SKILL.md text alone), fetch the bundled files with `curl -fsSL` or WebFetch from:
+
+`https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/frontend-and-design/theme-factory/<relative-path>`
+
+Bundled files (all payload lives here — SKILL.md carries none): `theme-showcase.pdf`, plus one file per theme under `themes/`: `arctic-frost.md`, `botanical-garden.md`, `desert-rose.md`, `forest-canopy.md`, `golden-hour.md`, `midnight-galaxy.md`, `modern-minimalist.md`, `ocean-depths.md`, `sunset-boulevard.md`, `tech-innovation.md`.
+
 ## Themes Available
 
 The following 10 themes are available, each showcased in `theme-showcase.pdf`:

@@ -42,7 +42,7 @@ keywords:
 similar_to:
   - agentic-commerce-integration
 inputs_needed: A product CSV or JSON (canonical schema — id, title, description, link, image_link, availability, price, brand, gtin/mpn, condition, variant attrs); target platform (google|meta); desired output format (xml|tsv|csv)
-produces: Spec-compliant feed files (RSS-2.0 g: XML for Google, CSV/TSV for both), a severity-ranked validation report (ERROR/WARN/INFO, exit 1 on error for CI), and a disapproval-reason diagnosis mapping each issue to the merchant-facing fix
+produces: 'Spec-compliant feed files (RSS-2.0 g: XML for Google, CSV/TSV for both), a severity-ranked validation report (ERROR/WARN/INFO, exit 1 on error for CI), and a disapproval-reason diagnosis mapping each issue to the merchant-facing fix'
 status: stable
 owner: seb.duffy
 updated: 2026-07-10

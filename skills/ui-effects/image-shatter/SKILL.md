@@ -81,6 +81,11 @@ A photo that, when you hover, appears to shatter like a glass mosaic — each ti
 
 A single `.tsx` file called `ImageShatter.tsx`. **One dependency:** `framer-motion` (for spring physics and motion values).
 
+The full component ships as `assets/ImageShatter.tsx` (434 lines — the shatter grid math is not reconstructible from this doc; use it verbatim).
+
+**No local bundle? (remote use)** — if `assets/ImageShatter.tsx` isn't on disk, fetch it (curl -fsSL or WebFetch):
+`https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/ui-effects/image-shatter/assets/ImageShatter.tsx`
+
 ### Install
 
 ```bash

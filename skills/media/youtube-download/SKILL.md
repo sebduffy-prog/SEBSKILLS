@@ -49,11 +49,13 @@ only want the audio, the transcript, or a whole playlist, use the sibling skill 
 ## Prerequisites (this Mac)
 
 - **yt-dlp** — pip install is DEAD here (Python 3.9 cap + YouTube blocks). Use the standalone
-  **`yt-dlp_macos`** binary on `PATH` (set up by `media-toolchain-bootstrap`). Sanity-check:
-  `yt-dlp --version` (should read like `2026.xx.xx`). If it's old, **update first** — most
+  **`yt-dlp_macos`** binary (installed as `~/.local/bin/yt-dlp` by `media-toolchain-bootstrap`).
+  Resolve it once and use `"$YTDLP"` in every command (PATH may not include it):
+  `YTDLP="${YTDLP:-$HOME/.local/bin/yt-dlp}"`. Sanity-check:
+  `"$YTDLP" --version` (should read like `2026.xx.xx`). If it's old, **update first** — most
   "it broke" reports are a stale binary:
-  `yt-dlp -U` (or grab the latest release binary again). When even that lags a YouTube change,
-  use the nightly channel: `yt-dlp --update-to nightly`.
+  `"$YTDLP" -U` (or grab the latest release binary again). When even that lags a YouTube change,
+  use the nightly channel: `"$YTDLP" --update-to nightly`.
 - **deno** on `PATH` — yt-dlp uses it as the JS runtime to solve YouTube's `nsig`/signature
   challenge (without a working JS interp you get throttled 403s or no formats). `media-toolchain-bootstrap`
   puts a portable `deno` on PATH. Verify: `deno --version`.
@@ -67,8 +69,9 @@ only want the audio, the transcript, or a whole playlist, use the sibling skill 
 ## Recipe A — best quality, single mp4 (the default ask)
 
 ```bash
+YTDLP="${YTDLP:-$HOME/.local/bin/yt-dlp}"   # standalone yt-dlp_macos binary
 FF=$(python3 -c "import imageio_ffmpeg;print(imageio_ffmpeg.get_ffmpeg_exe())")
-yt-dlp --ffmpeg-location "$FF" \
+"$YTDLP" --ffmpeg-location "$FF" \
   -f "bv*+ba/b" \
   -S "res,fps,vcodec:h264,acodec:m4a" \
   --merge-output-format mp4 \
@@ -85,25 +88,25 @@ yt-dlp --ffmpeg-location "$FF" \
 
 ```bash
 # Exactly 1080p (or the best at/below 1080p), H.264, into mp4
-yt-dlp --ffmpeg-location "$FF" \
+"$YTDLP" --ffmpeg-location "$FF" \
   -S "res:1080,fps,vcodec:h264" --merge-output-format mp4 \
   -o "%(title)s.%(ext)s" "URL"
 
 # True 4K60, keep VP9/AV1, into mkv
-yt-dlp --ffmpeg-location "$FF" \
+"$YTDLP" --ffmpeg-location "$FF" \
   -f "bv*[height<=2160]+ba/b" -S "res,fps" --merge-output-format mkv "URL"
 ```
 
 - **Prefer `-S` sorting over hard `-f height=1080`** — `-S "res:1080"` picks the closest
   available instead of erroring when an exact rung is missing.
-- **Inspect first** when unsure what exists: `yt-dlp -F "URL"` lists every format id, codec,
+- **Inspect first** when unsure what exists: `"$YTDLP" -F "URL"` lists every format id, codec,
   resolution and note. Then either sort with `-S` or pick ids: `-f 137+140`.
 
 ## Recipe C — age-restricted / members-only / private
 
 ```bash
 # Reuse your logged-in browser session (no manual cookie export)
-yt-dlp --ffmpeg-location "$FF" \
+"$YTDLP" --ffmpeg-location "$FF" \
   --cookies-from-browser safari \
   -f "bv*+ba/b" --merge-output-format mp4 "URL"
 ```
@@ -124,16 +127,16 @@ Try in order (cheapest first):
 
 ```bash
 # 1. UPDATE — fixes the majority of sudden breakage.
-yt-dlp -U        # or: yt-dlp --update-to nightly
+"$YTDLP" -U        # or: "$YTDLP" --update-to nightly
 
 # 2. Add cookies (Recipe C) — unlocks account-bound clients.
 
 # 3. Switch player clients explicitly. Different clients expose non-SABR formats.
-yt-dlp --extractor-args "youtube:player_client=default,tv,web_safari" \
+"$YTDLP" --extractor-args "youtube:player_client=default,tv,web_safari" \
   --ffmpeg-location "$FF" -f "bv*+ba/b" --merge-output-format mp4 "URL"
 
 # 4. Allow formats that need a PO token (accept the risk of throttling/403 on some):
-yt-dlp --extractor-args "youtube:formats=missing_pot" \
+"$YTDLP" --extractor-args "youtube:formats=missing_pot" \
   --ffmpeg-location "$FF" -f "bv*+ba/b" "URL"
 ```
 
@@ -142,11 +145,11 @@ yt-dlp --extractor-args "youtube:formats=missing_pot" \
 
 ```bash
 # Plugin + its token server (Docker is the least-fuss backend)
-yt-dlp --update-to nightly
+"$YTDLP" --update-to nightly
 python3 -m pip install --user bgutil-ytdlp-pot-provider   # yt-dlp plugin side
 docker run -d --name bgutil -p 4416:4416 brainicism/bgutil-ytdlp-pot-provider  # token server
 # then just run yt-dlp normally — it auto-detects the provider on localhost:4416
-yt-dlp --ffmpeg-location "$FF" -f "bv*+ba/b" --merge-output-format mp4 "URL"
+"$YTDLP" --ffmpeg-location "$FF" -f "bv*+ba/b" --merge-output-format mp4 "URL"
 ```
 
 - The plugin route is the yt-dlp-maintainer-recommended answer; manual `po_token=` values are
@@ -166,7 +169,7 @@ yt-dlp --ffmpeg-location "$FF" -f "bv*+ba/b" --merge-output-format mp4 "URL"
 
 ## Pitfalls
 
-- **"Requested format is not available"** → almost always a stale binary or SABR. `yt-dlp -U`
+- **"Requested format is not available"** → almost always a stale binary or SABR. `"$YTDLP" -U`
   first, then Recipe D. Don't hand-pick `-f 137` blindly; run `-F` to see what truly exists.
 - **Video and audio downloaded but no merge / two files** → ffmpeg not found. Pass
   `--ffmpeg-location "$FF"`.

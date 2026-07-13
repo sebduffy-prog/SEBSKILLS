@@ -30,7 +30,7 @@ when_to_use:
   - Computing and sanity-checking payback (net ROMI, payback period, long-term value) against category norms
 when_not_to_use:
   - Campaign post-mortems with no business impact data — those are reviews, not cases
-  - "Why the creative was great" pieces — that is a creative case, not an effectiveness case
+  - '"Why the creative was great" pieces — that is a creative case, not an effectiveness case'
   - Setting the strategy itself — use advertising-strategy before the campaign runs
   - Pure data interpretation without a written case — use strategy-analyst
 keywords:

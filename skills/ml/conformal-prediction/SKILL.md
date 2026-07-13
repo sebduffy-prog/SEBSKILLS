@@ -43,40 +43,42 @@ Whenever a point prediction isn't enough and "how confident?" needs a defensible
 ## Prerequisites
 
 ```bash
-python3 -m pip install --user mapie scikit-learn
+python3 -m pip install --user "mapie>=1.0" scikit-learn
+python3 -c "from mapie.regression import SplitConformalRegressor" || echo "pre-1.0 MAPIE (MapieRegressor API) — upgrade: pip install -U mapie"
 ```
 
 ## Regression — intervals with guaranteed coverage
 
 ```python
-from mapie.regression import MapieRegressor
+from mapie.regression import SplitConformalRegressor
 from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 
 # X_train/y_train, X_cal/y_cal (calibration), X_test
-mapie = MapieRegressor(estimator=RandomForestRegressor(), method="plus", cv="split")
-mapie.fit(X_train, y_train)                      # (or prefit=an already-trained model)
-y_pred, y_pis = mapie.predict(X_test, alpha=0.1) # alpha=0.1 -> 90% target coverage
+scr = SplitConformalRegressor(estimator=RandomForestRegressor(), confidence_level=0.9, prefit=False)
+scr.fit(X_train, y_train)              # skip if prefit=True (already-trained model)
+scr.conformalize(X_cal, y_cal)         # calibration step
+y_pred, y_pis = scr.predict_interval(X_test)
 lower, upper = y_pis[:, 0, 0], y_pis[:, 1, 0]
 # empirical coverage on a labelled test set:
 cov = np.mean((y_test >= lower) & (y_test <= upper))
 print("target 90%  | empirical", round(cov*100, 1), "%  | mean width", round(np.mean(upper-lower), 2))
 ```
-For heteroskedastic data use **CQR** (`method="quantile"`) so interval width varies with difficulty.
+For heteroskedastic data use **CQR** (`mapie.regression.ConformalizedQuantileRegressor`) so interval width varies with difficulty.
 
 ## Classification — prediction sets
 
 ```python
-from mapie.classification import MapieClassifier
-mc = MapieClassifier(estimator=clf, method="lac", cv="prefit")
-mc.fit(X_cal, y_cal)
-_, y_sets = mc.predict(X_test, alpha=0.1)   # 90% coverage
-# y_sets[i] is a boolean mask of plausible labels; a big set = "model unsure"
+from mapie.classification import SplitConformalClassifier
+scc = SplitConformalClassifier(estimator=clf, confidence_level=0.9, conformity_score="lac", prefit=True)
+scc.conformalize(X_cal, y_cal)
+_, y_sets = scc.predict_set(X_test)         # 90% coverage
+# y_sets[i, :, 0] is a boolean mask of plausible labels; a big set = "model unsure"
 ```
 
 ## Verify
 
-- **Empirical coverage ≈ target** on a fresh labelled set (e.g. ~90% for alpha=0.1). This is the whole point — check it.
+- **Empirical coverage ≈ target** on a fresh labelled set (e.g. ~90% for confidence_level=0.9). This is the whole point — check it.
 - Intervals are as **narrow** as possible for that coverage (tighter = more useful); CQR narrows easy cases.
 - Classification sets shrink to 1 label when confident, grow when ambiguous.
 

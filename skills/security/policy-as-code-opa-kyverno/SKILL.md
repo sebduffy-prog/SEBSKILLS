@@ -193,7 +193,7 @@ spec:
           - resources:
               kinds: ["Pod"]
       validate:
-        validationFailureAction: Enforce   # Enforce = block; Audit = report only
+        failureAction: Enforce             # Enforce = block; Audit = report only
         message: "Every container must set resources.limits.memory."
         pattern:
           spec:
@@ -212,8 +212,9 @@ kyverno test .                                              # run a kyverno-test
 
 Then in-cluster: `kubectl apply -f require-limits.yaml`. With `Enforce` non-compliant Pods
 are rejected by the webhook; with `Audit` they're allowed but logged as PolicyReports.
-`validationFailureAction` is per-rule in current Kyverno (the spec-level field and lowercase
-`enforce`/`audit` are deprecated). Kyverno also does `mutate` and `generate` — same shape.
+`validate.failureAction` is per-rule in current Kyverno (the old spec-level
+`validationFailureAction` and lowercase `enforce`/`audit` are deprecated). Kyverno also does
+`mutate` and `generate` — same shape.
 
 ### 5. Share a policy library over OCI (Conftest)
 

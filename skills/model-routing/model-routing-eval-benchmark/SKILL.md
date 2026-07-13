@@ -82,7 +82,7 @@ providers:
   - anthropic:messages:claude-haiku-4-5
   - anthropic:messages:claude-opus-4-6
   - openai:gpt-5-mini
-  - vertex:gemini-2.0-flash
+  - google:gemini-2.0-flash
 
 prompts:
   - "{{prompt}}"          # one column of the dataset is the actual prompt

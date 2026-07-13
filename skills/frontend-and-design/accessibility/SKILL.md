@@ -165,6 +165,14 @@ Switch(
 - [ ] All icon-only buttons have a descriptive text label.
 - [ ] Content reflows properly when text is scaled.
 
+## Deliverable
+
+Do not stop at chat narration — ship a file. Produce a WCAG 2.2 audit report as `accessibility-audit.md` (default: alongside the audited code) containing the per-criterion findings, severity, and concrete fixes, plus the corrected component code written back to its source file(s) (ARIA/traits/labels applied in place). For a spec-only request, write the component spec to `<component>-a11y-spec.md`.
+
+Final verify: confirm the file exists and opens, and spot-check that each Best Practices Checklist item is either satisfied in the code or logged as an open finding in the report.
+
+If the target platform, component, or WCAG scope is missing, still ship the scaffold — the audit report with each POUR section and checklist item stubbed and marked `AWAITING INPUT` — never end with chat-only prose.
+
 ## References
 
 - [WCAG 2.2 Guidelines](https://www.w3.org/TR/WCAG22/)

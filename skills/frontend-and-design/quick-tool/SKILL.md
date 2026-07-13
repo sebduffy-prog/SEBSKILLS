@@ -104,8 +104,8 @@ CDN Alpine, single accent, light+dark via `prefers-color-scheme`, keyboard-first
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tip Calculator</title>
-<!-- Alpine: pin a version for production; @3.x.x pulls latest 3. 'defer' is required. -->
-<script defer src="https://cdn.jsdelivr.net/npm/[email protected]/dist/cdn.min.js"></script>
+<!-- Alpine: pinned version (verified live). 'defer' is required. -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 <style>
   :root {
     --bg: #f7f7f8; --card: #fff; --fg: #1c1c1f; --muted: #6b7280;

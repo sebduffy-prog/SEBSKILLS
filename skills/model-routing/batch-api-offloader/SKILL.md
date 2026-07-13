@@ -11,7 +11,7 @@ description: >
 when_to_use:
   - Bulk classification, summarization, extraction, or scoring over thousands of rows where a result within ~24h is fine
   - Large-scale evals or backfills where you want the built-in 50% batch discount, not synchronous pricing
-  - "Run these overnight / by tomorrow" or "we don't need it live" workloads
+  - '"Run these overnight / by tomorrow" or "we do not need it live" workloads'
   - Re-processing a whole dataset with a new prompt or model and reconciling outputs by id
   - Any many-independent-calls job where per-request latency does not matter but total cost does
 when_not_to_use:

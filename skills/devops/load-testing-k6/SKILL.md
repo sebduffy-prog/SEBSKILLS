@@ -62,8 +62,8 @@ N users"), that's `webapp-testing`, not this.
 
 ## Prerequisites
 
-- **k6 binary.** No `brew` on this Mac — grab the release tarball:
-  `curl -sL https://github.com/grafana/k6/releases/latest/download/k6-latest-macos-arm64.zip -o k6.zip && unzip k6.zip` (or `-macos-amd64` on Intel). Put the `k6` binary on `PATH`. Check with `k6 version`. In CI, use the official actions/image (below) — no local install.
+- **k6 binary.** No `brew` on this Mac — release assets are versioned (`k6-vX.Y.Z-...`), so fetch the latest tag first, then download:
+  `TAG=$(curl -s https://api.github.com/repos/grafana/k6/releases/latest | grep -m1 tag_name | cut -d'"' -f4) && curl -sL "https://github.com/grafana/k6/releases/download/${TAG}/k6-${TAG}-macos-arm64.zip" -o k6.zip && unzip k6.zip` (or `-macos-amd64` on Intel). Put the `k6` binary on `PATH`. Check with `k6 version`. In CI, use the official actions/image (below) — no local install.
 - **A target you are authorised to hit.** Load testing is a DoS against your own infra. Test local/staging by default. Against shared or prod-adjacent environments, get explicit sign-off and warn on-call — a spike test *is* an outage rehearsal.
 - **Realistic numbers.** Peak req/s or concurrent users, and the SLO you gate on (e.g. p95 < 500 ms, error rate < 1%). Guessing these makes the test theatre.
 - **Locust path only:** `python3 -m pip install locust` (works on the system 3.9).

@@ -164,6 +164,21 @@ well) and treat **hue symbolism as localisable**. McDonald's red+yellow reads
 appetite/value in the West and luck/imperial warmth in China — a happy overlap,
 not a universal law.
 
+## Deliverable
+
+Don't end in chat. Ship a file: write the graded rationale to
+`color-rationale-<brand>.md` — recommended hue/saturation/brightness direction,
+the arousal scores from Recipe B (paste the printed numbers), the Recipe C
+cross-cultural risk note, and any debunked stat, each sentence labelled
+STRONG / MIXED / FOLKLORE. For a pitch, drop the same content into a "why this
+colour" slide via the `pptx` skill. If the brand personality, markets, or
+candidate hues are missing, still write the file with those sections stubbed and
+an **"awaiting: personality traits / target markets / candidate hues"** banner —
+scaffold now, fill later; never leave it as prose in the chat.
+
+Final check: confirm the file exists and opens, and spot-check that every colour
+claim carries an evidence grade and every hue read carries its context.
+
 ## Verify — the evidence ladder (grade every claim)
 
 - **STRONG (state plainly):** saturation & brightness drive arousal/valence

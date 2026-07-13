@@ -44,7 +44,16 @@ Two stages:
 
 The hosted API is **async (a queue)**: POST the prompt, get a `status_url`, poll until `COMPLETED`, then
 GET the `response_url` for the signed video URL and download it. `scripts/gen_clip.py` does all three
-with only the Python stdlib (no SDK, no pip install).
+with only the Python stdlib (no SDK, no pip install). It POSTs `input` as JSON to
+`https://queue.fal.run/<endpoint>` (auth `Authorization: Key $FAL_KEY`), polls `status_url` until
+`status == "COMPLETED"`, then GETs `response_url` and downloads the first `video`/`url` in the result.
+
+**No local bundle? (remote use)** If `scripts/gen_clip.py` isn't on disk (you're running from the raw
+SKILL.md, not a checkout), fetch it first:
+```bash
+mkdir -p scripts && curl -fsSL -o scripts/gen_clip.py \
+  https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/media/video-gen-pipeline/scripts/gen_clip.py
+```
 
 ## When to use
 

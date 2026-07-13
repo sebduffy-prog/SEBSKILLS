@@ -234,6 +234,8 @@ mkdir -p ~/.claude/homunculus/{instincts/{personal,inherited},evolved/{agents,sk
 | `/promote [id]` | Promote project instincts to global scope |
 | `/projects` | List all known projects and their instinct counts |
 
+Note: these slash commands ship with the companion plugin, not this skill directory (no `commands/` files are bundled here) — the hooks and scripts above work without them.
+
 ## Configuration
 
 Edit `config.json` to control the background observer:

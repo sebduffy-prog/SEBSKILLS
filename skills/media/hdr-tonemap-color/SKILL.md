@@ -58,19 +58,20 @@ than eyeballing a curves adjustment.
   binary and the one in `_research_bank/bin` are the ones to use here (no brew on this Mac):
   ```bash
   FF=$(python3 -c "import imageio_ffmpeg as f; print(f.get_ffmpeg_exe())")
+  FP=$(python3 -c "import imageio_ffmpeg,sys,os; sys.stdout.write(os.path.join(os.path.dirname(imageio_ffmpeg.get_ffmpeg_exe()),'ffprobe'))" 2>/dev/null)
   "$FF" -filters | grep -E 'zscale|tonemap|libplacebo'
   ```
   If `zscale` is missing, that build lacks zimg — get a zimg-enabled static build; `libplacebo`
   (below) is the GPU fallback but is rarely in the portable pip binary.
-- **ffprobe** ships alongside; if only `imageio-ffmpeg`'s ffmpeg is present, use `ffmpeg` itself to
-  read metadata (shown below) rather than a separate ffprobe.
+- **ffprobe** may not ship beside the pip binary — `$FP` above points at it when it does. If it's
+  missing, use `"$FF" -i input.mov` and read the tags from stderr rather than a separate ffprobe.
 
 ## Step 0 — Diagnose: is it actually HDR?
 
 Don't tonemap SDR footage (it'll dull it). Read the colour tags first:
 
 ```bash
-ffprobe -v error -select_streams v:0 \
+"$FP" -v error -select_streams v:0 \
   -show_entries stream=color_space,color_transfer,color_primaries,pix_fmt \
   -of default=noprint_wrappers=1 input.mov
 ```
@@ -88,7 +89,7 @@ Interpret:
 The canonical, GPU-free chain. Copy, swap paths, run:
 
 ```bash
-ffmpeg -i input.mov -vf \
+"$FF" -i input.mov -vf \
 "zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,\
 tonemap=tonemap=hable:desat=0,\
 zscale=t=bt709:m=bt709:r=tv,format=yuv420p" \
@@ -115,7 +116,7 @@ add a gentle contrast via a LUT (Recipe 4) or `eq=contrast=1.05`.
 HLG is scene-referred; linearise via the HLG transfer instead of PQ:
 
 ```bash
-ffmpeg -i input_hlg.mov -vf \
+"$FF" -i input_hlg.mov -vf \
 "zscale=t=arib-std-b67:npl=1000,tonemap=tonemap=hable:desat=0,\
 zscale=t=bt709:m=bt709:r=tv:p=bt709,format=yuv420p" \
 -c:v libx264 -crf 18 -preset slow -c:a copy -movflags +faststart output_sdr.mp4
@@ -129,13 +130,13 @@ If your build has `libplacebo` (Vulkan), it gives smoother, better-behaved tonem
 and handles PQ **and** HLG automatically:
 
 ```bash
-ffmpeg -i input.mov -vf \
+"$FF" -i input.mov -vf \
 "libplacebo=tonemapping=bt.2390:colorspace=bt709:color_primaries=bt709:color_trc=bt709:format=yuv420p" \
 -c:v libx264 -crf 18 -c:a copy -movflags +faststart output_sdr.mp4
 ```
 
 `bt.2390` is the ITU reference tonemap curve; alternatives: `spline`, `mobius`, `hable`. Use only if
-`ffmpeg -filters | grep libplacebo` lists it — otherwise stick with Recipe 1.
+`"$FF" -filters | grep libplacebo` lists it — otherwise stick with Recipe 1.
 
 ## Recipe 4 — Apply a .cube 3D LUT correctly
 
@@ -144,12 +145,12 @@ A LUT expects a specific input space. Two common cases:
 - **SDR footage, creative LUT** (most .cube grades): apply in the video's own (gamma) space, after any
   tonemap. Order matters — tonemap first, LUT last:
   ```bash
-  ffmpeg -i output_sdr.mp4 -vf "lut3d=/path/to/grade.cube" -c:v libx264 -crf 18 -c:a copy graded.mp4
+  "$FF" -i output_sdr.mp4 -vf "lut3d=/path/to/grade.cube" -c:v libx264 -crf 18 -c:a copy graded.mp4
   ```
 - **HDR→SDR conversion LUT** (a .cube built to eat PQ and emit 709): do NOT tonemap as well — that
   double-processes. Just apply the LUT and re-tag:
   ```bash
-  ffmpeg -i input.mov -vf "lut3d=/path/to/hdr_to_709.cube,zscale=t=bt709:m=bt709:p=bt709:r=tv,format=yuv420p" \
+  "$FF" -i input.mov -vf "lut3d=/path/to/hdr_to_709.cube,zscale=t=bt709:m=bt709:p=bt709:r=tv,format=yuv420p" \
     -c:v libx264 -crf 18 -c:a copy hdr_lut_sdr.mp4
   ```
 
@@ -161,7 +162,7 @@ When the pixels are fine but the tags are wrong (player misinterprets them). Thi
 without touching the image:
 
 ```bash
-ffmpeg -i mislabelled.mp4 -c copy \
+"$FF" -i mislabelled.mp4 -c copy \
   -color_primaries bt709 -color_trc bt709 -colorspace bt709 fixed_tags.mp4
 ```
 
@@ -171,13 +172,13 @@ ffmpeg -i mislabelled.mp4 -c copy \
 
 1. **Tags are now SDR** — should print `bt709`/`bt709`/`bt709`:
    ```bash
-   ffprobe -v error -select_streams v:0 \
+   "$FP" -v error -select_streams v:0 \
      -show_entries stream=color_space,color_transfer,color_primaries -of default=nw=1 output_sdr.mp4
    ```
 2. **Eyeball a frame** — pull a still and look for restored contrast/saturation, no grey wash, no
    clipped-white highlights:
    ```bash
-   ffmpeg -i output_sdr.mp4 -vf "select=eq(n\,120)" -vframes 1 check.png
+   "$FF" -i output_sdr.mp4 -vf "select=eq(n\,120)" -vframes 1 check.png
    ```
    Compare `check.png` against a frame from the source. If it's dark → raise `npl`; if highlights are
    crushed white → lower `npl` or switch `hable`→`mobius`.

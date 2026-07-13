@@ -16,7 +16,7 @@ when_to_use:
   - Anywhere ambient horizontal motion is wanted (ticker tape, brand strip)
 when_not_to_use:
   - Vertical or scroll-position-driven reveals — use scroll-reveal-section
-  - Children without intrinsic width (flex: 1 items) break the width: max-content layout
+  - 'Children without intrinsic width (flex: 1 items) break the width: max-content layout'
   - Interactive/swipeable carousels where users control position — this is ambient, non-interactive motion
   - Fewer than ~4 items — the loop feels stepped; provide 4-6+ children
 keywords:

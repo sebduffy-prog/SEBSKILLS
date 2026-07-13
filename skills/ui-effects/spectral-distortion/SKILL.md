@@ -82,12 +82,17 @@ This skill assumes both dependency skills are already installed in the project:
 
 ```
 components/
-├── SpectraNoise.tsx          ← from skills/ui-effects/spectra-noise
-├── InteractiveDistortion.tsx ← from skills/ui-effects/interactive-distortion
-└── SpectralDistortion.tsx    ← this skill
+├── SpectraNoise.tsx          ← copy of skills/ui-effects/spectra-noise/assets/SpectraNoise.tsx
+├── InteractiveDistortion.tsx ← copy of skills/ui-effects/interactive-distortion/assets/InteractiveDistortion.tsx
+└── SpectralDistortion.tsx    ← this skill (assets/SpectralDistortion.tsx)
 ```
 
-If they aren't present, run the two dependency skills first, then drop this file in.
+The two dependency assets live in sibling skill directories, not in this skill. Their exact repo-relative source paths are:
+
+- `skills/ui-effects/spectra-noise/assets/SpectraNoise.tsx`
+- `skills/ui-effects/interactive-distortion/assets/InteractiveDistortion.tsx`
+
+If they aren't already present in `components/`, run the two dependency skills first (or copy those two files in), then drop this file in.
 
 ## What to produce
 
@@ -153,11 +158,11 @@ The composition uses three stacked absolutely-positioned layers inside a `positi
 
 ### Feeding the shader motion into the distortion
 
-`InteractiveDistortion` already applies the distortion from a mouse-velocity signal (`mouseRef.current.vX / vY`). We **inject a synthetic low-frequency velocity** each frame that mirrors the spectra's own hue/warp oscillation — specifically `sin(t*ω) * amp` on X and `cos(t*ω*1.3) * amp` on Y — so the same temporal character that drives the shader also drives the distortion.
+`InteractiveDistortion` already derives its warp from the cursor as it moves across the layer. We **dispatch a synthetic `mousemove` event each frame** that traces a slow Lissajous path over the distortion layer — specifically the cursor position is set to `0.5 + 0.4*amp*sin(t*ω)` on X and `0.5 + 0.4*amp*cos(t*ω*1.3)` on Y (normalised, then mapped into the layer's bounding rect) — so the same temporal character that drives the shader also moves the synthetic cursor that drives the distortion.
 
-The synthetic signal is added *alongside* the mouse velocity, not in place of it. When the cursor is still, the image breathes with the spectra. When the user moves the cursor, their input stacks on top.
+Because the events carry the user's real cursor movements too, the synthetic path is added *alongside* genuine mouse input, not in place of it. When the cursor is still, the image breathes with the spectra. When the user moves the cursor, their input stacks on top.
 
-The injection uses a small `useEffect` that reaches into the `InteractiveDistortion`'s mouse ref via a forwarded handle. **Do not try to duplicate the InteractiveDistortion internals here** — the single-file composition simply nudges the existing ref.
+The injection is a small `useEffect` that runs a `requestAnimationFrame` loop and calls `layer.dispatchEvent(new MouseEvent("mousemove", { …, bubbles: true }))` on the distortion layer `div`. The event bubbles up to `InteractiveDistortion`'s own listener, so we never touch its internals or reach into any ref. **Do not try to duplicate the InteractiveDistortion internals here** — the single-file composition simply feeds it synthetic pointer events.
 
 ## Keeping content visible
 

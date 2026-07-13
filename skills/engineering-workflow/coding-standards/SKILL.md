@@ -584,4 +584,13 @@ if (retryCount > MAX_RETRIES) { }
 setTimeout(callback, DEBOUNCE_DELAY_MS)
 ```
 
+## Deliverable
+
+Do not end a session with chat-only prose. Every run ships a file:
+
+- **Reviewing code** → write `CODE_REVIEW.md` (default in the repo root) listing findings ranked CRITICAL → LOW, each with file:line, the smell, and the fix. When code is edited to fix findings, ship the edited source files too.
+- **Scaffolding / setting up rules** → write the real config (`.eslintrc.json`, `.prettierrc`, `tsconfig.json`, or an `AGENTS.md`/`CONTRIBUTING.md` standards checklist), not a description of one.
+- Final verify: confirm the file exists on disk, opens, and spot-check that findings map to actual lines (or that config keys are valid for the stack).
+- If the code or stack is missing, still ship the scaffold — a `CODE_REVIEW.md` with the checklist headings and an "awaiting code" note — never a chat-only summary.
+
 **Remember**: Code quality is not negotiable. Clear, maintainable code enables rapid development and confident refactoring.

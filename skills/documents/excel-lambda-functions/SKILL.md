@@ -179,6 +179,19 @@ These take a LAMBDA as their last argument and iterate for you — no dragging, 
 `BYROW`/`BYCOL` reducers must collapse to a single value — `LAMBDA(r, r*2)` errors because it
 returns a whole row. Use `MAP` when you need to transform each element and keep the shape.
 
+## Deliverable
+
+End with a real workbook, never chat-only prose. Ship a `.xlsx` (default `~/Desktop/lambda_functions.xlsx`)
+built with **openpyxl**, writing each definition as a genuine formula string so it opens live in Excel:
+`ws["A1"] = "=LAMBDA(tempF, (5/9)*(tempF-32))(212)"` for an inline proof, plus a self-test cell
+`ws["B1"] = "=A1=100"`. Because openpyxl can't register Name Manager entries, also drop a `names.md`
+next to the workbook listing each **Name / Scope / Refers-to / Comment** so the user pastes them in once.
+**Final verify:** confirm the file exists (`os.path.exists`), reopen it with `openpyxl.load_workbook`
+and spot-check that the formula strings and self-test cell are present and start with `=`.
+If the repeated formula or iteration isn't yet supplied, still ship the workbook with the recipe
+scaffolds and self-test cells in an **"awaiting data"** state (placeholder args, a note in `A1`) —
+do not stop at narration.
+
 ## Verify
 
 - **Inline before naming:** every LAMBDA should first work as `=LAMBDA(...)(testArgs)` returning

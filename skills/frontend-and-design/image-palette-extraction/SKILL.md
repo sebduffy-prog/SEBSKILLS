@@ -155,7 +155,7 @@ Emit both maps as a stylesheet — one `:root` block, one dark override:
 
 ```python
 def css_block(sel, tokens):
-    lines = [f"  --md-sys-color-{k}: {v.rstrip('F')[:7] if len(v)==9 else v};" for k, v in tokens.items()]
+    lines = [f"  --md-sys-color-{k}: {v[:7] if len(v)==9 else v};" for k, v in tokens.items()]
     return f"{sel} {{\n" + "\n".join(lines) + "\n}"
 
 css = css_block(":root", light) + "\n" + \

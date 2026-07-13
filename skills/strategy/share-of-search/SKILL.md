@@ -148,9 +148,9 @@ Google Trends is literal. *"Sport"* is not the sportswear brand.
 
 ### Step 4 — Pull the data
 
-Two acceptable pipelines:
+Two pipelines — manual is the reliable one:
 
-**A. Manual (Trends UI):**
+**A. Manual (Trends UI) — reliable, preferred:**
 
 1. Open trends.google.com
 2. Add up to 5 terms (use Topic where available)
@@ -158,7 +158,13 @@ Two acceptable pipelines:
 4. Download CSV
 5. Repeat for the next batch of 5 if your set is larger
 
-**B. Programmatic (`pytrends`, scriptable):**
+**B. Programmatic (`pytrends`) — best-effort only:**
+
+> **Status warning:** `pytrends` is unmaintained (the project
+> is archived) and Google routinely blocks it with 429
+> rate-limit errors — expect it to fail. Treat this recipe as
+> best-effort; when it breaks, fall back to the manual Trends
+> CSV export in pipeline A, which is the reliable path.
 
 ```python
 from pytrends.request import TrendReq
@@ -348,7 +354,8 @@ zero baseline, no red/green.
 
 ## Tooling
 
-- `pytrends` (Python) — the most common scripted pull
+- `pytrends` (Python) — the most common scripted pull, but
+  unmaintained and often 429-blocked; best-effort only
 - Trends UI — for one-off pulls
 - `glimpse.ai`, `exploding-topics.com` — paid wrappers with
   better normalisation and longer histories

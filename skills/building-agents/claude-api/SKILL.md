@@ -69,6 +69,10 @@ Never mix the two — don't reach for `requests`/`fetch` in a Python or TypeScri
 
 **Never guess SDK usage.** Function names, class names, namespaces, method signatures, and import paths must come from explicit documentation — either the `{lang}/` files in this skill or the official SDK repositories or documentation links listed in `shared/live-sources.md`. If the binding you need is not explicitly documented in the skill files, WebFetch the relevant SDK repo from `shared/live-sources.md` before writing code. Do not infer Ruby/Java/Go/PHP/C# APIs from cURL shapes or from another language's SDK.
 
+**No local bundle? (remote use).** If the `{lang}/`, `shared/`, and `curl/` files this skill references aren't on disk (e.g. you only have this SKILL.md text), fetch each one on demand via `curl -fsSL` or WebFetch, keeping the same relative path, from:
+`https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/building-agents/claude-api/<relative-path>`
+The bundled paths are: `shared/{live-sources,models,model-migration,prompt-caching,tool-use-concepts,agent-design,error-codes}.md` and `shared/managed-agents-{overview,core,environments,tools,events,client-patterns,onboarding,api-reference}.md`; `python/claude-api/` and `typescript/claude-api/` each hold `{README,tool-use,streaming,batches,files-api}.md`; `{go,java,ruby,php,csharp}/claude-api.md`; `{python,typescript,go,java,ruby,php}/managed-agents/README.md`; `curl/{examples,managed-agents}.md`. (e.g. `.../claude-api/shared/live-sources.md`.)
+
 ## Defaults
 
 Unless the user requests otherwise:

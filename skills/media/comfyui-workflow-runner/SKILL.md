@@ -132,8 +132,8 @@ echo "queued $PID"
 # poll history until the key appears, then list output images:
 until curl -s http://127.0.0.1:8188/history/$PID | grep -q '"images"'; do sleep 1; done
 curl -s http://127.0.0.1:8188/history/$PID \
-  | python -c "import sys,json;h=json.load(sys.stdin)[__import__('os').environ['PID']]['outputs'];\
-[print(i['filename']) for n in h.values() for i in n.get('images',[])]" PID=$PID
+  | PID=$PID python -c "import sys,json;h=json.load(sys.stdin)[__import__('os').environ['PID']]['outputs'];\
+[print(i['filename']) for n in h.values() for i in n.get('images',[])]"
 ```
 
 (For real work prefer the script — it handles the socket, coercion, and download.)

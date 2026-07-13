@@ -137,7 +137,7 @@ EOF
 )"
 ```
 
-Then: Cleanup worktree (Step 5)
+**Don't cleanup worktree** - keep it until the PR merges (you may need it for review fixes).
 
 #### Option 3: Keep As-Is
 
@@ -169,7 +169,7 @@ Then: Cleanup worktree (Step 5)
 
 ### Step 5: Cleanup Worktree
 
-**For Options 1, 2, 4:**
+**For Options 1 and 4:**
 
 Check if in worktree:
 ```bash
@@ -181,7 +181,7 @@ If yes:
 git worktree remove <worktree-path>
 ```
 
-**For Option 3:** Keep worktree.
+**For Options 2 and 3:** Keep worktree (for Option 2, remove it after the PR merges).
 
 ## Quick Reference
 

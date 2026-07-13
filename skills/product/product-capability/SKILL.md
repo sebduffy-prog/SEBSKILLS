@@ -57,9 +57,18 @@ Use it when the gap is not "what should we build?" but "what exactly must be tru
 
 If the repo has a durable product-context file such as `PRODUCT.md`, `docs/product/`, or a program-spec directory, update it there.
 
-If no capability manifest exists yet, create one using the template at:
+If no capability manifest exists yet, create one using this template:
 
-- `docs/examples/product-capability-template.md`
+```markdown
+# <Capability name>
+
+## Capability — one-paragraph restatement of who, what new capability, what outcome changes.
+## Constraints — fixed rules, invariants, trust boundaries, data ownership, lifecycle transitions.
+## Implementation contract — actors, surfaces, states/transitions, interfaces, data-model implications.
+## Non-goals — what this capability explicitly does not own.
+## Open questions — unresolved decisions blocking implementation (never invent answers).
+## Handoff — ready to implement / needs architecture review / needs product clarification, plus next lane.
+```
 
 The goal is not to create another planning stack. The goal is to make hidden capability constraints durable and reusable.
 

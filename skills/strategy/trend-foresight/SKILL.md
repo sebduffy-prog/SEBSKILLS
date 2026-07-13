@@ -331,6 +331,26 @@ WHAT WE DELIBERATELY DID NOT COVER
 SOURCES (ranked by credibility)
 ```
 
+## Deliverable
+
+The session ends with a **file, not a chat answer**. Write the
+filled-in output template to a real document — default
+`~/Desktop/Foresight-POV-[category].docx` (use the [[docx]]
+skill), or a `.md` alongside it if the user prefers markdown.
+It must carry the executive summary, the five-domain scan, every
+weighted/time-horizoned theme with confidence tags, the fads
+call, the "what would prove us wrong" section, and ranked
+sources.
+
+**Verify before you finish:** the file exists at the path, opens
+without error, and a spot-check shows the themes, the 2x2
+scores, and the confidence tags are all present.
+
+If inputs are missing (no audience, horizon, or brand decision),
+still ship the document as a scaffold — every section headed
+with a **[AWAITING DATA]** marker naming what's needed — rather
+than ending on chat-only prose.
+
 ## Common mistakes to avoid
 
 1. **Copy-paste trend lists.** A 2026 trends piece that names

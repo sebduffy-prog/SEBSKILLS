@@ -180,7 +180,7 @@ function AuroraBg() {
       <div aria-hidden="true" style={{
         position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none',
       }}>
-        <div style={{
+        <div className="rs-aurora" style={{
           position: 'absolute', inset: '-20%',
           background: 'radial-gradient(ellipse at 30% 30%, color-mix(in srgb, var(--rs-accent) 35%, transparent), transparent 60%),' +
                       'radial-gradient(ellipse at 70% 70%, color-mix(in srgb, var(--rs-accent) 22%, transparent), transparent 50%)',
@@ -188,14 +188,15 @@ function AuroraBg() {
           animation: 'rs-aurora-drift 22s ease-in-out infinite alternate',
         }} />
       </div>
-      <style jsx>{`
+      {/* Plain <style> tag — portable React, no styled-jsx dependency */}
+      <style>{`
         @keyframes rs-aurora-drift {
           0%   { transform: translate3d(-3%, -2%, 0) rotate(0deg); }
           50%  { transform: translate3d( 3%,  2%, 0) rotate(6deg); }
           100% { transform: translate3d(-2%,  3%, 0) rotate(-4deg); }
         }
         @media (prefers-reduced-motion: reduce) {
-          div { animation: none !important; }
+          .rs-aurora { animation: none !important; }
         }
       `}</style>
     </>

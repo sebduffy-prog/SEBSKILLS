@@ -56,7 +56,8 @@ Analyzes your codebase and generates a cohesive design system:
 ```
 1. Scan CSS/Tailwind/styled-components for existing patterns
 2. Extract: colors, typography, spacing, border-radius, shadows, breakpoints
-3. Research 3 competitor sites for inspiration (via browser MCP)
+3. (Optional) Research 3 competitor sites for inspiration (via browser MCP).
+   No browser/network access? Skip this step and note the omission in DESIGN.md
 4. Propose a design token set (JSON + CSS custom properties)
 5. Generate DESIGN.md with rationale for each decision
 6. Create an interactive HTML preview page (self-contained, no deps)
@@ -99,17 +100,8 @@ Identifies generic AI-generated design patterns:
 
 ## Examples
 
-**Generate for a SaaS app:**
-```
-/design-system generate --style minimal --palette earth-tones
-```
+These are natural-language intents (there is no CLI or bundled tool to invoke):
 
-**Audit existing UI:**
-```
-/design-system audit --url http://localhost:3000 --pages / /pricing /docs
-```
-
-**Check for AI slop:**
-```
-/design-system slop-check
-```
+- **Generate for a SaaS app:** "Generate a minimal design system with an earth-tones palette for this app."
+- **Audit existing UI:** "Audit the UI at http://localhost:3000 across `/`, `/pricing`, and `/docs` for design-system consistency."
+- **Check for AI slop:** "Check this UI for generic AI-slop patterns and flag them."

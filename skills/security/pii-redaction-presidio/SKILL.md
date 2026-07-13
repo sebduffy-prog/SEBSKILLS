@@ -206,11 +206,12 @@ clean = BatchAnonymizerEngine().anonymize_list(
 ```
 
 Map DataFrame cells through the batch iterator, not a `for` loop with fresh
-engines. For huge corpora run it as a Docker service (legacy `mcr.microsoft.com/
-presidio-*` images are stale — use `ghcr.io/data-privacy-stack`):
+engines. For huge corpora run it as a Docker service using the official
+`mcr.microsoft.com/presidio-analyzer` / `presidio-anonymizer` images (check the
+tag list for the most recent release before pinning):
 
 ```sh
-docker run -d -p 5002:3000 ghcr.io/data-privacy-stack/presidio-analyzer:latest
+docker run -d -p 5002:3000 mcr.microsoft.com/presidio-analyzer:latest
 curl -s localhost:5002/analyze -H 'content-type: application/json' \
   -d '{"text":"Bob at 212-555-5555","language":"en"}'
 ```

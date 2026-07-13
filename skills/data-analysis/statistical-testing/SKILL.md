@@ -162,6 +162,14 @@ the result clears the user's practical-significance threshold (if given).
 DO NOT overclaim. DO NOT use causal language unless the design warrants it.>
 ```
 
+## Deliverable
+
+Do not stop at chat narration. Write the finished test report to a file:
+
+- **Artifact**: `statistical-test-report.md` in the working directory (default) — the filled-in "test report" template above, plus the executed test code and its printed output pasted in a fenced block so the result is reproducible.
+- **Verify before finishing**: confirm the file exists, reopen it, and spot-check that it contains the p-value, the effect size + CI, and the assumption-check results — a report missing any of those three is incomplete.
+- **Missing inputs?** Still ship the file: write the report with the chosen test, the assumption checks to run, and every result field marked `awaiting data`. Never end with prose-only chat.
+
 ## Anti-patterns to refuse
 
 - "p < 0.05 means the result is true / real / important." → No. State what p actually means.

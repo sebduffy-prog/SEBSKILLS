@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-10T15:19:13Z",
-  "skillCount": 415,
+  "generatedAt": "2026-07-13T10:44:37Z",
+  "skillCount": 436,
   "categories": [
     "3d",
     "adtech-ops",
@@ -752,6 +752,52 @@
       "enriched": true
     },
     {
+      "name": "claude-tag-slack-agent",
+      "category": "agent-frameworks",
+      "path": "skills/agent-frameworks/claude-tag-slack-agent/SKILL.md",
+      "description": "Design and operate Claude Tag — Anthropic's shared @Claude teammate inside Slack channels (an evolution of Claude Code). Covers per-channel scoping and the three memory tiers, opt-in ambient/proactive mode, stage-by-stage autonomous task execution with an in-thread checklist, self-scheduling, multiplayer hand-off (one Claude per channel that anyone can pick up), the tools/MCP-connector grants, three-level spend caps, and the 30-day legacy-Claude-in-Slack migration checklist. Use when a VCCP team wants an @Claude teammate wired into client or internal Slack channels, when planning the Enterprise/Team beta rollout, or when auditing what an ambient Slack agent can see and spend.",
+      "trigger": "Design and operate Claude Tag — Anthropic's shared @Claude teammate inside Slack channels (an evolution of Claude Code)",
+      "when_to_use": [
+        "A team wants an @Claude teammate embedded in a Slack channel to run tasks async and post results in-thread",
+        "Planning the rollout: which channels, what tools/data each Claude can touch, and per-channel spend caps",
+        "Deciding whether to enable ambient/proactive mode in a given channel (and understanding the risk)",
+        "Migrating off the legacy 'Claude in Slack' app before the 30-day window closes",
+        "Auditing or scoping what an ambient agent remembers, can access, and can spend across channels",
+        "Designing a multiplayer hand-off flow where colleagues pick up a task Claude started"
+      ],
+      "when_not_to_use": [
+        "Building a Slack app/bot from scratch against Slack's own API — that is bespoke engineering, not Claude Tag",
+        "Writing programmatic agents against the Anthropic API/SDK — use claude-api or an agent-SDK skill (openai-agents-sdk, pydantic-ai-typed-agents)",
+        "Building a custom MCP connector for Claude to use — use mcp-builder",
+        "Human approval gates inside a coding agent loop — use human-in-the-loop-approval"
+      ],
+      "keywords": [
+        "claude tag",
+        "slack",
+        "ambient mode",
+        "claude code",
+        "multiplayer agent",
+        "channel memory",
+        "spend limit",
+        "mcp connector",
+        "enterprise",
+        "migration",
+        "proactive agent",
+        "self-scheduling",
+        "team teammate",
+        "beta"
+      ],
+      "similar_to": [
+        "agent-orchestration-patterns",
+        "human-in-the-loop-approval",
+        "computer-use-agent"
+      ],
+      "produces": "A rollout plan and operating playbook: channel-scope matrix, tool-grant list, three-level spend caps, ambient-mode decisions per channel, a migration checklist off the legacy Slack app, and hand-off/audit conventions the team follows.",
+      "status": "stable",
+      "keywordCount": 14,
+      "enriched": true
+    },
+    {
       "name": "computer-use-agent",
       "category": "agent-frameworks",
       "path": "skills/agent-frameworks/computer-use-agent/SKILL.md",
@@ -903,6 +949,55 @@
       "produces": "A compiled DSPy program (saved .json of optimized instructions + demos) plus an eval score before/after",
       "status": "stable",
       "keywordCount": 17,
+      "enriched": true
+    },
+    {
+      "name": "dynamic-workflow-authoring",
+      "category": "agent-frameworks",
+      "path": "skills/agent-frameworks/dynamic-workflow-authoring/SKILL.md",
+      "description": "Author, run, and save Claude Code dynamic-workflow scripts that move the plan out of the context window into JavaScript and fan out dozens-to-hundreds of subagents. Use to trigger a workflow (ultracode keyword), read the meta + agent()/pipeline() shape Claude generates, add adversarial cross-check stages, route stages to cheaper/stronger models, wire structured- output schemas, and save the run as a reusable /command. Grounds hard against the real Claude Code workflows docs — honest about version gates, the 16-concurrent / 1,000-agent caps, and which options are public vs SDK-only.",
+      "trigger": "Author, run, and save Claude Code dynamic-workflow scripts that move the plan out of the context window into JavaScript and fan out dozens-t",
+      "when_to_use": [
+        "A task needs more agents than one conversation can hold — codebase-wide audit, 500-file migration, multi-source research",
+        "You want the orchestration codified as a script you can read, diff, edit, and rerun",
+        "You need an adversarial verify stage so findings are cross-checked before they reach you",
+        "You want to route expensive reasoning to Opus and cheap fan-out to Haiku in one run",
+        "You want to save a repeatable review/triage as a project /command for the whole team",
+        "You are explaining or debugging a workflow script Claude already generated"
+      ],
+      "when_not_to_use": [
+        "A few delegated tasks that fit one turn — use plain subagents or dispatching-parallel-agents instead",
+        "Long-running peer sessions with a shared task list — use agent teams (agent-orchestration-patterns) instead",
+        "Non-Claude-Code orchestration (LangGraph, CrewAI) — use langgraph-durable-workflows or crewai-flows-orchestration",
+        "Steps that need human sign-off mid-run — workflows take no mid-run input; use human-in-the-loop-approval"
+      ],
+      "keywords": [
+        "dynamic-workflows",
+        "ultracode",
+        "claude-code",
+        "subagent-orchestration",
+        "agent",
+        "pipeline",
+        "fan-out",
+        "adversarial-verification",
+        "model-routing",
+        "effort",
+        "deep-research",
+        "meta-block",
+        "structured-output-schema",
+        "worktree-isolation",
+        "resumable"
+      ],
+      "similar_to": [
+        "agent-orchestration-patterns",
+        "langgraph-durable-workflows",
+        "classifier-agent-routing",
+        "longhorizon-research-agent",
+        "crewai-flows-orchestration"
+      ],
+      "produces": "A JavaScript workflow script (meta + agent()/pipeline() body) that runs in the background, a cited/verified result in-session, and optionally a saved /command in .claude/workflows/.",
+      "status": "stable",
+      "keywordCount": 15,
       "enriched": true
     },
     {
@@ -1682,6 +1777,53 @@
       "enriched": true
     },
     {
+      "name": "message-diffusion-network-sim",
+      "category": "agent-simulation",
+      "path": "skills/agent-simulation/message-diffusion-network-sim/SKILL.md",
+      "description": "Forecast how a campaign line, claim, or headline SPREADS or DIES across a synthetic social graph of Claude personas — not by polling isolated respondents but by modelling peer contagion, super-spreaders, tipping points, and message decay hop-by-hop. Use when someone asks \"will this go viral\", \"how far does this message travel\", \"who are the super-spreaders for this idea\", \"what's the tipping point\", \"does this claim cascade or fizzle\", or wants a reach-vs-spread forecast before spend. Claude scores per-persona adoption; a networkx independent-cascade Monte Carlo propagates it many times.",
+      "trigger": "Forecast how a campaign line, claim, or headline SPREADS or DIES across a synthetic social graph of Claude personas — not by polling isolate",
+      "when_to_use": [
+        "Forecast whether a message reaches system-wide virality or fizzles in a niche",
+        "Find the tipping point (transmissibility / seed size) where a claim goes from dud to cascade",
+        "Identify which persona archetypes are super-spreaders for THIS specific message",
+        "Compare two creative lines on spread/reach, not just standalone persona reactions",
+        "Model message decay — how the idea erodes as it travels further from the source"
+      ],
+      "when_not_to_use": [
+        "You want a full agentic social-media sim with real feeds/actions and a SQLite trace — use oasis-social-media-simulation",
+        "You just want isolated persona reactions to a concept with no network contagion — use a straight synthetic-panel / persona-polling approach",
+        "You need REAL audience diffusion data (actual shares, listening) — use a GWI / Brand24 / social-listening skill",
+        "City-scale mobility/economic ABM — use agentsociety-urban-experiment"
+      ],
+      "keywords": [
+        "message diffusion",
+        "contagion",
+        "virality forecast",
+        "independent cascade",
+        "tipping point",
+        "super-spreaders",
+        "social graph",
+        "network simulation",
+        "message decay",
+        "claude personas",
+        "monte carlo",
+        "scale-free network",
+        "barabasi-albert",
+        "opinion dynamics",
+        "reach forecast",
+        "agent simulation"
+      ],
+      "similar_to": [
+        "oasis-social-media-simulation",
+        "generative-agent-architecture",
+        "agentsociety-urban-experiment"
+      ],
+      "produces": "A virality forecast JSON — mean/median/p90 reach + fizzle rate, a hop-by-hop diffusion curve, a tipping-point sweep (the beta where it phase-transitions), and a ranked super-spreader list. Plus the synthetic graph + per-persona adoption scores.",
+      "status": "stable",
+      "keywordCount": 16,
+      "enriched": true
+    },
+    {
       "name": "oasis-social-media-simulation",
       "category": "agent-simulation",
       "path": "skills/agent-simulation/oasis-social-media-simulation/SKILL.md",
@@ -1924,6 +2066,53 @@
       "enriched": true
     },
     {
+      "name": "claude-advanced-tool-use",
+      "category": "building-agents",
+      "path": "skills/building-agents/claude-advanced-tool-use/SKILL.md",
+      "description": "Cut multi-tool / multi-MCP agent overhead by wiring Anthropic's Tool Search Tool plus `defer_loading` and `input_examples` into an SDK app. Mark bulky and MCP tools `defer_loading: true` so only 3-5 relevant tools ever enter context, add a `tool_search_tool_regex_20251119` or `tool_search_tool_bm25_20251119` search tool, and attach schema-validated example invocations for accuracy — Anthropic reports ~85% tool-definition token cut and large tool-selection accuracy gains. Use when an agent aggregates 10+ tools or 200+ MCP tools, tool defs blow past 10k tokens, or Claude picks the wrong tool as the catalog grows. Handles regex-vs-BM25 choice, response wiring, MCP toolset config, and pitfalls.",
+      "trigger": "Cut multi-tool / multi-MCP agent overhead by wiring Anthropic's Tool Search Tool plus `defer_loading` and `input_examples` into an SDK app",
+      "when_to_use": [
+        "Your agent exposes 10+ tools, or aggregates several MCP servers (200+ tools), and tool definitions dominate the context window",
+        "Tool-selection accuracy degrades as the catalog grows past ~30-50 tools and Claude calls the wrong one",
+        "You want to keep a few hot tools always-loaded but discover the long tail on demand via a search tool",
+        "You have a complex tool with nested / format-sensitive inputs and Claude keeps mis-shaping the arguments",
+        "You're deciding between regex and BM25 tool search, or wiring the server_tool_use / tool_search_tool_result response blocks correctly"
+      ],
+      "when_not_to_use": [
+        "You have fewer than 10 small tools all used every request — plain tool use is cheaper (see claude-api)",
+        "You're authoring the MCP server itself rather than the agent that consumes it — use mcp-builder",
+        "You want a rubric/eval gate on agent output, not tool-catalog scaling — use managed-agents-outcomes",
+        "You need Claude Code subagent orchestration, not raw SDK tool wiring — use claude-code-agent-teams"
+      ],
+      "keywords": [
+        "tool search tool",
+        "defer_loading",
+        "input_examples",
+        "tool use examples",
+        "regex tool search",
+        "bm25 tool search",
+        "tool_reference",
+        "mcp toolset",
+        "context bloat",
+        "deferred tools",
+        "anthropic sdk",
+        "tool selection accuracy",
+        "server_tool_use",
+        "advanced tool use",
+        "prompt caching"
+      ],
+      "similar_to": [
+        "claude-api",
+        "mcp-builder",
+        "managed-agents-outcomes",
+        "claude-code-agent-teams"
+      ],
+      "produces": "A tools array with a tool search tool + deferred definitions, a working search→discover→call loop, and optional input_examples — cutting tool-def tokens ~85%.",
+      "status": "stable",
+      "keywordCount": 15,
+      "enriched": true
+    },
+    {
       "name": "claude-api",
       "category": "building-agents",
       "path": "skills/building-agents/claude-api/SKILL.md",
@@ -1975,6 +2164,147 @@
       "enriched": true
     },
     {
+      "name": "claude-code-agent-teams",
+      "category": "building-agents",
+      "path": "skills/building-agents/claude-code-agent-teams/SKILL.md",
+      "description": "Set up and drive Claude Code agent teams end-to-end: enable the experimental flag, spawn reusable teammate roles from subagent definitions, pick a display mode (in-process vs tmux/iTerm2 split panes), enforce TeammateIdle/TaskCreated/ TaskCompleted exit-2 quality gates, isolate parallel edits with git worktrees, and fire proven spawn prompts (parallel PR review, adversarial-debug debate). Use when one Claude session should coordinate several that message each other, claim a shared task list, and challenge each other's findings.",
+      "trigger": "Set up and drive Claude Code agent teams end-to-end: enable the experimental flag, spawn reusable teammate roles from subagent definitions",
+      "when_to_use": [
+        "Coordinating multiple Claude Code sessions that must message each other, not just report back to a lead",
+        "Running a parallel code review where security, performance, and test-coverage each get a dedicated reviewer",
+        "Debugging with competing hypotheses via an adversarial \"scientific debate\" between teammates",
+        "Cross-layer feature work where frontend, backend, and tests are each owned by a different teammate",
+        "Defining a reusable teammate role once (as a subagent definition) and reusing it across sessions",
+        "Wiring exit-code-2 hooks so teammates cannot go idle or close tasks until a lint/test/policy gate passes"
+      ],
+      "when_not_to_use": [
+        "Focused fan-out where only the result matters and workers never talk to each other — use dispatching-parallel-agents (subagents) instead",
+        "Sequential tasks, same-file edits, or heavy dependency chains — a single session is cheaper and safer",
+        "Building an MCP server to expose tools to Claude — use mcp-builder",
+        "Writing raw Anthropic SDK / Managed Agents code — use claude-api",
+        "Pure file isolation without coordination — just run separate `claude --worktree` sessions"
+      ],
+      "keywords": [
+        "agent teams",
+        "claude code",
+        "teammates",
+        "subagents",
+        "tmux",
+        "iterm2 split panes",
+        "teammateidle",
+        "taskcompleted hook",
+        "exit code 2 gate",
+        "git worktree",
+        "sendmessage",
+        "shared task list",
+        "parallel review",
+        "adversarial debug"
+      ],
+      "similar_to": [
+        "mcp-builder",
+        "claude-api",
+        "agent-code-sandbox",
+        "permanent-agent"
+      ],
+      "produces": "A running agent team — a lead session plus named teammates sharing a task list and mailbox — plus reusable subagent role definitions and settings.json hooks that gate idle/task transitions.",
+      "status": "stable",
+      "keywordCount": 14,
+      "enriched": true
+    },
+    {
+      "name": "claude-programmatic-tool-calling",
+      "category": "building-agents",
+      "path": "skills/building-agents/claude-programmatic-tool-calling/SKILL.md",
+      "description": "Let Claude orchestrate your tools from Python inside the code-execution sandbox instead of one model round-trip per call. Add the code_execution tool, tag each tool with allowed_callers:[\"code_execution_20260120\"], and Claude writes a script that loops, filters, and aggregates tool results — returning only the distilled answer while intermediate data never enters context. Use when an agent fans out across many records/endpoints, when tool results are huge and must be filtered before Claude reads them, or when 10-49 tools are bloating input tokens. Grounded on Anthropic's advanced-tool-use docs: real caller/container fields, the tool_result-only continuation rule, and honest token-savings numbers.",
+      "trigger": "Let Claude orchestrate your tools from Python inside the code-execution sandbox instead of one model round-trip per call",
+      "when_to_use": [
+        "Agent must fan out the same tool across many items (check 50 endpoints, look up 20 records) in one pass",
+        "Tool results are large and can be filtered/aggregated/summarised in code before Claude reads them",
+        "A tools array of ~10-49 definitions is bloating input tokens and you want 20-40% savings",
+        "Agentic search/retrieval where iterative querying and result filtering dominate the loop",
+        "You want conditional logic or early-termination across tool calls without re-sampling Claude between each"
+      ],
+      "when_not_to_use": [
+        "Building a plain Claude tool-use / SDK app with no code execution — use claude-api",
+        "You need a generic secure runtime for agent-written code (E2B/Modal/Daytona) — use agent-code-sandbox",
+        "Designing tool names and JSON schemas from scratch — use mcp-builder",
+        "Strictly sequential workflows where each call needs Claude to reason over the last result first (no benefit; can cost ~8% more)"
+      ],
+      "keywords": [
+        "programmatic-tool-calling",
+        "code-execution",
+        "allowed-callers",
+        "anthropic",
+        "claude-api",
+        "tool-use",
+        "token-reduction",
+        "agent",
+        "sandbox",
+        "caller-field",
+        "container",
+        "fan-out",
+        "asyncio",
+        "server-tool-use",
+        "context-engineering"
+      ],
+      "similar_to": [
+        "claude-api",
+        "agent-code-sandbox",
+        "mcp-builder",
+        "managed-agents-outcomes"
+      ],
+      "produces": "A configured Messages request where Claude calls tools from code — plus a working client loop that reuses the container, answers programmatic tool_use blocks with tool_result-only messages, and measures the token delta",
+      "status": "stable",
+      "keywordCount": 15,
+      "enriched": true
+    },
+    {
+      "name": "claude-structured-outputs",
+      "category": "building-agents",
+      "path": "skills/building-agents/claude-structured-outputs/SKILL.md",
+      "description": "Force Claude to return JSON that provably matches your schema — the native Claude answer to instructor/BAML. Add `output_config.format` (JSON outputs) or `strict: true` tools to a Messages API call so grammar-constrained decoding guarantees conformance and you delete parse-retry loops, Pydantic try/excepts, and \"please respond in JSON\" prompt hacks. Covers Agent SDK `outputFormat` for validated multi-turn results, the supported JSON-Schema subset, SDK `parse()` helpers, and the failure modes (refusal, max_tokens, no streaming).",
+      "trigger": "Force Claude to return JSON that provably matches your schema — the native Claude answer to instructor/BAML",
+      "when_to_use": [
+        "You call the Claude Messages API and post-process the reply into a struct, DB row, or typed object",
+        "A pipeline has parse-retry loops or \"if JSON invalid, ask again\" glue you want to delete",
+        "You use tool calling and need the tool input arguments to be schema-valid every time",
+        "You run a Claude Agent SDK / Claude Code agent and want a validated JSON object as the final result",
+        "You are porting an instructor / BAML / OpenAI-json_schema pipeline onto Claude",
+        "You extract fields from documents or images and feed them straight into downstream code"
+      ],
+      "when_not_to_use": [
+        "Building the Claude request plumbing itself (SDK setup, prompt caching, model choice) — use claude-api",
+        "Authoring a brand-new MCP tool server — use mcp-builder",
+        "Designing the agent loop / tool roster rather than its output shape — use claude-api or managed-agents-outcomes",
+        "You need streaming token output or Claude citations — structured outputs disable both"
+      ],
+      "keywords": [
+        "structured-outputs",
+        "output_config",
+        "json_schema",
+        "strict-tool-use",
+        "claude-api",
+        "pydantic",
+        "zod",
+        "schema-conformance",
+        "constrained-decoding",
+        "instructor",
+        "baml",
+        "agent-sdk",
+        "output_format",
+        "data-extraction"
+      ],
+      "similar_to": [
+        "claude-api",
+        "mcp-builder",
+        "managed-agents-outcomes"
+      ],
+      "produces": "A Messages API call (or Agent SDK query) that returns schema-conforming JSON, plus the SDK parse pattern to load it into a typed object with no defensive validation glue.",
+      "status": "stable",
+      "keywordCount": 14,
+      "enriched": true
+    },
+    {
       "name": "federated-knowledge-memory",
       "category": "building-agents",
       "path": "skills/building-agents/federated-knowledge-memory/SKILL.md",
@@ -2017,6 +2347,52 @@
       "produces": "A queryable knowledge.db of provenance-tracked claims, a candidate→trusted promotion audit trail, and a query() helper returning ranked trusted context.",
       "status": "stable",
       "keywordCount": 15,
+      "enriched": true
+    },
+    {
+      "name": "managed-agents-outcomes",
+      "category": "building-agents",
+      "path": "skills/building-agents/managed-agents-outcomes/SKILL.md",
+      "description": "Turn eval from an offline afterthought into a per-session go/no-go by wiring Anthropic Managed Agents' rubric-based Outcomes as an in-loop delivery gate. You write a Markdown rubric of independently gradeable criteria, send a `user.define_outcome` event, and a SEPARATE grader agent (fresh context) scores each iteration and feeds per-criterion gaps back so the agent only ships when every criterion is satisfied — else it revises, hits the iteration cap, or fails. Use when someone wants an agent whose output must clear a bar before it ships (a deck, a model, a report), self-verifying agents, rubric grading, or an automated \"don't hand this over until it's right\" quality gate.",
+      "trigger": "Turn eval from an offline afterthought into a per-session go/no-go by wiring Anthropic Managed Agents' rubric-based Outcomes as an in-loop d",
+      "when_to_use": [
+        "You want an agent's deliverable (deck, spreadsheet model, report, brief) blocked from shipping until it clears an explicit quality bar",
+        "You're on the Managed Agents API and want a grader-in-the-loop instead of an offline eval you run after the fact",
+        "You need an independent, unbiased second agent to judge output against criteria the first agent can't grade its own way around",
+        "You want automatic revise-on-fail: the grader pinpoints gaps and the agent takes another pass, up to a cap",
+        "You're wiring a per-session go/no-go signal (satisfied vs needs_revision vs failed) into a downstream pipeline or webhook"
+      ],
+      "when_not_to_use": [
+        "You want an agent to improve its own prompt/skills across many sessions from run history — use auto-dream-loop instead",
+        "You're on the plain Messages API (single call / tool loop), not Managed Agents sessions — use claude-api and grade offline",
+        "You want to build the grader as a generic MCP tool rather than a native Outcomes grader — use mcp-builder",
+        "You need multi-agent decomposition (lead delegates to specialists), not a quality gate — use claude-code-agent-teams"
+      ],
+      "keywords": [
+        "managed-agents",
+        "outcomes",
+        "rubric",
+        "grader",
+        "define_outcome",
+        "eval-gate",
+        "self-verifying-agent",
+        "quality-gate",
+        "anthropic-api",
+        "go-no-go",
+        "span-outcome-evaluation",
+        "max-iterations",
+        "beta-header",
+        "claude-sessions"
+      ],
+      "similar_to": [
+        "auto-dream-loop",
+        "claude-api",
+        "claude-code-agent-teams",
+        "permanent-agent"
+      ],
+      "produces": "A running Managed Agents session that iterates under a grader until its output clears the rubric, plus a terminal go/no-go result (satisfied / failed / max_iterations_reached) and per-criterion grader feedback you can log or gate on.",
+      "status": "stable",
+      "keywordCount": 14,
       "enriched": true
     },
     {
@@ -2262,6 +2638,59 @@
       "enriched": true
     },
     {
+      "name": "unattended-longrun-envelope",
+      "category": "building-agents",
+      "path": "skills/building-agents/unattended-longrun-envelope/SKILL.md",
+      "description": "Pre-flight and safety-wrap any hours-to-days unattended Claude Code run — a dynamic workflow (ultracode), an agent team, or a scheduled cloud routine — so nothing prompts mid-run and nothing goes rogue. Allowlist every shell / WebFetch / MCP tool the agents need, deny-gate destructive commands (force-push, rm -rf, DROP), set a size guideline and watch the Large-workflow threshold, plan around resume-within-session limits, and fire a Stop / SessionEnd webhook on completion. Reach for it before you walk away from a long autonomous run and want it to finish safely without babysitting.",
+      "trigger": "Pre-flight and safety-wrap any hours-to-days unattended Claude Code run — a dynamic workflow (ultracode), an agent team, or a scheduled clou",
+      "when_to_use": [
+        "Before kicking off a dynamic workflow (ultracode) or long agent-team run you will not babysit",
+        "Starting a codebase-wide migration or audit that fans out dozens to hundreds of subagents",
+        "Scheduling an unattended cloud routine that must not stall on a permission prompt overnight",
+        "Wiring a webhook or Slack ping to fire when a background run finishes or grows too large",
+        "Hardening an autonomous run so it physically cannot force-push, drop a table, or rm -rf",
+        "Choosing size guideline, agent caps, and model before an expensive multi-agent run"
+      ],
+      "when_not_to_use": [
+        "Setting up the agent team itself — roles, mailbox, worktrees, exit-2 gates — use claude-code-agent-teams",
+        "Creating or managing the cron schedule for a cloud routine — use the schedule skill",
+        "A short interactive task you will supervise turn-by-turn — no envelope needed, just run it",
+        "Writing raw Anthropic SDK or Managed Agents server code — use claude-api or managed-agents-outcomes",
+        "General settings.json hook / permission editing mechanics — use update-config"
+      ],
+      "keywords": [
+        "ultracode",
+        "dynamic workflows",
+        "unattended",
+        "long-running",
+        "tool allowlist",
+        "permissions",
+        "deny rules",
+        "destructive gate",
+        "large workflow",
+        "size guideline",
+        "checkpoint",
+        "resume",
+        "webhook",
+        "stop hook",
+        "sessionend",
+        "agent caps",
+        "headless",
+        "autonomous"
+      ],
+      "similar_to": [
+        "claude-code-agent-teams",
+        "permanent-agent",
+        "agent-code-sandbox",
+        "claude-api",
+        "managed-agents-outcomes"
+      ],
+      "produces": "A pre-flight allowlist plus deny-gate in settings.json, a chosen size guideline / model, a completion-and-warning notification hook, and a documented resume plan — so the run finishes unattended without prompting or destructive mistakes.",
+      "status": "stable",
+      "keywordCount": 18,
+      "enriched": true
+    },
+    {
       "name": "agentic-commerce-integration",
       "category": "commerce",
       "path": "skills/commerce/agentic-commerce-integration/SKILL.md",
@@ -2346,6 +2775,49 @@
       "produces": "Spec-compliant feed files (RSS-2.0 g: XML for Google, CSV/TSV for both), a severity-ranked validation report (ERROR/WARN/INFO, exit 1 on error for CI), and a disapproval-reason diagnosis mapping each issue to the merchant-facing fix",
       "status": "stable",
       "keywordCount": 15,
+      "enriched": true
+    },
+    {
+      "name": "ad-claims-substantiation-gate",
+      "category": "compliance",
+      "path": "skills/compliance/ad-claims-substantiation-gate/SKILL.md",
+      "description": "Port Claude-for-Legal's citation-gate to advertising. Run before any copy, script, or deck ships: an ASA/CAP/FTC jurisdiction onboarding interview, then a claim inventory that tags every factual, comparative, superiority, health, and green claim, attributes each to a verified source (using the Anthropic Citations API where sources are documents), flags model-knowledge or thin evidence as [verify], and enforces a hard human sign-off gate that BLOCKS unsubstantiated objective claims. Grounded on CAP Code 3.7/1.7 (hold evidence before publication) and the FTC reasonable-basis doctrine so nothing goes out that the ad can't back.",
+      "trigger": "Port Claude-for-Legal's citation-gate to advertising",
+      "when_to_use": [
+        "Pre-flight review of ad copy, TV/radio scripts, OOH, social, or a pitch deck before it leaves the building",
+        "A brief contains comparative (\"beats X\"), superiority (\"UK's number one\"), health, or environmental claims",
+        "Legal/regulatory sign-off is required and you need an auditable substantiation ledger per claim",
+        "Setting the jurisdiction and rulebook (ASA/CAP UK, FTC/NAD US, EU UCPD) for a campaign at kickoff",
+        "Grounding factual claims in source documents with the Anthropic Citations API for traceable attribution"
+      ],
+      "when_not_to_use": [
+        "Cookie/consent/tracking privacy compliance — use consent-privacy-compliance",
+        "General app-security or secrets review — use the security-review skill",
+        "Writing the actual ad copy or concepts (creative generation) — use frontend-design or a copy skill; this only vets claims",
+        "Non-advertising legal drafting (contracts, MSAs) — use Anthropic's Claude-for-Legal plugins directly"
+      ],
+      "keywords": [
+        "advertising-claims",
+        "substantiation",
+        "asa",
+        "cap-code",
+        "ftc",
+        "comparative-claims",
+        "superiority-claims",
+        "greenwashing",
+        "citations-api",
+        "source-attribution",
+        "compliance-gate",
+        "puffery",
+        "human-in-the-loop",
+        "regulatory-review"
+      ],
+      "similar_to": [
+        "consent-privacy-compliance"
+      ],
+      "produces": "A per-claim substantiation ledger (JSON) with claim type, attributed sources, [verify] flags, and reviewer sign-off; a pass/block gate result; and a reviewer note recording any unverified or model-knowledge claims that must not ship.",
+      "status": "stable",
+      "keywordCount": 14,
       "enriched": true
     },
     {
@@ -2544,6 +3016,58 @@
         "subagent-context-isolation"
       ],
       "produces": "A scoped CLAUDE.md + NOTES.md convention and/or a wired /memories memory-tool handler with a load-on-demand pattern",
+      "status": "stable",
+      "keywordCount": 16,
+      "enriched": true
+    },
+    {
+      "name": "claude-context-editing",
+      "category": "context-engineering",
+      "path": "skills/context-engineering/claude-context-editing/SKILL.md",
+      "description": "Configure Anthropic's SERVER-SIDE context editing so heavy tool-use agents self-prune cache-safely instead of you hand-rolling compaction. Wire clear_tool_uses_20250919 (drop stale tool results at a token/tool-use trigger, keep the last N pairs) and clear_thinking_20251015 (drop old thinking blocks), gate with clear_at_least so a clear is worth the cache-write cost, exclude_tools to protect memory/web_search, and hand off to the memory tool before results vanish. Use when tool JSON bloats context, cost/latency climb on long agent loops, or you want API-level GC. Phrasings: \"context editing\", \"clear tool results\", \"context-management beta\", \"server-side compaction\", \"keep recent tool uses\", \"clear_tool_uses\", \"thinking block clearing\".",
+      "trigger": "Configure Anthropic's SERVER-SIDE context editing so heavy tool-use agents self-prune cache-safely instead of you hand-rolling compaction",
+      "when_to_use": [
+        "A tool-heavy agent (search, code, browser, MCP) fills the window with stale tool-result JSON",
+        "You want the API to prune context server-side instead of maintaining your own compaction loop",
+        "Cost/latency climb because every turn re-sends bloated old tool outputs",
+        "You are pairing the memory tool with clearing so state survives before results are dropped",
+        "You want cache-safe GC — clear only when it clears enough tokens to beat the cache-write cost",
+        "Extended-thinking agents accumulate old thinking blocks you want dropped past N turns"
+      ],
+      "when_not_to_use": [
+        "You want a client-side summary+checkpoint compaction loop you fully control — use agent-context-compaction",
+        "You need the model to persist/recall durable state across sessions — use managed-agent-memory",
+        "You just want to measure/budget token spend per component — use context-window-budgeter",
+        "You are isolating a worker's context from the parent by spawning children — use subagent-context-isolation",
+        "You want to score whether context is helping vs hurting retrieval — use context-quality-evals"
+      ],
+      "keywords": [
+        "context editing",
+        "context management",
+        "clear_tool_uses_20250919",
+        "clear_thinking_20251015",
+        "context-management-2025-06-27",
+        "server-side compaction",
+        "tool result clearing",
+        "keep recent",
+        "clear_at_least",
+        "exclude_tools",
+        "memory tool",
+        "prompt caching",
+        "beta header",
+        "applied_edits",
+        "token trigger",
+        "agent loop"
+      ],
+      "similar_to": [
+        "agent-context-compaction",
+        "managed-agent-memory",
+        "context-window-budgeter",
+        "subagent-context-isolation",
+        "structured-memory-layers",
+        "prompt-compression"
+      ],
+      "produces": "A context_management block (edits + trigger/keep/clear_at_least/exclude_tools) wired into the Messages call, plus optional memory-tool handoff and a verify loop on applied_edits",
       "status": "stable",
       "keywordCount": 16,
       "enriched": true
@@ -4958,6 +5482,50 @@
       "enriched": true
     },
     {
+      "name": "claude-code-headless-ci",
+      "category": "devops",
+      "path": "skills/devops/claude-code-headless-ci/SKILL.md",
+      "description": "Run Claude Code unattended in pipelines — `claude -p` (print/headless mode) scoped with `--allowedTools`, locked down with `--permission-mode dontAsk`, parsed via `--output-format json` + `jq`, and wired into anthropics/claude-code-action@v1 for @claude PR mentions, per-PR review/fix jobs, and nightly cron. Budget against the separate Agent-SDK credit pool Anthropic announced for headless/CI usage (paused as of July 2026 — verify before you rely on it). Reach for this when someone says \"review every PR with Claude\", \"run Claude in CI\", \"claude -p in a GitHub Action\", \"nightly Claude triage\", or \"keep bot runs off my interactive quota\".",
+      "trigger": "Run Claude Code unattended in pipelines — `claude -p` (print/headless mode) scoped with `--allowedTools`, locked down with `--permission-mod",
+      "when_to_use": [
+        "Adding a Claude reviewer or auto-fixer that runs on every pull request without a human at the keyboard",
+        "Scripting `claude -p` in CI/cron and needing to scope tools, suppress permission prompts, and parse JSON output",
+        "Wiring anthropics/claude-code-action@v1 for @claude mentions, scheduled jobs, or code review",
+        "Capturing cost/turns/session-id from each run to fail the build, budget spend, or chain follow-ups",
+        "Separating unattended bot token spend from your interactive Pro/Max subscription usage"
+      ],
+      "when_not_to_use": [
+        "Authoring the surrounding matrix/caching/OIDC pipeline mechanics — use github-actions-pipelines",
+        "Building a long-running Python/TypeScript agent with callbacks and native message objects — use claude-api (Agent SDK)",
+        "Interactive local pair-programming in the terminal — just run `claude` without `-p`"
+      ],
+      "keywords": [
+        "claude-code",
+        "headless",
+        "claude -p",
+        "ci-cd",
+        "github-actions",
+        "allowedtools",
+        "output-format-json",
+        "permission-mode",
+        "agent-sdk",
+        "pr-review",
+        "cron",
+        "non-interactive",
+        "jq",
+        "token-budget",
+        "dontask"
+      ],
+      "similar_to": [
+        "github-actions-pipelines",
+        "incident-response-and-postmortem"
+      ],
+      "produces": "A headless `claude -p` command or `claude-code-action@v1` workflow, tool-scoped and permission-locked, that reviews/fixes/triages on PR or cron and emits parseable JSON (result, cost, turns, session_id).",
+      "status": "stable",
+      "keywordCount": 15,
+      "enriched": true
+    },
+    {
       "name": "dockerfile-and-compose-authoring",
       "category": "devops",
       "path": "skills/devops/dockerfile-and-compose-authoring/SKILL.md",
@@ -5449,6 +6017,57 @@
       "produces": "A finished decision-first written brief in Markdown (ready to paste into Docs/Word or hand to the docx skill) — headline recommendation, the ask, SCR-structured argument, options table, risks, and appendix — sized to the chosen format.",
       "status": "stable",
       "keywordCount": 19,
+      "enriched": true
+    },
+    {
+      "name": "claude-excel-addin-ops",
+      "category": "documents",
+      "path": "skills/documents/claude-excel-addin-ops/SKILL.md",
+      "description": "Drive the Claude for Excel add-in (the in-app sidebar, NOT file-level .xlsx editing) to change model assumptions while preserving formula dependencies, edit pivot tables and charts, apply conditional formatting and data validation, get cell-level citations for every calculation, trace and debug errors, save reusable Excel Skills, and carry live analysis into PowerPoint and Word via M365 shared context. Use for prompt patterns, install/deploy, verification, and honest limits of the generally-available add-in.",
+      "trigger": "Drive the Claude for Excel add-in (the in-app sidebar, NOT file-level .xlsx editing) to change model assumptions while preserving formula de",
+      "when_to_use": [
+        "Flexing a forecast assumption (discount rate, growth, margin) inside a live workbook and needing downstream cells to recompute correctly",
+        "Editing pivot tables/charts, applying conditional formatting, or setting data validation dropdowns through the Claude sidebar rather than by hand",
+        "Auditing how a number was derived and wanting clickable cell-level citations back to the source cells",
+        "Saving a repeatable variance/model-convention workflow as a one-click Skill available in the Excel and PowerPoint sidebars",
+        "Pulling numbers from an open Excel model straight into a PowerPoint slide or Word memo via shared context",
+        "Debugging a #REF!/#DIV/0! root cause across a multi-tab model in-app"
+      ],
+      "when_not_to_use": [
+        "Programmatically reading/writing .xlsx/.csv files with pandas or openpyxl outside Excel — use xlsx",
+        "Building a formula-driven three-statement or DCF/LBO model spec from scratch — use three-statement-financial-model or dcf-lbo-valuation-model",
+        "Formal formula/dependency audit deliverable with a written trace report — use excel-model-audit",
+        "Designing scenario/sensitivity table structures and data-table mechanics — use excel-scenario-sensitivity",
+        "Authoring dynamic-array or LAMBDA formula libraries — use excel-dynamic-array-formulas or excel-lambda-functions"
+      ],
+      "keywords": [
+        "claude for excel",
+        "excel add-in",
+        "formula dependencies",
+        "cell-level citations",
+        "pivot table",
+        "conditional formatting",
+        "excel skills",
+        "m365 shared context",
+        "powerpoint word",
+        "assumption flexing",
+        "three-statement model",
+        "prompt injection",
+        "office agents",
+        "claude log",
+        "data validation"
+      ],
+      "similar_to": [
+        "excel-model-audit",
+        "excel-scenario-sensitivity",
+        "three-statement-financial-model",
+        "dcf-lbo-valuation-model",
+        "xlsx",
+        "excel-kpi-dashboard-formulas"
+      ],
+      "produces": "In-workbook edits (assumption changes, pivot/chart/formatting edits) with highlighted cells and explanatory comments, answers with clickable cell-level citations, optional Claude Log audit tab, saved reusable Skills, and data carried into open PowerPoint/Word files.",
+      "status": "stable",
+      "keywordCount": 15,
       "enriched": true
     },
     {
@@ -6770,6 +7389,53 @@
       "produces": "A working release pipeline — semantic-release or changesets config, CI job, generated CHANGELOG.md, git tags, and GitHub Releases on merge to the release branch.",
       "status": "stable",
       "keywordCount": 12,
+      "enriched": true
+    },
+    {
+      "name": "claude-code-hooks-authoring",
+      "category": "engineering-workflow",
+      "path": "skills/engineering-workflow/claude-code-hooks-authoring/SKILL.md",
+      "description": "Author Claude Code settings.json hooks against the full 2026 event catalogue. Wire PreToolUse deny/ask gates, exit-code-2 feedback loops that block progress and hand stderr back to the model, PostToolUse updatedToolOutput rewrites, Stop-blocking test gates, and TeammateIdle / TaskCreated / TaskCompleted / Notification handlers. Reach for this whenever you want deterministic guardrails, matcher patterns, or want to know exactly which events honour a blocking exit code and which run advisory-only. Grounded on the official docs.",
+      "trigger": "Author Claude Code settings.json hooks against the full 2026 event catalogue",
+      "when_to_use": [
+        "Adding a PreToolUse guard that blocks or rewrites dangerous Bash/Edit calls",
+        "Building a Stop or PostToolBatch gate that forces tests/lint to pass before Claude finishes",
+        "Rewriting a tool's result with PostToolUse updatedToolOutput or injecting additionalContext",
+        "Reacting to agent-team lifecycle events (TeammateIdle, TaskCreated, TaskCompleted, Notification)",
+        "Choosing between exit-code-2 and structured JSON output for a hook decision",
+        "Deciding which settings scope (user, project, local, plugin, skill frontmatter) a hook belongs in"
+      ],
+      "when_not_to_use": [
+        "Writing the SKILL.md / frontmatter of a skill itself — use skill-creator",
+        "Changing permissions, env vars, or non-hook settings.json keys — use update-config",
+        "Authoring an MCP server that a hook merely calls — use mcp-builder",
+        "You want a one-off recurring cloud task, not a lifecycle hook — use schedule"
+      ],
+      "keywords": [
+        "claude-code",
+        "hooks",
+        "settings.json",
+        "pretooluse",
+        "posttooluse",
+        "exit-code-2",
+        "updatedtooloutput",
+        "matcher",
+        "permissiondecision",
+        "stop-hook",
+        "teammateidle",
+        "taskcreated",
+        "guardrails",
+        "additionalcontext",
+        "hookspecificoutput"
+      ],
+      "similar_to": [
+        "update-config",
+        "mcp-builder",
+        "skill-creator"
+      ],
+      "produces": "A validated hooks block in settings.json plus any command/HTTP hook scripts, with the correct blocking semantics",
+      "status": "stable",
+      "keywordCount": 15,
       "enriched": true
     },
     {
@@ -8559,6 +9225,52 @@
       "enriched": true
     },
     {
+      "name": "ai-powered-artifact-app",
+      "category": "frontend-and-design",
+      "path": "skills/frontend-and-design/ai-powered-artifact-app/SKILL.md",
+      "description": "Build a shareable Claude Artifact that calls Claude from INSIDE the running app via window.claude.complete, so recipients use your AI tool with zero API keys and zero cost to you — usage is billed to each viewer's own Claude subscription. Add persistent state with window.storage and live data via MCP. Reach for this whenever you want to ship a no-key, viewer-billed AI micro-app (client pitch tool, brief generator, tagline machine, audience quiz) as a link, not a deployment. Grounded in claude.com/blog/claude-powered-artifacts.",
+      "trigger": "Build a shareable Claude Artifact that calls Claude from INSIDE the running app via window.claude.complete, so recipients use your AI tool w",
+      "when_to_use": [
+        "You want to hand a client or colleague an AI tool as a link with no API keys, no login-to-your-account, and no hosting bill",
+        "Building a self-contained AI micro-app (brief writer, tagline generator, campaign quiz, copy grader) that reasons at runtime",
+        "You need each recipient's Claude usage billed to THEM (viewer-billed) instead of paying for everyone",
+        "The app must remember state across sessions (journals, trackers, saved briefs) via persistent storage",
+        "You want a prototype that pulls real data or triggers real actions (Google Calendar, Gmail, Slack, Asana) through MCP"
+      ],
+      "when_not_to_use": [
+        "You need a production web app with a real backend, database, or custom domain — use frontend-design plus a real deploy (Vercel/Railway)",
+        "You are calling Claude from your own server or CLI with an API key you control — use claude-api",
+        "You just want a static component/effect with no AI at runtime — use web-artifacts-builder or frontend-design",
+        "You want a chat UI pattern rather than the artifact distribution model — use generative-ui-chat-interface",
+        "The deliverable is a one-off internal script or dashboard, not a shared link — use quick-tool"
+      ],
+      "keywords": [
+        "claude artifacts",
+        "window.claude.complete",
+        "window.storage",
+        "viewer-billed",
+        "no api key",
+        "persistent storage",
+        "mcp integration",
+        "shareable ai app",
+        "live artifacts",
+        "client tool",
+        "react artifact",
+        "beta"
+      ],
+      "similar_to": [
+        "web-artifacts-builder",
+        "artifact-design",
+        "frontend-design",
+        "generative-ui-chat-interface",
+        "quick-tool"
+      ],
+      "produces": "A single-file React or HTML artifact that calls Claude at runtime, published as a shareable claude.ai link that recipients run with their own account and billing.",
+      "status": "stable",
+      "keywordCount": 12,
+      "enriched": true
+    },
+    {
       "name": "algorithmic-art",
       "category": "frontend-and-design",
       "path": "skills/frontend-and-design/algorithmic-art/SKILL.md",
@@ -8853,6 +9565,54 @@
       "produces": "A finished static .png or .pdf visual design (single or multi-page).",
       "status": "stable",
       "keywordCount": 12,
+      "enriched": true
+    },
+    {
+      "name": "claude-chrome-workflow-recorder",
+      "category": "frontend-and-design",
+      "path": "skills/frontend-and-design/claude-chrome-workflow-recorder/SKILL.md",
+      "description": "Author durable, repeatable Claude-in-Chrome routines for a live authenticated browser session. Record/teach a multi-step workflow (cursor icon or \"/ Record workflow\"), save it as a reusable \"/\" shortcut, wire multi-tab grouping for cross-referencing, lean on Claude's native knowledge of Gmail/Slack/Google Calendar/Google Docs/GitHub, and schedule daily/weekly/monthly/annual runs — all under injection guardrails (\"Ask before acting\" vs \"Act without asking\", per-site permissions, protected actions). Use for recurring agency admin: status roundups, timesheet nudges, media-plan checks, PR triage.",
+      "trigger": "Author durable, repeatable Claude-in-Chrome routines for a live authenticated browser session",
+      "when_to_use": [
+        "You want to teach Claude a repeatable browser task once and rerun it as a saved shortcut",
+        "You need a recurring daily/weekly/monthly browser routine (e.g. Monday status roundup across Gmail + Slack + a dashboard)",
+        "The task spans several tabs that must be cross-referenced (brief in one tab, CMS/sheet in another)",
+        "You are automating work inside Gmail, Slack, Google Calendar, Google Docs, or GitHub in your own logged-in session",
+        "You need to run an agent in a live authenticated session and want the injection/permission guardrails set correctly first"
+      ],
+      "when_not_to_use": [
+        "Headless/scripted automation or CI browser tests — use browser-qa or agentic-web-automation instead",
+        "Driving a browser programmatically from this Claude Code session via MCP — use agent-browser (mcp__claude-in-chrome__*)",
+        "One-off \"just click through this once\" with no reuse or schedule — use claude-in-chrome skill directly, no recording",
+        "Building/verifying a web UI you are coding — use frontend-design plus browser-testing-with-devtools"
+      ],
+      "keywords": [
+        "claude in chrome",
+        "browser agent",
+        "workflow recording",
+        "shortcuts",
+        "scheduled tasks",
+        "prompt injection",
+        "permissions",
+        "tab groups",
+        "gmail",
+        "slack",
+        "google calendar",
+        "github",
+        "recurring routine",
+        "authenticated session",
+        "agent guardrails"
+      ],
+      "similar_to": [
+        "agent-browser",
+        "agentic-web-automation",
+        "browser-qa",
+        "click-path-audit",
+        "browser-testing-with-devtools"
+      ],
+      "produces": "A saved, named \"/\" shortcut with a starting URL, a configured permission posture, optional multi-tab grouping, and (optional) a recurring schedule.",
+      "status": "stable",
+      "keywordCount": 15,
       "enriched": true
     },
     {
@@ -9646,6 +10406,53 @@
       "produces": "Ranked ARGB/hex swatches, a chosen source colour, Material Design 3 tonal palettes, and light+dark CSS custom-property token sets",
       "status": "stable",
       "keywordCount": 16,
+      "enriched": true
+    },
+    {
+      "name": "live-artifact-dashboard-builder",
+      "category": "frontend-and-design",
+      "path": "skills/frontend-and-design/live-artifact-dashboard-builder/SKILL.md",
+      "description": "Build Claude Cowork Live Artifacts — persistent, self-refreshing HTML dashboards that Claude re-queries from your connected apps (Calendar, Gmail, Slack, Linear, Asana, HubSpot, RSS) and local Cowork files every time you open them. Use to stand up a standing KPI board, campaign-performance tracker, content calendar, or pipeline view that lives in the Live artifacts tab and shows today's data, not the day it was built. Grounds against Anthropic's official Cowork Live Artifacts docs; honest about the desktop-only, paid-plan, not-yet-shareable beta constraints.",
+      "trigger": "Build Claude Cowork Live Artifacts — persistent, self-refreshing HTML dashboards that Claude re-queries from your connected apps (Calendar",
+      "when_to_use": [
+        "You want a dashboard that reopens with fresh data instead of a one-off chat artifact",
+        "Standing KPI / pipeline / campaign / content-calendar views for a client or team",
+        "Wiring a dashboard to Calendar, Gmail, Slack, Linear, Asana, HubSpot or RSS via connectors",
+        "Feeding a dashboard from a scheduled task that writes a file into the Cowork folder",
+        "You need version history (compare/restore) on an evolving internal dashboard"
+      ],
+      "when_not_to_use": [
+        "Building a shareable claude.ai web artifact (React/shadcn) — use web-artifacts-builder",
+        "You just need a static one-shot chart or dashboard artifact — use quick-dashboard",
+        "Designing the layout/IA of a dashboard before wiring data — use dashboard-information-architecture",
+        "Automating a web tool with no MCP connector — use agentic-web-automation plus schedule"
+      ],
+      "keywords": [
+        "live artifacts",
+        "claude cowork",
+        "dashboard",
+        "mcp connectors",
+        "auto-refresh",
+        "persistent",
+        "kpi board",
+        "content calendar",
+        "pipeline view",
+        "refresh on open",
+        "claude desktop",
+        "scheduled task",
+        "version history",
+        "rss",
+        "gmail calendar slack"
+      ],
+      "similar_to": [
+        "quick-dashboard",
+        "dashboard-information-architecture",
+        "web-artifacts-builder",
+        "recording-studio"
+      ],
+      "produces": "A named Live Artifact (persistent HTML dashboard) saved in the Cowork Live artifacts tab that re-queries approved connectors on open, plus optional scheduled-task + file pipeline for non-MCP sources.",
+      "status": "stable",
+      "keywordCount": 15,
       "enriched": true
     },
     {
@@ -13804,6 +14611,52 @@
       "enriched": true
     },
     {
+      "name": "claude-code-plugin-builder",
+      "category": "meta-router",
+      "path": "skills/meta-router/claude-code-plugin-builder/SKILL.md",
+      "description": "Scaffold, wire and ship a multi-component Claude Code plugin — one versioned bundle of skills, subagents, slash commands, hooks, output styles and MCP/LSP servers behind a single .claude-plugin/plugin.json — then publish it via a git-based or PRIVATE org marketplace.json that auto-installs to targeted user groups through managed settings. Reach for this on \"package my skills as a plugin\", \"build a Claude Code marketplace\", \"distribute agents/hooks to my team\", or \"private plugin marketplace\". Grounded on the live plugin docs so paths, manifest fields and CLI flags are real.",
+      "trigger": "Scaffold, wire and ship a multi-component Claude Code plugin — one versioned bundle of skills, subagents, slash commands, hooks, output styl",
+      "when_to_use": [
+        "You have skills/agents/hooks/MCP config and want them as ONE installable, versioned unit",
+        "You need to distribute a standard toolset to a team with private/org-only hosting",
+        "You want managed settings to force-enable specific plugins for a user group (stable vs latest channels)",
+        "You're converting a personal .claude/ setup into a shareable plugin + marketplace",
+        "You need a validated plugin skeleton (all component dirs) plus a marketplace catalog in one shot"
+      ],
+      "when_not_to_use": [
+        "Authoring the CONTENT of a single SKILL.md — use skill-creator",
+        "Porting the library to non-Claude harnesses (Cursor, Codex, Copilot) — use skill-marketplace-packager",
+        "Building a standalone MCP server itself (tools/schemas/transport) — use mcp-builder",
+        "One-off personal config in .claude/ that never needs sharing — just edit .claude/ directly"
+      ],
+      "keywords": [
+        "claude-code",
+        "plugin",
+        "plugin.json",
+        "marketplace",
+        "marketplace.json",
+        "subagents",
+        "hooks",
+        "mcp",
+        "output-styles",
+        "managed-settings",
+        "private-marketplace",
+        "enabledplugins",
+        "claude-plugin-init",
+        "versioning",
+        "distribution"
+      ],
+      "similar_to": [
+        "skill-marketplace-packager",
+        "skill-adder",
+        "mcp-builder"
+      ],
+      "produces": "A plugin tree with .claude-plugin/plugin.json + component dirs, a .claude-plugin/marketplace.json catalog, install/enable commands, and (optional) managed-settings JSON snippets for group targeting.",
+      "status": "stable",
+      "keywordCount": 15,
+      "enriched": true
+    },
+    {
       "name": "requirement-elicitation",
       "category": "meta-router",
       "path": "skills/meta-router/requirement-elicitation/SKILL.md",
@@ -14522,7 +15375,7 @@
       "when_to_use": [
         "Bulk classification, summarization, extraction, or scoring over thousands of rows where a result within ~24h is fine",
         "Large-scale evals or backfills where you want the built-in 50% batch discount, not synchronous pricing",
-        "Run these overnight / by tomorrow\" or \"we don't need it live\" workloads",
+        "Run these overnight / by tomorrow\" or \"we do not need it live\" workloads",
         "Re-processing a whole dataset with a new prompt or model and reconciling outputs by id",
         "Any many-independent-calls job where per-request latency does not matter but total cost does"
       ],
@@ -16754,6 +17607,52 @@
       "enriched": true
     },
     {
+      "name": "claude-code-sandbox-config",
+      "category": "security",
+      "path": "skills/security/claude-code-sandbox-config/SKILL.md",
+      "description": "Configure Claude Code's OS-level Bash sandbox for safe autonomy — scope filesystem write/read paths, set network domain allowlists, and block or mask secret files and env vars with sandbox.credentials. Layer auto mode's classifier (blocks git reset --hard, terraform destroy, force push, curl|bash) and Docker/VM isolation for unattended runs. Reach for this whenever wiring up /sandbox, auto mode, --dangerously-skip-permissions, or the sandbox.* keys in settings.json so an agent can run tests/builds without approving every command.",
+      "trigger": "Configure Claude Code's OS-level Bash sandbox for safe autonomy — scope filesystem write/read paths, set network domain allowlists, and bloc",
+      "when_to_use": [
+        "Enabling the sandboxed Bash tool so Claude runs builds/tests without per-command prompts",
+        "Scoping which paths a sandboxed command may write and which network domains it may reach",
+        "Blocking or masking secret files (~/.aws, ~/.ssh) and env vars (GITHUB_TOKEN) from sandboxed commands",
+        "Setting up autonomous / unattended runs and wanting a hard boundary around destructive commands",
+        "Enforcing sandboxing org-wide via managed settings and stopping developers widening the policy"
+      ],
+      "when_not_to_use": [
+        "Reducing prompts for non-Bash tools (Read/Edit/WebFetch/MCP) — that is permission rules, see update-config",
+        "Rotating or remediating a leaked secret — use secrets-hygiene-and-remediation",
+        "Hardening a Dockerfile/IaC image itself rather than Claude's runtime — use container-iac-hardening",
+        "Writing OPA/Kyverno cluster admission policy — use policy-as-code-opa-kyverno"
+      ],
+      "keywords": [
+        "claude-code",
+        "sandbox",
+        "seatbelt",
+        "bubblewrap",
+        "autonomy",
+        "auto-mode",
+        "network-allowlist",
+        "filesystem-isolation",
+        "credentials",
+        "secret-blocking",
+        "dangerously-skip-permissions",
+        "managed-settings",
+        "devcontainer",
+        "egress-control",
+        "unattended"
+      ],
+      "similar_to": [
+        "secrets-hygiene-and-remediation",
+        "container-iac-hardening",
+        "policy-as-code-opa-kyverno"
+      ],
+      "produces": "A validated sandbox block in settings.json (filesystem, network, credentials), an auto-mode/isolation decision, and a lint report of policy footguns.",
+      "status": "stable",
+      "keywordCount": 15,
+      "enriched": true
+    },
+    {
       "name": "cloud-security-posture-cspm",
       "category": "security",
       "path": "skills/security/cloud-security-posture-cspm/SKILL.md",
@@ -18753,6 +19652,59 @@
       "enriched": true
     },
     {
+      "name": "systematic-creative-variant-matrix",
+      "category": "strategy",
+      "path": "skills/strategy/systematic-creative-variant-matrix/SKILL.md",
+      "description": "Turn a creative brief into 50+ ad variants laid out as a hypothesis-indexed matrix — value-prop x avatar x hook x format x style — where every variant differs from a named control by ONE known thing, so when pretest or Meta results come back you can attribute the lift to a cause instead of guessing. Use to plan a paid-social test slate, replace a random \"make 50 ads\" dump with a designed experiment, or produce the CSV/Sheet a generation pipeline and the pretesting + Meta audit loop both read. Ships a stdlib slate generator (OFAT / pairs / full-factorial). The design layer, not the renderer.",
+      "trigger": "Turn a creative brief into 50+ ad variants laid out as a hypothesis-indexed matrix — value-prop x avatar x hook x format x style — where eve",
+      "when_to_use": [
+        "Planning a batch of paid-social ad variants and you want each to test a specific hypothesis",
+        "Someone said \"generate 50 ads\" and you need to make it a designed experiment, not a random dump",
+        "Building the \"creative slate\" CSV/Sheet that a generation pipeline (Higgsfield/Firefly/Sora) fills in",
+        "You want pretest or Meta Ads results to attribute cleanly to value-prop vs hook vs format vs style",
+        "Standing up the Claude Code skill + scheduled-routine loop for a weekly creative-testing cadence",
+        "Deciding how many cells you can afford and which factors to hold constant as a control"
+      ],
+      "when_not_to_use": [
+        "You need to actually render the images/video/copy — use canvas-design, frontend-design, or the media skills",
+        "You want to interpret a finished pretest readout into a go/refine/kill gate — use creative-pretesting-framework",
+        "You want to pre-screen messages against a simulated audience — use synthetic-audience-message-testing",
+        "You are launching/pausing/budgeting live campaigns or pulling ROAS — use paid-media-campaign-ops",
+        "You just need audience sizing or segments first — use audience-segmentation or the GWI Spark skills"
+      ],
+      "keywords": [
+        "creative variant matrix",
+        "ad variants",
+        "creative slate",
+        "design of experiments",
+        "one-factor-at-a-time",
+        "full factorial",
+        "hypothesis-indexed",
+        "value proposition",
+        "avatar",
+        "hook",
+        "ad format",
+        "creative testing",
+        "paid social",
+        "meta ads",
+        "higgsfield",
+        "claude code skills",
+        "scheduled routines",
+        "attribution"
+      ],
+      "similar_to": [
+        "creative-pretesting-framework",
+        "synthetic-audience-message-testing",
+        "advertising-strategy-copy",
+        "paid-media-campaign-ops",
+        "persona-population-builder"
+      ],
+      "produces": "A slate CSV (variant_id, hypothesis_id, derived_from, factor_varied, one column per factor, priority, and blank status/prompt/result_url/job_id) ready to hand to a generation pipeline, plus a short read of the experiment design (control cell, factors varied, expected attribution).",
+      "status": "stable",
+      "keywordCount": 18,
+      "enriched": true
+    },
+    {
       "name": "trend-foresight",
       "category": "strategy",
       "path": "skills/strategy/trend-foresight/SKILL.md",
@@ -20301,6 +21253,56 @@
         "research-methodology-review"
       ],
       "produces": "An online scoring config (Braintrust rule or a self-hosted sampling loop) plus a drift report per metric — PSI, KS statistic, mean shift, and a STABLE/WARN/ALERT verdict with a non-zero exit code for CI/alerting.",
+      "status": "stable",
+      "keywordCount": 15,
+      "enriched": true
+    },
+    {
+      "name": "reproducible-insight-workbench",
+      "category": "verification",
+      "path": "skills/verification/reproducible-insight-workbench/SKILL.md",
+      "description": "Bind every headline stat and chart in a deck, report or pitch to the EXACT dataset + query/code that produced it, then run a reviewer pass that re-runs each binding and flags untraceable numbers, drifted values, and mismatched citations — emitting a JSON audit trail so a stat survives a client challenge. Ports the provenance + reviewer-agent pattern from Anthropic's Claude Science / AI Workbench into a portable Claude Code workflow. Use when a number is about to go in front of a client, a regulator, or a New Business panel and \"where did that come from?\" must have an answer.",
+      "trigger": "Bind every headline stat and chart in a deck, report or pitch to the EXACT dataset + query/code that produced it, then run a reviewer pass t",
+      "when_to_use": [
+        "Locking down a pitch/QBR deck so every headline stat can be traced back to source data on demand",
+        "A client or auditor asks \"where did this number come from?\" and you need the query, dataset and rerun command",
+        "Before shipping a data-driven report, to prove no figure is orphaned, stale, or invented",
+        "Wiring a repeatable analysis so re-running it next quarter re-verifies every stat automatically",
+        "Catching a chart whose underlying number has silently drifted since the deck was written"
+      ],
+      "when_not_to_use": [
+        "Just confirming cited papers/DOIs exist and resolve — use citation-integrity-check",
+        "Recomputing/stress-testing the statistics themselves (p-values, GRIM, denominators) — use stat-check-review",
+        "Verifying a standalone factual claim against sources — use claim-verifier",
+        "Detecting internal contradictions across an LLM's outputs with no data — use self-consistency-check",
+        "You want the actual hosted Claude Science beta product — that is a separate Anthropic app, not this skill"
+      ],
+      "keywords": [
+        "provenance",
+        "reproducibility",
+        "audit-trail",
+        "data-lineage",
+        "headline-stat",
+        "pitch-stat",
+        "claude-science",
+        "ai-workbench",
+        "reviewer-agent",
+        "untraceable-number",
+        "citation-check",
+        "drift",
+        "rerun",
+        "verification",
+        "manifest"
+      ],
+      "similar_to": [
+        "citation-integrity-check",
+        "stat-check-review",
+        "claim-verifier",
+        "self-consistency-check",
+        "experiment-validity-audit",
+        "source-credibility-audit"
+      ],
+      "produces": "A provenance manifest binding each stat to dataset+command, plus a JSON audit trail with per-claim OK/DRIFT/ERROR verdicts, dataset sha256 hashes, and a list of untraceable numbers found in the deliverable.",
       "status": "stable",
       "keywordCount": 15,
       "enriched": true

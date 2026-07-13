@@ -93,8 +93,9 @@ Install (Pipecat groups pull the right SDKs):
 uv add "pipecat-ai[silero,deepgram,openai,cartesia,webrtc]"   # or: pip install "pipecat-ai[...]"
 ```
 
-The pipeline chains processors; the **user aggregator carries the Silero VAD analyzer**, which is
-what detects speech start/stop and drives interruption. Import paths below are current on `main`:
+The pipeline chains processors; the **transport carries the Silero VAD analyzer** (via
+`TransportParams(vad_analyzer=...)`), which is what detects speech start/stop and drives
+interruption. Import paths below are current on `main`:
 
 ```python
 import os
@@ -105,16 +106,20 @@ from pipecat.pipeline.pipeline import Pipeline
 from pipecat.pipeline.runner import PipelineRunner
 from pipecat.pipeline.task import PipelineParams, PipelineTask
 from pipecat.processors.aggregators.llm_context import LLMContext
-from pipecat.processors.aggregators.llm_response_universal import (
-    LLMContextAggregatorPair,
-    LLMUserAggregatorParams,
-)
+from pipecat.processors.aggregators.llm_response_universal import LLMContextAggregatorPair
 from pipecat.services.deepgram.stt import DeepgramSTTService
 from pipecat.services.openai.llm import OpenAILLMService
 from pipecat.services.cartesia.tts import CartesiaTTSService
 from pipecat.transports.base_transport import TransportParams
 
 load_dotenv()
+
+# Pass these when constructing the transport (e.g. SmallWebRTCTransport(params=...)):
+transport_params = TransportParams(
+    audio_in_enabled=True,
+    audio_out_enabled=True,
+    vad_analyzer=SileroVADAnalyzer(),  # VAD fires interruptions
+)
 
 async def run_bot(transport):
     stt = DeepgramSTTService(api_key=os.environ["DEEPGRAM_API_KEY"])
@@ -127,10 +132,7 @@ async def run_bot(transport):
     context = LLMContext()
     context.set_messages([{"role": "system", "content":
         "You are a concise voice assistant. Reply in one or two short spoken sentences."}])
-    user_agg, assistant_agg = LLMContextAggregatorPair(
-        context,
-        user_params=LLMUserAggregatorParams(vad_analyzer=SileroVADAnalyzer()),  # VAD fires interruptions
-    )
+    user_agg, assistant_agg = LLMContextAggregatorPair(context)
 
     pipeline = Pipeline([
         transport.input(), stt, user_agg, llm, tts, transport.output(), assistant_agg,

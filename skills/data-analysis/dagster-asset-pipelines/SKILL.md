@@ -112,8 +112,8 @@ from dagster_duckdb import DuckDBResource
 @dg.asset
 def stored(context: dg.AssetExecutionContext, uk_users: pd.DataFrame, duckdb: DuckDBResource):
     with duckdb.get_connection() as conn:
-        conn.execute("CREATE OR REPLACE TABLE uk_users AS SELECT * FROM uk_users_df",
-                     {"uk_users_df": uk_users})  # duckdb reads the local df var
+        conn.register("uk_users_df", uk_users)  # expose the df to duckdb as a view
+        conn.execute("CREATE OR REPLACE TABLE uk_users AS SELECT * FROM uk_users_df")
 
 defs = dg.Definitions(
     assets=[raw_users, uk_users, stored],

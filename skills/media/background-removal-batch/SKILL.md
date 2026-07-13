@@ -11,7 +11,7 @@ description: >
   session reused across the whole folder.
 when_to_use:
   - Cut out products/people from a folder of photos into transparent PNGs for a deck or mockup
-  - "Remove the background" / "make this transparent" on one image or hundreds at once
+  - '"Remove the background" / "make this transparent" on one image or hundreds at once'
   - Need a clean solid-colour (white/brand) matte behind cut-out products for slides
   - Wispy edges (hair, fur, foliage) need high-quality alpha matting, not a hard mask
   - Want consistent square-padded cutouts so every product sits the same size on a grid

@@ -152,7 +152,7 @@ Before submission, run the classic bid reviews (scale to the deal):
 - **Coverage:** every `M` row has `compliance != ""` and a non-empty
   `response_ref`. Fastest check:
   ```bash
-  awk -F, 'NR>1 && $4=="M" && ($5=="" || $7=="") {print "GAP: "$1}' matrix.csv
+  python3 -c 'import csv; [print("GAP:", r["req_id"]) for r in csv.DictReader(open("matrix.csv")) if r["mandatory"] == "M" and (not r["compliance"] or not r["response_ref"])]'
   ```
   Any output is an unanswered mandatory requirement — fix before submission.
 - **Themes:** 3-5 win themes, each with a proof point, and each appears in the

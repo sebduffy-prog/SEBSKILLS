@@ -184,7 +184,7 @@ If grep returns results, fix them before declaring success.
 
 **⚠️ USE SUBAGENTS** — even for 2-3 slides. You've been staring at the code and will see what you expect, not what's there. Subagents have fresh eyes.
 
-Convert slides to images (see [Converting to Images](#converting-to-images)), then use this prompt:
+Convert slides to images (see [Converting to Images](#converting-to-images)), then use this prompt. If `soffice`/`pdftoppm` are unavailable, use the geometry-render fallback described there — do not skip visual QA silently and do not block the deliverable:
 
 ```
 Visually inspect these slides. Assume there are issues — find them.
@@ -240,6 +240,8 @@ To re-render specific slides after fixes:
 ```bash
 pdftoppm -jpeg -r 150 -f N -l N output.pdf slide-fixed
 ```
+
+**Fallback when `soffice`/`pdftoppm` are unavailable:** render each slide's geometry with python-pptx + PIL — draw every shape's and text box's bounding box (with its text) onto a canvas at slide dimensions, then inspect those images for overlap, overflow, and spacing issues. It won't show true fonts or styling, but it catches layout bugs. State in your output that geometry-render QA was used instead of a full render — do not skip QA silently and do not block the deliverable.
 
 ---
 

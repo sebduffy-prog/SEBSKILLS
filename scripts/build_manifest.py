@@ -213,16 +213,45 @@ def write_report(records, cats):
         fh.write("\n".join(lines) + "\n")
 
 
+def check_drift(skills):
+    """Compare generated artifacts against the skills tree so --check fails when
+    manifest.json / the router index go stale (frontmatter validity alone can't catch this)."""
+    errors = []
+    disk_names = {s.get("name", s["_folder"]) for s in skills}
+    manifest_path = os.path.join(ROOT, "manifest.json")
+    if not os.path.isfile(manifest_path):
+        return [f"manifest.json missing — run: python3 scripts/build_manifest.py"]
+    with open(manifest_path, encoding="utf-8") as fh:
+        manifest = json.load(fh)
+    manifest_names = {r["name"] for r in manifest.get("skills", [])}
+    for n in sorted(disk_names - manifest_names):
+        errors.append(f"manifest.json stale: '{n}' on disk but not in manifest")
+    for n in sorted(manifest_names - disk_names):
+        errors.append(f"manifest.json stale: '{n}' in manifest but not on disk")
+    if manifest.get("skillCount") != len(skills):
+        errors.append(f"manifest.json skillCount {manifest.get('skillCount')} != {len(skills)} on disk")
+    router = os.path.join(SKILLS, "meta", "sebduffy", "SKILL.md")
+    if os.path.isfile(router):
+        with open(router, encoding="utf-8") as fh:
+            m = re.search(r"_Generated index — (\d+) skills", fh.read())
+        if m and int(m.group(1)) != len(skills):
+            errors.append(f"router index stale: says {m.group(1)} skills, disk has {len(skills)}")
+    if errors:
+        errors.append("fix: python3 scripts/build_manifest.py  (then commit the regenerated files)")
+    return errors
+
+
 def main():
     skills = load_skills()
     errors = check(skills)
     if "--check" in sys.argv:
+        errors += check_drift(skills)
         if errors:
             print(f"FAIL — {len(errors)} issue(s):")
             for e in errors[:80]:
                 print("  " + e)
             sys.exit(1)
-        print(f"OK — {len(skills)} skills valid")
+        print(f"OK — {len(skills)} skills valid, generated artifacts in sync")
         return
     if errors:
         print(f"WARNING — {len(errors)} frontmatter issue(s) (see below); building anyway:")

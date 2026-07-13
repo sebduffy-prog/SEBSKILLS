@@ -408,6 +408,26 @@ for qual debriefs:
 10. What we'd like to know next
 ```
 
+## Deliverable
+
+Always ship a **file**, never chat-only prose. Match the stage:
+
+- **Design / fieldwork prep** → a discussion guide + screener as
+  `qual_discussion_guide.md` (or `.docx` via [[docx]] if the client
+  wants letterhead), using the Output-formats shapes above.
+- **Coding** → a `theme_map.md` plus a `coding_framework.md` the
+  Claude-assisted pipeline actually reads.
+- **Synthesis** → a read-out deck `qual_synthesis_readout.pptx`
+  (via [[pptx]], SCQA order above) with attributed verbatims.
+
+**Verify before you hand off:** the file exists on disk, opens
+without error, and a spot-check shows the real sections filled
+(guide has all 6 sections; theme map has n_sessions + verbatims;
+read-out has the one-sentence headline). **If inputs are missing**
+(no transcripts, no recruited audience), still write the file with
+every section stubbed and an explicit `AWAITING DATA — [what's
+needed]` marker where the content will go. Never end on narration.
+
 ## Common qual research mistakes to avoid
 
 1. **Asking the brief question literally.** "Do you care about

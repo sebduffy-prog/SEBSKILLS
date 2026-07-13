@@ -77,6 +77,10 @@ inspecting, or debugging a render instead, use the sibling skill named in *when_
     shared **free_trial** key that is rate-limited per day.
   - **Hunyuan3D** — key configured in add-on preferences.
 - **Network egress** to each provider's API.
+- **The ahujasid/blender-mcp server specifically** — the provider tools in this skill are ahujasid-only;
+  if the connected server instead exposes summary-style tools (`get_objects_summary`,
+  `get_blendfile_summary_*`), it is a different blender MCP server without these providers (see the
+  *Server identity* note in `blender-mcp-setup`).
 
 > The tool names below are the blender-mcp server's own tools (e.g. `get_polyhaven_status`,
 > `download_polyhaven_asset`). Under your MCP client they may appear namespaced (`mcp__blender__…`).

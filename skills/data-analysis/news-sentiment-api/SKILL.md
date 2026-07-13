@@ -74,12 +74,13 @@ curl -s "https://api.gdeltproject.org/api/v2/doc/doc?query=$Q&mode=artlist&maxre
 | python3 -c '
 import sys,json,csv
 arts=json.load(sys.stdin).get("articles",[])
-w=csv.writer(sys.stdout); w.writerow(["date","source","title","url","tone"])
+w=csv.writer(sys.stdout); w.writerow(["date","source","title","url"])
 for a in arts:
-    w.writerow([a.get("seendate"),a.get("domain"),a.get("title"),a.get("url"),a.get("socialimage","")])
+    w.writerow([a.get("seendate"),a.get("domain"),a.get("title"),a.get("url")])
 print(f"# {len(arts)} articles",file=sys.stderr)
 ' > gdelt_articles.csv
 ```
+Note: `artlist` returns no per-article tone — for tone use `timelinetone` (Recipe 1) or `tonechart`.
 GDELT query operators: `domain:bbc.co.uk`, `sourcecountry:UK`, `sourcelang:english`, `tone<-5` (negative only), `(a OR b)`, `-exclude`, `theme:ECON_STOCKMARKET`. Combine freely inside `query=`.
 
 ### 3. GDELT — share-of-coverage across competitors

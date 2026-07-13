@@ -102,3 +102,11 @@ To access Anthropic's official brand identity and style resources, use this skil
 - Uses RGB color values for precise brand matching
 - Applied via python-pptx's RGBColor class
 - Maintains color fidelity across different systems
+
+## Deliverable
+
+This skill must produce a **restyled artifact file on disk**, not a description of what branding to apply. Save the branded output to a concrete path — the same file re-styled in place, or a new copy alongside it (e.g. `<name>-anthropic-brand.pptx` / `.docx` / `.html`). When the request is to codify the system rather than style one artifact, ship a runnable helper (e.g. `anthropic_brand.py` applying the RGBColor/font rules above) so the palette and typography are reusable.
+
+Final verify step: confirm the file exists, opens without error, and spot-check that the brand colours (`#141413`, `#d97757`, etc.) and Poppins/Lora fonts actually landed on headings, body, and accent shapes.
+
+If the source artifact is missing, ship the scaffold anyway — a styled template or the brand-application script with an "awaiting artifact" placeholder — never end with brand values narrated only in chat.

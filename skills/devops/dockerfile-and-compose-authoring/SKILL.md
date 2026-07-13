@@ -87,7 +87,8 @@ FROM node:20.18-slim AS build
 WORKDIR /app
 # Copy manifests first so `npm ci` layer caches until deps change.
 COPY package.json package-lock.json ./
-RUN npm ci --omit=dev
+# Full install — build tooling lives in devDependencies.
+RUN npm ci
 COPY . .
 RUN npm run build
 
@@ -95,9 +96,10 @@ FROM node:20.18-slim AS runtime
 ENV NODE_ENV=production
 WORKDIR /app
 # node:*-slim ships a pre-made non-root `node` user (uid 1000).
-COPY --from=build --chown=node:node /app/node_modules ./node_modules
+COPY --chown=node:node package.json package-lock.json ./
+# Production deps only in the final image.
+RUN npm ci --omit=dev
 COPY --from=build --chown=node:node /app/dist ./dist
-COPY --from=build --chown=node:node /app/package.json ./
 USER node
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \

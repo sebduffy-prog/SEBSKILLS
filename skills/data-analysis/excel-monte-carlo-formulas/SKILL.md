@@ -145,6 +145,12 @@ Select the frozen output column → Insert → **Histogram** chart (365) for the
 
 Independent draws overstate diversification. To induce correlation, draw a matrix of standard normals `Z = NORM.S.INV(RANDARRAY(N,k))`, and post-multiply by the transpose of the **Cholesky factor** L of the target correlation matrix: `=MMULT(Z, TRANSPOSE(L))`. Then map each correlated normal column to its target marginal via that marginal's CDF→inverse-CDF (Gaussian copula). Building L in pure formula is fiddly; for small k hard-code it, otherwise fall back to numpy — flag this to the user rather than faking it.
 
+## Deliverable
+
+Always ship a real `.xlsx` — never leave the simulation as chat-only prose. Author it with the **xlsx** skill (openpyxl), writing the formula strings above into actual cells so the file recalcs when opened. Default path `~/Desktop/monte_carlo_simulation.xlsx` unless the user names one. It must contain: an **Inputs** sheet (each uncertain input's distribution + params), a **Trials** sheet (the spilled/filled-down grid from Recipe A or B), and a **Summary** sheet (mean, SD, P5/P50/P95, VaR, P(threshold)) plus a histogram/S-curve.
+
+Final check before you hand it over: the file exists on disk, opens in Excel without repair, and the Summary numbers are sane (P5 < median < P95, probabilities in [0,1], normal-draw mean ≈ its μ). If the deterministic model or the input distributions aren't supplied yet, still build and deliver the workbook scaffold — sheets, headings, and the formula skeleton in place with an "awaiting inputs" note in the parameter cells — rather than ending in conversation.
+
 ## Verify
 
 - `=RANDARRAY(3)` spills 3 numbers → dynamic arrays available (else use Recipe B).

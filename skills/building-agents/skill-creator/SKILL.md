@@ -82,6 +82,14 @@ Then after the skill is done (but again, the order is flexible), you can also ru
 
 Cool? Cool.
 
+### No local bundle? (remote use)
+
+This skill leans on bundled files (`scripts/`, `eval-viewer/`, `agents/`, `references/`, `assets/`). If you only have this SKILL.md text (e.g. fetched from GitHub raw), those files are absent — fetch each one you need with `curl -fsSL` or WebFetch from:
+
+`https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/building-agents/skill-creator/<relative-path>`
+
+Available `<relative-path>` values: `eval-viewer/generate_review.py`, `eval-viewer/viewer.html`, `scripts/__init__.py`, `scripts/utils.py`, `scripts/aggregate_benchmark.py`, `scripts/generate_report.py`, `scripts/improve_description.py`, `scripts/package_skill.py`, `scripts/quick_validate.py`, `scripts/run_eval.py`, `scripts/run_loop.py`, `agents/analyzer.md`, `agents/comparator.md`, `agents/grader.md`, `references/schemas.md`, `assets/eval_review.html`. The `scripts/` files run as a package (`python -m scripts.<name>`), so grab `__init__.py` + `utils.py` alongside whichever script you invoke, preserving the `scripts/` directory layout.
+
 ## Communicating with the user
 
 The skill creator is liable to be used by people across a wide range of familiarity with coding jargon. If you haven't heard (and how could you, it's only very recently that it started), there's a trend now where the power of Claude is inspiring plumbers to open up their terminals, parents and grandparents to google "how to install npm". On the other hand, the bulk of users are probably fairly computer-literate.
@@ -486,7 +494,7 @@ In Claude.ai, the core workflow is the same (draft → test → review → impro
 
 **Blind comparison**: Requires subagents. Skip it.
 
-**Packaging**: The `package_skill.py` script works anywhere with Python and a filesystem. On Claude.ai, you can run it and the user can download the resulting `.skill` file.
+**Packaging**: The `package_skill.py` script works anywhere with Python and a filesystem — but only if you actually have it. If you only fetched this SKILL.md, first grab the `scripts/` package (at least `__init__.py`, `utils.py`, `quick_validate.py`, `package_skill.py`) per the "No local bundle?" note above. Then run it and the user can download the resulting `.skill` file.
 
 **Updating an existing skill**: The user might be asking you to update an existing skill, not create a new one. In this case:
 - **Preserve the original name.** Note the skill's directory name and `name` frontmatter field -- use them unchanged. E.g., if the installed skill is `research-helper`, output `research-helper.skill` (not `research-helper-v2`).

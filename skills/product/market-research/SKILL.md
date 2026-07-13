@@ -58,6 +58,11 @@ Produce research that supports decisions, not research theater.
 4. Translate findings into a decision, not just a summary.
 5. Separate fact, inference, and recommendation clearly.
 
+## Tooling
+
+- Use WebSearch/WebFetch (or firecrawl/exa MCP if connected) for every claim that needs a source.
+- If NO web tooling is available, say so explicitly and mark claims as unverified — never fabricate sources.
+
 ## Common Research Modes
 
 ### Investor / Fund Diligence
@@ -90,6 +95,8 @@ Collect:
 - lock-in, security, compliance, and operational risk
 
 ## Output Format
+
+Findings land in a file (`market-research-<topic>.md`) with a sources section, not chat prose.
 
 Default structure:
 1. executive summary

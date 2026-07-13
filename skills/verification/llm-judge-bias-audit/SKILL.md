@@ -124,9 +124,10 @@ Output blocks and how to read them:
 
 - **Null control:** feed the script judgments where `judge_winner` is randomised — every bias should
   read ~50% / β≈0 / kappa≈0. If a bias fires on noise, your input mapping is wrong.
-- **Planted bias:** the shipped smoke test (`scripts/`, reproduce with the generator in this file's
-  history) injects known length + position + self-preference effects; the audit recovers all three
-  and the raw win rate exceeds the human win rate — confirming the detectors point the right way.
+- **Planted bias:** hand-write ~5 synthetic JSONL rows (`judge_winner`, `len_candidate`,
+  `len_baseline`, plus `id` + `candidate_first` on swapped pairs) and run
+  `python3 scripts/judge_bias_audit.py sample.jsonl` — the order-consistency line should match what
+  you planted: 100% when swapped pairs agree, dropping toward 50% as you flip winners by order.
 - **Both-orders sanity:** if you have swapped pairs, order-consistency should be high (>90%) for a
   good judge; if it is near 50% the judge is essentially flipping a coin on presentation order.
 

@@ -94,7 +94,10 @@ A user may ask you to create, edit, or analyze the contents of an .xlsx file. Yo
 
 ## Important Requirements
 
-**LibreOffice Required for Formula Recalculation**: You can assume LibreOffice is installed for recalculating formula values using the `scripts/recalc.py` script. The script automatically configures LibreOffice on first run, including in sandboxed environments where Unix sockets are restricted (handled by `scripts/office/soffice.py`)
+**LibreOffice for Formula Recalculation**: When LibreOffice is installed, recalculate formula values using the `scripts/recalc.py` script. The script automatically configures LibreOffice on first run, including in sandboxed environments where Unix sockets are restricted (handled by `scripts/office/soffice.py`). LibreOffice is NOT available on many hosts — check with `soffice --version` first. If `soffice` is unavailable, do NOT block the deliverable and do NOT silently skip recalculation. Instead:
+- State clearly that formulas were NOT recalculated locally
+- Verify formula syntax statically via an openpyxl round-trip: reload the saved file with `load_workbook()` and confirm every formula string is intact and references valid cells/sheets
+- Flag any cells whose calculated values must be confirmed by opening the file in Excel
 
 ## Reading and analyzing data
 
@@ -157,10 +160,11 @@ This applies to ALL calculations - totals, percentages, ratios, differences, etc
 2. **Create/Load**: Create new workbook or load existing file
 3. **Modify**: Add/edit data, formulas, and formatting
 4. **Save**: Write to file
-5. **Recalculate formulas (MANDATORY IF USING FORMULAS)**: Use the scripts/recalc.py script
+5. **Recalculate formulas (MANDATORY IF USING FORMULAS and LibreOffice is available)**: Use the scripts/recalc.py script
    ```bash
    python scripts/recalc.py output.xlsx
    ```
+   If `soffice` is unavailable, follow the no-LibreOffice fallback in "Important Requirements" above — never block the deliverable, never silently skip.
 6. **Verify and fix any errors**: 
    - The script returns JSON with error details
    - If `status` is `errors_found`, check `error_summary` for specific error types and locations

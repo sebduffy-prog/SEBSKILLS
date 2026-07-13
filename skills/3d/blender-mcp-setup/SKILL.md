@@ -167,9 +167,22 @@ execute_blender_code:
     print("BLENDER_MCP_OK", bpy.app.version_string, len(bpy.data.objects))
 ```
 
-A successful reply echoes `BLENDER_MCP_OK 4.x.x <n>`. As a second check, `get_objects_summary` should
+A successful reply echoes `BLENDER_MCP_OK 4.x.x <n>`. As a second check, `get_scene_info` should
 list the default scene objects (e.g. `Cube`, `Camera`, `Light`). If both return, setup is complete —
 move on to `blender-mcp-scene-inspection` or `blender-mcp-scene-building`.
+
+## Server identity
+
+Two blender MCP servers exist in the wild, with different tool surfaces:
+
+- **ahujasid/blender-mcp** — this skill's install target. Tools: `get_scene_info`, `get_object_info`,
+  `execute_blender_code`, plus the asset-provider tools (`get_polyhaven_status`, `download_polyhaven_asset`, …).
+- **Summary-style servers** — a different implementation exposing read-only summary tools:
+  `get_objects_summary`, `get_blendfile_summary_*`, `search_api_docs`, `render_thumbnail_to_path`, etc.
+
+Before following a sibling `blender-mcp-*` skill, check which server is actually connected (the tool
+names visible to the agent tell you) and translate tool calls accordingly — e.g. a sibling's
+`get_objects_summary` maps to `get_scene_info` on ahujasid's server.
 
 ## Pitfalls
 

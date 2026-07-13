@@ -132,7 +132,10 @@ Other batch paths mirror this: `/batch/read`, `/batch/create`, `/batch/update`, 
 
 ```bash
 # a) Client-credentials token exchange -> access_token + instance_url
-curl -s https://login.salesforce.com/services/oauth2/token \
+# Must hit your org's My Domain token endpoint — login.salesforce.com does NOT
+# support client_credentials. My Domain is required, and the flow must be
+# enabled on the Connected App (with a run-as user set).
+curl -s https://<your-my-domain>.my.salesforce.com/services/oauth2/token \
   -d grant_type=client_credentials \
   -d client_id=$SF_CLIENT_ID -d client_secret=$SF_CLIENT_SECRET \
   | jq '{access_token, instance_url}'

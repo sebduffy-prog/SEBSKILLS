@@ -280,6 +280,23 @@ For a tissue session, condense to 5–7 slides on this spine:
 07 Where this could go  →  invitation to react
 ```
 
+## Deliverable
+
+Do not stop at narrating the flow in chat. **Write the outline to a
+file** — default `deck-outline.md` in the working directory (or
+alongside the deck if a path is known), using the block from *Output
+format* above: archetype, estimated length, every slide as
+`NN. [Type] — one-sentence purpose`, plus the notes block (rest
+beats, tension slide, appendix cut-off).
+
+Then verify: the file exists, opens, and every slide line has a type
+and a one-sentence purpose — no bare labels, one answer slide only,
+the last body slide is the ask.
+
+If inputs are missing (audience, core message, length), still ship
+the file: lay down the chosen archetype's skeleton with each unknown
+slide marked `[AWAITING: …]`. Never end on chat-only prose.
+
 ## Common mistakes to avoid
 
 1. **Burying the answer.** If slide 20 is the first slide that

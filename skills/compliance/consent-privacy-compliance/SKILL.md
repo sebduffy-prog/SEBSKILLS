@@ -140,13 +140,16 @@ gtag('consent', 'update', {
 TCF is the RTB/programmatic consent layer. The CMP exposes a global
 `__tcfapi()`; downstream vendors read the **TC string** it produces.
 
-**2026 deadline (why this is urgent):** TCF **v2.3 with GVL v3** is the required
-version; **v2.2 strings are treated as non-compliant** by Google and premium
-demand from early 2026. A non-compliant/absent string means the ad request drops
-to **Limited Ads** and CPMs collapse (often 60–80%). Two concrete v2.3 changes:
-the **`disclosedVendors` segment is now mandatory** in the string (a bit per
-vendor actually shown in the UI), and **GVL v3** replaces each purpose's
-`descriptionLegal` with an `illustrations` array.
+**Version note (verify before advising a client):** the concrete changes below
+shipped with **TCF v2.2 / GVL v3** (enforced by IAB Europe from **Nov 2023**) —
+they are not later v2.3 features. Claims that Google treats older strings as
+non-compliant from early 2026, or that CPMs collapse 60–80%, are **unsourced**:
+check current IAB TCF and Google publisher guidance before advising a client.
+What is stable Google policy: a missing/invalid TC string drops the ad request
+to **Limited Ads**. Two concrete v2.2/GVL v3 changes: the **`disclosedVendors`
+segment is mandatory** in the string (a bit per vendor actually shown in the
+UI), and **GVL v3** replaces each purpose's `descriptionLegal` with an
+`illustrations` array.
 
 Config checklist for a certified CMP:
 

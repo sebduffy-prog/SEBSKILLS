@@ -44,6 +44,12 @@ To write any internal communication:
     - `examples/company-newsletter.md` - For company-wide newsletters
     - `examples/faq-answers.md` - For answering frequently asked questions
     - `examples/general-comms.md` - For anything else that doesn't explicitly match one of the above
+
+    **No local bundle? (remote use)** If the `examples/` files aren't on disk, fetch the one you need (curl -fsSL or WebFetch) from `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/documents/internal-comms/examples/<file>`:
+    - `.../examples/3p-updates.md`
+    - `.../examples/company-newsletter.md`
+    - `.../examples/faq-answers.md`
+    - `.../examples/general-comms.md`
 3. **Follow the specific instructions** in that file for formatting, tone, and content gathering
 
 If the communication type doesn't match any existing guideline, ask for clarification or more context about the desired format.

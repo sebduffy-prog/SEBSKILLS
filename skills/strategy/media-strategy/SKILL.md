@@ -317,6 +317,25 @@ For pitch decks, compress to 3–5 slides:
 5. How we'll prove it             →  KPI hierarchy + test slot
 ```
 
+## Deliverable
+
+This skill must end with a **written file**, not chat narration.
+Ship the strategy as a document — default
+`~/Desktop/[client]-media-strategy.docx` (use the `docx` skill),
+or `.md` if the user prefers — carrying all ten output-template
+sections. For a pitch, produce the compressed 3–5 slide `.pptx`
+instead (use the `pptx` skill).
+
+If inputs are missing (audience data, budget, category context),
+still ship the scaffold: every section present, with the gaps
+flagged `**[awaiting data: …]**` rather than left blank or
+guessed. Never fabricate reachability, CPMs, or splits.
+
+**Verify before done:** the file exists at the stated path, opens
+cleanly, and a spot-check confirms each channel carries a written
+role, the split is justified, and the measurement layer has
+baselines/targets (or explicit `awaiting data` markers).
+
 ## Common mistakes to avoid
 
 1. **Channel mix as solution.** "We'll do TV, social, OOH" is

@@ -39,6 +39,8 @@ updated: 2026-07-09
 
 Dispatch superpowers:code-reviewer subagent to catch issues before they cascade. The reviewer gets precisely crafted context for evaluation — never your session's history. This keeps the reviewer focused on the work product, not your thought process, and preserves your own context for continued work.
 
+**Prerequisite:** The `superpowers:code-reviewer` subagent type requires the superpowers plugin. If it's not installed, dispatch a general-purpose subagent instead, giving it the same review prompt and criteria (fill the `code-reviewer.md` template as usual).
+
 **Core principle:** Review early, review often.
 
 ## When to Request Review

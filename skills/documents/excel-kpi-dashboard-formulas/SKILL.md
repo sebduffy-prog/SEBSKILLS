@@ -178,8 +178,21 @@ Formula rule: highlight whole row when off track >
 Anchor Data-Validation dropdowns and CF ranges to the Table so they extend as data grows;
 CF applied to a Table column auto-expands with new rows.
 
+## Deliverable
+
+Ship a real workbook, not a description of one. Write the actual file with openpyxl (see the
+`xlsx` skill), default path `~/Desktop/kpi-dashboard.xlsx` — three sheets (`Data`, `Calc`,
+`Dashboard`), the source Table, and the real formula strings from the recipes above written into
+their cells (openpyxl stores `"=SWITCH(...)"`, `"=FILTER(...)"`, `"=REPT(...)"` verbatim), plus the
+Data-Validation dropdowns and Conditional-Formatting rules. Never end with formulas pasted only into
+chat. If the source data is missing, still build and save the workbook with the full layout, live
+formulas pointing at an empty named Table, and an "awaiting data" note in `Dashboard!A1` — hand over
+a runnable scaffold, never chat-only prose. Then run the Verify steps below on the saved file.
+
 ## Verify
 
+0. The `.xlsx` exists at the agreed path, opens without repair, and `Dashboard` shows the tiles,
+   bars and dropdowns (or the "awaiting data" scaffold) — not a blank sheet.
 1. Change each dropdown — every tile, spill block, bar and CF colour must update with **zero**
    manual refresh. If a tile is static, it's referencing a cell not the selector.
 2. Add a row to `tbl`; the spilled summary should grow and CF/data-bars should cover it.

@@ -155,11 +155,11 @@ patches your LLM client so `response_model=` returns a **validated** Pydantic ob
 import instructor
 from pydantic import BaseModel, Field, field_validator
 from datetime import date
-from typing import Literal
+from typing import Literal, Optional
 
 class Article(BaseModel):
     headline: str
-    author: str | None = None
+    author: Optional[str] = None      # str | None needs 3.10+; we're on 3.9
     published: date                                  # coerced from strings by pydantic
     sentiment: Literal["positive", "neutral", "negative"]
     key_points: list[str] = Field(min_length=1, max_length=5)

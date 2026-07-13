@@ -11,7 +11,7 @@ description: >
   the viral moments in this video".
 when_to_use:
   - Cutting a long podcast, interview, or panel into multiple short vertical clips
-  - "Find me the best/most viral moments" from a talk, stream, or webinar
+  - '"Find me the best/most viral moments" from a talk, stream, or webinar'
   - Repurposing a lecture or keynote VOD into a batch of Reels/Shorts/TikToks
   - Getting a ranked shortlist of timestamped highlights before manually picking clips
   - Turning one horizontal source into many captioned 9:16 posts in one pass
@@ -110,10 +110,10 @@ $FFMPEG -ss 00:12:04 -to 00:12:49 -i input.mp4 \
   -c:v libx264 -crf 18 -preset veryfast -c:a aac -b:a 128k clips/01_raw.mp4
 ```
 
-Batch straight from `moments.md` (columns: idx|start|end):
+Batch straight from `moments.md` (tab-separated columns: idx, start, end):
 
 ```bash
-while IFS='|' read -r idx start end; do
+while IFS=$'\t' read -r idx start end; do
   $FFMPEG -ss "$start" -to "$end" -i input.mp4 \
     -c:v libx264 -crf 18 -preset veryfast -c:a aac -b:a 128k "clips/${idx}_raw.mp4"
 done < ranges.tsv   # e.g.  01<TAB>00:12:04<TAB>00:12:49

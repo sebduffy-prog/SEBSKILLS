@@ -186,6 +186,19 @@ then R², standard error of y, F-stat, df, and regression/residual sums of
 squares. In legacy Excel select a 5-row×2-col range and press
 Ctrl+Shift+Enter.
 
+## Deliverable
+
+Ship a real workbook, not pasted formulas in chat. Default output:
+`~/Desktop/forecast_<series>.xlsx`, built with **openpyxl** — write each
+formula string into its cell (`ws["C38"] = "=FORECAST.ETS(A38,$B$2:$B$37,$A$2:$A$37)"`),
+lay out the history + forecast/lower/upper/stats columns, and pair with the
+**xlsx** skill for authoring. Final step: confirm the file exists, reopen it
+with openpyxl and spot-check that the forecast cells hold `=FORECAST.ETS…`
+strings (not stale values or `#N/A`), and that the table has the expected row
+count. If the historical series isn't supplied yet, still ship the workbook as
+a scaffold — headers, the formula layout, and an "awaiting data" note in the
+value column — never end with formulas quoted only in prose.
+
 ## Verify
 
 - Forecast the **last known** period as if it were unknown and compare to the

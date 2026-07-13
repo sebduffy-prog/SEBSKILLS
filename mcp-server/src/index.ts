@@ -52,7 +52,19 @@ function loadSkills(): Skill[] {
       } catch {
         continue;
       }
-      const { data, content } = matter(raw);
+      let data: Record<string, unknown>;
+      let content: string;
+      try {
+        ({ data, content } = matter(raw));
+      } catch (error: unknown) {
+        // one malformed frontmatter must not take down the whole server
+        process.stderr.write(
+          `sebskills-mcp: skipping ${skillPath} — frontmatter parse failed: ${
+            error instanceof Error ? error.message : String(error)
+          }\n`,
+        );
+        continue;
+      }
       skills.push({
         name: String(data.name ?? sub.name),
         category: String(data.category ?? cat.name),

@@ -68,6 +68,16 @@ manipulates the file on disk. Everything below is grounded in Anthropic's
 [Use Claude for Excel](https://support.claude.com/en/articles/12650343-use-claude-for-excel)
 help article and the [office-agents docs](https://claude.com/docs/office-agents/excel).
 
+## Agent-mode deliverable
+
+Every recipe below is a prompt a *human* types into the Excel sidebar. When
+running as an agent (Claude Code, headless — no sidebar), you cannot execute
+them; do not end with chat-only narration. The deliverable is a **file**:
+write a ready-to-paste prompt pack to `excel-addin-prompts.md` — one block per
+relevant recipe, filled in with the user's actual cell refs, tab names, and
+context — plus any workbook scaffolding python-openpyxl can do directly (e.g.
+a pre-built Claude Log tab or named assumption cells).
+
 ## When to use
 
 Reach for this when the value is in *live, dependency-aware* work inside an

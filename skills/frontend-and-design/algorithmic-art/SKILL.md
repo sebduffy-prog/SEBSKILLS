@@ -139,6 +139,10 @@ With the philosophy AND conceptual framework established, express it through cod
 
 **CRITICAL: BEFORE writing any HTML:**
 
+> **No local bundle? (remote use)** If the `templates/` files aren't on disk (e.g. running from the GitHub-raw SKILL.md text), fetch them with `curl -fsSL` or WebFetch from `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/frontend-and-design/algorithmic-art/<relative-path>`:
+> - `templates/viewer.html` (REQUIRED starting point)
+> - `templates/generator_template.js` (best-practice reference)
+
 1. **Read** `templates/viewer.html` using the Read tool
 2. **Study** the exact structure, styling, and Anthropic branding
 3. **Use that file as the LITERAL STARTING POINT** - not just inspiration

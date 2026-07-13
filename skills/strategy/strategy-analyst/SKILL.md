@@ -353,6 +353,25 @@ Caveats:
   [one line — the most important thing this read does not know]
 ```
 
+## Deliverable
+
+Every run must end with a **file on disk**, not chat prose. Write
+the completed strategic read-out (the template above) to
+`strategic-read-[topic]-[date].md` in the working directory — or a
+`.docx` via the `docx` skill when it's going to a CMO. If the
+read-out feeds a deck, also export the `We know / We think / We're
+watching` block as slides via the `pptx` skill.
+
+Then verify: confirm the file exists, open it, and spot-check that
+the question, headline, all three confidence registers, the
+recommendation, and the re-plan trigger are populated — not
+placeholder text.
+
+If inputs are missing (no second source to triangulate, no
+hypothesis, no data yet), still ship the file: fill every section
+you can and mark the rest `AWAITING DATA — [what's needed]`. Never
+end a session with the read-out living only in the chat.
+
 ## Tooling
 
 - For pulling and cutting the data, use [[data-cut-headline-stats]]

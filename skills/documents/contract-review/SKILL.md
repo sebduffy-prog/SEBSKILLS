@@ -107,12 +107,16 @@ OLD = "the total aggregate liability shall be unlimited"
 NEW = "the total aggregate liability of each party shall not exceed the fees paid in the 12 months preceding the claim"
 
 for p in doc.paragraphs:
-    if OLD in p.text:
-        # rebuild the paragraph text in a single run to avoid split-run misses
+    if OLD in p.text and p.runs:
+        # capture the FULL paragraph text BEFORE touching runs — clearing runs first
+        # would silently truncate any paragraph whose text spans multiple runs
+        full = p.text
         for r in p.runs[1:]:
             r.text = ""
-        p.runs[0].text = p.text.replace(OLD, NEW) if p.runs else NEW
+        p.runs[0].text = full.replace(OLD, NEW)
 doc.save("contract-redlined.docx")
+# verify: assert NEW is present and OLD is gone before sending the redline
+assert any(NEW in p.text for p in Document("contract-redlined.docx").paragraphs)
 ```
 
 For true Word **tracked changes** (`<w:ins>` / `<w:del>` revision marks) rather than a clean replacement, follow the `docx` skill — hand-editing `word/document.xml` runs the risk of corrupting the file, so use its helpers. Always pair the redline with a **change log** (clause, from -> to, why) so a reviewer sees intent at a glance.

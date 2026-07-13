@@ -55,6 +55,17 @@ Best practices for Git version control, branching strategies, and collaborative 
 - Managing releases and version tags
 - Onboarding new team members to Git practices
 
+## Deliverable
+
+Do not end with chat-only advice — write the conventions into real repo files the team commits:
+
+- `docs/git-workflow.md` (default) — the chosen strategy, commit/PR rules, and branch naming for this repo
+- Config files that make it stick: `.gitmessage`, `.gitignore`, `.github/pull_request_template.md`, and executable `.git/hooks/pre-commit` / `pre-push` (or a versioned `.githooks/` wired via `git config core.hooksPath .githooks`)
+
+**Verify before done:** the files exist (`ls`), hooks are executable (`test -x`) and pass `sh -n`, `git config commit.template .gitmessage` is set, and a sample commit/PR matches the documented format.
+
+If the repo, team size, or release cadence is unknown, still ship `docs/git-workflow.md` with an **"awaiting data"** note on the undecided sections (e.g. strategy TBD pending team size) rather than leaving it as loose prose.
+
 ## Branching Strategies
 
 ### GitHub Flow (Simple, Recommended for Most)

@@ -94,6 +94,10 @@ Everything on Recipe A collapsed to a single page: BLUF header, a 3-bullet *why*
 ```
 Always include a "do nothing" baseline — it makes the cost of inaction explicit and stops the decision drifting.
 
+## Deliverable (always ship a file, never chat-only prose)
+
+Do not end the session with the brief living only in the chat window. Write the finished brief to a real Markdown file — default `~/Desktop/<slug>-brief.md` (e.g. `board-pre-read-2026-q3.md`) — or, if the user asked for Word, hand that file to the `docx` skill for letterhead/TOC. Final step: confirm the file exists, open it, and spot-check that the BLUF header, options table, and appendix all landed. If inputs are thin (no firm numbers, options, or ask), still ship the full structure with every gap marked `[TBC]` and an **Open questions** block up top — an "awaiting data" scaffold the user can fill, not a verbal summary.
+
 ## Verify (checklist before you hand it over)
 
 - [ ] **Answer first:** the recommendation and the ask are in the first 5 lines — cover the rest and the reader still knows what to do.

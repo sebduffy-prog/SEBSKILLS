@@ -41,7 +41,7 @@ similar_to:
   - excel-monte-carlo-formulas
   - statistical-testing
   - exploratory-data-analysis
-inputs_needed: A CSV/dataframe with a date column and a numeric value column (optionally a series-id column for many series). Python 3.9+. For TimeGPT: a NIXTLA_API_KEY.
+inputs_needed: 'A CSV/dataframe with a date column and a numeric value column (optionally a series-id column for many series). Python 3.9+. For TimeGPT: a NIXTLA_API_KEY.'
 produces: A forecast dataframe (point forecast + interval columns), a cross-validation accuracy table ranking models by MAE/RMSE/MAPE, and an optional plot.
 status: stable
 owner: seb.duffy

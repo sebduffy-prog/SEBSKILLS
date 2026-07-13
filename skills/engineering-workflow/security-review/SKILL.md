@@ -375,7 +375,8 @@ catch (error) {
 
 #### Wallet Verification
 ```typescript
-import { verify } from '@solana/web3.js'
+import { verify } from '@noble/ed25519'
+import bs58 from 'bs58'
 
 async function verifyWalletOwnership(
   publicKey: string,
@@ -383,10 +384,10 @@ async function verifyWalletOwnership(
   message: string
 ) {
   try {
-    const isValid = verify(
-      Buffer.from(message),
+    const isValid = await verify(
       Buffer.from(signature, 'base64'),
-      Buffer.from(publicKey, 'base64')
+      Buffer.from(message),
+      bs58.decode(publicKey) // Solana pubkeys are base58
     )
     return isValid
   } catch (error) {

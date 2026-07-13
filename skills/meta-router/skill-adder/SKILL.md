@@ -52,8 +52,9 @@ merge step, not the authoring step — see `skill-creator` for the write/iterate
 - `python3` (macOS system 3.9 is fine — the audit helper is dependency-free).
 - The static-audit helper: `scripts/audit_static.py` (bundled with this skill).
 - Know the registration surface for THIS repo: root `README.md` quick index + each
-  category's `README.md`. There is no `manifest.json`/`build-manifest.mjs` today, so the
-  README rows **are** the manifest — only run a manifest build if those files later exist.
+  category's `README.md`, plus the generated artifacts — root `manifest.json`, `CATALOG.md`,
+  `REPORT.md`, and the `/sebduffy` router index — rebuilt by `python3 scripts/build_manifest.py`
+  (never hand-edited; `--check` is the CI gate).
 
 ## Mechanism / Steps
 
@@ -117,9 +118,10 @@ mv <scratch>/SKILL.md skills/<category>/<name>/SKILL.md   # + any assets/ script
 ```
 - Add a row to the category `README.md` (create it if missing) and to the **root**
   `README.md` quick index, matching the existing `| [`name`](skills/cat/name) | use… |` format.
-- If (and only if) `manifest.json` + `build-manifest.mjs` exist in this repo, regenerate and
-  verify: `node build-manifest.mjs --check`. Otherwise the README rows are the manifest — a
-  final `grep` that the new name appears in both indexes is the equivalent check.
+- Regenerate the generated artifacts: `python3 scripts/build_manifest.py`, then verify with
+  `python3 scripts/build_manifest.py --check` (the CI gate — non-zero exit on any staleness).
+  Commit the regenerated `manifest.json`/`CATALOG.md`/`REPORT.md` and the router splice
+  alongside the skill.
 - Commit as a reviewed unit: `feat: add <name> skill (<category>)`.
 
 ## Verify
@@ -131,8 +133,8 @@ mv <scratch>/SKILL.md skills/<category>/<name>/SKILL.md   # + any assets/ script
   grep -rl "skills/<category>/<name>" README.md skills/<category>/README.md
   ```
 - The skill's own smoke-test (Stage 3) still exits clean from the registered path.
-- `git status` shows exactly: the new skill folder + the two README edits (+ manifest if used) —
-  nothing stray.
+- `git status` shows exactly: the new skill folder + the two README edits + the regenerated
+  `manifest.json`/`CATALOG.md`/`REPORT.md`/router splice — nothing stray.
 
 ## Pitfalls
 
@@ -144,6 +146,7 @@ mv <scratch>/SKILL.md skills/<category>/<name>/SKILL.md   # + any assets/ script
   and the landed file never diverge. Silencing a BLOCK by editing the checker is cheating the gate.
 - **Losing the license.** Ported skills must keep upstream attribution; a merge that drops it is a HALT,
   not a cleanup.
-- **Inventing infra.** Don't call a `manifest.json`/`build-manifest.mjs` that doesn't exist in this repo —
-  probe for it first; the README rows are the source of truth until that infra lands.
+- **Hand-editing generated files.** `manifest.json`/`CATALOG.md`/`REPORT.md` and the router index
+  are outputs of `python3 scripts/build_manifest.py` — regenerate, never patch them by hand, and
+  let `--check` confirm nothing is stale.
 - **New category sprawl.** Prefer an existing category; a one-off new folder fragments the index. Justify it.

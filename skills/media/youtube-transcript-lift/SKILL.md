@@ -10,7 +10,7 @@ description: >
   of this YouTube video", "pull the captions as text", "what does this video say",
   "transcribe this link", "dump the subtitles", or "give me the words from this clip".
 when_to_use:
-  - "Get the transcript of a YouTube video" — as clean readable text, no timestamps
+  - '"Get the transcript of a YouTube video" — as clean readable text, no timestamps'
   - Pull a video's auto-generated captions and clean them into paragraphs
   - Grab the manual/uploaded subtitle track and turn it into an .srt or plain .txt
   - Transcribe a captionless video locally (Whisper fallback) with no cloud API

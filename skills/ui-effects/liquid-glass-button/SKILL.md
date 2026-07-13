@@ -79,6 +79,9 @@ The original is specifically a "back" button (chevron-left icon + "Back" label) 
 
 A single `.tsx` (or `.jsx`) file called `LiquidGlassButton.tsx`. Zero dependencies beyond React. Use the code from `assets/LiquidGlassButton.tsx`.
 
+> **No local bundle? (remote use)** If `assets/LiquidGlassButton.tsx` isn't on disk (e.g. you only have this SKILL.md), fetch it from the repo raw host with `curl -fsSL` or WebFetch:
+> - `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/ui-effects/liquid-glass-button/assets/LiquidGlassButton.tsx`
+
 ### Usage
 
 ```tsx

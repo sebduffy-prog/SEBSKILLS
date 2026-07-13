@@ -197,7 +197,7 @@ One question at a time. Don't pepper.
 
 ## Helper script
 
-For Flowsheet JSON exports specifically (and any JSON in the same `{nodes: {...}, edges: {...}}` shape), `scripts/analyze_flow.py` produces a structured summary — entry points, leaves, hubs, orphans, edge-style distribution — that's faster and more reliable than eyeballing for graphs with >15 nodes.
+For Flowsheet JSON exports specifically (and any JSON in the same `{nodes: {...}, edges: {...}}` shape), `analyze_flow.py` (bundled alongside this file) produces a structured summary — entry points, leaves, hubs, orphans, edge-style distribution — that's faster and more reliable than eyeballing for graphs with >15 nodes.
 
 Run it when:
 - The graph has more than ~15 nodes (eyeballing gets unreliable)
@@ -208,7 +208,7 @@ Skip it for small flows or non-JSON inputs (Mermaid, screenshots, prose) — par
 
 Usage:
 ```bash
-python scripts/analyze_flow.py <path-to-flowsheet.json>
+python analyze_flow.py <path-to-flowsheet.json>
 ```
 
 Output is plain text designed to be read directly back into your reasoning, not shown to the user verbatim. Use it to inform your response.
@@ -217,11 +217,11 @@ Output is plain text designed to be read directly back into your reasoning, not 
 
 ## Reference material
 
-For deeper specifics on particular flow types, consult the references when relevant:
+For deeper specifics on particular flow types, consult the reference files bundled alongside this file when relevant:
 
-- `references/flowsheet-format.md` — the full Flowsheet Markdown + JSON spec, edge-style semantics, and worked examples. Read when handling a Flowsheet export and you want to be sure about a detail.
-- `references/diagram-types.md` — when to treat a flow as a site map vs. state machine vs. agent graph vs. user journey, and how the reading rules differ for each. Read when the input type isn't obvious or the user mixes paradigms.
-- `references/build-recipes.md` — code-output patterns for the most common build targets (Next.js routes, XState, LangGraph). Read when the user wants a build deliverable and you need a clean starting structure.
+- `flowsheet-format.md` — the full Flowsheet Markdown + JSON spec, edge-style semantics, and worked examples. Read when handling a Flowsheet export and you want to be sure about a detail.
+- `diagram-types.md` — when to treat a flow as a site map vs. state machine vs. agent graph vs. user journey, and how the reading rules differ for each. Read when the input type isn't obvious or the user mixes paradigms.
+- `build-recipes.md` — code-output patterns for the most common build targets (Next.js routes, XState, LangGraph). Read when the user wants a build deliverable and you need a clean starting structure.
 
 ---
 

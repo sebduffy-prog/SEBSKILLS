@@ -85,6 +85,13 @@ it to write in a *brand's* voice when the brand has its own (use
 
 ## The two reference files
 
+**No local bundle? (remote use)** If these files aren't on disk beside
+this SKILL.md, fetch each from GitHub raw (`curl -fsSL` or WebFetch)
+before drafting:
+
+- `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/strategy/WLV/references/voice-profile.md`
+- `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/strategy/WLV/references/vallance-article-bank.md`
+
 Read both before drafting. They live next to this file:
 
 - **[references/voice-profile.md](references/voice-profile.md)** — the

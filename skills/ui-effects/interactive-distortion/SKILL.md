@@ -83,6 +83,9 @@ Move your cursor over an image or video and a grid of pixels lags behind the mot
 
 A **single `.tsx` file** called `InteractiveDistortion.tsx` — contains the WebGL2 renderer, the distortion shader, and the React wrapper. Use the code from `assets/InteractiveDistortion.tsx`.
 
+> **No local bundle? (remote use)** If you're reading this SKILL.md from GitHub raw and don't have the `assets/` folder on disk, fetch the one bundled file it references (curl `-fsSL` or WebFetch):
+> - `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/ui-effects/interactive-distortion/assets/InteractiveDistortion.tsx`
+
 ### Usage
 
 ```tsx

@@ -53,19 +53,37 @@ marimo new            # scaffold, or:  marimo edit analysis.py   # open the edit
 Each cell is a function; marimo wires dependencies from the variables you use. UI elements are reactive values:
 
 ```python
-import marimo as mo
-import polars as pl
+import marimo
 
-# a control — its .value flows into any cell that reads it
-seg = mo.ui.dropdown(["all", "new", "lapsed"], value="all", label="Segment")
-seg
+app = marimo.App()
 
-# this cell re-runs automatically whenever `seg` changes
-df = pl.read_csv("sales.csv")
-view = df if seg.value == "all" else df.filter(pl.col("segment") == seg.value)
-mo.ui.table(view)     # interactive table
 
-mo.md(f"**{len(view):,} rows** in segment *{seg.value}*")   # reactive markdown
+@app.cell
+def _():
+    import marimo as mo
+    import polars as pl
+    return mo, pl
+
+
+@app.cell
+def _(mo):
+    # a control — its .value flows into any cell that reads it
+    seg = mo.ui.dropdown(["all", "new", "lapsed"], value="all", label="Segment")
+    seg
+    return (seg,)
+
+
+@app.cell
+def _(mo, pl, seg):
+    # re-runs automatically whenever `seg` changes
+    df = pl.read_csv("sales.csv")
+    view = df if seg.value == "all" else df.filter(pl.col("segment") == seg.value)
+    mo.md(f"**{len(view):,} rows** in segment *{seg.value}*")   # reactive markdown
+    return df, view
+
+
+if __name__ == "__main__":
+    app.run()
 ```
 
 Rules that give you reproducibility: **no variable is defined in two cells**, and there are **no cycles** — marimo

@@ -39,7 +39,7 @@ similar_to:
   - repo-context-packer
   - dependency-upgrade-migration
   - changelog-release-automation
-inputs_needed: Sending domain (From: domain), a sample raw message with full headers, DMARC rua XML files if available
+inputs_needed: 'Sending domain (From: domain), a sample raw message with full headers, DMARC rua XML files if available'
 produces: A prioritized fix list — DNS record edits (SPF/DKIM/DMARC), header additions, blocklist delisting steps, and content changes
 status: stable
 owner: seb.duffy

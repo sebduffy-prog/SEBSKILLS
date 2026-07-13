@@ -87,6 +87,14 @@ import SpectraNoise from "@/components/SpectraNoise";
 
 Use the full component code from `assets/SpectraNoise.tsx` in this skill's folder. Copy it directly — it's already cleaned of Framer imports and typed for TypeScript. If the project is JavaScript, strip the type annotations; the component logic is identical.
 
+**No local bundle? (remote use)** If `assets/SpectraNoise.tsx` isn't on disk (e.g. you only have this SKILL.md), fetch it — the shader's CPPN weight matrices are not regenerable, so you must use this exact file, don't reconstruct it:
+
+```
+curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/ui-effects/spectra-noise/assets/SpectraNoise.tsx
+```
+
+(or WebFetch the same URL).
+
 **Critical implementation notes (do not skip):**
 
 1. **Fullscreen triangle, not quad.** The geometry is a single oversized triangle covering the viewport (vertices `[-1,-1, 3,-1, -1,3]`). This is faster than a quad and avoids seam artifacts. Don't "fix" this to use a quad.

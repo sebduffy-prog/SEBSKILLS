@@ -106,6 +106,10 @@ train_dataset = Dataset.from_dict({
                  "To cancel, open Billing and click End Plan."],
 })
 
+# eval_strategy="steps" requires an eval_dataset — hold out a small slice.
+split = train_dataset.train_test_split(test_size=0.1, seed=42)
+train_dataset, eval_dataset = split["train"], split["test"]
+
 loss = MultipleNegativesRankingLoss(model)
 
 args = SentenceTransformerTrainingArguments(
@@ -124,6 +128,7 @@ args = SentenceTransformerTrainingArguments(
 trainer = SentenceTransformerTrainer(
     model=model, args=args,
     train_dataset=train_dataset,
+    eval_dataset=eval_dataset,
     loss=loss,
 )
 trainer.train()
@@ -190,8 +195,11 @@ args = CrossEncoderTrainingArguments(
     learning_rate=2e-5, warmup_ratio=0.1, fp16=True,
     eval_strategy="steps", eval_steps=200, save_steps=200,
 )
+# eval_strategy="steps" requires an eval_dataset — hold out a slice of the mined pairs.
+split = hard.train_test_split(test_size=0.1, seed=42)
 trainer = CrossEncoderTrainer(model=model, args=args,
-                              train_dataset=hard, loss=loss)
+                              train_dataset=split["train"],
+                              eval_dataset=split["test"], loss=loss)
 trainer.train()
 
 # Inference: rank candidate docs for a query

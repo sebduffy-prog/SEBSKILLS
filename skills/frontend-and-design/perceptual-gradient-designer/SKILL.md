@@ -166,7 +166,7 @@ function renderGradient(ctx, w, h, stops) {
       b: A.b + (B.b - A.b) * seg,
     });
     for (let y = 0; y < h; y++) {
-      const d = BAYER[(y & 3) * 4 + (x & 3)] / 255; // ±0.5 LSB of dither
+      const d = BAYER[(y & 3) * 4 + (x & 3)]; // ±0.5 LSB of dither (0-255 space)
       const o = (y * w + x) * 4;
       for (let k = 0; k < 3; k++) {
         img.data[o + k] = Math.max(0, Math.min(255, Math.round(rgb[k] * 255 + d)));

@@ -72,6 +72,24 @@ value here is the **unification + the self-update loop**, not any single tier.
 Managed / lighter alternative: **Mem0** (`pip install mem0ai`, or Mem0 Platform) gives the
 auto-extract + semantic-recall half without RAG/skills or a server — see `structured-memory-layers`.
 
+## Before you start — drift check
+
+Everything below hinges on a third-party project (OpenViking) whose repo layout, marketplace
+URL, plugin name and MCP tool names can all drift. Verify they still hold **before** following
+any step:
+
+```bash
+curl -fsS https://raw.githubusercontent.com/volcengine/OpenViking/main/.claude-plugin/marketplace.json
+```
+
+- The URL must return JSON and it must still list a plugin named `openviking-memory`.
+- Skim the repo README (https://github.com/volcengine/OpenViking) and confirm the 9 MCP tools
+  in step 4 of Path A (`search, read, store, add_resource, grep, glob, forget, list, health`)
+  still match.
+- If the fetch 404s, the plugin name differs, or the tool list has changed: **stop and say so** —
+  report that the project has moved/drifted and re-derive the steps from the current upstream
+  docs rather than following the stale commands below.
+
 ## Mechanism / Steps
 
 ### Path A — Claude Code (fastest: the official memory plugin)
