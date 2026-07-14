@@ -192,16 +192,27 @@ def splice_router(block, n):
     mirror_discoverable_router(new)
 
 
+# Every place the canonical router (skills/meta/sebduffy/SKILL.md) must be copied so
+# Claude Code can discover /sebduffy. Regenerated on every build so none can drift.
+ROUTER_MIRRORS = [
+    # .claude/skills/<name>/ — the repo-scoped discovery path (bare /sebduffy when this repo is opened)
+    os.path.join(".claude", "skills", "sebduffy", "SKILL.md"),
+    # plugin payload — installed cross-repo via the marketplace (invoked /sebduffy:sebduffy)
+    os.path.join("plugins", "sebduffy", "skills", "sebduffy", "SKILL.md"),
+]
+
+
 def mirror_discoverable_router(router_text):
     """Claude Code (CLI, web, desktop) only discovers skills at .claude/skills/<name>/SKILL.md
-    — never the repo's skills/<category>/<name>/ tree. Mirror the router there so that opening
-    THIS repo in Claude Code (incl. claude.ai/code web) makes /sebduffy resolve out of the box.
-    Regenerated on every build, so it never drifts from skills/meta/sebduffy/SKILL.md."""
-    dest_dir = os.path.join(ROOT, ".claude", "skills", "sebduffy")
-    os.makedirs(dest_dir, exist_ok=True)
-    with open(os.path.join(dest_dir, "SKILL.md"), "w", encoding="utf-8") as fh:
-        fh.write(router_text)
-    print("  mirrored router to .claude/skills/sebduffy/SKILL.md (Claude Code discovery path)")
+    or inside an installed plugin — never the repo's skills/<category>/<name>/ tree. Copy the
+    router to every discovery path so opening THIS repo, or installing the plugin, makes
+    /sebduffy resolve. Regenerated on every build, so it never drifts."""
+    for rel in ROUTER_MIRRORS:
+        dest = os.path.join(ROOT, rel)
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        with open(dest, "w", encoding="utf-8") as fh:
+            fh.write(router_text)
+        print(f"  mirrored router to {rel}")
 
 
 def write_report(records, cats):
@@ -251,12 +262,13 @@ def check_drift(skills):
         m = re.search(r"_Generated index — (\d+) skills", router_text)
         if m and int(m.group(1)) != len(skills):
             errors.append(f"router index stale: says {m.group(1)} skills, disk has {len(skills)}")
-    mirror = os.path.join(ROOT, ".claude", "skills", "sebduffy", "SKILL.md")
     if router_text is not None:
-        if not os.path.isfile(mirror):
-            errors.append(".claude/skills/sebduffy/SKILL.md missing (Claude Code can't discover /sebduffy)")
-        elif open(mirror, encoding="utf-8").read() != router_text:
-            errors.append(".claude/skills/sebduffy/SKILL.md out of sync with skills/meta/sebduffy/SKILL.md")
+        for rel in ROUTER_MIRRORS:
+            mirror = os.path.join(ROOT, rel)
+            if not os.path.isfile(mirror):
+                errors.append(f"{rel} missing (Claude Code can't discover /sebduffy there)")
+            elif open(mirror, encoding="utf-8").read() != router_text:
+                errors.append(f"{rel} out of sync with skills/meta/sebduffy/SKILL.md")
     if errors:
         errors.append("fix: python3 scripts/build_manifest.py  (then commit the regenerated files)")
     return errors

@@ -1,6 +1,6 @@
 # SEBSKILLS — Setup Guide (`/sebduffy` for every LLM)
 
-**The whole idea in one line:** install **one file**, type **`/sebduffy`**, and get all **415 skills** — fetched live from this public repo. No server to deploy, no per-skill install, and new skills appear automatically.
+**The whole idea in one line:** install **one file**, type **`/sebduffy`**, and get all **436 skills** — fetched live from this public repo. No server to deploy, no per-skill install, and new skills appear automatically.
 
 This works because every skill is just a Markdown file (`SKILL.md`) at a **public URL**. GitHub's raw CDN is the "skills network"; the `/sebduffy` router is a single file that carries the catalogue and fetches any skill on demand.
 
@@ -32,7 +32,7 @@ Then in any Claude Code session:
 
 ```bash
 git clone https://github.com/sebduffy-prog/SEBSKILLS ~/.claude/skills-lib
-~/.claude/skills-lib/install.sh user      # every session, all 415 skills discoverable
+~/.claude/skills-lib/install.sh user      # every session, all 436 skills discoverable
 # or:  install.sh one    → just the /sebduffy router
 # or:  install.sh project .   → only the current project
 ```
@@ -52,13 +52,56 @@ git clone https://github.com/sebduffy-prog/SEBSKILLS ~/.claude/skills-lib
 
 ---
 
-## 3. Claude.ai Web / Projects
+## 3. Claude Code for Web (claude.ai/code) — and sharing with other users
 
-- **Connect this repo** as a source in [claude.ai/code](https://claude.ai/code), *or* add it as a git submodule in your project:
-  ```bash
-  git submodule add https://github.com/sebduffy-prog/SEBSKILLS .claude/skills-lib
-  ```
-- Every `SKILL.md` becomes discoverable automatically. Say `/sebduffy <intent>` to route.
+Web is **repo-scoped**. It only discovers skills at `.claude/skills/<name>/SKILL.md` in the
+**one repo you open as the project** — it does *not* scan a `skills/<category>/<name>/` tree,
+does *not* read your machine's `~/.claude/skills/`, does *not* load a *secondary* connected repo,
+and the claude.ai account **"customize" skills toggle is a different system that Claude Code ignores**
+(enabling it there gives "Unknown skill"). So pick one of these:
+
+**A. Zero-install — open a repo that already has the router.** This repo ships
+`.claude/skills/sebduffy/SKILL.md`, so opening **SEBSKILLS itself** in claude.ai/code gives you
+bare `/sebduffy` immediately. To get it in *your own* project, drop that one file in and commit:
+
+```bash
+mkdir -p .claude/skills/sebduffy
+curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/meta/sebduffy/SKILL.md \
+  -o .claude/skills/sebduffy/SKILL.md
+git add .claude/skills/sebduffy && git commit -m "add /sebduffy" && git push
+# (one-liner equivalent from a clone:  ./install-sebduffy.sh --project . )
+```
+
+Then `/sebduffy <intent>` routes and fetches the rest of the library on demand (needs network,
+which web has). Everyone who opens that repo gets it — no per-user enable step.
+
+**B. Install once, use across ALL your repos — the plugin marketplace.** This repo is also a
+plugin marketplace. Each user runs, in any web session:
+
+```
+/plugin marketplace add sebduffy-prog/SEBSKILLS
+/plugin install sebduffy@sebskills
+/reload-plugins
+```
+
+Invoke it namespaced as `/sebduffy:sebduffy`. (The bare `/sebduffy` name is the repo path in A;
+plugin-delivered skills are always namespaced `plugin:skill`.)
+
+**C. Auto-install for a whole team.** Commit this to the shared repo's `.claude/settings.json` —
+collaborators are prompted to install on trust, no manual commands:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "sebskills": { "source": { "source": "github", "repo": "sebduffy-prog/SEBSKILLS" } }
+  },
+  "enabledPlugins": { "sebduffy": { "scope": "project" } }
+}
+```
+
+**D. Whole org (VCCP).** An admin can push the marketplace to every Claude Code user (web included)
+via server-managed settings (`extraKnownMarketplaces`) at the admin console — then it appears in
+everyone's `/plugin` without each person adding it.
 
 ---
 
@@ -101,7 +144,7 @@ Run the **`skill-marketplace-packager`** skill to emit native plugin bundles for
 
 ```
 /sebduffy <intent>
-   │  rank the embedded 415-skill catalogue (no network needed to ROUTE)
+   │  rank the embedded 436-skill catalogue (no network needed to ROUTE)
    ▼
 pick best skill  ── ambiguous? ask ── too vague? ask 2-3 questions (requirement-elicitation)
    │

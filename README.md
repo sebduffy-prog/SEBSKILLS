@@ -8,7 +8,7 @@ A curated, deduplicated, and categorized library of **Agent Skills** for [Claude
 
 ## ⚡ Quick start — one file, `/sebduffy`, every LLM
 
-Install **one file** and get all **415 skills**, fetched live from this public repo. Full guide: **[SETUP.md](SETUP.md)**.
+Install **one file** and get all **436 skills**, fetched live from this public repo. Full guide: **[SETUP.md](SETUP.md)**.
 
 **Claude Code (CLI / IDE):**
 ```bash
@@ -58,7 +58,7 @@ Push, then open the project on Claude Code Web. The web harness recursively disc
 
 ## The catalogue
 
-**415 skills across 31 categories.** The full, always-current list is in **[CATALOG.md](CATALOG.md)** — auto-generated from `manifest.json` by `scripts/build_manifest.py`, so it never drifts.
+**436 skills across 31 categories.** The full, always-current list is in **[CATALOG.md](CATALOG.md)** — auto-generated from `manifest.json` by `scripts/build_manifest.py`, so it never drifts.
 
 You rarely need to read it: just `/sebduffy <what you want>` routes to the right skill and does the task. To browse: `/sebduffy list` or `/sebduffy <category>`.
 
