@@ -5,8 +5,13 @@
 # Modes:
 #   user     → ~/.claude/skills/            (every Claude Code session on this machine)
 #   project  → ./.claude/skills/            (only the project you run this from)
-#   web      → prints instructions only     (nothing to install; Claude Code Web auto-discovers
-#                                            any SKILL.md in a connected repo)
+#   web      → prints instructions          (Claude Code Web only discovers .claude/skills/<name>/
+#                                            in the repo you OPEN — commit the router there)
+#
+# IMPORTANT: Claude Code (CLI, desktop, AND web) only discovers skills at
+#   .claude/skills/<skill-name>/SKILL.md   (one directory deep; dir name = /command)
+# It does NOT scan this repo's skills/<category>/<name>/ tree. That is why the
+# installer links each skill's folder (by name) into a .claude/skills/ directory.
 #
 # Usage:
 #   ./install.sh user
@@ -79,22 +84,29 @@ case "$mode" in
     ;;
   web)
     cat <<EOF
-Claude Code Web auto-discovers any directory containing SKILL.md in a
-connected repo. You have two options:
+Claude Code Web discovers skills ONLY at .claude/skills/<name>/SKILL.md in the
+repo you open as the project (symlinks aren't reliable in the web checkout, so
+commit REAL files). It does not scan a "skills/<category>/<name>/" tree, and it
+does not reliably load skills from a secondary connected repo — so a git
+submodule or "connect this repo too" does NOT work.
 
-  1. Add this repo as a git submodule in your project:
-       git submodule add https://github.com/sebduffy-prog/sebskills .claude/skills-lib
-       git commit -m "Add SEBSKILLS"
-     Push, then open the project in claude.ai/code. Every skill under
-     .claude/skills-lib/skills/ becomes available automatically.
+Recommended — the one-upload door (just the router; the library loads on demand):
 
-  2. Connect this repo directly in Claude Code Web as a secondary repo
-     alongside your project. The web harness loads skills from all
-     connected repos.
+  cd <your-project>
+  mkdir -p .claude/skills/sebduffy
+  curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/meta/sebduffy/SKILL.md \\
+    -o .claude/skills/sebduffy/SKILL.md
+  git add .claude/skills/sebduffy && git commit -m "add /sebduffy" && git push
 
-No symlinking is required for web. This installer is for the CLI /
-desktop / IDE versions, where symlinks into ~/.claude/skills/ or
-<project>/.claude/skills/ are needed for auto-discovery.
+  Then open that project in claude.ai/code and type: /sebduffy <what you want>
+  (Equivalent one-liner: ./install-sebduffy.sh --project <your-project>)
+
+Whole library committed instead of load-on-demand? Copy every skill as a real
+folder into .claude/skills/ (flat, folder name = /command), commit and push:
+
+  for d in "$SKILLS_SRC"/*/*/; do cp -R "\$d" .claude/skills/; done
+
+Opening THIS repo directly in web already works: it ships .claude/skills/sebduffy/.
 EOF
     ;;
   *)
