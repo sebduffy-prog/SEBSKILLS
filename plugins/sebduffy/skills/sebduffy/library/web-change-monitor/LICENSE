@@ -1,9 +1,0 @@
-This skill ports concepts (baseline+diff loop, selector filters, significance
-thresholding, notify-on-change) from changedetection.io by dgtlmoon, which is
-licensed Apache-2.0: https://github.com/dgtlmoon/changedetection.io
-
-The stdlib runner in scripts/watch.py is an original, independent reimplementation
-of those concepts (no upstream code copied) and is provided under the same terms.
-
-Copyright the changedetection.io authors. Apache License 2.0.
-Full text: https://www.apache.org/licenses/LICENSE-2.0
