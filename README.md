@@ -10,6 +10,8 @@ A curated, deduplicated, and categorized library of **Agent Skills** for [Claude
 
 Install **one file** and get all **436 skills**, fetched live from this public repo. Full guide: **[SETUP.md](SETUP.md)**.
 
+> **Making this outlive a work email / running it in claude.ai chat as well as Claude Code:** see **[PERSISTENCE.md](PERSISTENCE.md)** — it covers detaching the GitHub account from work, the plugin-marketplace install for the Code family, and building upload zips for chat.
+
 **Claude Code (CLI / IDE):**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/install-sebduffy.sh | bash

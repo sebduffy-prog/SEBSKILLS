@@ -8,7 +8,7 @@
       "name": "sebduffy",
       "source": "./plugins/sebduffy",
       "description": "The /sebduffy router — one door to the whole SEBSKILLS library (400+ skills). Routes any request to the best-matching skill and loads it on demand from GitHub.",
-      "version": "1.0.0"
+      "version": "1.1.0"
     }
   ]
 }

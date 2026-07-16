@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>VCCP Media — design reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --mustard:        #FFC931;
+  --mustard-dark:   #FF8812;
+  --mustard-light:  #FFEDBB;
+  --mustard-pale:   #FFF9E2;
+  --teal:           #80E8E3;
+  --teal-deep:      #00BCA5;
+  --teal-light:     #BDF9F6;
+  --teal-pale:      #DEFCFA;
+  --ink:            #000000;
+  --ink-soft:       #1A1A1A;
+  --paper:          #FFFFFF;
+  --paper-warm:     #FBF8F0;
+  --font-sans: 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --t-xl: clamp(2.4rem, 4.4vw, 4.2rem);
+  --t-lg: clamp(1.8rem, 2.6vw, 2.6rem);
+  --t-md: clamp(1.15rem, 1.4vw, 1.4rem);
+  --t-sm: 0.93rem;
+  --t-xs: 0.78rem;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--t-sm);
+  color: var(--ink);
+  background: var(--paper);
+  font-feature-settings: 'tnum';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top nav ─────────────────────────────────────────── */
+.nav {
+  height: 57px;
+  border-bottom: 1px solid var(--ink);
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(20px, 2.5vw, 40px);
+  gap: 24px;
+  background: var(--paper);
+}
+.nav-mark { font-weight: 500; letter-spacing: 0.04em; }
+.nav-tabs { margin-left: auto; display: flex; gap: 8px; }
+.nav-tab {
+  font-size: var(--t-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+}
+.nav-tab.active { background: var(--mustard); border-color: var(--ink); }
+
+/* ─── Highlighter ─────────────────────────────────────── */
+.hl {
+  font-style: italic;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  line-height: 0.85;
+  padding: 0.08em 0;
+  z-index: 0;
+}
+.hl::before {
+  content: "";
+  position: absolute;
+  inset: 0 -0.06em;
+  background: var(--mustard-light);
+  transform: skewX(-12deg);
+  transform-origin: 50% 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+.hl-teal::before { background: var(--teal-light); }
+
+/* ─── Cover ───────────────────────────────────────────── */
+.vccp-cover {
+  background: var(--mustard);
+  padding: clamp(40px, 5vw, 80px);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+.vccp-cover-frame {
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  padding: clamp(28px, 3vw, 56px);
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.vccp-cover-eyebrow {
+  font-size: var(--t-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.vccp-cover-title {
+  font-size: var(--t-xl);
+  font-weight: 500;
+  line-height: 1.05;
+  margin: 0 0 24px 0;
+}
+.vccp-cover-lede {
+  font-size: var(--t-md);
+  max-width: 60ch;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* ─── Two-pane shell ──────────────────────────────────── */
+.vccp-shell {
+  display: grid;
+  grid-template-columns: 40vw 60vw;
+  min-height: calc(100vh - 57px);
+}
+.vccp-left {
+  border-right: 1px solid var(--ink);
+  padding: clamp(20px, 2.5vw, 40px);
+  background: var(--paper-warm);
+}
+.vccp-right {
+  padding: clamp(20px, 2.5vw, 40px);
+  background: var(--paper);
+}
+@media (max-width: 1024px) {
+  .vccp-shell { grid-template-columns: 1fr; }
+  .vccp-left  { border-right: 0; border-bottom: 1px solid var(--ink); }
+}
+
+/* ─── Cards ───────────────────────────────────────────── */
+.vccp-card {
+  background: var(--paper);
+  padding: 28px 28px 32px 32px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow:
+    0 1px 0 rgba(0,0,0,0.04),
+    0 8px 24px rgba(0,0,0,0.04);
+  transition: box-shadow .25s ease;
+  margin-bottom: 20px;
+}
+.vccp-card:hover {
+  box-shadow:
+    0 2px 0 rgba(0,0,0,0.06),
+    0 18px 40px rgba(0,0,0,0.08);
+}
+.vccp-rail { border-left: 3px solid var(--mustard); }
+.vccp-frame {
+  border: 1.5px solid var(--ink);
+  background: var(--mustard-pale);
+  box-shadow: none;
+}
+
+.vccp-card-head { margin-bottom: 18px; }
+.vccp-stage-num {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  background: var(--mustard);
+  border: 1px solid var(--ink);
+  padding: 4px 8px;
+  margin-bottom: 14px;
+}
+.vccp-card-title {
+  font-size: var(--t-lg);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0 0 6px 0;
+}
+.vccp-card-sub {
+  font-size: var(--t-sm);
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 56ch;
+}
+
+/* ─── Form fields ─────────────────────────────────────── */
+.vccp-field {
+  position: relative;
+  display: block;
+  margin: 14px 0 8px 0;
+}
+.vccp-input {
+  width: 100%;
+  padding: 18px 12px 8px 12px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font: 500 var(--t-sm)/1.2 var(--font-sans);
+  outline: none;
+}
+.vccp-input:focus { background: var(--mustard-pale); }
+.vccp-label {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  font-size: var(--t-sm);
+  color: rgba(0,0,0,0.5);
+  pointer-events: none;
+  transition: transform .12s ease, font-size .12s ease;
+}
+.vccp-input:focus + .vccp-label,
+.vccp-input:not(:placeholder-shown) + .vccp-label {
+  transform: translateY(-10px);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* ─── Buttons ─────────────────────────────────────────── */
+.vccp-btn {
+  background: var(--mustard);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 12px 18px;
+  font: 500 var(--t-sm)/1 var(--font-sans);
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.vccp-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 0 var(--ink);
+}
+.vccp-btn-primary { background: var(--ink); color: var(--paper); }
+.vccp-btn-quiet {
+  background: transparent;
+  border-color: rgba(0,0,0,0.2);
+  color: rgba(0,0,0,0.6);
+}
+.vccp-btn-row { display: flex; gap: 10px; margin-top: 14px; }
+
+/* ─── Table ───────────────────────────────────────────── */
+.vccp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+}
+.vccp-table th, .vccp-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-size: var(--t-sm);
+}
+.vccp-table th {
+  text-align: left;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--ink);
+}
+.vccp-table td.num, .vccp-table th.num {
+  text-align: right;
+  font-feature-settings: 'tnum';
+}
+.vccp-table tbody tr:hover { background: var(--mustard-pale); }
+.vccp-delta-up    { color: var(--teal-deep); font-weight: 500; }
+.vccp-delta-down  { color: var(--mustard-dark); font-weight: 500; }
+
+/* ─── Stat callouts ───────────────────────────────────── */
+.vccp-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+.vccp-stat {
+  border: 1px solid var(--ink);
+  padding: 14px 16px 18px 16px;
+  background: var(--paper);
+}
+.vccp-stat-label {
+  font-size: var(--t-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.vccp-stat-value {
+  display: block;
+  margin-top: 6px;
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1;
+  font-feature-settings: 'tnum';
+}
+.vccp-stat-sub {
+  display: block;
+  margin-top: 4px;
+  font-size: var(--t-xs);
+  color: var(--ink-soft);
+}
+
+/* ─── Divider band ────────────────────────────────────── */
+.vccp-divider {
+  background: var(--mustard-pale);
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  padding: 56px clamp(20px, 2.5vw, 40px);
+  text-align: center;
+}
+.vccp-divider .vccp-stage-num { margin-bottom: 18px; }
+.vccp-divider h2 {
+  font-size: var(--t-xl);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.05;
+}
+
+/* ─── Footer / page no ────────────────────────────────── */
+.vccp-footer {
+  border-top: 1px solid var(--ink);
+  padding: 14px clamp(20px, 2.5vw, 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--paper);
+}
+.vccp-page-no, .vccp-copy {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Nav ──────────────────────────────────────────── -->
+<nav class="nav">
+  <span class="nav-mark">VCCP Media · 2026</span>
+  <div class="nav-tabs">
+    <a class="nav-tab active" href="#">Tool</a>
+    <a class="nav-tab" href="#">Dreamspace</a>
+    <a class="nav-tab" href="#">Brain</a>
+  </div>
+</nav>
+
+<!-- ─── Cover ────────────────────────────────────────── -->
+<section class="vccp-cover">
+  <div class="vccp-cover-frame">
+    <div class="vccp-cover-eyebrow">VCCP Media · Design system · 2026</div>
+    <h1 class="vccp-cover-title">
+      Smarter <em class="hl">spend</em> decisions,<br>
+      backed by real <em class="hl">causal</em> evidence.
+    </h1>
+    <p class="vccp-cover-lede">
+      Editorial layout. Mustard primary. Teal appendix. Inter Tight
+      throughout. The highlighter is the only decorative element —
+      use it on the word that carries the insight, never the verb
+      and the noun together.
+    </p>
+  </div>
+</section>
+
+<!-- ─── Two-pane shell ───────────────────────────────── -->
+<section class="vccp-shell">
+  <aside class="vccp-left">
+
+    <article class="vccp-card vccp-rail">
+      <header class="vccp-card-head">
+        <span class="vccp-stage-num">01</span>
+        <h2 class="vccp-card-title">Tell <em class="hl">us</em> about the brief</h2>
+        <p class="vccp-card-sub">Drop your data and set the scope.</p>
+      </header>
+      <label class="vccp-field">
+        <input class="vccp-input" type="text" placeholder=" " autocomplete="off"/>
+        <span class="vccp-label">Project name</span>
+      </label>
+      <label class="vccp-field">
+        <input class="vccp-input" type="text" placeholder=" " autocomplete="off"/>
+        <span class="vccp-label">Brand or business unit</span>
+      </label>
+      <div class="vccp-btn-row">
+        <button class="vccp-btn vccp-btn-primary">Upload data</button>
+        <button class="vccp-btn vccp-btn-quiet">Use sample</button>
+      </div>
+    </article>
+
+    <article class="vccp-card vccp-rail">
+      <header class="vccp-card-head">
+        <span class="vccp-stage-num">02</span>
+        <h2 class="vccp-card-title">Pick the <em class="hl">window</em></h2>
+        <p class="vccp-card-sub">How many weeks should the model see?</p>
+      </header>
+      <label class="vccp-field">
+        <input class="vccp-input" type="number" placeholder=" " value="156"/>
+        <span class="vccp-label">Weeks of history</span>
+      </label>
+    </article>
+
+  </aside>
+
+  <main class="vccp-right">
+
+    <article class="vccp-card vccp-frame">
+      <header class="vccp-card-head">
+        <span class="vccp-stage-num">03</span>
+        <h2 class="vccp-card-title">Here's where the <em class="hl">money</em> is working.</h2>
+        <p class="vccp-card-sub">Posterior medians, 90% credible intervals shown in the table.</p>
+      </header>
+
+      <div class="vccp-stat-row">
+        <div class="vccp-stat">
+          <span class="vccp-stat-label">Model R²</span>
+          <span class="vccp-stat-value">0.87</span>
+          <span class="vccp-stat-sub">expanding-window OOS</span>
+        </div>
+        <div class="vccp-stat">
+          <span class="vccp-stat-label">Base %</span>
+          <span class="vccp-stat-value">52.1</span>
+          <span class="vccp-stat-sub">non-incremental floor</span>
+        </div>
+        <div class="vccp-stat">
+          <span class="vccp-stat-label">Uplift</span>
+          <span class="vccp-stat-value">+8.4%</span>
+          <span class="vccp-stat-sub">vs current allocation</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="vccp-card vccp-rail">
+      <header class="vccp-card-head">
+        <h2 class="vccp-card-title">Channel <em class="hl-teal">iROAS</em></h2>
+        <p class="vccp-card-sub">£ revenue per £1 spend. Benchmark from category meta-priors.</p>
+      </header>
+      <table class="vccp-table">
+        <thead>
+          <tr>
+            <th>Channel</th>
+            <th class="num">iROAS</th>
+            <th class="num">90% CI</th>
+            <th class="num">vs benchmark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TV</td>
+            <td class="num">£2.85</td>
+            <td class="num">2.41 – 3.30</td>
+            <td class="num vccp-delta-up">+0.42</td>
+          </tr>
+          <tr>
+            <td>Digital</td>
+            <td class="num">£1.90</td>
+            <td class="num">1.62 – 2.21</td>
+            <td class="num vccp-delta-up">+0.15</td>
+          </tr>
+          <tr>
+            <td>OOH</td>
+            <td class="num">£1.10</td>
+            <td class="num">0.84 – 1.39</td>
+            <td class="num vccp-delta-down">−0.18</td>
+          </tr>
+          <tr>
+            <td>Radio</td>
+            <td class="num">£0.32</td>
+            <td class="num">0.08 – 0.61</td>
+            <td class="num vccp-delta-down">−0.41</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+  </main>
+</section>
+
+<!-- ─── Divider ──────────────────────────────────────── -->
+<section class="vccp-divider">
+  <span class="vccp-stage-num">04</span>
+  <h2>One <em class="hl">decision</em> at a time.</h2>
+</section>
+
+<!-- ─── Footer ───────────────────────────────────────── -->
+<footer class="vccp-footer">
+  <span class="vccp-copy">© VCCP Media 2026</span>
+  <span class="vccp-page-no">page 01</span>
+</footer>
+
+</body>
+</html>
