@@ -159,11 +159,23 @@ later. (Framework first, data later.)
 
 ## Verify
 
-- `npm run build` succeeds with the new `artist.config.js` and empty `Market Research/` (awaiting-data path).
-- Login gate accepts the new password; header shows the new wordmark + artist, kicker still "VCCP Media Cultural Intelligence".
-- Audience tab renders the right segments in the right order against the GWI CSV.
-- Social-listening tab/ticker returns normalised live mentions from the configured provider (or the uploaded-data fallback).
-- `design-approval-gate` passed — screenshots of every enabled tab look perfect on desktop + mobile.
+Two different kinds of "done" — don't conflate them:
+
+1. **Functional QA (structure, not taste)** — run `assets/qa-smoke.mjs` against the generated repo,
+   then work `assets/qa-checklist.md` by hand for what it can't automate (Node is not on PATH on this
+   Mac — use the portable runtime: `~/.local/runtimes/node-v22.17.0-darwin-arm64/bin/node`):
+   ```
+   ~/.local/runtimes/node-v22.17.0-darwin-arm64/bin/node assets/scripts/qa-smoke.mjs \
+     --old-artist "Muse" --artist "<New Artist>" --password "<new password>"
+   ```
+   It checks: build succeeds (incl. the empty-`Market Research/` awaiting-data path), no leaked
+   template-artist string outside `Market Research/`/`public/`, login gate rejects the template
+   default password, agency kicker still exactly "VCCP Media Cultural Intelligence", and audience
+   segment count matches the GWI CSV column count. This is deliberately blind to whether the
+   audience segmentation, ideas, or strategy content are any *good* — that's not QA-able by a script.
+2. **Design sign-off (taste, not structure)** — `design-approval-gate`: screenshots of every enabled
+   tab, human approves it looks perfect on desktop + mobile. Only run this once step 1 is clean —
+   don't waste a design review on a build that's structurally broken.
 
 ## Pitfalls
 
