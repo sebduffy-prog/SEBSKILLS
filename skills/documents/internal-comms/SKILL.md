@@ -45,7 +45,7 @@ To write any internal communication:
     - `examples/faq-answers.md` - For answering frequently asked questions
     - `examples/general-comms.md` - For anything else that doesn't explicitly match one of the above
 
-    **No local bundle? (remote use)** If the `examples/` files aren't on disk, fetch the one you need (curl -fsSL or WebFetch) from `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/documents/internal-comms/examples/<file>`:
+    **No local bundle? (remote use)** If the `examples/` files aren't on disk, fetch the one you need (curl -fsSL or WebFetch) from `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/documents/internal-comms/examples/<file>`:
     - `.../examples/3p-updates.md`
     - `.../examples/company-newsletter.md`
     - `.../examples/faq-answers.md`

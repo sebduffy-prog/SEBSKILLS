@@ -86,7 +86,7 @@ Cool? Cool.
 
 This skill leans on bundled files (`scripts/`, `eval-viewer/`, `agents/`, `references/`, `assets/`). If you only have this SKILL.md text (e.g. fetched from GitHub raw), those files are absent — fetch each one you need with `curl -fsSL` or WebFetch from:
 
-`https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/building-agents/skill-creator/<relative-path>`
+`https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/building-agents/skill-creator/<relative-path>`
 
 Available `<relative-path>` values: `eval-viewer/generate_review.py`, `eval-viewer/viewer.html`, `scripts/__init__.py`, `scripts/utils.py`, `scripts/aggregate_benchmark.py`, `scripts/generate_report.py`, `scripts/improve_description.py`, `scripts/package_skill.py`, `scripts/quick_validate.py`, `scripts/run_eval.py`, `scripts/run_loop.py`, `agents/analyzer.md`, `agents/comparator.md`, `agents/grader.md`, `references/schemas.md`, `assets/eval_review.html`. The `scripts/` files run as a package (`python -m scripts.<name>`), so grab `__init__.py` + `utils.py` alongside whichever script you invoke, preserving the `scripts/` directory layout.
 

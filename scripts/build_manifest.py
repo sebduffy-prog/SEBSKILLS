@@ -129,7 +129,7 @@ def build(skills):
         "skillCount": len(records),
         "categories": cats,
         "ref": "main",
-        "rawBase": "https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/",
+        "rawBase": "https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/",
         "skills": records,
     }
     with open(os.path.join(ROOT, "manifest.json"), "w", encoding="utf-8") as fh:

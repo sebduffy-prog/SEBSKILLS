@@ -10,7 +10,7 @@
 # So this installs the router into a location Claude Code actually scans.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/install-sebduffy.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/install-sebduffy.sh | bash
 #       → ~/.claude/skills/sebduffy/   (personal; every CLI/desktop session on this machine)
 #   ./install-sebduffy.sh --local
 #       → same, copied from a local clone instead of fetched
@@ -19,7 +19,7 @@
 #          web only sees .claude/skills/ in the repo you OPEN as the project)
 set -euo pipefail
 
-RAW="https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/meta/sebduffy/SKILL.md"
+RAW="https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/meta/sebduffy/SKILL.md"
 LOCAL_SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/skills/meta/sebduffy/SKILL.md"
 
 mode="${1:-}"

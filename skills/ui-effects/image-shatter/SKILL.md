@@ -84,7 +84,7 @@ A single `.tsx` file called `ImageShatter.tsx`. **One dependency:** `framer-moti
 The full component ships as `assets/ImageShatter.tsx` (434 lines — the shatter grid math is not reconstructible from this doc; use it verbatim).
 
 **No local bundle? (remote use)** — if `assets/ImageShatter.tsx` isn't on disk, fetch it (curl -fsSL or WebFetch):
-`https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/ui-effects/image-shatter/assets/ImageShatter.tsx`
+`https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/ui-effects/image-shatter/assets/ImageShatter.tsx`
 
 ### Install
 

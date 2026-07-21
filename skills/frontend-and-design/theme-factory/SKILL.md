@@ -74,7 +74,7 @@ To apply styling to a slide deck or other artifact:
 
 If `theme-showcase.pdf` and the `themes/` directory are not present locally (e.g. running from the SKILL.md text alone), fetch the bundled files with `curl -fsSL` or WebFetch from:
 
-`https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/frontend-and-design/theme-factory/<relative-path>`
+`https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/frontend-and-design/theme-factory/<relative-path>`
 
 Bundled files (all payload lives here — SKILL.md carries none): `theme-showcase.pdf`, plus one file per theme under `themes/`: `arctic-frost.md`, `botanical-garden.md`, `desert-rose.md`, `forest-canopy.md`, `golden-hour.md`, `midnight-galaxy.md`, `modern-minimalist.md`, `ocean-depths.md`, `sunset-boulevard.md`, `tech-innovation.md`.
 

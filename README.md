@@ -14,12 +14,12 @@ Install **one file** and get all **436 skills**, fetched live from this public r
 
 **Claude Code (CLI / IDE):**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/install-sebduffy.sh | bash
+curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/install-sebduffy.sh | bash
 ```
 Then type `/sebduffy <what you want>` — e.g. `/sebduffy make a bento grid`, `/sebduffy list`, `/sebduffy media`.
 
 **Any other LLM (ChatGPT, Gemini, Cursor, Codex…)** — paste this once:
-> You have access to the SEBSKILLS library, indexed at `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/manifest.json`. For each task: fetch the manifest, pick the best skill by its keywords/description, fetch that skill from `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/` + its `path`, and follow it.
+> You have access to the SEBSKILLS library, indexed at `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/manifest.json`. For each task: fetch the manifest, pick the best skill by its keywords/description, fetch that skill from `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/` + its `path`, and follow it.
 
 No server, no hosting — the **public repo is the network**, `raw.githubusercontent.com` is the CDN. New skills appear automatically. See **[SETUP.md](SETUP.md)** for Desktop, Web, API, and offline setups.
 

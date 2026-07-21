@@ -90,7 +90,7 @@ Use the full component code from `assets/SpectraNoise.tsx` in this skill's folde
 **No local bundle? (remote use)** If `assets/SpectraNoise.tsx` isn't on disk (e.g. you only have this SKILL.md), fetch it — the shader's CPPN weight matrices are not regenerable, so you must use this exact file, don't reconstruct it:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/ui-effects/spectra-noise/assets/SpectraNoise.tsx
+curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/ui-effects/spectra-noise/assets/SpectraNoise.tsx
 ```
 
 (or WebFetch the same URL).

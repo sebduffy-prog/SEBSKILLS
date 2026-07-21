@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T10:30:03Z",
+  "generatedAt": "2026-07-21T13:23:33Z",
   "skillCount": 436,
   "categories": [
     "3d",
@@ -35,7 +35,7 @@
     "voice-agents"
   ],
   "ref": "main",
-  "rawBase": "https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/",
+  "rawBase": "https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/",
   "skills": [
     {
       "name": "blender-mcp-asset-import",

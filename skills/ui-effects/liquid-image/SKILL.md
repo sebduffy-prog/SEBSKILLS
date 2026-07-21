@@ -64,7 +64,7 @@ A single `.tsx` file called `LiquidImage.tsx`. Zero dependencies beyond React. U
 
 **No local bundle? (remote use)** If `assets/LiquidImage.tsx` isn't on disk (you're running from the SKILL.md text alone), fetch it with `curl -fsSL` or WebFetch:
 
-- `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/ui-effects/liquid-image/assets/LiquidImage.tsx`
+- `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/ui-effects/liquid-image/assets/LiquidImage.tsx`
 
 ### Usage
 

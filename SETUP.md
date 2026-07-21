@@ -4,9 +4,9 @@
 
 This works because every skill is just a Markdown file (`SKILL.md`) at a **public URL**. GitHub's raw CDN is the "skills network"; the `/sebduffy` router is a single file that carries the catalogue and fetches any skill on demand.
 
-- **Repo (source of truth):** `https://github.com/sebduffy-prog/SEBSKILLS` (public, branch `main`)
+- **Repo (source of truth):** `https://github.com/sebduffy-prog/SebDuffy` (public, branch `main`)
 - **Router file:** `skills/meta/sebduffy/SKILL.md`
-- **Machine-readable index:** `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/manifest.json`
+- **Machine-readable index:** `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/manifest.json`
 
 ---
 
@@ -15,7 +15,7 @@ This works because every skill is just a Markdown file (`SKILL.md`) at a **publi
 **One-line install** (drops the single router file into `~/.claude/skills/sebduffy/`):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/install-sebduffy.sh | bash
+curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/install-sebduffy.sh | bash
 ```
 
 Then in any Claude Code session:
@@ -31,7 +31,7 @@ Then in any Claude Code session:
 **Prefer the whole library installed locally?** (faster, works offline)
 
 ```bash
-git clone https://github.com/sebduffy-prog/SEBSKILLS ~/.claude/skills-lib
+git clone https://github.com/sebduffy-prog/SebDuffy ~/.claude/skills-lib
 ~/.claude/skills-lib/install.sh user      # every session, all 436 skills discoverable
 # or:  install.sh one    → just the /sebduffy router
 # or:  install.sh project .   → only the current project
@@ -44,7 +44,7 @@ git clone https://github.com/sebduffy-prog/SEBSKILLS ~/.claude/skills-lib
 ## 2. Claude Desktop
 
 1. Download the router file: `skills/meta/sebduffy/SKILL.md`
-   (`curl -O https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/meta/sebduffy/SKILL.md`)
+   (`curl -O https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/meta/sebduffy/SKILL.md`)
 2. Add it as a Skill in Desktop.
 3. Ask "**/sebduffy build me a quick dashboard**" — it routes and loads the skill body over the web.
 
@@ -66,7 +66,7 @@ bare `/sebduffy` immediately. To get it in *your own* project, drop that one fil
 
 ```bash
 mkdir -p .claude/skills/sebduffy
-curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/meta/sebduffy/SKILL.md \
+curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/meta/sebduffy/SKILL.md \
   -o .claude/skills/sebduffy/SKILL.md
 git add .claude/skills/sebduffy && git commit -m "add /sebduffy" && git push
 # (one-liner equivalent from a clone:  ./install-sebduffy.sh --project . )
@@ -79,7 +79,7 @@ which web has). Everyone who opens that repo gets it — no per-user enable step
 plugin marketplace. Each user runs, in any web session:
 
 ```
-/plugin marketplace add sebduffy-prog/SEBSKILLS
+/plugin marketplace add sebduffy-prog/SebDuffy
 /plugin install sebduffy@sebskills
 /reload-plugins
 ```
@@ -93,7 +93,7 @@ collaborators are prompted to install on trust, no manual commands:
 ```json
 {
   "extraKnownMarketplaces": {
-    "sebskills": { "source": { "source": "github", "repo": "sebduffy-prog/SEBSKILLS" } }
+    "sebskills": { "source": { "source": "github", "repo": "sebduffy-prog/SebDuffy" } }
   },
   "enabledPlugins": { "sebduffy": { "scope": "project" } }
 }
@@ -110,9 +110,9 @@ everyone's `/plugin` without each person adding it.
 Give your agent the router as context, and a web-fetch (or bash) tool:
 
 1. Fetch the router once and put it in your **system prompt** (or register it as a skill):
-   `GET https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/meta/sebduffy/SKILL.md`
+   `GET https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/meta/sebduffy/SKILL.md`
 2. When a user request comes in, the router logic ranks the embedded catalogue, picks a skill, and **fetches that skill's body** from
-   `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/<path>` (the `path` is in `manifest.json`).
+   `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/<path>` (the `path` is in `manifest.json`).
 3. If your agent has no web tool, pre-bundle the manifest and the skills you expect to need.
 
 ---
@@ -125,9 +125,9 @@ Skills are provider-neutral Markdown at public URLs, so **any LLM can use them.*
 Paste this **bootstrap prompt** once at the start of a chat:
 
 > You have access to the SEBSKILLS library. Its index is at
-> `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/manifest.json`.
+> `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/manifest.json`.
 > When I give you a task: (1) fetch that manifest, (2) pick the best-matching skill by its `keywords`/`description`,
-> (3) fetch that skill's file from `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/` + its `path`,
+> (3) fetch that skill's file from `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/` + its `path`,
 > and (4) follow the skill's instructions. If two skills are close, ask me which. If none fit, say so.
 
 That reproduces `/sebduffy` behaviour on any web-capable model.
@@ -182,8 +182,8 @@ Nothing to do — the router reads live `main`, so new skills appear automatical
 
 | Thing | URL |
 |---|---|
-| One-line installer | `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/install-sebduffy.sh` |
-| Router (the one file) | `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/meta/sebduffy/SKILL.md` |
-| Catalogue index | `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/manifest.json` |
-| Any skill | `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/<category>/<name>/SKILL.md` |
-| Health report | `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/REPORT.md` |
+| One-line installer | `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/install-sebduffy.sh` |
+| Router (the one file) | `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/meta/sebduffy/SKILL.md` |
+| Catalogue index | `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/manifest.json` |
+| Any skill | `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/<category>/<name>/SKILL.md` |
+| Health report | `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/REPORT.md` |

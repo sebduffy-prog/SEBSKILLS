@@ -2,7 +2,7 @@
 
 **The whole library depends on ONE thing: the GitHub account `sebduffy-prog` staying alive and public.**
 Every install path, the `/sebduffy` router, and the on-demand skill fetch all read from
-`https://github.com/sebduffy-prog/SEBSKILLS`. If that account is locked when your `@vccp.com`
+`https://github.com/sebduffy-prog/SebDuffy`. If that account is locked when your `@vccp.com`
 email is disabled, the library goes dark everywhere at once. Fix that first; everything else is easy.
 
 ---
@@ -27,7 +27,7 @@ warning sign the **account** may be registered to your work email. Check and fix
 
 **Belt-and-braces backup:** keep an offline copy so the library survives even GitHub going away.
 ```bash
-git clone --mirror https://github.com/sebduffy-prog/SEBSKILLS ~/SEBSKILLS-backup.git
+git clone --mirror https://github.com/sebduffy-prog/SebDuffy ~/SEBSKILLS-backup.git
 ```
 Store that on a personal drive. It contains every skill and all history.
 
@@ -54,7 +54,7 @@ The Code family shares one mechanism. Chat is separate and must be **self-contai
 Signed into **any** account, on **any** machine — nothing tied to your work login:
 
 ```
-/plugin marketplace add sebduffy-prog/SEBSKILLS
+/plugin marketplace add sebduffy-prog/SebDuffy
 /plugin install sebduffy@sebskills
 ```
 
@@ -62,7 +62,7 @@ Then `/sebduffy <anything>` routes to the best skill and loads it on demand. New
 the repo appear automatically — no reinstall.
 
 Alternatives (also in SETUP.md):
-- One-file router, no plugin: `curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/install-sebduffy.sh | bash`
+- One-file router, no plugin: `curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/install-sebduffy.sh | bash`
 - Whole library local + offline: `git clone … ~/.claude/skills-lib && ~/.claude/skills-lib/install.sh user`
 
 ## 3. Claude.ai chat (the one that needs zips)
@@ -91,5 +91,5 @@ a repo problem.
 - [ ] 2FA recovery codes + password saved in personal manager
 - [ ] Repo confirmed Public
 - [ ] `~/SEBSKILLS-backup.git` mirror stored on a personal drive
-- [ ] Code family: `/plugin marketplace add sebduffy-prog/SEBSKILLS` works from a clean session
+- [ ] Code family: `/plugin marketplace add sebduffy-prog/SebDuffy` works from a clean session
 - [ ] Chat: at least the router zip uploaded via Settings → Capabilities → Skills

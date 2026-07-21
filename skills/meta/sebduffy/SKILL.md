@@ -38,10 +38,10 @@ Type `/sebduffy <what you want>` → route to the best skill in the library and 
    **bundled `library/<name>/SKILL.md`** (a file inside this skill's own folder — present when installed as
    the self-contained plugin; needs no network, so it works in sandboxes and offline) →
    local `~/.claude/skills/<name>/SKILL.md` → local `./.claude/skills/<name>/SKILL.md` →
-   fetch `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/<category>/<name>/SKILL.md`
+   fetch `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/<category>/<name>/SKILL.md`
    (WebFetch, or `curl -fsSL`). If the skill isn't in the Catalogue (newer than this file) or you need its
    category for the URL, read the bundled `library/manifest.json` first, else fetch
-   `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/manifest.json`, and look it up there.
+   `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/manifest.json`, and look it up there.
    Never invent a skill's contents; if you truly can't load it, say so and print the URL.
 3. **Do the task**, following that skill. If it references bundled files (`scripts/…`, `assets/…`,
    `references/…`), load each by its exact relative path the same way — bundled `library/<name>/<relative-path>`,

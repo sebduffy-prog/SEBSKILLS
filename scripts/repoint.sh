@@ -6,14 +6,14 @@
 #   e.g.  ./scripts/repoint.sh vccp-media          (repo stays "SEBSKILLS")
 #         ./scripts/repoint.sh alice SkillLibrary
 #
-# It rewrites every sebduffy-prog/SEBSKILLS reference (install scripts, docs, the
+# It rewrites every sebduffy-prog/SebDuffy reference (install scripts, docs, the
 # router, and the raw URLs baked into skill bodies), then regenerates the manifest,
 # catalogue, router index and the .claude/skills + plugin mirrors, and runs the gate.
 set -euo pipefail
 
 OWNER="${1:?usage: ./scripts/repoint.sh <new-owner> [new-repo]}"
 REPO="${2:-SEBSKILLS}"
-OLD="sebduffy-prog/SEBSKILLS"
+OLD="sebduffy-prog/SebDuffy"
 NEW="$OWNER/$REPO"
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

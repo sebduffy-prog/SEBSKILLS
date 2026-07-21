@@ -73,9 +73,9 @@ digraph when_to_use {
 ## The Process
 
 This process dispatches subagents using three bundled prompt files. **No local bundle? (remote use)** If those files aren't beside this SKILL.md, fetch each one (curl -fsSL or WebFetch) before dispatching the matching subagent:
-- `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/engineering-workflow/subagent-driven-development/implementer-prompt.md`
-- `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/engineering-workflow/subagent-driven-development/spec-reviewer-prompt.md`
-- `https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/engineering-workflow/subagent-driven-development/code-quality-reviewer-prompt.md`
+- `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/engineering-workflow/subagent-driven-development/implementer-prompt.md`
+- `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/engineering-workflow/subagent-driven-development/spec-reviewer-prompt.md`
+- `https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/engineering-workflow/subagent-driven-development/code-quality-reviewer-prompt.md`
 
 ```dot
 digraph process {

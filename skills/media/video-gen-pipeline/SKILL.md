@@ -52,7 +52,7 @@ with only the Python stdlib (no SDK, no pip install). It POSTs `input` as JSON t
 SKILL.md, not a checkout), fetch it first:
 ```bash
 mkdir -p scripts && curl -fsSL -o scripts/gen_clip.py \
-  https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/media/video-gen-pipeline/scripts/gen_clip.py
+  https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/media/video-gen-pipeline/scripts/gen_clip.py
 ```
 
 ## When to use

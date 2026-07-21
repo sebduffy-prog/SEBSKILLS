@@ -94,7 +94,7 @@ Recommended — the one-upload door (just the router; the library loads on deman
 
   cd <your-project>
   mkdir -p .claude/skills/sebduffy
-  curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SEBSKILLS/main/skills/meta/sebduffy/SKILL.md \\
+  curl -fsSL https://raw.githubusercontent.com/sebduffy-prog/SebDuffy/main/skills/meta/sebduffy/SKILL.md \\
     -o .claude/skills/sebduffy/SKILL.md
   git add .claude/skills/sebduffy && git commit -m "add /sebduffy" && git push
 
