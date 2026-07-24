@@ -80,7 +80,8 @@ which you can generate by concatenating the catalog (see Pitfalls).
 ### Step 1 — Point the emitter at your skills
 
 Pack a single skill, a few, or the whole tree. Inputs may be SKILL.md files or directories
-(walked recursively for `SKILL.md`):
+(walked recursively for `SKILL.md`, following symlinks — a library that is mostly symlinked
+in is packed, not silently skipped):
 
 ```bash
 cd /Users/seb.duffy/Documents/GitHub/SEBSKILLS
@@ -99,8 +100,17 @@ python3 .../pack.py --skills skills/meta-router --out dist/ \
 The emitter reads each SKILL.md, collapses the folded `description` to one line, writes the
 six (or chosen) native files, and emits `dist/manifest.json` — the portable catalog
 (`name`, `category`, `description`, `keywords`, `source`, `targets`) that any external picker
-or marketplace index can consume. It exits non-zero and lists offenders if any SKILL.md is
-missing `name`/`description`, so a broken frontmatter fails the build loudly.
+or marketplace index can consume.
+
+Thin frontmatter no longer fails the build: a missing `name` falls back to the folder name and
+a missing `description` to the first heading / prose line, so a skill authored without full
+frontmatter still ships (each is flagged in the run summary and in `manifest.json` via a
+`derived` field). Pass `--strict` to restore the old fail-loud behaviour for CI.
+
+Two skills sharing a `name` no longer silently overwrite each other. First wins; the rest are
+skipped and reported (`--on-collision namespace` keeps them, prefixed by category). The final
+count is unique skills actually on disk, not the raw file count — so a library that vendors the
+same skill many times (e.g. one copy per harness) collapses to one entry with the dupes listed.
 
 ### Step 2 — Inspect the bundle
 
@@ -157,13 +167,16 @@ test -f "$OUT/codex/.codex/prompts/skill-adder.md"           && echo "codex OK"
 test -f "$OUT/claude/skills/skill-adder/SKILL.md"            && echo "claude OK"
 python3 -c "import json;print('manifest', len(json.load(open('$OUT/manifest.json'))['skills']))"
 
-# 2. Broken frontmatter must fail the build (non-zero exit).
-BAD=$(mktemp -d)/SKILL.md; printf -- '---\nname: x\n---\nbody\n' > "$BAD"
-python3 .../pack.py --skills "$(dirname "$BAD")" --out "$(mktemp -d)"; echo "exit=$?  (expect 1)"
+# 2. Thin frontmatter is derived, not fatal — but --strict still fails it for CI.
+BAD=$(mktemp -d)/broken/SKILL.md; mkdir -p "$(dirname "$BAD")"
+printf -- '---\nname: x\n---\n# A Title\nbody\n' > "$BAD"
+python3 .../pack.py --skills "$(dirname "$BAD")" --out "$(mktemp -d)"          # exit 0, description="A Title"
+python3 .../pack.py --strict --skills "$(dirname "$BAD")" --out "$(mktemp -d)"; echo "exit=$? (expect 1)"
 ```
 
-Green means: every requested target produced its native file, the catalog counted the skills,
-and a `description`-less skill halted the build instead of shipping a hollow bundle.
+Green means: every requested target produced its native file, the catalog counted the unique
+skills, thin frontmatter was filled from folder name / first heading, and `--strict` still
+halts a hollow-frontmatter build for CI.
 
 ## Pitfalls
 
@@ -180,6 +193,10 @@ and a `description`-less skill halted the build instead of shipping a hollow bun
 - **Scope differs per tool.** Cursor/OpenCode/Copilot are project-scoped (dotfolder in the
   repo); Codex/Gemini prompts are user-global by default. Decide scope per target at install
   (Step 3), don't assume one placement fits all.
+- **Name is the filename everywhere.** Every target keys its output file on the frontmatter
+  `name`, so two skills with the same `name` collide. The emitter keeps the first and reports
+  the rest rather than overwriting silently — check the run summary's collision list, and use
+  `--on-collision namespace` (or fix the duplicate names at source) if you need all of them.
 - **Codex deprecation drift.** Codex now nudges "skills" over custom prompts; the prompt
   emitter still works today but re-verify against current Codex docs before a big publish.
 - **Always-on vs slash.** These bundles are invocable (slash/agent-requested). For passive
