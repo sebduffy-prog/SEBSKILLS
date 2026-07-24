@@ -19,7 +19,7 @@ description: >
   brand, or Anthropic styling (use `brand-guidelines` instead).
 when_to_use:
   - Styling a web page, web app, or dashboard in the VCCP Media 2026 look (two-pane shell, rail/frame cards, mustard nav pill)
-  - Building a VCCP Media slide deck — always on the official Media Template 2026 [Q2].pptx master, never from scratch
+  - Building a VCCP or VCCP Media slide deck — always cloned from the matching file in the real template gallery (`~/Desktop/VCCP Templates/`), never from scratch
   - Producing a VCCP-branded PDF report, poster, infographic, or editorial/report cover (ReportLab / WeasyPrint / InDesign recipes)
   - Making matplotlib charts in the VCCP palette with Inter Tight and the vccp_charts rcParams config
   - Creating social tiles, banners, email signatures, or business-card collateral with the highlighter parallelogram motif
@@ -28,8 +28,8 @@ when_not_to_use:
   - The user asks for a different agency's or client's brand, or Anthropic styling — use brand-guidelines instead
   - Recolouring the VCCP logo for client-branded surfaces — that is the separate vccp-logo-use skill
   - Generic non-branded UI work with no VCCP requirement — use frontend-design or theme-factory
-keywords: [vccp, vccp media, mustard, teal, inter tight, highlighter, parallelogram, brand system, slide deck, pptx, pdf report, poster, infographic, social tile, matplotlib, dashboard, editorial, logo lockup, sentence case, tabular numbers]
-similar_to: [brand-guidelines, theme-factory, frontend-design]
+keywords: [vccp, vccp media, mustard, teal, eggshell, inter tight, highlighter, parallelogram, brand system, slide deck, pptx, pdf report, poster, infographic, social tile, matplotlib, dashboard, editorial, logo lockup, sentence case, tabular numbers, wlv]
+similar_to: [brand-guidelines, theme-factory, frontend-design, WLV]
 inputs_needed:
   - Which artifact type (web/dashboard, PPTX deck, PDF report, poster, infographic, social tile, chart, collateral)
   - Which half is primary — mustard (operator-facing/hero, the default) or teal (research/methodology/appendix)
@@ -38,7 +38,7 @@ inputs_needed:
 produces: A VCCP Media 2026-branded artifact (web UI, PPTX deck on the official template, PDF, poster, infographic, chart, or social tile)
 status: stable
 owner: seb.duffy
-updated: 2026-07-10
+updated: 2026-07-24
 ---
 
 # VCCP Media 2026 — design system
@@ -55,23 +55,62 @@ implementation: `frontend/brand/vccp.css` (web),
 `mmm_tool/export/vccp_brand.py` (PPTX primitives),
 `mmm_tool/export/vccp_charts.py` (matplotlib).
 
+**Full editable template gallery (source of truth for decks):**
+`~/Desktop/VCCP Templates/` — see "Slide decks" below.
+
 ---
 
-## TL;DR — the five rules
+## Two brands, not one — VCCP vs VCCP Media
+
+These are **separate brand instances that share one palette and one
+type family**. Don't conflate them:
+
+| | **VCCP** (corporate/master brand) | **VCCP Media** (this skill's default) |
+|---|---|---|
+| Source of truth | `VCCP Templates/VCCP/_VCCP Brand Guidelines_Dec 2025.pptx` | `VCCP Templates/VCCP MEDIA/*.pptx` (8 templates) |
+| Second colour's official name | **Eggshell** `#80E8E3` — "premium, refined moments" | Same hex, referred to as **teal** in this skill's own production code (`mmm_tool`) |
+| Framing of the two-colour split | Mustard = "spicy, punchy, stand-out impact" vs Eggshell = "premium, refined" — pick one per page, context-led | Mustard = primary/hero/operator-facing vs teal = appendix/research/methodology |
+| Distinctive corporate elements | **The Frame** (4 logo-lockup frame types) and **Patterns** (VCCP Text / Girl & Bear / Stairway 1 / Stairway 2) — see below. VCCP Media decks do not use these. | Rail cards, frame cards (web/PPTX card vocabulary below), stage-number chips |
+| When to reach for it | Group-wide comms, brand guideline requests, anything explicitly "VCCP" (not "VCCP Media") | Anything client-facing from the media agency: pitches, credentials, strategy decks, reports |
+
+Same **non-negotiables across both**: Inter Tight only, sentence case
+only, Mustard and Eggshell/Teal never mixed on the same page, black
+is the only accessible text colour on any brand colour or tint, and
+the highlighter parallelogram rules below apply identically in both.
+
+If a request just says "VCCP" with no "Media", ask (or infer from
+context — an external client artifact almost always means VCCP
+Media) rather than silently picking one.
+
+---
+
+## TL;DR — the six rules
 
 1. **Pick one half.** Mustard is the primary surface for operator-
-   facing / hero / cover artifacts. Teal is the appendix half:
-   research, methodology, supporting material. Never split a single
-   composition 50/50 between them.
+   facing / hero / cover artifacts. Teal/Eggshell is the appendix
+   half: research, methodology, supporting material, or the
+   "premium/refined" register on the corporate brand. Never split a
+   single composition 50/50 between them, and never use both as
+   full-bleed colour on the same page.
 2. **Sentence case, Inter Tight, all weights 300–700.** No serifs,
-   no monospace pairings, no Title Case headlines.
-3. **The highlighter parallelogram** (`skewX(-12deg)` mustard-light
-   box behind one italic accent word) is the single recurring motif.
-   One per phrase, max two per surface.
+   no monospace pairings, no Title Case or UPPERCASE headlines
+   (caps allowed only sparingly in chart/caption labels).
+3. **The highlighter parallelogram** — a solid brand-colour box,
+   **no outline**, sent to the **back** so text sits on top, behind
+   **one word or a short phrase only** (never a full line or
+   multiple lines) — is the single recurring motif. See the
+   dedicated section below; this has been a recurring source of
+   off-brand output, read it before touching one.
 4. **Square corners, no gradients, no rounded buttons.** Editorial,
    not SaaS. The only rounded element is the nav pill.
 5. **Tabular numbers, ink-on-paper or paper-on-ink for contrast.**
    No red/green deltas — up is `--teal-deep`, down is `--mustard-dark`.
+6. **Titles get personality, bodies don't.** Headline/title copy is
+   written in the WLV (Write Like Vallance) register — witty,
+   erudite, one memorable turn of phrase, still one sentence-case
+   line. Every other line — body copy, bullets, captions, chart
+   labels — is British English, zero em/en dashes, plain and
+   analytical, no rhetorical flourish. See "Writing rules" below.
 
 ---
 
@@ -115,6 +154,14 @@ INK          = RGBColor(0x00, 0x00, 0x00)
 PAPER        = RGBColor(0xFF, 0xFF, 0xFF)
 PAPER_WARM   = RGBColor(0xFB, 0xF8, 0xF0)
 ```
+
+**Naming note:** the official VCCP corporate brand guidelines call
+`#80E8E3` **Eggshell**, not teal. "Teal" is this skill's own
+(VCCP Media / `mmm_tool`) internal name for the same hex. Use
+"Eggshell" when writing about or presenting the corporate brand;
+"teal" is fine for VCCP Media internal/dev-facing artifacts. They
+are the same colour — never introduce a second, slightly-different
+teal.
 
 Print / CMYK approximations (proof on your press):
 - Mustard `#FFC931` → C0 M21 Y82 K0
@@ -172,9 +219,63 @@ metadata — don't rely on system fallback.
 
 ## The signature motif: highlighter parallelogram
 
-The single most distinctive element. A mustard-light box behind one
-italic accent word, sheared `skewX(-12deg)` to match the italic
-slant. This is what "looks VCCP" at a glance.
+The single most distinctive element, and the one that has gone wrong
+most often — read this whole section before placing one.
+
+**This is a documented corporate rule**, not a house convention this
+skill invented (see `_VCCP Brand Guidelines_Dec 2025.pptx`, slides
+16–17, "Typography / Highlighter"), verified in Dec 2025 against
+**358 real instances** across the whole VCCP Media template gallery
+(`~/Desktop/VCCP Templates`). The rule, verbatim from the guidelines:
+
+> Select the parallelogram shape. Draw it over the word/phrase you
+> want to highlight. Change the colour to a brand colour and ensure
+> there is no outline. Move the shape to the back so the text sits
+> on top. You can adjust the angle if you want to add more variety.
+> The highlighter is already set up in our PPT template.
+
+### The rules, made explicit
+
+1. **One word or one short key phrase only — never a full line, and
+   never spans multiple lines.** This is an explicit "Don't" in the
+   guidelines (slide 17, #6). If the copy needs more than a phrase
+   highlighted, don't highlight it — shorten the copy instead.
+2. **Solid brand-colour fill, zero outline.** Verified in the real
+   files: every one of the 358 instances has `line.fill.type =
+   BACKGROUND` and `line.width = 0`. Never add a stroke, however
+   thin.
+3. **Sent to the back, text on top.** Verified: in every real
+   instance the shape sits at or near index 0 of its slide's shape
+   z-order (added first, i.e. furthest back). Get the z-order wrong
+   and the highlight covers the word instead of sitting behind it.
+4. **The word on top is Light Italic** (headline highlight) or
+   **SemiBold** (body highlight) — never Medium. Matches the
+   guidelines' font-weight table exactly (see Typography above).
+5. **Angle can vary "for variety" — but only by reusing the
+   template's own shape, never by hand-drawing a fresh one and
+   eyeballing the skew.** This is the actual failure mode behind
+   "parallelograms have been an issue": duplicate an existing
+   highlighter instance from the template (`Ctrl/Cmd+D`, or
+   `copy.deepcopy` in python-pptx) and reposition/restretch the
+   copy; don't insert a brand-new `MSO_SHAPE.PARALLELOGRAM` from the
+   shapes menu and set your own adjustment value.
+6. **If you must build one from scratch, use `adjustments[0] =
+   0.25`, not any other value.** This was previously documented in
+   this skill as `0.08` (≈ a shallow, near-upright shear) — that is
+   **wrong**. Auditing every parallelogram in the real template
+   gallery: 340 of 358 (95%) use `adj = 0.25`, which is also
+   PowerPoint's own stock default the moment you drop a parallelogram
+   onto a slide from the shapes menu. Don't invent a custom skew —
+   the brand default already *is* the tool's default.
+7. **Never independently stretch width vs height on a duplicated
+   highlighter without checking the result.** The visual skew is a
+   function of the shape's `adj` value combined with its own
+   width:height ratio, so squashing a copy to cram in a long word (or
+   over-widening one for a short word) visibly changes how skewed it
+   looks next to its neighbours on the same slide, even with `adj`
+   unchanged. If a duplicate looks off after resizing, prefer
+   widening evenly or nudging font size instead of only changing one
+   dimension.
 
 ```html
 <h1>Smarter <em class="hl">spend</em> decisions, backed by real
@@ -215,13 +316,23 @@ slant. This is what "looks VCCP" at a glance.
   the letterforms and the whole thing looks broken
 - Highlighting both the verb *and* the noun in the same phrase →
   visual noise; one per phrase, max two per slide cover
+- Highlighting a whole line or spanning a line break → explicit
+  brand "Don't"; shorten the copy instead
 - Mustard highlighter on a mustard surface → invisible. Use
   `.hl-teal` variant or invert to ink-on-paper for the whole text
+- A freehand/resized parallelogram whose skew visibly doesn't match
+  the others on the same slide or deck
 
 **For PPTX**: the highlighter is a `MSO_SHAPE.PARALLELOGRAM` filled
-with `MUSTARD_LITE`, no border, behind a transparent text frame.
-Skew comes from the shape's `adjustments[0] = 0.08` (≈ -12 deg
-shear). See `mmm_tool/export/vccp_brand.py::add_highlight_text()`.
+with a brand colour (`MUSTARD_LITE` or `TEAL_LITE`), no border,
+behind a transparent text frame, sent to the back of the shape
+z-order. Prefer **duplicating** an existing highlighter shape from
+the template over building a new one; if building fresh,
+`adjustments[0] = 0.25` (see rules above — this replaces the old,
+incorrect `0.08` value). See
+`mmm_tool/export/vccp_brand.py::add_highlight_text()` and the
+cloning method in
+[`references/pptx-template-population.md`](references/pptx-template-population.md).
 
 **For print / poster**: draw it as a hand-tilted Pantone-equivalent
 flat fill in InDesign; never reproduce as a gradient or with a
@@ -442,52 +553,51 @@ real label floats up on `:placeholder-shown` transition.
 
 ### Slide decks (PPTX / Keynote / Google Slides)
 
-**The official template lives in this skill:**
-[`assets/template/Media Template 2026 [Q2].pptx`](assets/template/Media%20Template%202026%20%5BQ2%5D.pptx)
-— the complete Media Template 2026 master (Google Slides export:
-1 master, 85 layouts, 71 sample slides showing every approved layout
-in use). **Always build VCCP Media decks ON this file**, never from
-`Presentation()` scratch: opening it preserves the master, all 85
-layouts and the theme, so anyone who adds slides afterwards in
-PowerPoint or Google Slides gets the real template layouts.
+**The full editable template gallery lives at
+`~/Desktop/VCCP Templates/`** (all `.pptx` — never `.odp`/PDF exports
+of these, see "Do not" below). Eight VCCP Media templates plus the
+one VCCP corporate guidelines deck. **Always build ON the matching
+file below**, never from `Presentation()` scratch: cloning real
+slides preserves the master, layouts, theme and brand furniture, so
+anyone who opens the result afterwards in PowerPoint or Google Slides
+gets the real template look, not an imitation.
 
-Canvas is widescreen 16:9 at **10800000 × 6076800 EMU**
+| File | Use it for | Slides | Canvas |
+|---|---|---|---|
+| `Pitch Template 2026 [Q2].pptx` | General new-business pitch decks — the widest archetype gallery, use this as the default when nothing more specific fits | 133 | 16:9, 10800000×6076800 EMU |
+| `Strategy & Planning Template 2026 [Q2].pptx` | Strategy / planning decks | 129 | 16:9, same EMU |
+| `VCCP Media Creds 2026 [Q1].pptx` | Capabilities / credentials decks | 63 | 16:9, same EMU |
+| `Portrait Template A4 2026 [Q2].pptx` | A4 portrait one-pagers / documents | 28 | A4 portrait |
+| `VCCPx Ideas Book TEMPLATE 118x210 2026 [Q2].pptx` | Small printed "ideas book" pages — strict bleed/safe-area rules baked into slide 1, read it before adding pages | 3 | 118×210mm |
+| `TRUMP CARD MASTER A5 2026 [Q2].pptx` | Staff/team "trump card" bio cards | 13 | A5 |
+| `SOAP & POAP A4 2026 [Q2].pptx` | Single-page strategy/creative-platform frameworks (objective, audience, growth levers, OESP) | 2 | A4 portrait |
+| `VCCP Media CIM Card 2026 [Q2].pptx` | Single category-insight-map card (role of advertising / media behaviours / segment) | 1 | 16:9 |
+
+Canvas for the 16:9 decks is **10800000 × 6076800 EMU**
 (= 11.8110" × 6.6457"; `Inches(11.811) × Inches(6.646)` is within
 rounding — compare with a tolerance, never exact-equality).
 
 The template theme IS the brand palette (verified in `theme1.xml`):
 `dk1` ink `000000` · `lt1` paper `FFFFFF` · `dk2` mustard `FFC931` ·
-`lt2` teal `80E8E3` · `accent1` mustard-dark `FF8812` · `accent2`
-mustard-light `FFEDBB` · `accent3` teal-deep `00BCA5` · `accent4`
-teal-light `BDF9F6` · `accent5` mustard-pale `FFF9E2` · `accent6`
-teal-pale `DEFCFA`. The theme's latin face reads "Arial" (Slides
-export artifact) — set **Inter Tight** explicitly on every run.
+`lt2` teal/eggshell `80E8E3` · `accent1` mustard-dark `FF8812` ·
+`accent2` mustard-light `FFEDBB` · `accent3` teal-deep `00BCA5` ·
+`accent4` teal-light `BDF9F6` · `accent5` mustard-pale `FFF9E2` ·
+`accent6` teal-pale `DEFCFA`. The theme's latin face reads "Arial"
+(Google Slides export artifact — all these files were built in
+Slides then exported, hence shape names like `Google Shape;1026;p101`)
+— set **Inter Tight** explicitly on every run; the real text runs
+already carry `Inter Tight Light` / `Medium` / `SemiBold`, only the
+theme default is wrong.
 
-Programmatic build recipe:
-
-```python
-from pptx import Presentation
-
-TEMPLATE = 'assets/template/Media Template 2026 [Q2].pptx'
-prs = Presentation(TEMPLATE)
-
-# strip the 71 sample slides, keep master/layouts/theme
-for sldId in list(prs.slides._sldIdLst):
-    prs.part.drop_rel(sldId.rId)
-    prs.slides._sldIdLst.remove(sldId)
-
-# layout 0 "Title & Bullets_2" is the placeholder-free blank canvas —
-# draw brand shapes/text on it with the helpers below
-BLANK = prs.slide_masters[0].slide_layouts[0]
-slide = prs.slides.add_slide(BLANK)
-```
-
-Layouts worth knowing (by index on master 0): `0` blank
-(no placeholders — the programmatic canvas), `1` title + page number,
-`2–9` title/subtitle/body editorial variants, `15/17/18–29` multi-body
-grids, `30–37` picture + caption pairs, `55–58` six-subtitle grids.
-When hand-editing in Slides/PowerPoint, pick a real layout; when
-generating, use `0` and draw.
+**Layout names are not archetype labels.** Each slide in these files
+has its own auto-generated Google-Slides-export layout name (e.g.
+`TITLE_AND_BODY_1_4_2_5_1_3`) — there is roughly one unique layout
+per slide, not a small reusable set, so `slide_layout.name` is
+useless for finding "the quote slide" or "the divider slide".
+**Find archetypes by placeholder marker text instead** — see the
+full worked method and the marker table (cover, quote, headline+body,
+agenda, divider, closing, etc., with real slide indices per file) in
+[`references/pptx-template-population.md`](references/pptx-template-population.md).
 
 **Every slide carries:**
 
@@ -516,6 +626,52 @@ add_rect, add_text, add_rich_text, rail_border, frame_border,
 solid_background, footer, source_caption, place_logo_centered,
 add_highlight_text, stage_chip, stat_card
 ```
+
+### The Frame & Patterns (VCCP corporate brand only)
+
+Two elements unique to the corporate `VCCP` brand (not used in VCCP
+Media collateral) — from `_VCCP Brand Guidelines_Dec 2025.pptx`.
+
+**The Frame** — four logo-lockup frame types (Full Frame & Logo,
+Girl & Bear Cinematic Frame, Cinematic Frame, Full Frame), available
+in Mustard, Eggshell, Black or White.
+- DO use the frame templates provided.
+- DO NOT move the Girl & Bear off the position an approved template
+  gives them, rescale or adjust the width of the frame, use more
+  than one colour in it, or redraw it from scratch.
+
+**Patterns** — four repeat patterns: VCCP Text, Girl & Bear, Stairway
+1, Stairway 2. Default is the VCCP Text pattern.
+- One colour family per instance only: Mustard tints on a Mustard
+  background, Eggshell tints on an Eggshell background — **never
+  mixed**.
+- The "V" of the VCCP wordmark pattern must read top-left.
+- DO NOT disproportionately scale a pattern, recolour it outside its
+  family, overlay large blocks of text on top of one, or invent a
+  new pattern. Opacity may be dialled up/down for subtlety.
+
+### Writing rules
+
+Two different registers, applied deliberately:
+
+- **Titles / headlines** — written in the **WLV** (Write Like
+  Vallance) voice: witty, erudite, one sharp metaphor or turn of
+  phrase. Still **one sentence-case line** — WLV is normally a
+  full-length thought-leadership voice, so compress it: the wit is
+  in word choice, not in a run-on sentence. Call the `WLV` skill for
+  the line itself, then drop it straight into the title placeholder.
+- **Everything else** — body copy, bullets, captions, chart labels,
+  source lines — is **British English, zero em/en dashes** (use
+  commas, colons, brackets or full stops instead), **plain and
+  analytical**, no hype language or rhetorical flourish. State the
+  finding and the number. Prefer literal counts and named sources
+  over any figure that is Claude's own interpretation dressed as a
+  number.
+
+Don't let the Vallance register bleed past the title into the body,
+and don't let the body's plainness creep into the title — the
+contrast (a memorable hook, then a sober analytical read) is the
+point.
 
 ### PDF reports (typeset)
 
@@ -720,6 +876,19 @@ these rules. Re-read before declaring a draft done.
 12. **Box-shadow on PDF cards.** It doesn't render the same and
     looks dirty at print resolution. Drop it for any output that's
     going through a PDF pipeline.
+13. **A hand-drawn parallelogram with a guessed skew.** Duplicate an
+    existing highlighter shape from the template; if you must build
+    one, `adj = 0.25`, not any other value (see the dedicated section
+    above — this was the single biggest source of off-brand decks).
+14. **A highlighter spanning a full line or multiple lines.** One
+    word or short phrase only.
+15. **An outline on a highlighter shape, or the highlight sitting in
+    front of its text.** No stroke, ever; sent to back, always.
+16. **Vallance-voiced body copy, or a flat/analytical title.** The
+    contrast between the two registers (see "Writing rules" above)
+    is deliberate — don't collapse it either direction.
+17. **An em dash or en dash anywhere in body copy.** Commas, colons,
+    brackets or full stops instead.
 
 ---
 
@@ -727,23 +896,32 @@ these rules. Re-read before declaring a draft done.
 
 When generating a VCCP-branded artifact, Claude follows this order:
 
+0. **Confirm which brand** — VCCP corporate or VCCP Media (default
+   for anything client-facing) — and, for a deck, which gallery file
+   fits the job (see "Slide decks" above).
 1. **Pick the half** — mustard primary (default, operator-facing
-   tools, hero collateral) or teal primary (research, appendix,
-   methodology). One per surface.
-2. **Write the headline as a sentence**, ending in a period, with
-   **one** verb or noun wrapped in `<em class="hl">` (web) or an
-   italic-with-parallelogram run (PPTX) or a hand-set tilted fill
-   (print).
-3. **Default to the rail card.** Reserve frame cards for hero /
+   tools, hero collateral) or teal/eggshell primary (research,
+   appendix, methodology, "premium/refined" moments). One per
+   surface, never both full-bleed on the same page.
+2. **Write the headline in the WLV voice** — one sentence-case line,
+   period at the end, **one** verb or noun wrapped in
+   `<em class="hl">` (web) or a duplicated highlighter parallelogram
+   run (PPTX, `adj = 0.25`, no outline, sent to back) or a hand-set
+   tilted fill (print). Never let the highlight span more than that
+   one word/phrase.
+3. **Write everything else — body, bullets, captions — in the plain
+   analytical register**: British English, zero em/en dashes,
+   literal numbers with named sources.
+4. **Default to the rail card.** Reserve frame cards for hero /
    divider / "moment" surfaces.
-4. **Stage-number chips for any numbered sequence** — 01, 02, 03
+5. **Stage-number chips for any numbered sequence** — 01, 02, 03
    in letter-spaced caps inside the mustard-with-ink-border chip.
-5. **Tabular numerics** for every count/metric in every table or
+6. **Tabular numerics** for every count/metric in every table or
    stat card.
-6. **No round corners, no gradients, no red/green.**
-7. **Footer with `© VCCP Media YYYY` + `page NN`** letter-spaced
+7. **No round corners, no gradients, no red/green.**
+8. **Footer with `© VCCP Media YYYY` + `page NN`** letter-spaced
    caps, bottom of every slide / page / poster.
-8. **Source caption** (grey 8.5pt) bottom-left when external data
+9. **Source caption** (grey 8.5pt) bottom-left when external data
    is cited.
 
 If unsure about a specific element, open `example.html` for the web
@@ -759,10 +937,47 @@ the PPTX reference, and mirror what's there.
   showing nav, cover, two-pane shell, rail + frame cards,
   highlighter (mustard + teal variants), stage chips, form fields,
   buttons, stat callouts, table with up/down deltas, footer
+- [`references/pptx-template-population.md`](references/pptx-template-population.md)
+  — the archetype-cloning method (never hand-draw on a blank
+  `Presentation()`) plus the full marker-text index for every file
+  in the gallery
+- `~/Desktop/VCCP Templates/` — the full editable template gallery:
+  `VCCP MEDIA/` (8 templates — Pitch, Strategy & Planning, Creds,
+  Portrait A4, Ideas Book, Trump Card, SOAP & POAP, CIM Card) and
+  `VCCP/_VCCP Brand Guidelines_Dec 2025.pptx` (the corporate brand
+  source of truth — Frame, Patterns, colour/typography rules, the
+  parallelogram highlighter rule). All `.pptx` — see "Do not" below
+  for why other formats don't work with this method. **This is the
+  canonical gallery** — if you're on a machine without it, ask the
+  user for these files rather than trusting the legacy bundled asset
+  below.
 - [`assets/template/Media Template 2026 [Q2].pptx`](assets/template/Media%20Template%202026%20%5BQ2%5D.pptx)
-  — the complete official PPTX template (master + 85 layouts +
-  theme + 71 sample slides). The mandatory starting point for every
-  VCCP Media deck; see "Slide decks" above for the build recipe.
+  — **legacy, superseded.** Bundled here from an earlier version of
+  the brand system; its archetype slide indices no longer match the
+  current gallery (`Pitch Template 2026 [Q2].pptx` replaced it — see
+  `references/pptx-template-population.md`). Kept only so the skill
+  has *some* offline fallback on a machine with no access to
+  `~/Desktop/VCCP Templates/`; don't use its slide indices as
+  current, and prefer the real gallery whenever it's reachable. Not
+  re-bundled with the full new gallery because the eight current
+  templates total roughly 500MB, well past what a code repo (and
+  GitHub's 100MB per-file limit) should carry — several of them
+  individually exceed 100MB.
+
+## Do not
+
+- Download or re-export any gallery template as `.odp` or PDF. The
+  cloning method (`Presentation(TEMPLATE)`, deep-copying real slide
+  XML) is an OOXML operation — `python-pptx` cannot open `.odp` at
+  all, and a PDF is flattened/non-editable. If a template only
+  exists as a PDF, get the original editable file from whoever
+  designed it rather than trying to populate the PDF directly.
+- Invent a new `adj` value for the highlighter parallelogram, or
+  draw one freehand from the shapes menu instead of duplicating an
+  existing instance.
+- Use the corporate Frame or Patterns on a VCCP Media artifact, or
+  the rail/frame card vocabulary on a corporate VCCP artifact — they
+  belong to different brand instances.
 
 ## Production reference (external repo)
 
